@@ -31,206 +31,146 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"
     ></script>
   </head>
-  <body>
-    <h1>Salvador: Approximate Vertex Cover Solver</h1>
-    <p>
-      <img
-        src="serbia.jpg"
-        alt="In honor of those who supported me in my final days in Serbia."
-      />
-    </p>
-    <p>
-      This work builds upon
-      <a
-        href="https://dev.to/frank_vega_987689489099bf/the-salvador-algorithm-5395"
-        >The Salvador Algorithm</a
-      >.
-    </p>
-    <hr />
-    <h1>The Minimum Vertex Cover Problem</h1>
-    <p>
-      The <strong>Minimum Vertex Cover (MVC)</strong> problem is a classic
-      optimization problem in computer science and graph theory. It involves
-      finding the smallest set of vertices in a graph that
-      <strong>covers</strong> all edges, meaning at least one endpoint of every
-      edge is included in the set.
-    </p>
-    <h2>Formal Definition</h2>
-    <p>
-      Given an undirected graph $G = (V, E)$, a <strong>vertex cover</strong> is
-      a subset $V' \subseteq V$ such that for every edge $(u, v) \in E$, at
-      least one of $u$ or $v$ belongs to $V'$. The MVC problem seeks the vertex
-      cover with the smallest cardinality.
-    </p>
-    <h2>Importance and Applications</h2>
-    <ul>
-      <li>
-        <strong>Theoretical Significance:</strong> MVC is a well-known NP-hard
-        problem, central to complexity theory.
-      </li>
-      <li>
-        <strong>Practical Applications:</strong>
-        <ul>
-          <li>
-            <strong>Network Security:</strong> Identifying critical nodes to
-            disrupt connections.
-          </li>
-          <li>
-            <strong>Bioinformatics:</strong> Analyzing gene regulatory networks.
-          </li>
-          <li>
-            <strong>Wireless Sensor Networks:</strong> Optimizing sensor
-            coverage.
-          </li>
-        </ul>
-      </li>
-    </ul>
-    <h2>Related Problems</h2>
-    <ul>
-      <li>
-        <strong>Maximum Independent Set:</strong> The complement of a vertex
-        cover.
-      </li>
-      <li><strong>Set Cover Problem:</strong> A generalization of MVC.</li>
-    </ul>
-    <hr />
-    <h2>Problem Statement</h2>
-    <p>Input: A Boolean Adjacency Matrix $M$.</p>
-    <p>Answer: Find a Minimum Vertex Cover.</p>
-    <h3>Example Instance: 5 x 5 matrix</h3>
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th>c1</th>
-          <th>c2</th>
-          <th>c3</th>
-          <th>c4</th>
-          <th>c5</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>r1</strong></td>
-          <td>0</td>
-          <td>0</td>
-          <td>1</td>
-          <td>0</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td><strong>r2</strong></td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>1</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td><strong>r3</strong></td>
-          <td>1</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td><strong>r4</strong></td>
-          <td>0</td>
-          <td>1</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td><strong>r5</strong></td>
-          <td>1</td>
-          <td>0</td>
-          <td>1</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-      </tbody>
-    </table>
-    <p>
-      The input for undirected graph is typically provided in
-      <a href="http://dimacs.rutgers.edu/Challenges">DIMACS</a> format. In this
-      way, the previous adjacency matrix is represented in a text file using the
-      following string representation:
-    </p>
-    <pre><code>p edge 5 4
+<body>
+<h1>Salvador: Approximate Vertex Cover Solver</h1>
+<p><img src="salvador.jpg" alt="In Loving Memory of Salvador Vega (The Grandfather I Never Knew)"></p>
+<p>This work builds upon <a href="https://www.preprints.org/manuscript/202409.2053">The Salvador Algorithm</a>.</p>
+<hr>
+<h1>The Minimum Vertex Cover Problem</h1>
+<p>The <strong>Minimum Vertex Cover (MVC)</strong> problem is a classic optimization problem in computer science and graph theory. It involves finding the smallest set of vertices in a graph that <strong>covers</strong> all edges, meaning at least one endpoint of every edge is included in the set.</p>
+<h2>Formal Definition</h2>
+<p>Given an undirected graph $G = (V, E)$, a <strong>vertex cover</strong> is a subset $V' \subseteq V$ such that for every edge $(u, v) \in E$, at least one of $u$ or $v$ belongs to $V'$. The MVC problem seeks the vertex cover with the smallest cardinality.</p>
+<h2>Importance and Applications</h2>
+<ul>
+<li><strong>Theoretical Significance:</strong> MVC is a well-known NP-hard problem, central to complexity theory.</li>
+<li><strong>Practical Applications:</strong>
+<ul>
+<li><strong>Network Security:</strong> Identifying critical nodes to disrupt connections.</li>
+<li><strong>Bioinformatics:</strong> Analyzing gene regulatory networks.</li>
+<li><strong>Wireless Sensor Networks:</strong> Optimizing sensor coverage.</li>
+</ul>
+</li>
+</ul>
+<h2>Related Problems</h2>
+<ul>
+<li><strong>Maximum Independent Set:</strong> The complement of a vertex cover.</li>
+<li><strong>Set Cover Problem:</strong> A generalization of MVC.</li>
+</ul>
+<hr>
+<h2>Problem Statement</h2>
+<p>Input: A Boolean Adjacency Matrix $M$.</p>
+<p>Answer: Find a Minimum Vertex Cover.</p>
+<h3>Example Instance: 5 x 5 matrix</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>c1</th>
+<th>c2</th>
+<th>c3</th>
+<th>c4</th>
+<th>c5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>r1</strong></td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td><strong>r2</strong></td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td><strong>r3</strong></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td><strong>r4</strong></td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><strong>r5</strong></td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>The input for undirected graph is typically provided in <a href="http://dimacs.rutgers.edu/Challenges">DIMACS</a> format. In this way, the previous adjacency matrix is represented in a text file using the following string representation:</p>
+<pre><code>p edge 5 4
 e 1 3
 e 1 5
 e 2 4
 e 3 5
 </code></pre>
-    <p>
-      This represents a 5x5 matrix in DIMACS format such that each edge $(v,w)$
-      appears exactly once in the input file and is not repeated as $(w,v)$. In
-      this format, every edge appears in the form of
-    </p>
-    <pre><code>e W V
+<p>This represents a 5x5 matrix in DIMACS format such that each edge $(v,w)$ appears exactly once in the input file and is not repeated as $(w,v)$. In this format, every edge appears in the form of</p>
+<pre><code>e W V
 </code></pre>
-    <p>
-      where the fields W and V specify the endpoints of the edge while the
-      lower-case character <code>e</code> signifies that this is an edge
-      descriptor line.
-    </p>
-    <p><em>Example Solution:</em></p>
-    <p>
-      Vertex Cover Found <code>1, 3, 4</code>: Nodes <code>1</code>,
-      <code>3</code>, and <code>4</code> constitute an optimal solution.
-    </p>
-    <hr />
-    <h1>Compile and Environment</h1>
-    <h2>Prerequisites</h2>
-    <ul>
-      <li>Python ≥ 3.12</li>
-    </ul>
-    <h2>Installation</h2>
-    <pre><code class="language-bash">pip install salvador
+<p>where the fields W and V specify the endpoints of the edge while the lower-case character <code>e</code> signifies that this is an edge descriptor line.</p>
+<p><em>Example Solution:</em></p>
+<p>Vertex Cover Found <code>1, 2, 5</code>: Nodes <code>1</code>, <code>2</code>, and <code>5</code> constitute an optimal solution.</p>
+<hr>
+<h1>Compile and Environment</h1>
+<h2>Prerequisites</h2>
+<ul>
+<li>Python ≥ 3.12</li>
+</ul>
+<h2>Installation</h2>
+<pre><code class="language-bash">pip install salvador
 </code></pre>
-    <h2>Execution</h2>
-    <ol>
-      <li>
-        <p>Clone the repository:</p>
-        <pre><code class="language-bash">git clone https://github.com/frankvegadelgado/salvador.git
+<h2>Execution</h2>
+<ol>
+<li>
+<p>Clone the repository:</p>
+<pre><code class="language-bash">git clone https://github.com/frankvegadelgado/salvador.git
 cd salvador
 </code></pre>
-      </li>
-      <li>
-        <p>Run the script:</p>
-        <pre><code class="language-bash">vega -i ./benchmarks/testMatrix1
+</li>
+<li>
+<p>Run the script:</p>
+<pre><code class="language-bash">vega -i ./benchmarks/testMatrix1
 </code></pre>
-        <p>
-          utilizing the <code>vega</code> command provided by Salvador's Library
-          to execute the Boolean adjacency matrix
-          <code>salvador\benchmarks\testMatrix1</code>. The file
-          <code>testMatrix1</code> represents the example described herein. We
-          also support <code>.xz</code>, <code>.lzma</code>, <code>.bz2</code>,
-          and <code>.bzip2</code> compressed text files.
-        </p>
-        <p><strong>Example Output:</strong></p>
-        <pre><code>testMatrix1: Vertex Cover Found 1, 3, 4
+<p>utilizing the <code>vega</code> command provided by Salvador's Library to execute the Boolean adjacency matrix <code>salvador\benchmarks\testMatrix1</code>. The file <code>testMatrix1</code> represents the example described herein. We also support <code>.xz</code>, <code>.lzma</code>, <code>.bz2</code>, and <code>.bzip2</code> compressed text files.</p>
+<p><strong>Example Output:</strong></p>
+<pre><code>testMatrix1: Vertex Cover Found 1, 2, 5
 </code></pre>
-        <p>This indicates nodes <code>1, 3, 4</code> form a vertex cover.</p>
-      </li>
-    </ol>
-    <hr />
-    <h2>Vertex Cover Size</h2>
-    <p>Use the <code>-c</code> flag to count the nodes in the vertex cover:</p>
-    <pre><code class="language-bash">vega -i ./benchmarks/testMatrix2 -c
+<p>This indicates nodes <code>1, 2, 5</code> form a vertex cover.</p>
+</li>
+</ol>
+<hr>
+<h2>Vertex Cover Size</h2>
+<p>Use the <code>-c</code> flag to count the nodes in the vertex cover:</p>
+<pre><code class="language-bash">vega -i ./benchmarks/testMatrix2 -c
 </code></pre>
-    <p><strong>Output:</strong></p>
-    <pre><code>testMatrix2: Vertex Cover Size 5
+<p><strong>Output:</strong></p>
+<pre><code>testMatrix2: Vertex Cover Size 6
 </code></pre>
-    <hr />
-    <h1>Command Options</h1>
-    <p>Display help and options:</p>
-    <pre><code class="language-bash">vega -h
+<hr>
+<h1>Command Options</h1>
+<p>Display help and options:</p>
+<pre><code class="language-bash">vega -h
 </code></pre>
-    <p><strong>Output:</strong></p>
-    <pre><code class="language-bash">usage: vega [-h] -i INPUTFILE [-a] [-b] [-c] [-v] [-l] [--version]
+<p><strong>Output:</strong></p>
+<pre><code class="language-bash">usage: vega [-h] -i INPUTFILE [-a] [-b] [-c] [-v] [-l] [--version]
 
 Compute the Approximate Vertex Cover for undirected graph encoded in DIMACS format.
 
@@ -245,21 +185,14 @@ options:
   -l, --log             enable file logging
   --version             show program's version number and exit
 </code></pre>
-    <hr />
-    <h1>Batch Execution</h1>
-    <p>
-      Batch execution allows you to solve multiple graphs within a directory
-      consecutively.
-    </p>
-    <p>
-      To view available command-line options for the
-      <code>batch_vega</code> command, use the following in your terminal or
-      command prompt:
-    </p>
-    <pre><code class="language-bash">batch_vega -h
+<hr>
+<h1>Batch Execution</h1>
+<p>Batch execution allows you to solve multiple graphs within a directory consecutively.</p>
+<p>To view available command-line options for the <code>batch_vega</code> command, use the following in your terminal or command prompt:</p>
+<pre><code class="language-bash">batch_vega -h
 </code></pre>
-    <p>This will display the following help information:</p>
-    <pre><code class="language-bash">usage: batch_vega [-h] -i INPUTDIRECTORY [-a] [-b] [-c] [-v] [-l] [--version]
+<p>This will display the following help information:</p>
+<pre><code class="language-bash">usage: batch_vega [-h] -i INPUTDIRECTORY [-a] [-b] [-c] [-v] [-l] [--version]
 
 Compute the Approximate Vertex Cover for all undirected graphs encoded in DIMACS format and stored in a directory.
 
@@ -274,14 +207,10 @@ options:
   -l, --log             enable file logging
   --version             show program's version number and exit
 </code></pre>
-    <hr />
-    <h1>Testing Application</h1>
-    <p>
-      A command-line utility named <code>test_vega</code> is provided for
-      evaluating the Algorithm using randomly generated, large sparse matrices.
-      It supports the following options:
-    </p>
-    <pre><code class="language-bash">usage: test_vega [-h] -d DIMENSION [-n NUM_TESTS] [-s SPARSITY] [-a] [-b] [-c] [-w] [-v] [-l] [--version]
+<hr>
+<h1>Testing Application</h1>
+<p>A command-line utility named <code>test_vega</code> is provided for evaluating the Algorithm using randomly generated, large sparse matrices. It supports the following options:</p>
+<pre><code class="language-bash">usage: test_vega [-h] -d DIMENSION [-n NUM_TESTS] [-s SPARSITY] [-a] [-b] [-c] [-w] [-v] [-l] [--version]
 
 The Salvador Testing Application using randomly generated, large sparse matrices.
 
@@ -301,19 +230,19 @@ options:
   -l, --log             enable file logging
   --version             show program's version number and exit
 </code></pre>
-    <hr />
-    <h1>Code</h1>
-    <ul>
-      <li>Python implementation by <strong>Frank Vega</strong>.</li>
-    </ul>
-    <hr />
-    <h1>Complexity</h1>
-    <pre><code class="language-diff">+ This algorithm finds near-optimal solutions for the hard Minimum Vertex Cover problem in linear time. Experimental evidence suggests that Salvador is a strong candidate for breaking the √2-ε barrier.
+<hr>
+<h1>Code</h1>
+<ul>
+<li>Python implementation by <strong>Frank Vega</strong>.</li>
+</ul>
+<hr>
+<h1>Complexity</h1>
+<pre><code class="language-diff">+ This algorithm finds near-optimal solutions for the hard Minimum Vertex Cover problem in linear time. Theoretical and experimental evidence suggests that Salvador is a strong candidate for breaking the √2-ε barrier.
 </code></pre>
-    <hr />
-    <h1>License</h1>
-    <ul>
-      <li>MIT License.</li>
-    </ul>
-  </body>
+<hr>
+<h1>License</h1>
+<ul>
+<li>MIT License.</li>
+</ul>
+</body>
 </html>

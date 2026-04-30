@@ -43,14 +43,11 @@ def find_vertex_cover(graph, epsilon: float = 0.1):
     if G.number_of_edges() == 0:
         return set()
     
-    adj = {v: set(G[v]) for v in G}
-
-    print(list(G.edges()))
-
     # Minimum Weighted IDS Reduction  (always-planar gadget) → Baker's PTAS for IDS
     cover, _ = vc_reduction.solve_vc(G, epsilon)
     
     # Final pruning on final candidate (still linear)
+    adj = {v: set(G[v]) for v in G}
     cover_prune = prune_redundant_vertices(adj, cover)
 
     return cover_prune
