@@ -1,30 +1,43 @@
 """
 Baker's PTAS for Minimum Weighted Independent Dominating Set in Planar Graphs
 ==============================================================================
-Extends the unweighted Baker PTAS with non-negative vertex weights.
-The single algorithmic change is marked  ← WEIGHTED  below.
+Weighted extension: replace unit-cost counting with  Σ w(v).
 
-USAGE
------
-    adj     = {0:{1,2}, 1:{0,3}, 2:{0}, 3:{1}}
-    weights = {0:5, 1:1, 2:1, 3:5}
-    S = baker_ptas_ids_weighted(adj, weights, epsilon=0.5)
+PERFORMANCE IMPROVEMENTS vs original
+--------------------------------------
+  1. _valid_initial_states is memoised with lru_cache.
+     Bags from the same graph structure share identical adjacency patterns;
+     caching avoids re-enumerating all 3^m possibilities per bag.
 
-    S = baker_ptas_ids(adj, epsilon=0.5)          # unweighted (backward-compat)
+  2. Bitmask adjacency in state validation replaces nested Python loops.
+     adj_masks[i] is an integer whose j-th bit is 1 iff vertex i and j
+     are adjacent in the bag.  Checking  "any IN neighbour"  becomes
+     a single  (in_mask & adj_masks[i]) != 0  test.
+
+  3. n ≤ 2 base cases skip the full tree-decomposition DP.
+
+  4. Repair candidates are sorted by weight (cheapest first), consistent
+     with the weighted approximation guarantee.
+
+GUARANTEE: Σ w(S) ≤ (1+ε)·OPT_weighted on planar graphs.
 """
 
-import time, random
+import random
 from collections import deque
+from functools import lru_cache
 from itertools import product
 from math import ceil
+import time
 
-IN    = 0   # selected into IDS
-DOM   = 1   # not selected, dominated
-UNDOM = 2   # not selected, not yet dominated
+IN    = 0
+DOM   = 1
+UNDOM = 2
 INF   = float('inf')
 
 
-# ── graph utilities ───────────────────────────────────────────────────────────
+# ══════════════════════════════════════════════════════════════════════════════
+# Graph utilities
+# ══════════════════════════════════════════════════════════════════════════════
 
 def bfs_layers(adj, vertices):
     layer = {}
@@ -55,7 +68,7 @@ def connected_components(adj, active):
 
 
 def greedy_maximal_is_weighted(adj, vertices, weights):
-    """Greedy MIS — processes vertices by increasing weight."""       # ← WEIGHTED
+    """Greedy MIS — cheap vertices processed first."""
     vlist    = sorted(vertices, key=lambda v: (weights.get(v, 1),
                                                len(adj.get(v, ()))))
     selected = set(); excluded = set()
@@ -77,7 +90,9 @@ def verify_ids(adj, vertices, S):
     return (False, f"undominated: {missing}") if missing else (True, "valid IDS ✓")
 
 
-# ── tree decomposition ────────────────────────────────────────────────────────
+# ══════════════════════════════════════════════════════════════════════════════
+# Tree decomposition
+# ══════════════════════════════════════════════════════════════════════════════
 
 def min_degree_elimination(sub_adj, vertices):
     vset = set(vertices)
@@ -88,9 +103,8 @@ def min_degree_elimination(sub_adj, vertices):
         nbrs = list(work[v] & remaining)
         bag_nbrs[v] = set(nbrs); order.append(v); remaining.remove(v)
         for i in range(len(nbrs)):
-            for j in range(i+1, len(nbrs)):
-                u, w = nbrs[i], nbrs[j]
-                work[u].add(w); work[w].add(u)
+            for j in range(i + 1, len(nbrs)):
+                u, w = nbrs[i], nbrs[j]; work[u].add(w); work[w].add(u)
     return order, bag_nbrs
 
 
@@ -100,50 +114,85 @@ def build_tree_decomposition(elim_order, bag_nbrs):
     for i, v in enumerate(elim_order):
         later = frozenset(u for u in bag_nbrs[v] if elim_idx[u] > i)
         bags.append(frozenset({v}) | later)
-        if later:
-            parent.append(elim_idx[min(later, key=lambda u: elim_idx[u])])
-        else:
-            parent.append(-1)
+        parent.append(elim_idx[min(later, key=lambda u: elim_idx[u])] if later else -1)
     children = [[] for _ in range(n)]
     for i, p in enumerate(parent):
         if p >= 0: children[p].append(i)
-    owned = [frozenset({elim_order[i]}) for i in range(n)]
-    return bags, parent, children, owned
+    return bags, parent, children, [frozenset({elim_order[i]}) for i in range(n)]
 
 
-# ── DP ────────────────────────────────────────────────────────────────────────
+# ══════════════════════════════════════════════════════════════════════════════
+# DP  —  state generation (memoised + bitmask)
+# ══════════════════════════════════════════════════════════════════════════════
 
-def _valid_initial_states(m, ba):
+@lru_cache(maxsize=4096)
+def _valid_initial_states(m: int, adj_bits: tuple) -> tuple:
+    """
+    Return all valid initial DP state tuples for a bag of size m.
+
+    adj_bits[i] is an integer bitmask: bit j set ⟺ vertex i and j are adjacent.
+
+    Memoised by (m, adj_bits) — identical bag structures share the result.    ← NEW
+    Bitmask adjacency replaces the inner  ba[i][j]  loops.                    ← NEW
+
+    Validity rules:
+      1.  IN  → every adjacent vertex is DOM  (not IN, not UNDOM)
+      2.  DOM → at least one adjacent vertex is IN
+    """
     valid = []
+    in_mask_for  = tuple(1 << j for j in range(m))  # mask with only bit j set
+
     for state in product(range(3), repeat=m):
+        in_mask   = sum(in_mask_for[j] for j in range(m) if state[j] == IN)
         ok = True
         for i in range(m):
+            nbr = adj_bits[i]
             if state[i] == IN:
-                for j in range(m):
-                    if i != j and ba[i][j] and state[j] != DOM:
-                        ok = False; break
+                # All neighbours must be DOM — none can be IN or UNDOM
+                non_dom_nbrs = nbr & ~sum(in_mask_for[j]
+                                          for j in range(m) if state[j] == DOM)
+                if non_dom_nbrs:                          # some neighbour not DOM
+                    ok = False; break
             elif state[i] == DOM:
-                if not any(j != i and ba[i][j] and state[j] == IN for j in range(m)):
-                    ok = False
-            if not ok: break
-        if ok: valid.append(state)
-    return valid
+                if not (in_mask & nbr):                   # no IN neighbour
+                    ok = False; break
+        if ok:
+            valid.append(state)
+    return tuple(valid)
 
+
+def _make_adj_bits(m, bv, sub_adj):
+    """Build bitmask adjacency for a sorted bag vertex list."""
+    vidx = {v: i for i, v in enumerate(bv)}
+    bits = []
+    for i, u in enumerate(bv):
+        mask = 0
+        for w in sub_adj.get(u, ()):
+            if w in vidx:
+                mask |= 1 << vidx[w]
+        bits.append(mask)
+    return tuple(bits)
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# Weighted TD-DP
+# ══════════════════════════════════════════════════════════════════════════════
 
 def solve_component_ids_weighted(sub_adj, component, weights):
-    """
-    Exact minimum WEIGHTED IDS on one connected component via TD-DP.
-
-    The only difference from the unweighted version:
-
-        cost += weights.get(v, 1)   for each owned vertex v in state IN
-                                                                  ← WEIGHTED
-    """
+    """Minimum weighted IDS on a connected component via tree-decomposition DP."""
     n = len(component)
     if n == 0: return 0, frozenset()
     if n == 1:
         v = next(iter(component))
         return weights.get(v, 1), frozenset({v})
+    # ── n = 2 base case  ─────────────────────────────────────────────────── NEW
+    if n == 2:
+        u, v = tuple(component)
+        wu, wv = weights.get(u, 1), weights.get(v, 1)
+        if sub_adj.get(u, set()) & {v}:          # edge exists → pick cheaper
+            return (wu, frozenset({u})) if wu <= wv else (wv, frozenset({v}))
+        else:                                     # no edge → both needed
+            return wu + wv, frozenset({u, v})
 
     elim_order, bag_nbrs = min_degree_elimination(sub_adj, component)
     bags, par_arr, chd_arr, own_arr = build_tree_decomposition(elim_order, bag_nbrs)
@@ -164,16 +213,12 @@ def solve_component_ids_weighted(sub_adj, component, weights):
     for t in post_order:
         bv   = sorted(bags[t]); m = len(bv)
         vidx = {v: i for i, v in enumerate(bv)}
-
-        ba = [[False]*m for _ in range(m)]
-        for i, u in enumerate(bv):
-            for w in sub_adj.get(u, ()):
-                if w in vidx: ba[i][vidx[w]] = True
+        adj_bits = _make_adj_bits(m, bv, sub_adj)        # ← bitmask adjacency
 
         own_idx = [vidx[v] for v in own_arr[t] if v in vidx]
-        own_w   = [weights.get(bv[i], 1) for i in own_idx]   # ← WEIGHTED
+        own_w   = [weights.get(bv[i], 1) for i in own_idx]
 
-        valid_states = _valid_initial_states(m, ba)
+        valid_states = _valid_initial_states(m, adj_bits)  # ← memoised
         curr = {
             s: (sum(own_w[k] for k, i in enumerate(own_idx) if s[i] == IN), [])
             for s in valid_states
@@ -224,7 +269,9 @@ def solve_component_ids_weighted(sub_adj, component, weights):
     return best_cost, frozenset(solution)
 
 
-# ── main PTAS ─────────────────────────────────────────────────────────────────
+# ══════════════════════════════════════════════════════════════════════════════
+# Baker's PTAS — weighted main loop
+# ══════════════════════════════════════════════════════════════════════════════
 
 def baker_ptas_ids_weighted(adj, weights=None, epsilon=0.5):
     """
@@ -232,13 +279,13 @@ def baker_ptas_ids_weighted(adj, weights=None, epsilon=0.5):
 
     Parameters
     ----------
-    adj     : dict[vertex, set[vertex]]   undirected adjacency
-    weights : dict[vertex, float]         vertex weights (default 1)
-    epsilon : float                       approximation ratio parameter
+    adj     : dict[vertex, set[vertex]]
+    weights : dict[vertex, float]   (default 1 for all vertices)
+    epsilon : float  approximation ratio parameter
 
     Returns
     -------
-    frozenset  —  IDS S with  Σ w(v) ≤ (1+ε)·OPT_weighted
+    frozenset  —  S  with  Σ w(v) ≤ (1+ε)·OPT_weighted
     """
     vertices = set(adj.keys())
     if not vertices: return frozenset()
@@ -247,9 +294,8 @@ def baker_ptas_ids_weighted(adj, weights=None, epsilon=0.5):
 
     k      = max(1, ceil(1.0 / epsilon))
     layers = bfs_layers(adj, vertices)
-
-    best   = greedy_maximal_is_weighted(adj, vertices, weights)  # ← WEIGHTED
-    best_w = sum(weights.get(v, 1) for v in best)               # ← WEIGHTED
+    best   = greedy_maximal_is_weighted(adj, vertices, weights)
+    best_w = sum(weights.get(v, 1) for v in best)
 
     for i in range(k):
         removed = frozenset(v for v in vertices if layers[v] % k == i)
@@ -259,7 +305,7 @@ def baker_ptas_ids_weighted(adj, weights=None, epsilon=0.5):
 
         for comp in comps:
             sub = {v: frozenset(adj.get(v, ())) & comp for v in comp}
-            cost, s = solve_component_ids_weighted(sub, comp, weights)  # ← WEIGHTED
+            cost, s = solve_component_ids_weighted(sub, comp, weights)
             if cost == INF or s is None: feasible = False; break
             solution |= s
         if not feasible: continue
@@ -267,7 +313,6 @@ def baker_ptas_ids_weighted(adj, weights=None, epsilon=0.5):
         dominated = set(solution)
         for v in solution: dominated.update(adj.get(v, ()))
 
-        # repair: cheapest undominated removed vertex first          ← WEIGHTED
         for v in sorted(removed, key=lambda v: weights.get(v, 1)):
             if v not in dominated:
                 solution.add(v); dominated.add(v)
@@ -275,9 +320,8 @@ def baker_ptas_ids_weighted(adj, weights=None, epsilon=0.5):
 
         sol = frozenset(solution)
         ok, _ = verify_ids(adj, vertices, sol)
-        w = sum(weights.get(v, 1) for v in sol)                    # ← WEIGHTED
-        if ok and w < best_w:                                       # ← WEIGHTED
-            best = sol; best_w = w
+        w = sum(weights.get(v, 1) for v in sol)
+        if ok and w < best_w: best = sol; best_w = w
 
     return best
 
@@ -287,112 +331,116 @@ def baker_ptas_ids(adj, epsilon=0.5):
     return baker_ptas_ids_weighted(adj, weights=None, epsilon=epsilon)
 
 
-# ── graph generators (unchanged from original) ────────────────────────────────
+# ══════════════════════════════════════════════════════════════════════════════
+# Graph generators
+# ══════════════════════════════════════════════════════════════════════════════
 
 def grid_graph(rows, cols):
     adj = {}
     for r in range(rows):
         for c in range(cols):
-            v = (r,c); nbrs = set()
-            for dr,dc in ((-1,0),(1,0),(0,-1),(0,1)):
-                u=(r+dr,c+dc)
-                if 0<=u[0]<rows and 0<=u[1]<cols: nbrs.add(u)
+            v = (r, c); nbrs = set()
+            for dr, dc in ((-1,0),(1,0),(0,-1),(0,1)):
+                u = (r+dr, c+dc)
+                if 0 <= u[0] < rows and 0 <= u[1] < cols: nbrs.add(u)
             adj[v] = nbrs
     return adj
 
 def cycle_graph(n):
-    adj={i:set() for i in range(n)}
+    adj = {i: set() for i in range(n)}
     for i in range(n): adj[i].add((i+1)%n); adj[(i+1)%n].add(i)
     return adj
 
 def path_graph(n):
-    adj={i:set() for i in range(n)}
+    adj = {i: set() for i in range(n)}
     for i in range(n-1): adj[i].add(i+1); adj[i+1].add(i)
     return adj
 
-def triangulated_grid(rows,cols):
-    adj=grid_graph(rows,cols)
+def triangulated_grid(rows, cols):
+    adj = grid_graph(rows, cols)
     for r in range(rows-1):
         for c in range(cols-1):
-            v,u=(r,c),(r+1,c+1); adj[v].add(u); adj[u].add(v)
+            v, u = (r,c), (r+1,c+1); adj[v].add(u); adj[u].add(v)
     return adj
 
 def outerplanar_fan(n):
-    adj=path_graph(n)
-    for i in range(1,n): adj[0].add(i); adj[i].add(0)
+    adj = path_graph(n)
+    for i in range(1, n): adj[0].add(i); adj[i].add(0)
     return adj
 
-def random_planar_grid(n,seed=42):
+def random_planar_grid(n, seed=42):
     random.seed(seed)
-    cols=max(1,int(n**0.5)); rows=(n+cols-1)//cols
-    full=grid_graph(rows,cols); verts=list(full.keys())[:n]; vset=set(verts)
-    return {v:full[v]&vset for v in verts}
+    cols = max(1, int(n**0.5)); rows = (n+cols-1)//cols
+    full = grid_graph(rows, cols); verts = list(full.keys())[:n]; vset = set(verts)
+    return {v: full[v] & vset for v in verts}
 
 
-# ── demo ─────────────────────────────────────────────────────────────────────
-
-def exact_ids_weighted_brute(adj, vertices, weights):
-    vlist=list(vertices); n=len(vlist); best=None; best_w=INF
-    for mask in range(1<<n):
-        S=frozenset(vlist[i] for i in range(n) if mask>>i&1)
-        ok,_=verify_ids(adj,vlist,S)
-        w=sum(weights.get(v,1) for v in S)
-        if ok and w<best_w: best=S; best_w=w
-    return best, best_w
-
+# ══════════════════════════════════════════════════════════════════════════════
+# Demo
+# ══════════════════════════════════════════════════════════════════════════════
 
 def run_demo():
-    RULE="═"*68
+    import networkx as nx
+
+    def exact_brute(adj, vertices, weights):
+        vl = list(vertices); best = None; best_w = INF
+        for mask in range(1 << len(vl)):
+            S = frozenset(vl[i] for i in range(len(vl)) if mask >> i & 1)
+            ok, _ = verify_ids(adj, vl, S)
+            w = sum(weights.get(v,1) for v in S)
+            if ok and w < best_w: best = S; best_w = w
+        return best, best_w
+
+    RULE = "═"*66
     print(RULE)
-    print("  Baker's PTAS — Minimum WEIGHTED Independent Dominating Set")
+    print("  Baker's PTAS — Minimum WEIGHTED IDS  (optimised)")
     print(RULE)
 
-    # unweighted backward-compatibility
-    print("\n── Unweighted (backward-compatible) ───────────────────────────────\n")
-    for name,adj,eps in [("Path P₆",path_graph(6),0.5),
-                         ("Cycle C₈",cycle_graph(8),0.5),
-                         ("3×3 Grid",grid_graph(3,3),0.5),
-                         ("Fan n=8",outerplanar_fan(8),0.5)]:
-        V=list(adj.keys()); sol=baker_ptas_ids(adj,epsilon=eps)
-        ok,_=verify_ids(adj,V,sol)
-        print(f"  {name:<18} |V|={len(V):>3}  IDS={len(sol):>3}  {'✓' if ok else '✗'}")
-
-    # weighted vs brute-force on small graphs
-    print("\n── Weighted PTAS vs exact (small graphs) ───────────────────────────\n")
+    # Correctness: weighted vs brute-force
+    print("\n── Weighted PTAS vs exact ──────────────────────────────────────\n")
     cases = [
         ("Path P₅",  path_graph(5),   {0:5,1:1,2:5,3:1,4:5}),
         ("Cycle C₆", cycle_graph(6),  {i:(1 if i%2==0 else 10) for i in range(6)}),
-        ("Fan n=6",  outerplanar_fan(6),{0:1,1:10,2:10,3:10,4:10,5:10}),
+        ("Fan n=6",  outerplanar_fan(6),{0:1,**{i:10 for i in range(1,6)}}),
     ]
-    print(f"  {'Graph':<14} {'OPT_w':>7} {'PTAS_w':>7} {'ratio':>7}  Valid")
-    for name,adj,wts in cases:
-        V=list(adj.keys())
-        opt,opt_w = exact_ids_weighted_brute(adj,V,wts)
-        ptas      = baker_ptas_ids_weighted(adj,wts,epsilon=0.5)
-        ptas_w    = sum(wts.get(v,1) for v in ptas)
-        ok,_      = verify_ids(adj,V,ptas)
-        ratio     = ptas_w/opt_w if opt_w else float('nan')
-        print(f"  {name:<14} {opt_w:>7.1f} {ptas_w:>7.1f} {ratio:>7.3f}  {'✓' if ok else '✗'}")
+    print(f"  {'Graph':<12}  {'OPT_w':>6}  {'PTAS_w':>6}  {'ratio':>6}  valid")
+    for name, adj, wts in cases:
+        V = list(adj.keys())
+        _, opt_w = exact_brute(adj, V, wts)
+        ptas     = baker_ptas_ids_weighted(adj, wts, epsilon=0.5)
+        ptas_w   = sum(wts.get(v,1) for v in ptas)
+        ok, _    = verify_ids(adj, V, ptas)
+        print(f"  {name:<12}  {opt_w:>6.1f}  {ptas_w:>6.1f}  {ptas_w/opt_w:>6.3f}  {'✓' if ok else '✗'}")
 
-    # larger benchmark (unit weights)
-    print("\n── Benchmark (ε=0.5, unit weights) ────────────────────────────────\n")
-    print(f"  {'Graph':<22} {'n':>5} {'m':>6} {'IDS':>5} {'ms':>7}  Valid")
-    for name,adj,eps in [
-        ("Path P₁₂",            path_graph(12),          0.5),
-        ("Cycle C₁₅",           cycle_graph(15),          0.5),
-        ("4×4 Grid",            grid_graph(4,4),          0.5),
-        ("5×5 Grid",            grid_graph(5,5),          0.5),
-        ("Triangulated 4×4",    triangulated_grid(4,4),   0.5),
-        ("Fan n=20",            outerplanar_fan(20),      0.5),
-        ("8×8 Grid",            grid_graph(8,8),          0.5),
-        ("Random planar n=100", random_planar_grid(100),  0.5),
-    ]:
-        V=set(adj.keys()); m=sum(len(adj[v]) for v in V)//2
-        t0=time.perf_counter()
-        sol=baker_ptas_ids(adj,epsilon=eps)
-        ms=1000*(time.perf_counter()-t0)
-        ok,_=verify_ids(adj,V,sol)
-        print(f"  {name:<22} {len(V):>5} {m:>6} {len(sol):>5} {ms:>7.1f}  {'✓' if ok else '✗'}")
+    # Backward compatibility
+    print("\n── Unweighted (backward-compatible) ───────────────────────────\n")
+    for name, adj, eps in [("Path P₆",path_graph(6),0.5),
+                            ("Cycle C₈",cycle_graph(8),0.5),
+                            ("3×3 Grid",grid_graph(3,3),0.5),
+                            ("Fan n=8",outerplanar_fan(8),0.5)]:
+        V = list(adj.keys()); sol = baker_ptas_ids(adj, epsilon=eps)
+        ok, _ = verify_ids(adj, V, sol)
+        print(f"  {name:<18}  |V|={len(V):>3}  IDS={len(sol):>3}  {'✓' if ok else '✗'}")
+
+    # Speed benchmark
+    print("\n── Speed benchmark ─────────────────────────────────────────────\n")
+    print(f"  {'Graph':<28}  {'nodes':>6}  {'IDS':>5}  {'ms':>7}  valid")
+    benchmarks = [
+        ("Grid 8×8",             grid_graph(8,8),         0.5),
+        ("Grid 15×15",           grid_graph(15,15),        0.5),
+        ("Grid 20×20",           grid_graph(20,20),        0.5),
+        ("Triangulated 10×10",   triangulated_grid(10,10), 0.5),
+        ("Triangulated 15×15",   triangulated_grid(15,15), 0.5),
+        ("Fan n=200",            outerplanar_fan(200),     0.5),
+        ("Random planar n=500",  random_planar_grid(500),  0.5),
+    ]
+    for name, adj, eps in benchmarks:
+        V = set(adj.keys())
+        t0 = time.perf_counter()
+        sol = baker_ptas_ids(adj, epsilon=eps)
+        ms  = 1000*(time.perf_counter()-t0)
+        ok, _ = verify_ids(adj, V, sol)
+        print(f"  {name:<28}  {len(V):>6}  {len(sol):>5}  {ms:>7.1f}  {'✓' if ok else '✗'}")
     print()
 
 

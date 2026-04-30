@@ -74,40 +74,145 @@ def reduce_vc_to_mids(G: nx.Graph, epsilon: float = 0.1):
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# Maximal planar subgraph (non-planar case)
+# Maximal planar subgraph — hybrid face-check / selective is_planar
 # ══════════════════════════════════════════════════════════════════════════════
 
-def _maximal_planar_subgraph(G: nx.Graph):
-    """Extract a maximal planar subgraph of G in O(M · α(N)) time.
+def _find_shared_face(embedding, u: object, v: object) -> tuple:
+    """Check if u and v lie on a common face of the planar embedding.
 
-    Strategy:
-        1. A spanning forest is always planar — add all its edges first.
-        2. Try each remaining edge; keep it only if the graph stays planar.
-           NetworkX planarity test is linear, so overall O(M·(N+M)).
+    Uses Whitney's theorem: (u,v) can be added while keeping the graph planar
+    iff u and v share a face in the current embedding.  This direction (shared
+    face ⟹ planar addition) is always correct and costs O(sum of face-sizes
+    incident to u) — no planarity test needed.
+
+    Returns:
+        (True, a, c)       if a shared face is found.
+            a — neighbor of u starting the face that contains v.
+            c — vertex immediately before v in that face traversal.
+        (False, None, None) if no shared face is detected in the current
+            embedding (edge might still be addable for non-2-connected graphs;
+            caller must verify via check_planarity).
+    """
+    visited: set = set()
+    for start_nbr in list(embedding.neighbors_cw_order(u)):
+        prev, curr = u, start_nbr
+        while (prev, curr) not in visited:
+            visited.add((prev, curr))
+            if curr == v:
+                return True, start_nbr, prev
+            prev, curr = curr, embedding[curr][prev]['cw']
+    return False, None, None
+
+
+def _insert_edge_into_embedding(embedding, u: object, v: object,
+                                a: object, c: object) -> None:
+    """Splice edge (u,v) into the planar embedding in O(1).
+
+    Splits the face that contains both u and v into two faces.
+    a and c come from _find_shared_face:
+        a = neighbor of u that starts the shared face.
+        c = vertex just before v in the face traversal.
+
+    After the call the embedding is a valid planar embedding of H ∪ {(u,v)}.
+    """
+    z = embedding[u][a]['ccw']           # vertex before u in the face walk
+    embedding.add_half_edge_cw(u, v, z)  # insert u→v CW after u→z
+    embedding.add_half_edge_cw(v, u, c)  # insert v→u CW after v→c
+
+
+def _maximal_planar_subgraph(G: nx.Graph):
+    """Extract a maximal planar subgraph of G.
+
+    Complexity: O(M·N) — down from the old O(M·(N+M)).
+
+    Strategy
+    --------
+    1.  Build a spanning forest (always planar).  ONE call to check_planarity
+        yields the initial planar embedding.
+
+    2.  For each remaining edge (u, v):
+
+        Inter-component edge
+            Always planar — splice via embedding.connect_components (O(1)).
+
+        Intra-component, face-sharing (Whitney's theorem, O(face_size))
+            _find_shared_face returns the insertion point; edge is spliced
+            into the embedding in O(1) with _insert_edge_into_embedding.
+            No extra planarity test needed.
+
+        Intra-component, no shared face in current embedding
+            Face-sharing is sufficient but not necessary for non-2-connected
+            graphs (bridges can hide valid insertion points).  Fall back to
+            one check_planarity call to get the authoritative answer.  On
+            acceptance the fresh embedding replaces the old one.
+
+    Result: is_planar called at most 1 + |non-face-sharing non-tree edges|
+    times, versus |non-tree edges| times in the old implementation.  For
+    nearly-planar graphs (few removals) this is a large constant-factor win.
 
     Returns:
         (G_planar, removed_edges)
-        G_planar     — planar subgraph containing all vertices of G.
-        removed_edges — list of edges of G not in G_planar.
+        G_planar      — planar subgraph with the same vertex set as G.
+        removed_edges — edges of G not present in G_planar.
     """
     H = nx.Graph()
     H.add_nodes_from(G.nodes())
 
-    # Step 1: spanning forest (always planar)
+    # ── Union-Find for O(α) inter-component queries ───────────────────────
+    _par: dict = {v: v for v in G.nodes()}
+    _rnk: dict = {v: 0  for v in G.nodes()}
+
+    def _find(x):
+        while _par[x] != x:
+            _par[x] = _par[_par[x]]   # path-halving
+            x = _par[x]
+        return x
+
+    def _union(x, y):
+        px, py = _find(x), _find(y)
+        if px == py:
+            return
+        if _rnk[px] < _rnk[py]:
+            px, py = py, px
+        _par[py] = px
+        if _rnk[px] == _rnk[py]:
+            _rnk[px] += 1
+
+    # ── Step 1: spanning forest + initial embedding ───────────────────────
     for u, v in nx.minimum_spanning_edges(G, data=False, ignore_nan=True):
         H.add_edge(u, v)
+        _union(u, v)
 
-    # Step 2: greedily add remaining edges
+    _, embedding = nx.check_planarity(H)   # call #1 (and usually the last)
+
+    # ── Step 2: greedily add remaining edges ──────────────────────────────
     removed = []
     for u, v in G.edges():
         if H.has_edge(u, v):
             continue
-        H.add_edge(u, v)
-        if nx.is_planar(H):
-            pass          # edge accepted
+
+        if _find(u) != _find(v):
+            # ── different components: trivially planar ─────────────────
+            H.add_edge(u, v)
+            _union(u, v)
+            embedding.connect_components(u, v)
+
         else:
-            H.remove_edge(u, v)
-            removed.append((u, v))
+            shared, a, c = _find_shared_face(embedding, u, v)
+            if shared:
+                # ── face-sharing: guaranteed planar, O(1) update ───────
+                H.add_edge(u, v)
+                _insert_edge_into_embedding(embedding, u, v, a, c)
+            else:
+                # ── uncertain (bridge / non-2-connected): verify once ──
+                H.add_edge(u, v)
+                is_p, new_emb = nx.check_planarity(H)
+                if is_p:
+                    embedding = new_emb
+                    _union(u, v)
+                else:
+                    H.remove_edge(u, v)
+                    removed.append((u, v))
 
     return H, removed
 
