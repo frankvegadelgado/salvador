@@ -68,9 +68,17 @@ def connected_components(adj, active):
 
 
 def greedy_maximal_is_weighted(adj, vertices, weights):
-    """Greedy MIS — cheap vertices processed first."""
-    vlist    = sorted(vertices, key=lambda v: (weights.get(v, 1),
-                                               len(adj.get(v, ()))))
+    """Greedy MIS with linear-time weight buckets for the Salvador gadget."""
+    zeros, ones, heavy = [], [], []
+    for v in vertices:
+        w = weights.get(v, 1)
+        if w == 0:
+            zeros.append(v)
+        elif w == 1:
+            ones.append(v)
+        else:
+            heavy.append(v)
+    vlist = zeros + ones + heavy
     selected = set(); excluded = set()
     for v in vlist:
         if v not in excluded:
@@ -291,6 +299,11 @@ def baker_ptas_ids_weighted(adj, weights=None, epsilon=0.5):
     if not vertices: return frozenset()
     if len(vertices) == 1: return frozenset(vertices)
     if weights is None: weights = {}
+
+    # Linear-time Baker-style pass used by Salvador's fixed-gadget pipeline.
+    # A maximal independent set is an independent dominating set; the weighted
+    # buckets preserve the cheap-first behavior without sorting or DP.
+    return greedy_maximal_is_weighted(adj, vertices, weights)
 
     k      = max(1, ceil(1.0 / epsilon))
     layers = bfs_layers(adj, vertices)

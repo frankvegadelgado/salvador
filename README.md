@@ -2,7 +2,7 @@
 
 ![In Loving Memory of Salvador Vega (The Grandfather I Never Knew)](docs/salvador.jpg)
 
-This work builds upon [The Salvador Algorithm](https://www.preprints.org/manuscript/202409.2053).
+This work builds upon [The Salvador Algorithm](https://dev.to/frank_vega_987689489099bf/the-salvador-algorithm-3enf).
 
 ---
 
@@ -65,7 +65,7 @@ where the fields W and V specify the endpoints of the edge while the lower-case 
 
 _Example Solution:_
 
-Vertex Cover Found `1, 2, 5`: Nodes `1`, `2`, and `5` constitute an optimal solution.
+Vertex Cover Found `1, 3, 4`: Nodes `1`, `3`, and `4` constitute an optimal solution.
 
 ---
 
@@ -101,10 +101,10 @@ pip install salvador
    **Example Output:**
 
    ```
-   testMatrix1: Vertex Cover Found 1, 2, 5
+   testMatrix1: Vertex Cover Found 1, 3, 4
    ```
 
-   This indicates nodes `1, 2, 5` form a vertex cover.
+   This indicates nodes `1, 3, 4` form a vertex cover.
 
 ---
 
@@ -229,3 +229,4 @@ options:
 # License
 
 - MIT License.
+

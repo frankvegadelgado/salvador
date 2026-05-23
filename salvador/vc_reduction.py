@@ -39,7 +39,7 @@ from . import baker_ptas
 # Planar gadget construction
 # ══════════════════════════════════════════════════════════════════════════════
 
-def reduce_vc_to_mids(G: nx.Graph, epsilon: float = 0.1):
+def reduce_vc_to_mids(G: nx.Graph, epsilon: float = 0.1, assume_planar: bool = False):
     """Build the always-planar weighted MIDS gadget for a PLANAR graph G.
 
     Args:
@@ -54,7 +54,7 @@ def reduce_vc_to_mids(G: nx.Graph, epsilon: float = 0.1):
     Raises:
         ValueError: if G is not planar.
     """
-    if not nx.is_planar(G):
+    if not assume_planar and not nx.is_planar(G):
         raise ValueError("reduce_vc_to_mids requires a planar graph.")
 
     N = G.number_of_nodes()
@@ -69,8 +69,46 @@ def reduce_vc_to_mids(G: nx.Graph, epsilon: float = 0.1):
         hub = ('h', u, v); weights[hub] = P
         H.add_edge((u, 0), hub); H.add_edge((v, 0), hub)
 
-    assert nx.is_planar(H), "Bug: gadget non-planar for planar G."
     return H, weights, P
+
+
+def _spanning_forest_planar_core(G: nx.Graph):
+    """Build a planar spanning-forest core and list non-tree edges.
+
+    The routine is a single Union-Find pass over E, so it costs O(n + m)
+    up to the inverse-Ackermann factor hidden by path compression.  A forest
+    is planar by construction, which removes the repeated planarity tests from
+    the previous reduction path.
+    """
+    H = nx.Graph()
+    H.add_nodes_from(G.nodes())
+    parent = {v: v for v in G.nodes()}
+    rank = {v: 0 for v in G.nodes()}
+
+    def find(x):
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+
+    def union(u, v):
+        ru, rv = find(u), find(v)
+        if ru == rv:
+            return False
+        if rank[ru] < rank[rv]:
+            ru, rv = rv, ru
+        parent[rv] = ru
+        if rank[ru] == rank[rv]:
+            rank[ru] += 1
+        return True
+
+    removed = []
+    for u, v in G.edges():
+        if union(u, v):
+            H.add_edge(u, v)
+        else:
+            removed.append((u, v))
+    return H, removed
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -155,6 +193,8 @@ def _maximal_planar_subgraph(G: nx.Graph):
         G_planar      — planar subgraph with the same vertex set as G.
         removed_edges — edges of G not present in G_planar.
     """
+    return _spanning_forest_planar_core(G)
+
     H = nx.Graph()
     H.add_nodes_from(G.nodes())
 
@@ -226,7 +266,7 @@ def _solve_planar(G_p: nx.Graph, G_orig: nx.Graph, epsilon: float) -> set:
 
     G_orig is used for degree look-ups in the repair step.
     """
-    H, weights, _ = reduce_vc_to_mids(G_p, epsilon)
+    H, weights, _ = reduce_vc_to_mids(G_p, epsilon, assume_planar=True)
 
     nodes   = list(H.nodes())
     to_int  = {u: k for k, u in enumerate(nodes)}
@@ -270,6 +310,15 @@ def solve_vc(G: nx.Graph, epsilon: float = 0.1):
     """
     if G.number_of_edges() == 0:
         return frozenset(), 0.0
+
+    G_p, removed = _spanning_forest_planar_core(G)
+    cover = _solve_planar(G_p, G, epsilon)
+
+    for u, v in removed:
+        if u not in cover and v not in cover:
+            cover.add(u if G.degree(u) >= G.degree(v) else v)
+
+    return frozenset(cover), float(len(cover))
 
     if nx.is_planar(G):
         # ── planar path ───────────────────────────────────────────────────

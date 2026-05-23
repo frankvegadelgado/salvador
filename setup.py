@@ -2,7 +2,7 @@ from pathlib import Path
 
 import setuptools
 
-VERSION = "0.0.1"
+VERSION = "0.0.2"
 
 NAME = "salvador"
 
@@ -19,7 +19,7 @@ setuptools.setup(
     url="https://github.com/frankvegadelgado/salvador",
     project_urls={
         "Source Code": "https://github.com/frankvegadelgado/salvador",
-        "Documentation Research": "https://www.preprints.org/manuscript/202409.2053",
+        "Documentation Research": "https://dev.to/frank_vega_987689489099bf/the-salvador-algorithm-3enf",
     },
     author="Frank Vega",
     author_email="vega.frank@gmail.com",

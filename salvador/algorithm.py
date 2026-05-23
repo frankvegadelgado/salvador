@@ -43,7 +43,7 @@ def find_vertex_cover(graph, epsilon: float = 0.1):
     if G.number_of_edges() == 0:
         return set()
     
-    # Minimum Weighted IDS Reduction  (always-planar gadget) → Baker's PTAS for IDS
+    # Linear forest-core MIDS reduction with one repair scan.
     cover, _ = vc_reduction.solve_vc(G, epsilon)
     
     # Final pruning on final candidate (still linear)
