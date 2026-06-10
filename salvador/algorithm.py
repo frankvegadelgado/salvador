@@ -1,15 +1,48 @@
-# Created on 26/07/2025
+# Created on June 10th, 2026
 # Author: Frank Vega
 
 import itertools
 from . import utils
 
 import networkx as nx
-from . import vc_reduction
+from . import solverlp
 
-# ============================================================
-# Linear-time redundant-vertex pruning (replaces bitsets + local search)
-# ============================================================
+def vertex_cover_via_bipartite_graph(component_graph):
+    auxiliary = nx.Graph()
+    weights = {}
+    G = component_graph.copy()
+    for u in component_graph.nodes():
+        neighbors = list(G.neighbors(u))
+        G.remove_node(u)
+        if len(neighbors) > 0:
+            first_auxiliary, previous_neighbor = None, None
+            for v in neighbors:
+                aux_vertex = (u, v)
+                weights[aux_vertex] = 1.0 / component_graph.degree(u)
+                weights[(v, u)] = 1.0 / component_graph.degree(v)
+                auxiliary.add_edge(aux_vertex, (v, u))
+                if previous_neighbor is None:
+                    first_auxiliary = aux_vertex
+                else:
+                    auxiliary.add_edge(aux_vertex, previous_neighbor)       
+                previous_neighbor = (v, u)
+
+            if len(neighbors) > 1:
+                auxiliary.add_edge(first_auxiliary, previous_neighbor) 
+
+    if not nx.bipartite.is_bipartite(auxiliary):
+        raise RuntimeError(f"Reduction failed: no bipartite graph was created")
+    
+    # Set node weights for the weighted vertex cover algorithm
+    nx.set_node_attributes(auxiliary, weights, 'weight')
+
+    auxiliary_solution  = solverlp.find_vertex_cover(auxiliary)
+    solution = {
+        vertex[0]
+        for vertex in auxiliary_solution
+    } 
+
+    return solution    
 
 def prune_redundant_vertices(adj, C):
     """
@@ -32,10 +65,16 @@ def prune_redundant_vertices(adj, C):
 
 
 # ============================================================
-# Main ensemble (now strictly linear-time O(n + m))
+# Main ensemble
 # ============================================================
 
-def find_vertex_cover(graph, epsilon: float = 0.1):
+def find_vertex_cover(graph):
+    if not isinstance(graph, nx.Graph):
+        raise ValueError("Input must be an undirected NetworkX Graph.")
+
+    if graph.number_of_nodes() == 0:
+        return set()
+
     G = graph.copy()
     G.remove_edges_from(nx.selfloop_edges(G))
     G.remove_nodes_from(list(nx.isolates(G)))
@@ -43,15 +82,17 @@ def find_vertex_cover(graph, epsilon: float = 0.1):
     if G.number_of_edges() == 0:
         return set()
     
-    # Linear forest-core MIDS reduction with one repair scan.
-    cover, _ = vc_reduction.solve_vc(G, epsilon)
+    cover = set()
     
+    for component in nx.connected_components(G):
+        component_graph = G.subgraph(component)
+        cover.update(vertex_cover_via_bipartite_graph(component_graph))
+
     # Final pruning on final candidate (still linear)
     adj = {v: set(G[v]) for v in G}
     cover_prune = prune_redundant_vertices(adj, cover)
-
+    
     return cover_prune
-
 
 def find_vertex_cover_brute_force(graph):
     """

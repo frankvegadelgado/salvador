@@ -1,4 +1,4 @@
-# Created on 26/07/2025
+# Created on June 10th, 2026
 # Author: Frank Vega
 
 import time
@@ -32,9 +32,9 @@ def main():
     helper.add_argument('-b', '--bruteForce', action='store_true', help='enable comparison with the exponential-time brute-force approach')
     helper.add_argument('-c', '--count', action='store_true', help='calculate the size of the vertex cover')
     helper.add_argument('-w', '--write', action='store_true', help='write the generated random matrix to a file in the current directory')
-    helper.add_argument('-v', '--verbose', action='store_true', help='anable verbose output')
+    helper.add_argument('-v', '--verbose', action='store_true', help='enable verbose output')
     helper.add_argument('-l', '--log', action='store_true', help='enable file logging')
-    helper.add_argument('--version', action='version', version='%(prog)s 0.0.2')
+    helper.add_argument('--version', action='version', version='%(prog)s 0.0.3')
     
     # Initialize the parameters
     args = helper.parse_args()
@@ -86,12 +86,12 @@ def main():
             utils.println(output, logger, args.log)
         
 
-        logger.info("Our Algorithm with an approximate solution started")
+        logger.info("Salvador Algorithm with an approximate solution started")
         started = time.time()
         
         novel_result = algorithm.find_vertex_cover(graph)
 
-        logger.info(f"Our Algorithm with an approximate solution done in: {(time.time() - started) * 1000.0} milliseconds")
+        logger.info(f"Salvador Algorithm with an approximate solution done in: {(time.time() - started) * 1000.0} milliseconds")
 
         answer = utils.string_result_format(novel_result, count)
         output = f"{i + 1}-Salvador Test: {answer}" 

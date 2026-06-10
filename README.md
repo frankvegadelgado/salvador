@@ -65,7 +65,7 @@ where the fields W and V specify the endpoints of the edge while the lower-case 
 
 _Example Solution:_
 
-Vertex Cover Found `1, 3, 4`: Nodes `1`, `3`, and `4` constitute an optimal solution.
+Vertex Cover Found `1, 4, 5`: Nodes `1`, `4`, and `5` constitute an optimal solution.
 
 ---
 
@@ -101,10 +101,10 @@ pip install salvador
    **Example Output:**
 
    ```
-   testMatrix1: Vertex Cover Found 1, 3, 4
+   testMatrix1: Vertex Cover Found 1, 4, 5
    ```
 
-   This indicates nodes `1, 3, 4` form a vertex cover.
+   This indicates nodes `1, 4, 5` form a vertex cover.
 
 ---
 
@@ -146,7 +146,7 @@ options:
   -a, --approximation   enable comparison with a polynomial-time approximation approach within a factor of at most 2
   -b, --bruteForce      enable comparison with the exponential-time brute-force approach
   -c, --count           calculate the size of the vertex cover
-  -v, --verbose         anable verbose output
+  -v, --verbose         enable verbose output
   -l, --log             enable file logging
   --version             show program's version number and exit
 ```
@@ -177,7 +177,7 @@ options:
   -a, --approximation   enable comparison with a polynomial-time approximation approach within a factor of at most 2
   -b, --bruteForce      enable comparison with the exponential-time brute-force approach
   -c, --count           calculate the size of the vertex cover
-  -v, --verbose         anable verbose output
+  -v, --verbose         enable verbose output
   -l, --log             enable file logging
   --version             show program's version number and exit
 ```
@@ -205,7 +205,7 @@ options:
   -b, --bruteForce      enable comparison with the exponential-time brute-force approach
   -c, --count           calculate the size of the vertex cover
   -w, --write           write the generated random matrix to a file in the current directory
-  -v, --verbose         anable verbose output
+  -v, --verbose         enable verbose output
   -l, --log             enable file logging
   --version             show program's version number and exit
 ```

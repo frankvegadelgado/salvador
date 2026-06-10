@@ -1,4 +1,4 @@
-# Created on 26/07/2025
+# Created on June 10th, 2026
 # Author: Frank Vega
 
 import argparse
@@ -34,9 +34,9 @@ def main():
     helper.add_argument('-a', '--approximation', action='store_true', help='enable comparison with a polynomial-time approximation approach within a factor of at most 2')
     helper.add_argument('-b', '--bruteForce', action='store_true', help='enable comparison with the exponential-time brute-force approach')
     helper.add_argument('-c', '--count', action='store_true', help='calculate the size of the vertex cover')
-    helper.add_argument('-v', '--verbose', action='store_true', help='anable verbose output')
+    helper.add_argument('-v', '--verbose', action='store_true', help='enable verbose output')
     helper.add_argument('-l', '--log', action='store_true', help='enable file logging')
-    helper.add_argument('--version', action='version', version='%(prog)s 0.0.2')
+    helper.add_argument('--version', action='version', version='%(prog)s 0.0.3')
 
     
     # Initialize the parameters

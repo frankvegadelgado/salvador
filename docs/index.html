@@ -127,7 +127,7 @@ e 3 5
 </code></pre>
 <p>where the fields W and V specify the endpoints of the edge while the lower-case character <code>e</code> signifies that this is an edge descriptor line.</p>
 <p><em>Example Solution:</em></p>
-<p>Vertex Cover Found <code>1, 3, 4</code>: Nodes <code>1</code>, <code>3</code>, and <code>4</code> constitute an optimal solution.</p>
+<p>Vertex Cover Found <code>1, 4, 5</code>: Nodes <code>1</code>, <code>4</code>, and <code>5</code> constitute an optimal solution.</p>
 <hr>
 <h1>Compile and Environment</h1>
 <h2>Prerequisites</h2>
@@ -151,9 +151,9 @@ cd salvador
 </code></pre>
 <p>utilizing the <code>vega</code> command provided by Salvador's Library to execute the Boolean adjacency matrix <code>salvador\benchmarks\testMatrix1</code>. The file <code>testMatrix1</code> represents the example described herein. We also support <code>.xz</code>, <code>.lzma</code>, <code>.bz2</code>, and <code>.bzip2</code> compressed text files.</p>
 <p><strong>Example Output:</strong></p>
-<pre><code>testMatrix1: Vertex Cover Found 1, 3, 4
+<pre><code>testMatrix1: Vertex Cover Found 1, 4, 5
 </code></pre>
-<p>This indicates nodes <code>1, 3, 4</code> form a vertex cover.</p>
+<p>This indicates nodes <code>1, 4, 5</code> form a vertex cover.</p>
 </li>
 </ol>
 <hr>
@@ -181,7 +181,7 @@ options:
   -a, --approximation   enable comparison with a polynomial-time approximation approach within a factor of at most 2
   -b, --bruteForce      enable comparison with the exponential-time brute-force approach
   -c, --count           calculate the size of the vertex cover
-  -v, --verbose         anable verbose output
+  -v, --verbose         enable verbose output
   -l, --log             enable file logging
   --version             show program's version number and exit
 </code></pre>
@@ -203,7 +203,7 @@ options:
   -a, --approximation   enable comparison with a polynomial-time approximation approach within a factor of at most 2
   -b, --bruteForce      enable comparison with the exponential-time brute-force approach
   -c, --count           calculate the size of the vertex cover
-  -v, --verbose         anable verbose output
+  -v, --verbose         enable verbose output
   -l, --log             enable file logging
   --version             show program's version number and exit
 </code></pre>
@@ -226,7 +226,7 @@ options:
   -b, --bruteForce      enable comparison with the exponential-time brute-force approach
   -c, --count           calculate the size of the vertex cover
   -w, --write           write the generated random matrix to a file in the current directory
-  -v, --verbose         anable verbose output
+  -v, --verbose         enable verbose output
   -l, --log             enable file logging
   --version             show program's version number and exit
 </code></pre>
