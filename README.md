@@ -65,7 +65,7 @@ where the fields W and V specify the endpoints of the edge while the lower-case 
 
 _Example Solution:_
 
-Vertex Cover Found `1, 4, 5`: Nodes `1`, `4`, and `5` constitute an optimal solution.
+Vertex Cover Found `1, 2, 3`: Nodes `1`, `2`, and `3` constitute an optimal solution.
 
 ---
 
@@ -101,10 +101,10 @@ pip install salvador
    **Example Output:**
 
    ```
-   testMatrix1: Vertex Cover Found 1, 4, 5
+   testMatrix1: Vertex Cover Found 1, 2, 3
    ```
 
-   This indicates nodes `1, 4, 5` form a vertex cover.
+   This indicates nodes `1, 2, 3` form a vertex cover.
 
 ---
 

@@ -5,7 +5,7 @@ import itertools
 from . import utils
 
 import networkx as nx
-from . import solverlp
+from . import solver
 
 def vertex_cover_via_bipartite_graph(component_graph):
     auxiliary = nx.Graph()
@@ -30,13 +30,13 @@ def vertex_cover_via_bipartite_graph(component_graph):
             if len(neighbors) > 1:
                 auxiliary.add_edge(first_auxiliary, previous_neighbor) 
 
-    if not nx.bipartite.is_bipartite(auxiliary):
-        raise RuntimeError(f"Reduction failed: no bipartite graph was created")
+    if not nx.bipartite.is_bipartite(auxiliary) or not nx.is_planar(auxiliary):
+        raise RuntimeError(f"Reduction failed: no bipartite planar graph was created")
     
     # Set node weights for the weighted vertex cover algorithm
     nx.set_node_attributes(auxiliary, weights, 'weight')
 
-    auxiliary_solution  = solverlp.find_vertex_cover(auxiliary)
+    auxiliary_solution, _  = solver.min_weight_vertex_cover_bipartite(auxiliary)
     solution = {
         vertex[0]
         for vertex in auxiliary_solution

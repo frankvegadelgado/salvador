@@ -9,8 +9,7 @@ NAME = "salvador"
 INSTALL_REQUIRES = [
     "numpy>=2.2.1",
     "scipy>=1.15.0",
-    "networkx[default]>=3.4.2",
-    "ortools>=9.12.4544"
+    "networkx[default]>=3.4.2"
 ]
 
 setuptools.setup(

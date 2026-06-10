@@ -1,255 +1,260 @@
-2026-06-10 06:24:35,694 - INFO - Parsing the Input File started
-2026-06-10 06:24:35,722 - INFO - Parsing the Input File done in: 27.987241744995117 milliseconds
-2026-06-10 06:24:35,722 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:24:37,133 - INFO - Salvador Algorithm with an approximate solution done in: 1410.916805267334 milliseconds
-2026-06-10 06:24:37,133 - INFO - brock200_1.clq-compliment.txt: Vertex Cover Size 184
-2026-06-10 06:24:37,133 - INFO - Parsing the Input File started
-2026-06-10 06:24:37,167 - INFO - Parsing the Input File done in: 33.76913070678711 milliseconds
-2026-06-10 06:24:37,167 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:24:41,976 - INFO - Salvador Algorithm with an approximate solution done in: 4808.90154838562 milliseconds
-2026-06-10 06:24:41,976 - INFO - brock200_2.clq-compliment.txt: Vertex Cover Size 193
-2026-06-10 06:24:41,991 - INFO - Parsing the Input File started
-2026-06-10 06:24:42,017 - INFO - Parsing the Input File done in: 25.54917335510254 milliseconds
-2026-06-10 06:24:42,017 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:24:44,985 - INFO - Salvador Algorithm with an approximate solution done in: 2968.0259227752686 milliseconds
-2026-06-10 06:24:44,985 - INFO - brock200_3.clq-compliment.txt: Vertex Cover Size 191
-2026-06-10 06:24:44,985 - INFO - Parsing the Input File started
-2026-06-10 06:24:45,007 - INFO - Parsing the Input File done in: 21.506786346435547 milliseconds
-2026-06-10 06:24:45,007 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:24:47,285 - INFO - Salvador Algorithm with an approximate solution done in: 2277.5802612304688 milliseconds
-2026-06-10 06:24:47,285 - INFO - brock200_4.clq-compliment.txt: Vertex Cover Size 189
-2026-06-10 06:24:47,285 - INFO - Parsing the Input File started
-2026-06-10 06:24:47,364 - INFO - Parsing the Input File done in: 78.68289947509766 milliseconds
-2026-06-10 06:24:47,364 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:25:04,924 - INFO - Salvador Algorithm with an approximate solution done in: 17560.34755706787 milliseconds
-2026-06-10 06:25:04,924 - INFO - brock400_1.clq-compliment.txt: Vertex Cover Size 385
-2026-06-10 06:25:04,924 - INFO - Parsing the Input File started
-2026-06-10 06:25:04,987 - INFO - Parsing the Input File done in: 63.146352767944336 milliseconds
-2026-06-10 06:25:04,987 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:25:22,501 - INFO - Salvador Algorithm with an approximate solution done in: 17514.256954193115 milliseconds
-2026-06-10 06:25:22,501 - INFO - brock400_2.clq-compliment.txt: Vertex Cover Size 384
-2026-06-10 06:25:22,501 - INFO - Parsing the Input File started
-2026-06-10 06:25:22,566 - INFO - Parsing the Input File done in: 65.00649452209473 milliseconds
-2026-06-10 06:25:22,568 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:25:40,613 - INFO - Salvador Algorithm with an approximate solution done in: 18045.124053955078 milliseconds
-2026-06-10 06:25:40,613 - INFO - brock400_3.clq-compliment.txt: Vertex Cover Size 383
-2026-06-10 06:25:40,626 - INFO - Parsing the Input File started
-2026-06-10 06:25:40,685 - INFO - Parsing the Input File done in: 58.67123603820801 milliseconds
-2026-06-10 06:25:40,685 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:25:59,065 - INFO - Salvador Algorithm with an approximate solution done in: 18379.870653152466 milliseconds
-2026-06-10 06:25:59,065 - INFO - brock400_4.clq-compliment.txt: Vertex Cover Size 384
-2026-06-10 06:25:59,075 - INFO - Parsing the Input File started
-2026-06-10 06:25:59,153 - INFO - Parsing the Input File done in: 78.07517051696777 milliseconds
-2026-06-10 06:25:59,153 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:26:17,339 - INFO - Salvador Algorithm with an approximate solution done in: 18185.750722885132 milliseconds
-2026-06-10 06:26:17,339 - INFO - c-fat200-1.clq-compliment.txt: Vertex Cover Size 188
-2026-06-10 06:26:17,342 - INFO - Parsing the Input File started
-2026-06-10 06:26:17,454 - INFO - Parsing the Input File done in: 112.19382286071777 milliseconds
-2026-06-10 06:26:17,454 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:26:35,984 - INFO - Salvador Algorithm with an approximate solution done in: 18530.122756958008 milliseconds
-2026-06-10 06:26:35,984 - INFO - c-fat200-2.clq-compliment.txt: Vertex Cover Size 177
-2026-06-10 06:26:36,000 - INFO - Parsing the Input File started
-2026-06-10 06:26:36,048 - INFO - Parsing the Input File done in: 48.6905574798584 milliseconds
-2026-06-10 06:26:36,048 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:26:42,302 - INFO - Salvador Algorithm with an approximate solution done in: 6253.146648406982 milliseconds
-2026-06-10 06:26:42,302 - INFO - c-fat200-5.clq-compliment.txt: Vertex Cover Size 142
-2026-06-10 06:26:42,302 - INFO - Parsing the Input File started
-2026-06-10 06:26:42,470 - INFO - Parsing the Input File done in: 167.99187660217285 milliseconds
-2026-06-10 06:26:42,470 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:28:32,194 - INFO - Salvador Algorithm with an approximate solution done in: 109724.9104976654 milliseconds
-2026-06-10 06:28:32,194 - INFO - C1000.9.clq-compliment.txt: Vertex Cover Size 951
-2026-06-10 06:28:32,194 - INFO - Parsing the Input File started
-2026-06-10 06:28:32,245 - INFO - Parsing the Input File done in: 50.993919372558594 milliseconds
-2026-06-10 06:28:32,245 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:28:32,310 - INFO - Salvador Algorithm with an approximate solution done in: 64.62407112121582 milliseconds
-2026-06-10 06:28:32,310 - INFO - C125.9.clq-compliment.txt: Vertex Cover Size 94
-2026-06-10 06:28:32,310 - INFO - Parsing the Input File started
-2026-06-10 06:28:32,346 - INFO - Parsing the Input File done in: 36.29493713378906 milliseconds
-2026-06-10 06:28:32,346 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:28:33,019 - INFO - Salvador Algorithm with an approximate solution done in: 673.0673313140869 milliseconds
-2026-06-10 06:28:33,019 - INFO - C250.9.clq-compliment.txt: Vertex Cover Size 214
-2026-06-10 06:28:33,019 - INFO - Parsing the Input File started
-2026-06-10 06:28:33,075 - INFO - Parsing the Input File done in: 55.74297904968262 milliseconds
-2026-06-10 06:28:33,075 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:28:40,310 - INFO - Salvador Algorithm with an approximate solution done in: 7234.610795974731 milliseconds
-2026-06-10 06:28:40,310 - INFO - C500.9.clq-compliment.txt: Vertex Cover Size 464
-2026-06-10 06:28:40,310 - INFO - Parsing the Input File started
-2026-06-10 06:28:40,336 - INFO - Parsing the Input File done in: 26.278972625732422 milliseconds
-2026-06-10 06:28:40,336 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:28:40,638 - INFO - Salvador Algorithm with an approximate solution done in: 301.5589714050293 milliseconds
-2026-06-10 06:28:40,638 - INFO - gen200_p0.9_44.clq-compliment.txt: Vertex Cover Size 170
-2026-06-10 06:28:40,638 - INFO - Parsing the Input File started
-2026-06-10 06:28:40,662 - INFO - Parsing the Input File done in: 24.214506149291992 milliseconds
-2026-06-10 06:28:40,662 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:28:40,930 - INFO - Salvador Algorithm with an approximate solution done in: 267.74072647094727 milliseconds
-2026-06-10 06:28:40,930 - INFO - gen200_p0.9_55.clq-compliment.txt: Vertex Cover Size 169
-2026-06-10 06:28:40,930 - INFO - Parsing the Input File started
-2026-06-10 06:28:40,990 - INFO - Parsing the Input File done in: 59.918880462646484 milliseconds
-2026-06-10 06:28:40,990 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:28:44,077 - INFO - Salvador Algorithm with an approximate solution done in: 3087.3141288757324 milliseconds
-2026-06-10 06:28:44,077 - INFO - gen400_p0.9_55.clq-compliment.txt: Vertex Cover Size 366
-2026-06-10 06:28:44,077 - INFO - Parsing the Input File started
-2026-06-10 06:28:44,131 - INFO - Parsing the Input File done in: 54.54134941101074 milliseconds
-2026-06-10 06:28:44,131 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:28:47,209 - INFO - Salvador Algorithm with an approximate solution done in: 3077.3205757141113 milliseconds
-2026-06-10 06:28:47,209 - INFO - gen400_p0.9_65.clq-compliment.txt: Vertex Cover Size 362
-2026-06-10 06:28:47,209 - INFO - Parsing the Input File started
-2026-06-10 06:28:47,261 - INFO - Parsing the Input File done in: 52.330970764160156 milliseconds
-2026-06-10 06:28:47,261 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:28:50,404 - INFO - Salvador Algorithm with an approximate solution done in: 3143.3990001678467 milliseconds
-2026-06-10 06:28:50,404 - INFO - gen400_p0.9_75.clq-compliment.txt: Vertex Cover Size 360
-2026-06-10 06:28:50,404 - INFO - Parsing the Input File started
-2026-06-10 06:28:50,441 - INFO - Parsing the Input File done in: 36.07964515686035 milliseconds
-2026-06-10 06:28:50,441 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:28:51,802 - INFO - Salvador Algorithm with an approximate solution done in: 1361.016035079956 milliseconds
-2026-06-10 06:28:51,804 - INFO - hamming10-2.clq-compliment.txt: Vertex Cover Size 574
-2026-06-10 06:28:51,805 - INFO - Parsing the Input File started
-2026-06-10 06:28:51,828 - INFO - Parsing the Input File done in: 22.37677574157715 milliseconds
-2026-06-10 06:28:51,828 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:28:51,840 - INFO - Salvador Algorithm with an approximate solution done in: 12.19940185546875 milliseconds
-2026-06-10 06:28:51,840 - INFO - hamming6-2.clq-compliment.txt: Vertex Cover Size 47
-2026-06-10 06:28:51,840 - INFO - Parsing the Input File started
-2026-06-10 06:28:51,868 - INFO - Parsing the Input File done in: 27.90045738220215 milliseconds
-2026-06-10 06:28:51,868 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:28:52,018 - INFO - Salvador Algorithm with an approximate solution done in: 150.31003952026367 milliseconds
-2026-06-10 06:28:52,018 - INFO - hamming6-4.clq-compliment.txt: Vertex Cover Size 60
-2026-06-10 06:28:52,018 - INFO - Parsing the Input File started
-2026-06-10 06:28:52,040 - INFO - Parsing the Input File done in: 22.166728973388672 milliseconds
-2026-06-10 06:28:52,040 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:28:52,122 - INFO - Salvador Algorithm with an approximate solution done in: 81.77900314331055 milliseconds
-2026-06-10 06:28:52,122 - INFO - hamming8-2.clq-compliment.txt: Vertex Cover Size 171
-2026-06-10 06:28:52,122 - INFO - Parsing the Input File started
-2026-06-10 06:28:52,205 - INFO - Parsing the Input File done in: 82.71574974060059 milliseconds
-2026-06-10 06:28:52,205 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:28:58,829 - INFO - Salvador Algorithm with an approximate solution done in: 6624.400615692139 milliseconds
-2026-06-10 06:28:58,829 - INFO - hamming8-4.clq-compliment.txt: Vertex Cover Size 240
-2026-06-10 06:28:58,830 - INFO - Parsing the Input File started
-2026-06-10 06:28:58,865 - INFO - Parsing the Input File done in: 34.90090370178223 milliseconds
-2026-06-10 06:28:58,865 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:28:59,074 - INFO - Salvador Algorithm with an approximate solution done in: 209.09428596496582 milliseconds
-2026-06-10 06:28:59,074 - INFO - johnson16-2-4.clq-compliment.txt: Vertex Cover Size 112
-2026-06-10 06:28:59,074 - INFO - Parsing the Input File started
-2026-06-10 06:28:59,164 - INFO - Parsing the Input File done in: 89.5071029663086 milliseconds
-2026-06-10 06:28:59,164 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:29:09,365 - INFO - Salvador Algorithm with an approximate solution done in: 10201.407194137573 milliseconds
-2026-06-10 06:29:09,365 - INFO - johnson32-2-4.clq-compliment.txt: Vertex Cover Size 480
-2026-06-10 06:29:09,365 - INFO - Parsing the Input File started
-2026-06-10 06:29:09,387 - INFO - Parsing the Input File done in: 21.91901206970215 milliseconds
-2026-06-10 06:29:09,387 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:29:09,387 - INFO - Salvador Algorithm with an approximate solution done in: 0.0 milliseconds
-2026-06-10 06:29:09,387 - INFO - johnson8-2-4.clq-compliment.txt: Vertex Cover Size 24
-2026-06-10 06:29:09,387 - INFO - Parsing the Input File started
-2026-06-10 06:29:09,421 - INFO - Parsing the Input File done in: 33.80084037780762 milliseconds
-2026-06-10 06:29:09,421 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:29:09,468 - INFO - Salvador Algorithm with an approximate solution done in: 46.97537422180176 milliseconds
-2026-06-10 06:29:09,468 - INFO - johnson8-4-4.clq-compliment.txt: Vertex Cover Size 56
-2026-06-10 06:29:09,469 - INFO - Parsing the Input File started
-2026-06-10 06:29:09,518 - INFO - Parsing the Input File done in: 48.4161376953125 milliseconds
-2026-06-10 06:29:09,518 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:29:10,962 - INFO - Salvador Algorithm with an approximate solution done in: 1444.2870616912842 milliseconds
-2026-06-10 06:29:10,962 - INFO - keller4.clq-compliment.txt: Vertex Cover Size 164
-2026-06-10 06:29:10,962 - INFO - Parsing the Input File started
-2026-06-10 06:29:10,985 - INFO - Parsing the Input File done in: 23.23603630065918 milliseconds
-2026-06-10 06:29:10,985 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:29:11,050 - INFO - Salvador Algorithm with an approximate solution done in: 64.52131271362305 milliseconds
-2026-06-10 06:29:11,050 - INFO - MANN_a27.clq-compliment.txt: Vertex Cover Size 258
-2026-06-10 06:29:11,050 - INFO - Parsing the Input File started
-2026-06-10 06:29:11,070 - INFO - Parsing the Input File done in: 20.041704177856445 milliseconds
-2026-06-10 06:29:11,070 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:29:11,277 - INFO - Salvador Algorithm with an approximate solution done in: 207.0636749267578 milliseconds
-2026-06-10 06:29:11,277 - INFO - MANN_a45.clq-compliment.txt: Vertex Cover Size 703
-2026-06-10 06:29:11,277 - INFO - Parsing the Input File started
-2026-06-10 06:29:11,317 - INFO - Parsing the Input File done in: 39.38770294189453 milliseconds
-2026-06-10 06:29:11,317 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:29:12,868 - INFO - Salvador Algorithm with an approximate solution done in: 1551.4769554138184 milliseconds
-2026-06-10 06:29:12,868 - INFO - MANN_a81.clq-compliment.txt: Vertex Cover Size 2239
-2026-06-10 06:29:12,868 - INFO - Parsing the Input File started
-2026-06-10 06:29:12,887 - INFO - Parsing the Input File done in: 19.385099411010742 milliseconds
-2026-06-10 06:29:12,887 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:29:12,890 - INFO - Salvador Algorithm with an approximate solution done in: 2.980947494506836 milliseconds
-2026-06-10 06:29:12,890 - INFO - MANN_a9.clq-compliment.txt: Vertex Cover Size 30
-2026-06-10 06:29:12,890 - INFO - Parsing the Input File started
-2026-06-10 06:29:12,998 - INFO - Parsing the Input File done in: 107.23042488098145 milliseconds
-2026-06-10 06:29:12,998 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:30:06,344 - INFO - Salvador Algorithm with an approximate solution done in: 53346.421241760254 milliseconds
-2026-06-10 06:30:06,344 - INFO - p_hat300-1.clq-compliment.txt: Vertex Cover Size 294
-2026-06-10 06:30:06,344 - INFO - Parsing the Input File started
-2026-06-10 06:30:06,456 - INFO - Parsing the Input File done in: 112.13946342468262 milliseconds
-2026-06-10 06:30:06,456 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:30:43,160 - INFO - Salvador Algorithm with an approximate solution done in: 36704.283237457275 milliseconds
-2026-06-10 06:30:43,160 - INFO - p_hat300-2.clq-compliment.txt: Vertex Cover Size 285
-2026-06-10 06:30:43,176 - INFO - Parsing the Input File started
-2026-06-10 06:30:43,271 - INFO - Parsing the Input File done in: 93.95217895507812 milliseconds
-2026-06-10 06:30:43,271 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:30:53,897 - INFO - Salvador Algorithm with an approximate solution done in: 10626.077651977539 milliseconds
-2026-06-10 06:30:53,897 - INFO - p_hat300-3.clq-compliment.txt: Vertex Cover Size 276
-2026-06-10 06:30:53,900 - INFO - Parsing the Input File started
-2026-06-10 06:30:53,955 - INFO - Parsing the Input File done in: 55.01389503479004 milliseconds
-2026-06-10 06:30:53,955 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:30:57,552 - INFO - Salvador Algorithm with an approximate solution done in: 3597.233533859253 milliseconds
-2026-06-10 06:30:57,552 - INFO - san200_0.7_1.clq-compliment.txt: Vertex Cover Size 185
-2026-06-10 06:30:57,567 - INFO - Parsing the Input File started
-2026-06-10 06:30:57,660 - INFO - Parsing the Input File done in: 92.46492385864258 milliseconds
-2026-06-10 06:30:57,661 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:31:01,094 - INFO - Salvador Algorithm with an approximate solution done in: 3432.9097270965576 milliseconds
-2026-06-10 06:31:01,094 - INFO - san200_0.7_2.clq-compliment.txt: Vertex Cover Size 188
-2026-06-10 06:31:01,094 - INFO - Parsing the Input File started
-2026-06-10 06:31:01,139 - INFO - Parsing the Input File done in: 45.23062705993652 milliseconds
-2026-06-10 06:31:01,139 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:31:01,493 - INFO - Salvador Algorithm with an approximate solution done in: 354.23922538757324 milliseconds
-2026-06-10 06:31:01,493 - INFO - san200_0.9_1.clq-compliment.txt: Vertex Cover Size 155
-2026-06-10 06:31:01,493 - INFO - Parsing the Input File started
-2026-06-10 06:31:01,523 - INFO - Parsing the Input File done in: 29.9074649810791 milliseconds
-2026-06-10 06:31:01,523 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:31:01,870 - INFO - Salvador Algorithm with an approximate solution done in: 347.25141525268555 milliseconds
-2026-06-10 06:31:01,870 - INFO - san200_0.9_2.clq-compliment.txt: Vertex Cover Size 163
-2026-06-10 06:31:01,870 - INFO - Parsing the Input File started
-2026-06-10 06:31:01,900 - INFO - Parsing the Input File done in: 29.85692024230957 milliseconds
-2026-06-10 06:31:01,900 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:31:02,319 - INFO - Salvador Algorithm with an approximate solution done in: 418.9724922180176 milliseconds
-2026-06-10 06:31:02,319 - INFO - san200_0.9_3.clq-compliment.txt: Vertex Cover Size 171
-2026-06-10 06:31:02,319 - INFO - Parsing the Input File started
-2026-06-10 06:31:02,519 - INFO - Parsing the Input File done in: 200.28424263000488 milliseconds
-2026-06-10 06:31:02,519 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:32:15,882 - INFO - Salvador Algorithm with an approximate solution done in: 73362.98513412476 milliseconds
-2026-06-10 06:32:15,882 - INFO - san400_0.5_1.clq-compliment.txt: Vertex Cover Size 393
-2026-06-10 06:32:15,882 - INFO - Parsing the Input File started
-2026-06-10 06:32:15,985 - INFO - Parsing the Input File done in: 103.0580997467041 milliseconds
-2026-06-10 06:32:15,985 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:32:41,987 - INFO - Salvador Algorithm with an approximate solution done in: 26001.35588645935 milliseconds
-2026-06-10 06:32:41,987 - INFO - san400_0.7_1.clq-compliment.txt: Vertex Cover Size 380
-2026-06-10 06:32:42,002 - INFO - Parsing the Input File started
-2026-06-10 06:32:42,089 - INFO - Parsing the Input File done in: 87.01062202453613 milliseconds
-2026-06-10 06:32:42,089 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:33:08,693 - INFO - Salvador Algorithm with an approximate solution done in: 26603.495836257935 milliseconds
-2026-06-10 06:33:08,693 - INFO - san400_0.7_2.clq-compliment.txt: Vertex Cover Size 384
-2026-06-10 06:33:08,698 - INFO - Parsing the Input File started
-2026-06-10 06:33:08,831 - INFO - Parsing the Input File done in: 132.6289176940918 milliseconds
-2026-06-10 06:33:08,831 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:33:34,966 - INFO - Salvador Algorithm with an approximate solution done in: 26135.227918624878 milliseconds
-2026-06-10 06:33:34,966 - INFO - san400_0.7_3.clq-compliment.txt: Vertex Cover Size 388
-2026-06-10 06:33:34,969 - INFO - Parsing the Input File started
-2026-06-10 06:33:35,019 - INFO - Parsing the Input File done in: 49.36027526855469 milliseconds
-2026-06-10 06:33:35,019 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:33:38,134 - INFO - Salvador Algorithm with an approximate solution done in: 3115.2069568634033 milliseconds
-2026-06-10 06:33:38,302 - INFO - san400_0.9_1.clq-compliment.txt: Vertex Cover Size 350
-2026-06-10 06:33:38,302 - INFO - Parsing the Input File started
-2026-06-10 06:33:38,341 - INFO - Parsing the Input File done in: 39.53289985656738 milliseconds
-2026-06-10 06:33:38,341 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:33:40,234 - INFO - Salvador Algorithm with an approximate solution done in: 1892.2369480133057 milliseconds
-2026-06-10 06:33:40,234 - INFO - sanr200_0.7.clq-compliment.txt: Vertex Cover Size 188
-2026-06-10 06:33:40,234 - INFO - Parsing the Input File started
-2026-06-10 06:33:40,277 - INFO - Parsing the Input File done in: 43.49827766418457 milliseconds
-2026-06-10 06:33:40,277 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:33:40,575 - INFO - Salvador Algorithm with an approximate solution done in: 297.5475788116455 milliseconds
-2026-06-10 06:33:40,575 - INFO - sanr200_0.9.clq-compliment.txt: Vertex Cover Size 171
-2026-06-10 06:33:40,575 - INFO - Parsing the Input File started
-2026-06-10 06:33:40,703 - INFO - Parsing the Input File done in: 128.48353385925293 milliseconds
-2026-06-10 06:33:40,703 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:34:52,863 - INFO - Salvador Algorithm with an approximate solution done in: 72160.11357307434 milliseconds
-2026-06-10 06:34:52,865 - INFO - sanr400_0.5.clq-compliment.txt: Vertex Cover Size 391
-2026-06-10 06:34:52,865 - INFO - Parsing the Input File started
-2026-06-10 06:34:52,953 - INFO - Parsing the Input File done in: 88.06467056274414 milliseconds
-2026-06-10 06:34:52,953 - INFO - Salvador Algorithm with an approximate solution started
-2026-06-10 06:35:18,774 - INFO - Salvador Algorithm with an approximate solution done in: 25820.948600769043 milliseconds
-2026-06-10 06:35:18,774 - INFO - sanr400_0.7.clq-compliment.txt: Vertex Cover Size 386
+2026-06-10 11:14:53,014 - INFO - Parsing the Input File started
+2026-06-10 11:14:53,032 - INFO - Parsing the Input File done in: 17.13728904724121 milliseconds
+2026-06-10 11:14:53,032 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:14:57,223 - INFO - Salvador Algorithm with an approximate solution done in: 4191.95556640625 milliseconds
+2026-06-10 11:14:57,223 - INFO - brock200_1.clq-compliment.txt: Vertex Cover Size 184
+2026-06-10 11:14:57,225 - INFO - Parsing the Input File started
+2026-06-10 11:14:57,250 - INFO - Parsing the Input File done in: 24.72233772277832 milliseconds
+2026-06-10 11:14:57,250 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:15:12,505 - INFO - Salvador Algorithm with an approximate solution done in: 15255.028009414673 milliseconds
+2026-06-10 11:15:12,536 - INFO - brock200_2.clq-compliment.txt: Vertex Cover Size 193
+2026-06-10 11:15:12,536 - INFO - Parsing the Input File started
+2026-06-10 11:15:12,567 - INFO - Parsing the Input File done in: 31.249284744262695 milliseconds
+2026-06-10 11:15:12,567 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:15:20,864 - INFO - Salvador Algorithm with an approximate solution done in: 8296.388149261475 milliseconds
+2026-06-10 11:15:20,864 - INFO - brock200_3.clq-compliment.txt: Vertex Cover Size 191
+2026-06-10 11:15:20,864 - INFO - Parsing the Input File started
+2026-06-10 11:15:20,886 - INFO - Parsing the Input File done in: 22.303104400634766 milliseconds
+2026-06-10 11:15:20,886 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:15:28,151 - INFO - Salvador Algorithm with an approximate solution done in: 7264.782190322876 milliseconds
+2026-06-10 11:15:28,151 - INFO - brock200_4.clq-compliment.txt: Vertex Cover Size 189
+2026-06-10 11:15:28,151 - INFO - Parsing the Input File started
+2026-06-10 11:15:28,208 - INFO - Parsing the Input File done in: 57.11197853088379 milliseconds
+2026-06-10 11:15:28,208 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:16:07,088 - INFO - Salvador Algorithm with an approximate solution done in: 38880.2592754364 milliseconds
+2026-06-10 11:16:07,088 - INFO - brock400_1.clq-compliment.txt: Vertex Cover Size 385
+2026-06-10 11:16:07,088 - INFO - Parsing the Input File started
+2026-06-10 11:16:07,158 - INFO - Parsing the Input File done in: 69.95511054992676 milliseconds
+2026-06-10 11:16:07,158 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:16:49,164 - INFO - Salvador Algorithm with an approximate solution done in: 42005.52415847778 milliseconds
+2026-06-10 11:16:49,164 - INFO - brock400_2.clq-compliment.txt: Vertex Cover Size 384
+2026-06-10 11:16:49,170 - INFO - Parsing the Input File started
+2026-06-10 11:16:49,230 - INFO - Parsing the Input File done in: 59.97037887573242 milliseconds
+2026-06-10 11:16:49,230 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:17:34,142 - INFO - Salvador Algorithm with an approximate solution done in: 44911.97657585144 milliseconds
+2026-06-10 11:17:34,142 - INFO - brock400_3.clq-compliment.txt: Vertex Cover Size 383
+2026-06-10 11:17:34,142 - INFO - Parsing the Input File started
+2026-06-10 11:17:34,217 - INFO - Parsing the Input File done in: 75.52313804626465 milliseconds
+2026-06-10 11:17:34,217 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:18:19,846 - INFO - Salvador Algorithm with an approximate solution done in: 45628.098011016846 milliseconds
+2026-06-10 11:18:19,846 - INFO - brock400_4.clq-compliment.txt: Vertex Cover Size 384
+2026-06-10 11:18:19,846 - INFO - Parsing the Input File started
+2026-06-10 11:18:19,962 - INFO - Parsing the Input File done in: 116.41836166381836 milliseconds
+2026-06-10 11:18:19,962 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:19:26,429 - INFO - Salvador Algorithm with an approximate solution done in: 66467.3261642456 milliseconds
+2026-06-10 11:19:26,429 - INFO - c-fat200-1.clq-compliment.txt: Vertex Cover Size 188
+2026-06-10 11:19:26,429 - INFO - Parsing the Input File started
+2026-06-10 11:19:26,503 - INFO - Parsing the Input File done in: 73.81558418273926 milliseconds
+2026-06-10 11:19:26,503 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:20:52,398 - INFO - Salvador Algorithm with an approximate solution done in: 85894.88506317139 milliseconds
+2026-06-10 11:20:52,398 - INFO - c-fat200-2.clq-compliment.txt: Vertex Cover Size 177
+2026-06-10 11:20:52,398 - INFO - Parsing the Input File started
+2026-06-10 11:20:52,451 - INFO - Parsing the Input File done in: 52.884578704833984 milliseconds
+2026-06-10 11:20:52,451 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:21:19,817 - INFO - Salvador Algorithm with an approximate solution done in: 27365.72790145874 milliseconds
+2026-06-10 11:21:19,817 - INFO - c-fat200-5.clq-compliment.txt: Vertex Cover Size 142
+2026-06-10 11:21:19,817 - INFO - Parsing the Input File started
+2026-06-10 11:21:19,983 - INFO - Parsing the Input File done in: 166.86725616455078 milliseconds
+2026-06-10 11:21:19,983 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:23:43,649 - INFO - Salvador Algorithm with an approximate solution done in: 143665.80629348755 milliseconds
+2026-06-10 11:23:43,649 - INFO - C1000.9.clq-compliment.txt: Vertex Cover Size 951
+2026-06-10 11:23:43,649 - INFO - Parsing the Input File started
+2026-06-10 11:23:43,672 - INFO - Parsing the Input File done in: 22.515535354614258 milliseconds
+2026-06-10 11:23:43,672 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:23:43,929 - INFO - Salvador Algorithm with an approximate solution done in: 257.31420516967773 milliseconds
+2026-06-10 11:23:43,929 - INFO - C125.9.clq-compliment.txt: Vertex Cover Size 94
+2026-06-10 11:23:43,929 - INFO - Parsing the Input File started
+2026-06-10 11:23:43,955 - INFO - Parsing the Input File done in: 25.6807804107666 milliseconds
+2026-06-10 11:23:43,955 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:23:47,422 - INFO - Salvador Algorithm with an approximate solution done in: 3466.815710067749 milliseconds
+2026-06-10 11:23:47,422 - INFO - C250.9.clq-compliment.txt: Vertex Cover Size 214
+2026-06-10 11:23:47,435 - INFO - Parsing the Input File started
+2026-06-10 11:23:47,496 - INFO - Parsing the Input File done in: 59.95512008666992 milliseconds
+2026-06-10 11:23:47,496 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:24:00,992 - INFO - Salvador Algorithm with an approximate solution done in: 13495.951175689697 milliseconds
+2026-06-10 11:24:00,992 - INFO - C500.9.clq-compliment.txt: Vertex Cover Size 464
+2026-06-10 11:24:00,994 - INFO - Parsing the Input File started
+2026-06-10 11:24:01,020 - INFO - Parsing the Input File done in: 26.925325393676758 milliseconds
+2026-06-10 11:24:01,020 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:24:02,208 - INFO - Salvador Algorithm with an approximate solution done in: 1187.4401569366455 milliseconds
+2026-06-10 11:24:02,208 - INFO - gen200_p0.9_44.clq-compliment.txt: Vertex Cover Size 170
+2026-06-10 11:24:02,208 - INFO - Parsing the Input File started
+2026-06-10 11:24:02,232 - INFO - Parsing the Input File done in: 24.431228637695312 milliseconds
+2026-06-10 11:24:02,232 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:24:03,101 - INFO - Salvador Algorithm with an approximate solution done in: 868.2723045349121 milliseconds
+2026-06-10 11:24:03,101 - INFO - gen200_p0.9_55.clq-compliment.txt: Vertex Cover Size 169
+2026-06-10 11:24:03,102 - INFO - Parsing the Input File started
+2026-06-10 11:24:03,134 - INFO - Parsing the Input File done in: 32.230377197265625 milliseconds
+2026-06-10 11:24:03,134 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:24:11,920 - INFO - Salvador Algorithm with an approximate solution done in: 8786.529302597046 milliseconds
+2026-06-10 11:24:11,920 - INFO - gen400_p0.9_55.clq-compliment.txt: Vertex Cover Size 366
+2026-06-10 11:24:11,920 - INFO - Parsing the Input File started
+2026-06-10 11:24:11,993 - INFO - Parsing the Input File done in: 63.62342834472656 milliseconds
+2026-06-10 11:24:11,993 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:24:20,624 - INFO - Salvador Algorithm with an approximate solution done in: 8630.980968475342 milliseconds
+2026-06-10 11:24:20,624 - INFO - gen400_p0.9_65.clq-compliment.txt: Vertex Cover Size 362
+2026-06-10 11:24:20,624 - INFO - Parsing the Input File started
+2026-06-10 11:24:20,661 - INFO - Parsing the Input File done in: 37.018775939941406 milliseconds
+2026-06-10 11:24:20,661 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:24:31,270 - INFO - Salvador Algorithm with an approximate solution done in: 10608.98208618164 milliseconds
+2026-06-10 11:24:31,270 - INFO - gen400_p0.9_75.clq-compliment.txt: Vertex Cover Size 360
+2026-06-10 11:24:31,270 - INFO - Parsing the Input File started
+2026-06-10 11:24:31,332 - INFO - Parsing the Input File done in: 61.77830696105957 milliseconds
+2026-06-10 11:24:31,332 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:24:34,369 - INFO - Salvador Algorithm with an approximate solution done in: 3036.8621349334717 milliseconds
+2026-06-10 11:24:34,369 - INFO - hamming10-2.clq-compliment.txt: Vertex Cover Size 512
+2026-06-10 11:24:34,369 - INFO - Parsing the Input File started
+2026-06-10 11:24:34,402 - INFO - Parsing the Input File done in: 33.05816650390625 milliseconds
+2026-06-10 11:24:34,402 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:24:34,735 - INFO - Salvador Algorithm with an approximate solution done in: 333.17089080810547 milliseconds
+2026-06-10 11:24:34,735 - INFO - hamming6-2.clq-compliment.txt: Vertex Cover Size 32
+2026-06-10 11:24:34,735 - INFO - Parsing the Input File started
+2026-06-10 11:24:34,751 - INFO - Parsing the Input File done in: 16.20626449584961 milliseconds
+2026-06-10 11:24:34,751 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:24:35,097 - INFO - Salvador Algorithm with an approximate solution done in: 345.7913398742676 milliseconds
+2026-06-10 11:24:35,097 - INFO - hamming6-4.clq-compliment.txt: Vertex Cover Size 62
+2026-06-10 11:24:35,097 - INFO - Parsing the Input File started
+2026-06-10 11:24:35,097 - INFO - Parsing the Input File done in: 0.0 milliseconds
+2026-06-10 11:24:35,097 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:24:35,416 - INFO - Salvador Algorithm with an approximate solution done in: 319.4591999053955 milliseconds
+2026-06-10 11:24:35,416 - INFO - hamming8-2.clq-compliment.txt: Vertex Cover Size 128
+2026-06-10 11:24:35,416 - INFO - Parsing the Input File started
+2026-06-10 11:24:35,559 - INFO - Parsing the Input File done in: 142.70424842834473 milliseconds
+2026-06-10 11:24:35,559 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:24:42,207 - INFO - Salvador Algorithm with an approximate solution done in: 6647.705793380737 milliseconds
+2026-06-10 11:24:42,207 - INFO - hamming8-4.clq-compliment.txt: Vertex Cover Size 240
+2026-06-10 11:24:42,207 - INFO - Parsing the Input File started
+2026-06-10 11:24:42,229 - INFO - Parsing the Input File done in: 22.304058074951172 milliseconds
+2026-06-10 11:24:42,229 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:24:43,009 - INFO - Salvador Algorithm with an approximate solution done in: 779.3090343475342 milliseconds
+2026-06-10 11:24:43,009 - INFO - johnson16-2-4.clq-compliment.txt: Vertex Cover Size 112
+2026-06-10 11:24:43,009 - INFO - Parsing the Input File started
+2026-06-10 11:24:43,071 - INFO - Parsing the Input File done in: 61.53535842895508 milliseconds
+2026-06-10 11:24:43,071 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:24:50,820 - INFO - Salvador Algorithm with an approximate solution done in: 7749.221563339233 milliseconds
+2026-06-10 11:24:50,820 - INFO - johnson32-2-4.clq-compliment.txt: Vertex Cover Size 480
+2026-06-10 11:24:50,822 - INFO - Parsing the Input File started
+2026-06-10 11:24:50,823 - INFO - Parsing the Input File done in: 0.0 milliseconds
+2026-06-10 11:24:50,823 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:24:50,847 - INFO - Salvador Algorithm with an approximate solution done in: 23.423433303833008 milliseconds
+2026-06-10 11:24:50,847 - INFO - johnson8-2-4.clq-compliment.txt: Vertex Cover Size 24
+2026-06-10 11:24:50,847 - INFO - Parsing the Input File started
+2026-06-10 11:24:50,856 - INFO - Parsing the Input File done in: 9.20414924621582 milliseconds
+2026-06-10 11:24:50,856 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:24:50,973 - INFO - Salvador Algorithm with an approximate solution done in: 117.401123046875 milliseconds
+2026-06-10 11:24:50,973 - INFO - johnson8-4-4.clq-compliment.txt: Vertex Cover Size 56
+2026-06-10 11:24:50,974 - INFO - Parsing the Input File started
+2026-06-10 11:24:50,988 - INFO - Parsing the Input File done in: 14.056921005249023 milliseconds
+2026-06-10 11:24:50,989 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:24:55,484 - INFO - Salvador Algorithm with an approximate solution done in: 4494.333028793335 milliseconds
+2026-06-10 11:24:55,484 - INFO - keller4.clq-compliment.txt: Vertex Cover Size 164
+2026-06-10 11:24:55,484 - INFO - Parsing the Input File started
+2026-06-10 11:24:55,487 - INFO - Parsing the Input File done in: 2.6216506958007812 milliseconds
+2026-06-10 11:24:55,487 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:24:55,782 - INFO - Salvador Algorithm with an approximate solution done in: 294.65651512145996 milliseconds
+2026-06-10 11:24:55,782 - INFO - MANN_a27.clq-compliment.txt: Vertex Cover Size 253
+2026-06-10 11:24:55,782 - INFO - Parsing the Input File started
+2026-06-10 11:24:55,782 - INFO - Parsing the Input File done in: 0.0 milliseconds
+2026-06-10 11:24:55,782 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:24:56,255 - INFO - Salvador Algorithm with an approximate solution done in: 473.3014106750488 milliseconds
+2026-06-10 11:24:56,255 - INFO - MANN_a45.clq-compliment.txt: Vertex Cover Size 703
+2026-06-10 11:24:56,255 - INFO - Parsing the Input File started
+2026-06-10 11:24:56,271 - INFO - Parsing the Input File done in: 15.858888626098633 milliseconds
+2026-06-10 11:24:56,271 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:24:59,105 - INFO - Salvador Algorithm with an approximate solution done in: 2834.322690963745 milliseconds
+2026-06-10 11:24:59,105 - INFO - MANN_a81.clq-compliment.txt: Vertex Cover Size 2225
+2026-06-10 11:24:59,105 - INFO - Parsing the Input File started
+2026-06-10 11:24:59,105 - INFO - Parsing the Input File done in: 0.0 milliseconds
+2026-06-10 11:24:59,105 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:24:59,121 - INFO - Salvador Algorithm with an approximate solution done in: 16.13903045654297 milliseconds
+2026-06-10 11:24:59,121 - INFO - MANN_a9.clq-compliment.txt: Vertex Cover Size 29
+2026-06-10 11:24:59,121 - INFO - Parsing the Input File started
+2026-06-10 11:24:59,202 - INFO - Parsing the Input File done in: 80.19280433654785 milliseconds
+2026-06-10 11:24:59,202 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:26:24,788 - INFO - Salvador Algorithm with an approximate solution done in: 85573.3916759491 milliseconds
+2026-06-10 11:26:24,788 - INFO - p_hat300-1.clq-compliment.txt: Vertex Cover Size 294
+2026-06-10 11:26:24,797 - INFO - Parsing the Input File started
+2026-06-10 11:26:24,977 - INFO - Parsing the Input File done in: 180.06062507629395 milliseconds
+2026-06-10 11:26:24,977 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:27:20,442 - INFO - Salvador Algorithm with an approximate solution done in: 55464.723348617554 milliseconds
+2026-06-10 11:27:20,442 - INFO - p_hat300-2.clq-compliment.txt: Vertex Cover Size 285
+2026-06-10 11:27:20,458 - INFO - Parsing the Input File started
+2026-06-10 11:27:20,552 - INFO - Parsing the Input File done in: 94.58661079406738 milliseconds
+2026-06-10 11:27:20,553 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:27:35,799 - INFO - Salvador Algorithm with an approximate solution done in: 15246.705532073975 milliseconds
+2026-06-10 11:27:35,799 - INFO - p_hat300-3.clq-compliment.txt: Vertex Cover Size 276
+2026-06-10 11:27:35,799 - INFO - Parsing the Input File started
+2026-06-10 11:27:35,965 - INFO - Parsing the Input File done in: 165.45844078063965 milliseconds
+2026-06-10 11:27:35,965 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:28:54,877 - INFO - Salvador Algorithm with an approximate solution done in: 78912.15634346008 milliseconds
+2026-06-10 11:28:54,877 - INFO - p_hat500-3.clq-compliment.txt: Vertex Cover Size 471
+2026-06-10 11:28:54,885 - INFO - Parsing the Input File started
+2026-06-10 11:28:54,935 - INFO - Parsing the Input File done in: 50.19736289978027 milliseconds
+2026-06-10 11:28:54,935 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:29:04,053 - INFO - Salvador Algorithm with an approximate solution done in: 9117.455959320068 milliseconds
+2026-06-10 11:29:04,053 - INFO - san200_0.7_1.clq-compliment.txt: Vertex Cover Size 185
+2026-06-10 11:29:04,053 - INFO - Parsing the Input File started
+2026-06-10 11:29:04,078 - INFO - Parsing the Input File done in: 25.446414947509766 milliseconds
+2026-06-10 11:29:04,078 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:29:09,590 - INFO - Salvador Algorithm with an approximate solution done in: 5512.059450149536 milliseconds
+2026-06-10 11:29:09,590 - INFO - san200_0.7_2.clq-compliment.txt: Vertex Cover Size 188
+2026-06-10 11:29:09,592 - INFO - Parsing the Input File started
+2026-06-10 11:29:09,599 - INFO - Parsing the Input File done in: 7.098674774169922 milliseconds
+2026-06-10 11:29:09,599 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:29:11,374 - INFO - Salvador Algorithm with an approximate solution done in: 1774.6124267578125 milliseconds
+2026-06-10 11:29:11,374 - INFO - san200_0.9_1.clq-compliment.txt: Vertex Cover Size 155
+2026-06-10 11:29:11,375 - INFO - Parsing the Input File started
+2026-06-10 11:29:11,391 - INFO - Parsing the Input File done in: 15.205144882202148 milliseconds
+2026-06-10 11:29:11,391 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:29:13,127 - INFO - Salvador Algorithm with an approximate solution done in: 1736.3612651824951 milliseconds
+2026-06-10 11:29:13,127 - INFO - san200_0.9_2.clq-compliment.txt: Vertex Cover Size 163
+2026-06-10 11:29:13,128 - INFO - Parsing the Input File started
+2026-06-10 11:29:13,138 - INFO - Parsing the Input File done in: 9.999275207519531 milliseconds
+2026-06-10 11:29:13,138 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:29:15,152 - INFO - Salvador Algorithm with an approximate solution done in: 2013.535976409912 milliseconds
+2026-06-10 11:29:15,152 - INFO - san200_0.9_3.clq-compliment.txt: Vertex Cover Size 171
+2026-06-10 11:29:15,156 - INFO - Parsing the Input File started
+2026-06-10 11:29:15,389 - INFO - Parsing the Input File done in: 232.75041580200195 milliseconds
+2026-06-10 11:29:15,389 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:31:31,144 - INFO - Salvador Algorithm with an approximate solution done in: 135755.06687164307 milliseconds
+2026-06-10 11:31:31,144 - INFO - san400_0.5_1.clq-compliment.txt: Vertex Cover Size 393
+2026-06-10 11:31:31,154 - INFO - Parsing the Input File started
+2026-06-10 11:31:31,296 - INFO - Parsing the Input File done in: 142.08483695983887 milliseconds
+2026-06-10 11:31:31,296 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:32:40,439 - INFO - Salvador Algorithm with an approximate solution done in: 69143.04995536804 milliseconds
+2026-06-10 11:32:40,439 - INFO - san400_0.7_1.clq-compliment.txt: Vertex Cover Size 380
+2026-06-10 11:32:40,439 - INFO - Parsing the Input File started
+2026-06-10 11:32:40,525 - INFO - Parsing the Input File done in: 86.56978607177734 milliseconds
+2026-06-10 11:32:40,525 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:33:39,663 - INFO - Salvador Algorithm with an approximate solution done in: 59137.54081726074 milliseconds
+2026-06-10 11:33:39,663 - INFO - san400_0.7_2.clq-compliment.txt: Vertex Cover Size 384
+2026-06-10 11:33:39,678 - INFO - Parsing the Input File started
+2026-06-10 11:33:39,750 - INFO - Parsing the Input File done in: 72.49832153320312 milliseconds
+2026-06-10 11:33:39,750 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:34:19,786 - INFO - Salvador Algorithm with an approximate solution done in: 40035.86483001709 milliseconds
+2026-06-10 11:34:19,786 - INFO - san400_0.7_3.clq-compliment.txt: Vertex Cover Size 388
+2026-06-10 11:34:19,796 - INFO - Parsing the Input File started
+2026-06-10 11:34:19,833 - INFO - Parsing the Input File done in: 36.76247596740723 milliseconds
+2026-06-10 11:34:19,833 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:34:30,739 - INFO - Salvador Algorithm with an approximate solution done in: 10906.906366348267 milliseconds
+2026-06-10 11:34:30,739 - INFO - san400_0.9_1.clq-compliment.txt: Vertex Cover Size 350
+2026-06-10 11:34:30,739 - INFO - Parsing the Input File started
+2026-06-10 11:34:30,752 - INFO - Parsing the Input File done in: 12.194156646728516 milliseconds
+2026-06-10 11:34:30,752 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:34:37,181 - INFO - Salvador Algorithm with an approximate solution done in: 6428.953409194946 milliseconds
+2026-06-10 11:34:37,181 - INFO - sanr200_0.7.clq-compliment.txt: Vertex Cover Size 188
+2026-06-10 11:34:37,181 - INFO - Parsing the Input File started
+2026-06-10 11:34:37,181 - INFO - Parsing the Input File done in: 0.0 milliseconds
+2026-06-10 11:34:37,181 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:34:38,167 - INFO - Salvador Algorithm with an approximate solution done in: 985.8756065368652 milliseconds
+2026-06-10 11:34:38,167 - INFO - sanr200_0.9.clq-compliment.txt: Vertex Cover Size 171
+2026-06-10 11:34:38,167 - INFO - Parsing the Input File started
+2026-06-10 11:34:38,264 - INFO - Parsing the Input File done in: 97.66173362731934 milliseconds
+2026-06-10 11:34:38,264 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:37:00,145 - INFO - Salvador Algorithm with an approximate solution done in: 141881.29043579102 milliseconds
+2026-06-10 11:37:00,145 - INFO - sanr400_0.5.clq-compliment.txt: Vertex Cover Size 391
+2026-06-10 11:37:00,145 - INFO - Parsing the Input File started
+2026-06-10 11:37:00,324 - INFO - Parsing the Input File done in: 178.361177444458 milliseconds
+2026-06-10 11:37:00,324 - INFO - Salvador Algorithm with an approximate solution started
+2026-06-10 11:38:24,368 - INFO - Salvador Algorithm with an approximate solution done in: 84044.02494430542 milliseconds
+2026-06-10 11:38:24,368 - INFO - sanr400_0.7.clq-compliment.txt: Vertex Cover Size 386
