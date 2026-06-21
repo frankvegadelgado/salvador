@@ -1,105 +1,75 @@
-# Created on 26/07/2025
-# Author: Frank Vega
+"""Public vertex-cover solvers exposed by Salvador."""
+
+from __future__ import annotations
 
 import itertools
-from . import utils
+from typing import Any
 
 import networkx as nx
-from . import vc_reduction
 
-# ============================================================
-# Linear-time redundant-vertex pruning (replaces bitsets + local search)
-# ============================================================
+from . import utils, vc_reduction
 
-def prune_redundant_vertices(adj, C):
+
+def prune_redundant_vertices(adj: dict[Any, set[Any]], cover: set[Any]) -> set[Any]:
+    """Remove redundant vertices from a candidate cover in one pass.
+
+    A vertex ``v`` can be removed when every neighbour of ``v`` remains in the
+    current cover. In that case each edge incident to ``v`` is still covered by
+    the neighbour endpoint after removal.
     """
-    Linear-time single-pass removal of redundant vertices.
-    For every v in C we check (in O(deg(v)) time) whether all its neighbors
-    are still in the current cover. If yes, we safely remove it immediately.
-    Total time across all calls remains O(n + m).
+    current_cover = set(cover)
+
+    for v in list(current_cover):
+        if all(u in current_cover for u in adj.get(v, ())):
+            current_cover.remove(v)
+
+    return current_cover
+
+
+def find_vertex_cover(graph: nx.Graph, epsilon: float = 0.1) -> set[Any]:
+    """Return Salvador's approximate vertex cover for ``graph``.
+
+    The algorithmic logic is the same as the previous implementation: remove
+    self-loops and isolated vertices, solve the spanning-forest-core reduction,
+    repair uncovered original edges, and finish with a single redundancy-pruning
+    pass.
     """
-    C = set(C)
-    for v in list(C):          # list() protects against modification during iteration
-        # Check if every neighbor is still in C
-        all_neighbors_covered = True
-        for u in adj.get(v, []):
-            if u not in C:
-                all_neighbors_covered = False
-                break
-        if all_neighbors_covered:
-            C.remove(v)
-    return C
+    working_graph = graph.copy()
+    working_graph.remove_edges_from(nx.selfloop_edges(working_graph))
+    working_graph.remove_nodes_from(list(nx.isolates(working_graph)))
 
-
-# ============================================================
-# Main ensemble (now strictly linear-time O(n + m))
-# ============================================================
-
-def find_vertex_cover(graph, epsilon: float = 0.1):
-    G = graph.copy()
-    G.remove_edges_from(nx.selfloop_edges(G))
-    G.remove_nodes_from(list(nx.isolates(G)))
-
-    if G.number_of_edges() == 0:
+    if working_graph.number_of_edges() == 0:
         return set()
-    
-    # Linear forest-core MIDS reduction with one repair scan.
-    cover, _ = vc_reduction.solve_vc(G, epsilon)
-    
-    # Final pruning on final candidate (still linear)
-    adj = {v: set(G[v]) for v in G}
-    cover_prune = prune_redundant_vertices(adj, cover)
 
-    return cover_prune
+    cover, _ = vc_reduction.solve_vc(working_graph, epsilon)
+    adj = {v: set(working_graph[v]) for v in working_graph}
+    return prune_redundant_vertices(adj, set(cover))
 
 
-def find_vertex_cover_brute_force(graph):
-    """
-    Computes an exact minimum vertex cover in exponential time.
-
-    Args:
-        graph: A NetworkX Graph.
-
-    Returns:
-        A set of vertex indices representing the exact vertex cover, or None if the graph is empty.
-    """
-
+def find_vertex_cover_brute_force(graph: nx.Graph) -> set[Any] | None:
+    """Compute an exact minimum vertex cover by exhaustive search."""
     if graph.number_of_nodes() == 0 or graph.number_of_edges() == 0:
         return None
 
     working_graph = graph.copy()
     working_graph.remove_edges_from(list(nx.selfloop_edges(working_graph)))
     working_graph.remove_nodes_from(list(nx.isolates(working_graph)))
-    
+
     if working_graph.number_of_nodes() == 0:
         return set()
 
-    n_vertices = len(working_graph.nodes())
-
-    for k in range(1, n_vertices + 1): # Iterate through all possible sizes of the cover
-        for candidate in itertools.combinations(working_graph.nodes(), k):
+    nodes = list(working_graph.nodes())
+    for k in range(1, len(nodes) + 1):
+        for candidate in itertools.combinations(nodes, k):
             cover_candidate = set(candidate)
             if utils.is_vertex_cover(working_graph, cover_candidate):
                 return cover_candidate
-                
+
     return None
 
 
-
-def find_vertex_cover_approximation(graph):
-    """
-    Computes an approximate vertex cover in polynomial time with an approximation ratio of at most 2 for undirected graphs.
-
-    Args:
-        graph: A NetworkX Graph.
-
-    Returns:
-        A set of vertex indices representing the approximate vertex cover, or None if the graph is empty.
-    """
-
+def find_vertex_cover_approximation(graph: nx.Graph) -> set[Any] | None:
+    """Return NetworkX's standard 2-approximation vertex cover baseline."""
     if graph.number_of_nodes() == 0 or graph.number_of_edges() == 0:
         return None
-
-    #networkx doesn't have a guaranteed minimum vertex cover function, so we use approximation
-    vertex_cover = nx.approximation.vertex_cover.min_weighted_vertex_cover(graph)
-    return vertex_cover
+    return set(nx.approximation.vertex_cover.min_weighted_vertex_cover(graph))

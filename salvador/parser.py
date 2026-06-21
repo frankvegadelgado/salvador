@@ -1,85 +1,83 @@
-import lzma
+"""DIMACS graph parser and writer utilities."""
+
+from __future__ import annotations
+
 import bz2
-import numpy as np
-import scipy.sparse as sparse
+import lzma
+from pathlib import Path
+from typing import Iterable, TextIO
+
 import networkx as nx
 
 from . import utils
 
-def create_sparse_matrix_from_file(file):
-    """Creates a sparse matrix from a file containing a DIMACS format representation.
+_COMPRESSED_OPENERS = {
+    "xz": lzma.open,
+    "lzma": lzma.open,
+    "bz2": bz2.open,
+    "bzip2": bz2.open,
+}
 
-    Args:
-        file: A file-like object (e.g., an opened file) containing the matrix data.
 
-    Returns:
-        A NetworkX Graph.
+def create_sparse_matrix_from_file(file: Iterable[str]) -> nx.Graph:
+    """Create a NetworkX graph from a DIMACS edge-list stream.
 
-    Raises:
-        ValueError: If the input matrix is not the correct DIMACS format.
+    Only edge descriptor lines of the form ``e u v`` are used. Comment lines,
+    problem-header lines, empty lines, and unrecognised metadata are skipped.
+    Vertex labels are converted from DIMACS' one-based convention to the
+    package's zero-based internal representation.
     """
     graph = nx.Graph()
-    for i, line in enumerate(file):
-        line = line.strip()  # Remove newline characters
-        parts = line.split(' ')
-        if not line.startswith('c') and len(parts) == 3:
-            # Check if this looks like an edge line (has numbers at the end)
-            try:
-                int(parts[-1])
-                int(parts[-2])
-                pass  # Process as edge
-            except (ValueError, IndexError):
-                continue  # Skip metadata lines
-            edge = [np.int32(parts[-1]), np.int32(parts[-2])]
-            if min(edge[0], edge[1]) <= 0:
-                raise ValueError(f"The input file is not in the correct DIMACS format at line {i}")
-            else:
-                graph.add_edge(edge[0] - 1, edge[1] - 1)
-    
+
+    for line_number, raw_line in enumerate(file, start=1):
+        line = raw_line.strip()
+        if not line or line.startswith("c"):
+            continue
+
+        parts = line.split()
+        if len(parts) < 3 or parts[0].lower() != "e":
+            continue
+
+        try:
+            u, v = int(parts[1]), int(parts[2])
+        except ValueError as exc:
+            raise ValueError(
+                f"Invalid DIMACS edge at line {line_number}: {raw_line.rstrip()}"
+            ) from exc
+
+        if u <= 0 or v <= 0:
+            raise ValueError(
+                f"DIMACS vertices must be positive at line {line_number}: {raw_line.rstrip()}"
+            )
+
+        graph.add_edge(u - 1, v - 1)
+
     return graph
 
-def save_sparse_matrix_to_file(matrix, filename):
-    """
-    Writes a SciPy sparse matrix to a DIMACS format.
 
-    Args:
-        matrix: The SciPy sparse matrix.
-        filename: The name of the output text file.
-    """
+def save_sparse_matrix_to_file(matrix, filename: str) -> None:
+    """Write a SciPy sparse adjacency matrix in DIMACS edge format."""
     rows, cols = matrix.nonzero()
-    
-    with open(filename, 'w') as f:
-        f.write(f"p edge {matrix.shape[0]} {matrix.nnz // 2 - matrix.shape[0]//2}" + "\n")
-        for i, j in zip(rows, cols):
-            if i < j:
-                f.write(f"e {i + 1} {j + 1}" + "\n")
-    
+    edges = [(int(i), int(j)) for i, j in zip(rows, cols) if i < j]
 
-def read(filepath):
-    """Reads a file and returns its lines in an array format.
+    with Path(filename).open("w", encoding="utf-8") as file:
+        file.write(f"p edge {matrix.shape[0]} {len(edges)}\n")
+        for i, j in edges:
+            file.write(f"e {i + 1} {j + 1}\n")
 
-    Args:
-        filepath: The path to the file.
 
-    Returns:
-        A NetworkX Graph.
+def _open_text(filepath: str) -> TextIO:
+    extension = utils.get_extension_without_dot(filepath)
+    opener = _COMPRESSED_OPENERS.get(extension or "")
+    if opener is not None:
+        return opener(filepath, "rt")
+    return Path(filepath).open("r", encoding="utf-8")
 
-    Raises:
-        FileNotFoundError: If the file is not found.
-    """
 
+def read(filepath: str) -> nx.Graph:
+    """Read a DIMACS graph, including supported compressed text formats."""
     try:
-        extension = utils.get_extension_without_dot(filepath)
-        if extension == 'xz' or extension == 'lzma':
-            with lzma.open(filepath, 'rt') as file:
-                matrix = create_sparse_matrix_from_file(file)
-        elif extension == 'bz2' or extension == 'bzip2':
-            with bz2.open(filepath, 'rt') as file:
-                matrix = create_sparse_matrix_from_file(file)
-        else:
-            with open(filepath, 'r') as file:
-                matrix = create_sparse_matrix_from_file(file)
-        
-        return matrix
-    except FileNotFoundError:
-        raise FileNotFoundError(f"File not found: {filepath}")
+        with _open_text(filepath) as file:
+            return create_sparse_matrix_from_file(file)
+    except FileNotFoundError as exc:
+        raise FileNotFoundError(f"File not found: {filepath}") from exc

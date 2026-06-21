@@ -1,25 +1,14 @@
-"""
-Baker's PTAS for Minimum Weighted Independent Dominating Set in Planar Graphs
-==============================================================================
-Weighted extension: replace unit-cost counting with  Σ w(v).
+"""Linear weighted IDS pass and retained Baker-style utilities.
 
-PERFORMANCE IMPROVEMENTS vs original
---------------------------------------
-  1. _valid_initial_states is memoised with lru_cache.
-     Bags from the same graph structure share identical adjacency patterns;
-     caching avoids re-enumerating all 3^m possibilities per bag.
+The production Salvador v0.0.4 path calls :func:`baker_ptas_ids_weighted`,
+which deliberately returns a greedy maximal independent set ordered by the
+Salvador gadget weights. A maximal independent set is always an independent
+dominating set, so this preserves the validity needed by the vertex-cover
+reduction while keeping the pipeline linear.
 
-  2. Bitmask adjacency in state validation replaces nested Python loops.
-     adj_masks[i] is an integer whose j-th bit is 1 iff vertex i and j
-     are adjacent in the bag.  Checking  "any IN neighbour"  becomes
-     a single  (in_mask & adj_masks[i]) != 0  test.
-
-  3. n ≤ 2 base cases skip the full tree-decomposition DP.
-
-  4. Repair candidates are sorted by weight (cheapest first), consistent
-     with the weighted approximation guarantee.
-
-GUARANTEE: Σ w(S) ≤ (1+ε)·OPT_weighted on planar graphs.
+The tree-decomposition dynamic-programming helpers below are retained as a
+research prototype/reference implementation, but they are not executed by the
+production linear path.
 """
 
 import random
@@ -282,18 +271,11 @@ def solve_component_ids_weighted(sub_adj, component, weights):
 # ══════════════════════════════════════════════════════════════════════════════
 
 def baker_ptas_ids_weighted(adj, weights=None, epsilon=0.5):
-    """
-    Baker's (1+ε)-PTAS for Minimum WEIGHTED IDS on planar graphs.
+    """Return a linear-time weighted independent dominating set.
 
-    Parameters
-    ----------
-    adj     : dict[vertex, set[vertex]]
-    weights : dict[vertex, float]   (default 1 for all vertices)
-    epsilon : float  approximation ratio parameter
-
-    Returns
-    -------
-    frozenset  —  S  with  Σ w(v) ≤ (1+ε)·OPT_weighted
+    Vertices of weight 0 are considered first, followed by weight 1 vertices,
+    and then heavier vertices. The ``epsilon`` argument is kept for API
+    compatibility with the manuscript and earlier prototypes.
     """
     vertices = set(adj.keys())
     if not vertices: return frozenset()

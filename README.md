@@ -1,5 +1,7 @@
 # Salvador: Approximate Vertex Cover Solver
 
+**Current version:** v0.0.4
+
 ![In Loving Memory of Salvador Vega (The Grandfather I Never Knew)](docs/salvador.jpg)
 
 This work builds upon [The Salvador Algorithm](https://dev.to/frank_vega_987689489099bf/the-salvador-algorithm-3enf).
@@ -78,7 +80,7 @@ Vertex Cover Found `1, 3, 4`: Nodes `1`, `3`, and `4` constitute an optimal solu
 ## Installation
 
 ```bash
-pip install salvador
+pip install salvador==0.0.4
 ```
 
 ## Execution
@@ -96,7 +98,7 @@ pip install salvador
    vega -i ./benchmarks/testMatrix1
    ```
 
-   utilizing the `vega` command provided by Salvador's Library to execute the Boolean adjacency matrix `salvador\benchmarks\testMatrix1`. The file `testMatrix1` represents the example described herein. We also support `.xz`, `.lzma`, `.bz2`, and `.bzip2` compressed text files.
+   utilizing the `vega` command provided by Salvador to execute the Boolean adjacency matrix `salvador\benchmarks\testMatrix1`. The file `testMatrix1` represents the example described herein. We also support `.xz`, `.lzma`, `.bz2`, and `.bzip2` compressed text files.
 
    **Example Output:**
 
@@ -146,7 +148,7 @@ options:
   -a, --approximation   enable comparison with a polynomial-time approximation approach within a factor of at most 2
   -b, --bruteForce      enable comparison with the exponential-time brute-force approach
   -c, --count           calculate the size of the vertex cover
-  -v, --verbose         anable verbose output
+  -v, --verbose         enable verbose output
   -l, --log             enable file logging
   --version             show program's version number and exit
 ```
@@ -177,7 +179,7 @@ options:
   -a, --approximation   enable comparison with a polynomial-time approximation approach within a factor of at most 2
   -b, --bruteForce      enable comparison with the exponential-time brute-force approach
   -c, --count           calculate the size of the vertex cover
-  -v, --verbose         anable verbose output
+  -v, --verbose         enable verbose output
   -l, --log             enable file logging
   --version             show program's version number and exit
 ```
@@ -205,7 +207,7 @@ options:
   -b, --bruteForce      enable comparison with the exponential-time brute-force approach
   -c, --count           calculate the size of the vertex cover
   -w, --write           write the generated random matrix to a file in the current directory
-  -v, --verbose         anable verbose output
+  -v, --verbose         enable verbose output
   -l, --log             enable file logging
   --version             show program's version number and exit
 ```
@@ -220,9 +222,7 @@ options:
 
 # Complexity
 
-```diff
-+ This algorithm finds near-optimal solutions for the hard Minimum Vertex Cover problem in linear time. Theoretical and experimental evidence suggests that Salvador is a strong candidate for breaking the √2-ε barrier.
-```
+The production v0.0.4 pipeline performs a constant number of graph passes after DIMACS parsing: self-loop/isolate cleanup, spanning-forest-core construction, weighted MIDS gadget construction, greedy weighted IDS selection, repair of uncovered edges, and final redundancy pruning. The implementation always verifies the vertex-cover condition by construction; approximation-ratio claims are empirical/conjectural unless separately proved.
 
 ---
 

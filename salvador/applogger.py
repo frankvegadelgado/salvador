@@ -1,80 +1,51 @@
+"""Small logging adapters used by Salvador command-line tools."""
+
+from __future__ import annotations
+
 import logging
+from typing import Any, Protocol
+
+
+class SupportsInfo(Protocol):
+    """Protocol for logger-like objects used by :class:`Logger`."""
+
+    def info(self, msg: str, *args: Any, **kwargs: Any) -> None: ...
+
 
 class Logger:
-    """
-    A wrapper class for a logger object.
-    """
+    """Thin wrapper around a console or file logger."""
 
-    def __init__(self, logger):
-        """
-        Initializes the SatLogger with a logger object.
-
-        Args:
-            logger (logging.Logger): The underlying logger object to be used.
-        """
+    def __init__(self, logger: SupportsInfo) -> None:
         self.logger = logger
 
-    def info(self, msg, *args, **kwargs):
-        """
-        Logs an informational message using the underlying logger.
-
-        Args:
-            msg (str): The message to be logged.
-            *args: Additional arguments to be passed to the underlying logger's info method.
-            **kwargs: Additional keyword arguments to be passed to the underlying logger's info method.
-        """
+    def info(self, msg: str, *args: Any, **kwargs: Any) -> None:
+        """Log an informational message."""
         self.logger.info(msg, *args, **kwargs)
 
+
 class ConsoleLogger:
-    """
-    A simple logger class that logs to the console when enabled.
-    """
+    """Print informational messages to stdout when enabled."""
 
-    def __init__(self, log_enabled=True):
-        """
-        Initializes the ConsoleLogger with an optional flag for enabling logging.
-
-        Args:
-            log_enabled (bool, optional): Flag to enable or disable console logging. Defaults to True.
-        """
+    def __init__(self, log_enabled: bool = True) -> None:
         self.log_enabled = log_enabled
 
-    def info(self, msg, *args, **kwargs):
-        """
-        Logs a message to the console if enabled.
-
-        Args:
-            msg (str): The message to be logged.
-            *args: Additional arguments to be formatted with the message.
-            **kwargs: Additional keyword arguments (ignored for console logging).
-        """
-
+    def info(self, msg: str, *args: Any, **kwargs: Any) -> None:
+        """Print a formatted message when console logging is enabled."""
         if self.log_enabled:
-            print(msg.format(*args))  # Use f-strings or format method for cleaner formatting
+            print(msg.format(*args))
+
 
 class FileLogger:
-    """
-    A simple logger class that logs to a file.
-    """
+    """Write informational messages to a log file."""
 
-    def __init__(self, log_file="app.log", log_level=logging.INFO):
-        """
-        Initializes the FileLogger with an optional log file name and log level.
-
-        Args:
-            log_file (str, optional): The filename of the log file. Defaults to "app.log".
-            log_level (int, optional): The logging level. Defaults to logging.INFO.
-        """
-        logging.basicConfig(filename=log_file, level=log_level, format='%(asctime)s - %(levelname)s - %(message)s')
+    def __init__(self, log_file: str = "app.log", log_level: int = logging.INFO) -> None:
+        logging.basicConfig(
+            filename=log_file,
+            level=log_level,
+            format="%(asctime)s - %(levelname)s - %(message)s",
+        )
         self.logger = logging.getLogger(__name__)
 
-    def info(self, msg, *args, **kwargs):
-        """
-        Logs an informational message to the file.
-
-        Args:
-            msg (str): The message to be logged.
-            *args: Additional arguments to be formatted with the message.
-            **kwargs: Additional keyword arguments (ignored for file logging).
-        """
+    def info(self, msg: str, *args: Any, **kwargs: Any) -> None:
+        """Log a formatted informational message to the configured file."""
         self.logger.info(msg.format(*args))
