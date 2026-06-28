@@ -1,0 +1,9 @@
+group,instances,mean_ratio,max_ratio,count_above_7_4,all_valid
+Bipartite hill-climb (exact),80,1.347292,1.750000,0,True
+Bipartite obstruction (exact),1,1.000000,1.000000,0,True
+Graph atlas n<=7,1245,1.023922,1.333333,0,True
+Grids, bipartite (exact),64,1.151286,1.333333,0,True
+Random bipartite (exact),99,1.030976,1.500000,0,True
+Random general (exact, n<=12),173,1.033223,1.250000,0,True
+Relabel / order stress (exact),56,1.107143,1.666667,0,True
+OVERALL,1718,1.047767,1.750000,0,True
