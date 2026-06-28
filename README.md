@@ -1,6 +1,6 @@
 # Salvador: Approximate Vertex Cover Solver
 
-**Current version:** v0.0.4
+**Current version:** v0.0.5
 
 ![In Loving Memory of Salvador Vega (The Grandfather I Never Knew)](docs/salvador.jpg)
 
@@ -67,7 +67,7 @@ where the fields W and V specify the endpoints of the edge while the lower-case 
 
 _Example Solution:_
 
-Vertex Cover Found `1, 3, 4`: Nodes `1`, `3`, and `4` constitute an optimal solution.
+Vertex Cover Found `1, 2, 3`: Nodes `1`, `2`, and `3` constitute an optimal solution.
 
 ---
 
@@ -80,7 +80,7 @@ Vertex Cover Found `1, 3, 4`: Nodes `1`, `3`, and `4` constitute an optimal solu
 ## Installation
 
 ```bash
-pip install salvador==0.0.4
+pip install salvador==0.0.5
 ```
 
 ## Execution
@@ -103,10 +103,10 @@ pip install salvador==0.0.4
    **Example Output:**
 
    ```
-   testMatrix1: Vertex Cover Found 1, 3, 4
+   testMatrix1: Vertex Cover Found 1, 2, 3
    ```
 
-   This indicates nodes `1, 3, 4` form a vertex cover.
+   This indicates nodes `1, 2, 3` form a vertex cover.
 
 ---
 
@@ -222,7 +222,7 @@ options:
 
 # Complexity
 
-The production v0.0.4 pipeline performs a constant number of graph passes after DIMACS parsing: self-loop/isolate cleanup, spanning-forest-core construction, weighted MIDS gadget construction, greedy weighted IDS selection, repair of uncovered edges, and final redundancy pruning. The implementation always verifies the vertex-cover condition by construction; approximation-ratio claims are empirical/conjectural unless separately proved.
+The v0.0.5 pipeline performs, after DIMACS parsing: self-loop/isolate cleanup, spanning-forest-core construction, weighted MIDS gadget construction, the `epsilon`-controlled Baker PTAS weighted IDS solve, repair of uncovered edges, and final redundancy pruning. With `epsilon` activated, the IDS pass layers the bounded-treewidth gadget into `k = ceil(1/epsilon)` shifts and solves each by tree-decomposition dynamic programming, so the running time is `O(f(1/epsilon) * (n + m))` — near-linear for any fixed `epsilon`, and reducing to the linear greedy baseline at `epsilon >= 1`. The implementation always verifies the vertex-cover condition by construction; approximation-ratio claims (including the `sqrt(2)` target tested in `car/`) are empirical/conjectural unless separately proved.
 
 ---
 

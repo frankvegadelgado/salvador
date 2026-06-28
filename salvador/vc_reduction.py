@@ -1,11 +1,11 @@
 """Vertex Cover to weighted MIDS reduction used by Salvador.
 
-Production v0.0.4 keeps the same algorithmic logic as the current Salvador
-pipeline:
+The Salvador pipeline:
 
 1. Build a spanning-forest planar core with one Union-Find pass over the edges.
-2. Convert that core into the weighted MIDS gadget.
-3. Run the linear weighted independent-dominating-set pass.
+2. Convert that core into the weighted MIDS gadget (itself a forest).
+3. Run the epsilon-controlled Baker PTAS weighted independent-dominating-set
+   pass; ``epsilon`` sets the layering width ``k = ceil(1/epsilon)``.
 4. Decode the selected ``(v, 0)`` nodes as a cover and repair any uncovered
    core or original edge by adding the higher-degree endpoint.
 
@@ -35,7 +35,8 @@ def reduce_vc_to_mids(
     has a heavy hub ``('h', u, v)`` of weight ``n + 1`` adjacent to ``(u, 0)``
     and ``(v, 0)``.
     """
-    del epsilon  # The production linear pass keeps the argument for API compatibility.
+    del epsilon  # The gadget construction is epsilon-independent; epsilon is
+    # consumed downstream by the Baker PTAS pass (see ``_solve_planar``).
 
     if not assume_planar and not nx.is_planar(graph):
         raise ValueError("reduce_vc_to_mids requires a planar graph.")

@@ -33,7 +33,7 @@
   </head>
 <body>
 <h1>Salvador: Approximate Vertex Cover Solver</h1>
-<p><strong>Current version:</strong> v0.0.4</p>
+<p><strong>Current version:</strong> v0.0.5</p>
 <p><img src="salvador.jpg" alt="In Loving Memory of Salvador Vega (The Grandfather I Never Knew)"></p>
 <p>This work builds upon <a href="https://dev.to/frank_vega_987689489099bf/the-salvador-algorithm-3enf">The Salvador Algorithm</a>.</p>
 <hr>
@@ -128,7 +128,7 @@ e 3 5
 </code></pre>
 <p>where the fields W and V specify the endpoints of the edge while the lower-case character <code>e</code> signifies that this is an edge descriptor line.</p>
 <p><em>Example Solution:</em></p>
-<p>Vertex Cover Found <code>1, 3, 4</code>: Nodes <code>1</code>, <code>3</code>, and <code>4</code> constitute an optimal solution.</p>
+<p>Vertex Cover Found <code>1, 2, 3</code>: Nodes <code>1</code>, <code>2</code>, and <code>3</code> constitute an optimal solution.</p>
 <hr>
 <h1>Compile and Environment</h1>
 <h2>Prerequisites</h2>
@@ -136,7 +136,7 @@ e 3 5
 <li>Python ≥ 3.12</li>
 </ul>
 <h2>Installation</h2>
-<pre><code class="language-bash">pip install salvador==0.0.4
+<pre><code class="language-bash">pip install salvador==0.0.5
 </code></pre>
 <h2>Execution</h2>
 <ol>
@@ -152,9 +152,9 @@ cd salvador
 </code></pre>
 <p>utilizing the <code>vega</code> command provided by Salvador to execute the Boolean adjacency matrix <code>salvador\benchmarks\testMatrix1</code>. The file <code>testMatrix1</code> represents the example described herein. We also support <code>.xz</code>, <code>.lzma</code>, <code>.bz2</code>, and <code>.bzip2</code> compressed text files.</p>
 <p><strong>Example Output:</strong></p>
-<pre><code>testMatrix1: Vertex Cover Found 1, 3, 4
+<pre><code>testMatrix1: Vertex Cover Found 1, 2, 3
 </code></pre>
-<p>This indicates nodes <code>1, 3, 4</code> form a vertex cover.</p>
+<p>This indicates nodes <code>1, 2, 3</code> form a vertex cover.</p>
 </li>
 </ol>
 <hr>
@@ -238,7 +238,7 @@ options:
 </ul>
 <hr>
 <h1>Complexity</h1>
-<p>The production v0.0.4 pipeline performs a constant number of graph passes after DIMACS parsing: cleanup, spanning-forest-core construction, weighted MIDS gadget construction, greedy weighted IDS selection, repair of uncovered edges, and final redundancy pruning. The implementation always returns a valid vertex cover by construction; approximation-ratio claims are empirical/conjectural unless separately proved.</p>
+<p>The v0.0.5 pipeline performs, after DIMACS parsing: self-loop/isolate cleanup, spanning-forest-core construction, weighted MIDS gadget construction, the <code>epsilon</code>-controlled Baker PTAS weighted IDS solve, repair of uncovered edges, and final redundancy pruning. With <code>epsilon</code> activated, the IDS pass layers the bounded-treewidth gadget into <code>k = ceil(1/epsilon)</code> shifts and solves each by tree-decomposition dynamic programming, so the running time is <code>O(f(1/epsilon) * (n + m))</code> — near-linear for any fixed <code>epsilon</code>, and reducing to the linear greedy baseline at <code>epsilon &gt;= 1</code>. The implementation always verifies the vertex-cover condition by construction; approximation-ratio claims (including the <code>sqrt(2)</code> target tested in <code>car/</code>) are empirical/conjectural unless separately proved.</p>
 <hr>
 <h1>License</h1>
 <ul>

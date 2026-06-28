@@ -1,14 +1,15 @@
-"""Linear weighted IDS pass and retained Baker-style utilities.
+"""Weighted IDS pass and Baker-style PTAS utilities.
 
-The production Salvador v0.0.4 path calls :func:`baker_ptas_ids_weighted`,
-which deliberately returns a greedy maximal independent set ordered by the
-Salvador gadget weights. A maximal independent set is always an independent
-dominating set, so this preserves the validity needed by the vertex-cover
-reduction while keeping the pipeline linear.
-
-The tree-decomposition dynamic-programming helpers below are retained as a
-research prototype/reference implementation, but they are not executed by the
-production linear path.
+Since Salvador v0.0.5 the production path calls :func:`baker_ptas_ids_weighted`
+with an *active* ``epsilon``. The function runs a Baker-style PTAS: it layers the
+graph by BFS distance, removes each residue class modulo ``k = ceil(1/epsilon)``
+in turn, solves the remaining bounded-treewidth components exactly with the
+tree-decomposition dynamic program :func:`solve_component_ids_weighted`, repairs
+the removed vertices greedily, and keeps the best independent dominating set over
+the ``k`` shifts. The greedy maximal independent set produced by
+:func:`greedy_maximal_is_weighted` is retained as the ``k = 1`` baseline and as a
+safe fallback, so validity is preserved while ``epsilon`` controls solution
+quality.
 """
 
 import random
@@ -271,23 +272,29 @@ def solve_component_ids_weighted(sub_adj, component, weights):
 # ══════════════════════════════════════════════════════════════════════════════
 
 def baker_ptas_ids_weighted(adj, weights=None, epsilon=0.5):
-    """Return a linear-time weighted independent dominating set.
+    """Return a weighted independent dominating set via an active Baker PTAS.
 
-    Vertices of weight 0 are considered first, followed by weight 1 vertices,
-    and then heavier vertices. The ``epsilon`` argument is kept for API
-    compatibility with the manuscript and earlier prototypes.
+    Since v0.0.5 the ``epsilon`` parameter is *functional*. The layering width
+    is ``k = ceil(1/epsilon)``: the graph is split by BFS-layer residues modulo
+    ``k``, each residue class is removed in turn, the remaining bounded-treewidth
+    components are solved exactly by tree-decomposition dynamic programming
+    (:func:`solve_component_ids_weighted`), and the removed vertices are repaired
+    greedily.  The best solution over the ``k`` shifts is returned, never worse
+    than the greedy maximal independent set baseline.  Smaller ``epsilon`` means
+    larger ``k`` and a more thorough (and weakly better) solve.
+
+    Setting ``epsilon >= 1`` gives ``k = 1`` and recovers the cheap greedy
+    maximal-independent-set baseline as a special case.
     """
     vertices = set(adj.keys())
     if not vertices: return frozenset()
     if len(vertices) == 1: return frozenset(vertices)
     if weights is None: weights = {}
 
-    # Linear-time Baker-style pass used by Salvador's fixed-gadget pipeline.
-    # A maximal independent set is an independent dominating set; the weighted
-    # buckets preserve the cheap-first behavior without sorting or DP.
-    return greedy_maximal_is_weighted(adj, vertices, weights)
-
     k      = max(1, ceil(1.0 / epsilon))
+    # k == 1 degenerates to the greedy baseline; skip the layering for speed.
+    if k == 1:
+        return greedy_maximal_is_weighted(adj, vertices, weights)
     layers = bfs_layers(adj, vertices)
     best   = greedy_maximal_is_weighted(adj, vertices, weights)
     best_w = sum(weights.get(v, 1) for v in best)
