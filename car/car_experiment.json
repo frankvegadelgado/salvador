@@ -95985,7 +95985,7 @@
       "valid": true
     }
   ],
-  "salvador_version": "0.0.5",
+  "salvador_version": "0.0.6",
   "seed": 20260627,
   "summary_by_group": {
     "Bipartite hill-climb (exact)": {

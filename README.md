@@ -80,7 +80,7 @@ Vertex Cover Found `1, 2, 3`: Nodes `1`, `2`, and `3` constitute an optimal solu
 ## Installation
 
 ```bash
-pip install salvador==0.0.5
+pip install salvador==0.0.6
 ```
 
 ## Execution

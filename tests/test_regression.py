@@ -11,7 +11,7 @@ from salvador.utils import is_vertex_cover
 
 
 def test_version_is_005() -> None:
-    assert __version__ == "0.0.5"
+    assert __version__ == "0.0.6"
 
 
 def test_small_benchmark_cover_is_valid() -> None:
