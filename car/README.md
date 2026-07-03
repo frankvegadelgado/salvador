@@ -1,4 +1,4 @@
-# car/ — default-call approximation-ratio experiment for Salvador v0.0.5
+# car/ — default-call approximation-ratio experiment for Salvador v0.0.6
 
 This folder tests the public default call `find_vertex_cover(G, epsilon=0.1)`
 against exact optima and checks the conservative threshold `7/4 = 2 - 1/4`.

@@ -1,6 +1,6 @@
 # Salvador: Approximate Vertex Cover Solver
 
-**Current version:** v0.0.5
+**Current version:** v0.0.6
 
 ![In Loving Memory of Salvador Vega (The Grandfather I Never Knew)](docs/salvador.jpg)
 
@@ -222,7 +222,7 @@ options:
 
 # Complexity
 
-The v0.0.5 pipeline performs, after DIMACS parsing: self-loop/isolate cleanup, spanning-forest-core construction, weighted MIDS gadget construction, the `epsilon`-controlled Baker PTAS weighted IDS solve, repair of uncovered edges, and final redundancy pruning. With `epsilon` activated, the IDS pass layers the bounded-treewidth gadget into `k = ceil(1/epsilon)` shifts and solves each by tree-decomposition dynamic programming, so the running time is `O(f(1/epsilon) * (n + m))` — near-linear for any fixed `epsilon`, and reducing to the linear greedy baseline at `epsilon >= 1`. The implementation always verifies the vertex-cover condition by construction; approximation-ratio claims (including the `7/4` target tested in `car/`) are empirical/conjectural unless separately proved.
+The v0.0.6 pipeline performs, after DIMACS parsing: self-loop/isolate cleanup, spanning-forest-core construction, weighted MIDS gadget construction, the `epsilon`-controlled Baker PTAS weighted IDS solve, repair of uncovered edges, and final redundancy pruning. With `epsilon` activated, the IDS pass layers the bounded-treewidth gadget into `k = ceil(1/epsilon)` shifts and solves each by tree-decomposition dynamic programming, so the running time is `O(f(1/epsilon) * (n + m))` — near-linear for any fixed `epsilon`, and reducing to the linear greedy baseline at `epsilon >= 1`. The implementation always verifies the vertex-cover condition by construction; approximation-ratio claims (including the `7/4` target tested in `car/`) are empirical/conjectural unless separately proved.
 
 ---
 

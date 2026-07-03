@@ -1,6 +1,6 @@
 """Weighted IDS pass and Baker-style PTAS utilities.
 
-Since Salvador v0.0.5 the production path calls :func:`baker_ptas_ids_weighted`
+Since Salvador v0.0.5 (default in v0.0.6) the production path calls :func:`baker_ptas_ids_weighted`
 with an *active* ``epsilon``. The function runs a Baker-style PTAS: it layers the
 graph by BFS distance, removes each residue class modulo ``k = ceil(1/epsilon)``
 in turn, solves the remaining bounded-treewidth components exactly with the
@@ -274,7 +274,7 @@ def solve_component_ids_weighted(sub_adj, component, weights):
 def baker_ptas_ids_weighted(adj, weights=None, epsilon=0.5):
     """Return a weighted independent dominating set via an active Baker PTAS.
 
-    Since v0.0.5 the ``epsilon`` parameter is *functional*. The layering width
+    The ``epsilon`` parameter is *functional*. The layering width
     is ``k = ceil(1/epsilon)``: the graph is split by BFS-layer residues modulo
     ``k``, each residue class is removed in turn, the remaining bounded-treewidth
     components are solved exactly by tree-decomposition dynamic programming

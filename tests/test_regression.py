@@ -1,4 +1,4 @@
-"""Regression smoke tests for Salvador v0.0.5."""
+"""Regression smoke tests for Salvador v0.0.6."""
 
 from __future__ import annotations
 
@@ -10,7 +10,7 @@ from salvador.parser import read
 from salvador.utils import is_vertex_cover
 
 
-def test_version_is_005() -> None:
+def test_version_is_006() -> None:
     assert __version__ == "0.0.6"
 
 

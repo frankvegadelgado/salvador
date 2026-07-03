@@ -268,7 +268,7 @@ def main() -> None:
     overall = summarise(rows)
 
     result = {
-        "experiment": "car/ default-call (epsilon=0.1) ratio test for Salvador v0.0.5",
+        "experiment": "car/ default-call (epsilon=0.1) ratio test for Salvador v0.0.6",
         "salvador_version": __version__,
         "seed": SEED,
         "default_epsilon": DEFAULT_EPSILON,

@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.0.6
+
+- Replaced the `car/` suite with a default-call (`epsilon=0.1`) experiment that measures the approximation ratio against exact optima (Koenig certificates on bipartite instances, no MILP) and checks the `7/4` threshold. The largest observed ratio is `7/4`, attained by an eleven-vertex bipartite witness; no instance exceeds it.
+- Updated regression smoke tests and documentation for the default-call `7/4` results.
+- Bumped package version metadata to 0.0.6.
+
 ## v0.0.5
 
 - **Activated the `epsilon` parameter.** The weighted-IDS pass is the Baker-style PTAS in `baker_ptas.baker_ptas_ids_weighted`: `epsilon` controls the layering width `k = ceil(1/epsilon)`, so smaller `epsilon` yields a more thorough (and never worse) solve, with the greedy maximal independent set as the `k = 1` baseline and fallback.

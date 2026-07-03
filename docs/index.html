@@ -33,7 +33,7 @@
   </head>
 <body>
 <h1>Salvador: Approximate Vertex Cover Solver</h1>
-<p><strong>Current version:</strong> v0.0.5</p>
+<p><strong>Current version:</strong> v0.0.6</p>
 <p><img src="salvador.jpg" alt="In Loving Memory of Salvador Vega (The Grandfather I Never Knew)"></p>
 <p>This work builds upon <a href="https://dev.to/frank_vega_987689489099bf/the-salvador-algorithm-3enf">The Salvador Algorithm</a>.</p>
 <hr>
@@ -238,7 +238,7 @@ options:
 </ul>
 <hr>
 <h1>Complexity</h1>
-<p>The v0.0.5 pipeline performs, after DIMACS parsing: self-loop/isolate cleanup, spanning-forest-core construction, weighted MIDS gadget construction, the <code>epsilon</code>-controlled Baker PTAS weighted IDS solve, repair of uncovered edges, and final redundancy pruning. With <code>epsilon</code> activated, the IDS pass layers the bounded-treewidth gadget into <code>k = ceil(1/epsilon)</code> shifts and solves each by tree-decomposition dynamic programming, so the running time is <code>O(f(1/epsilon) * (n + m))</code> — near-linear for any fixed <code>epsilon</code>, and reducing to the linear greedy baseline at <code>epsilon &gt;= 1</code>. The implementation always verifies the vertex-cover condition by construction; approximation-ratio claims (including the <code>7/4</code> target tested in <code>car/</code>) are empirical/conjectural unless separately proved.</p>
+<p>The v0.0.6 pipeline performs, after DIMACS parsing: self-loop/isolate cleanup, spanning-forest-core construction, weighted MIDS gadget construction, the <code>epsilon</code>-controlled Baker PTAS weighted IDS solve, repair of uncovered edges, and final redundancy pruning. With <code>epsilon</code> activated, the IDS pass layers the bounded-treewidth gadget into <code>k = ceil(1/epsilon)</code> shifts and solves each by tree-decomposition dynamic programming, so the running time is <code>O(f(1/epsilon) * (n + m))</code> — near-linear for any fixed <code>epsilon</code>, and reducing to the linear greedy baseline at <code>epsilon &gt;= 1</code>. The implementation always verifies the vertex-cover condition by construction; approximation-ratio claims (including the <code>7/4</code> target tested in <code>car/</code>) are empirical/conjectural unless separately proved.</p>
 <hr>
 <h1>License</h1>
 <ul>
