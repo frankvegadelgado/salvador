@@ -1,0 +1,11 @@
+group,instances,max_ratio_upper_bound,mean_ratio_upper_bound,all_valid,max_n,max_elapsed_seconds
+Barabasi-Albert scale-free hub graph,3,1.353935370120389,1.3488071162469268,True,200000,23.175428
+Complete bipartite (dense),3,1.0,1.0,True,1600,8.951371
+Crown graph K_{h,h} minus perfect matching (dense, near-regular),3,1.0,1.0,True,1600,9.033603
+Double star + bridge (matching-heuristic stress),3,1.0,1.0,True,200002,6.284361
+Hierarchical star trap (degree-greedy tie-break stress),2,1.0,1.0,True,152917,5.270622
+Random 12-regular (bounded-degree adversarial),3,1.604152929971637,1.6007290847437723,True,200000,39.742824
+Random 3-regular (bounded-degree adversarial),3,1.2744274337575396,1.271460291674152,True,200000,14.258963
+Random 6-regular (bounded-degree adversarial),3,1.4482389916728768,1.4433294268019787,True,200000,24.045415
+Sparse Erdos-Renyi, avg degree 4,3,1.2775114417166802,1.276522117560596,True,200000,16.397804
+Watts-Strogatz small-world,2,1.438402752770776,1.437888851375384,True,50000,3.143264
