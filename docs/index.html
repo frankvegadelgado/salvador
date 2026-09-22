@@ -33,9 +33,9 @@
   </head>
 <body>
 <h1>Salvador: Approximate Vertex Cover Solver</h1>
-<p><strong>Current version:</strong> v0.0.6</p>
+<p><strong>Current version:</strong> v0.0.7</p>
 <p><img src="salvador.jpg" alt="In Loving Memory of Salvador Vega (The Grandfather I Never Knew)"></p>
-<p>This work builds upon <a href="https://dev.to/frank_vega_987689489099bf/the-salvador-algorithm-3enf">The Salvador Algorithm</a>.</p>
+<p>This work builds upon <a href="https://www.preprints.org/manuscript/202605.2000">The Salvador Algorithm</a>.</p>
 <hr>
 <h1>The Minimum Vertex Cover Problem</h1>
 <p>The <strong>Minimum Vertex Cover (MVC)</strong> problem is a classic optimization problem in computer science and graph theory. It involves finding the smallest set of vertices in a graph that <strong>covers</strong> all edges, meaning at least one endpoint of every edge is included in the set.</p>
@@ -128,7 +128,7 @@ e 3 5
 </code></pre>
 <p>where the fields W and V specify the endpoints of the edge while the lower-case character <code>e</code> signifies that this is an edge descriptor line.</p>
 <p><em>Example Solution:</em></p>
-<p>Vertex Cover Found <code>1, 2, 3</code>: Nodes <code>1</code>, <code>2</code>, and <code>3</code> constitute an optimal solution.</p>
+<p>Vertex Cover Found <code>1, 3, 4</code>: Nodes <code>1</code>, <code>3</code>, and <code>4</code> constitute an optimal solution.</p>
 <hr>
 <h1>Compile and Environment</h1>
 <h2>Prerequisites</h2>
@@ -152,9 +152,9 @@ cd salvador
 </code></pre>
 <p>utilizing the <code>vega</code> command provided by Salvador to execute the Boolean adjacency matrix <code>salvador\benchmarks\testMatrix1</code>. The file <code>testMatrix1</code> represents the example described herein. We also support <code>.xz</code>, <code>.lzma</code>, <code>.bz2</code>, and <code>.bzip2</code> compressed text files.</p>
 <p><strong>Example Output:</strong></p>
-<pre><code>testMatrix1: Vertex Cover Found 1, 2, 3
+<pre><code>testMatrix1: Vertex Cover Found 1, 3, 4
 </code></pre>
-<p>This indicates nodes <code>1, 2, 3</code> form a vertex cover.</p>
+<p>This indicates nodes <code>1, 3, 4</code> form a vertex cover.</p>
 </li>
 </ol>
 <hr>
@@ -163,7 +163,7 @@ cd salvador
 <pre><code class="language-bash">vega -i ./benchmarks/testMatrix2 -c
 </code></pre>
 <p><strong>Output:</strong></p>
-<pre><code>testMatrix2: Vertex Cover Size 6
+<pre><code>testMatrix2: Vertex Cover Size 5
 </code></pre>
 <hr>
 <h1>Command Options</h1>
@@ -236,9 +236,6 @@ options:
 <ul>
 <li>Python implementation by <strong>Frank Vega</strong>.</li>
 </ul>
-<hr>
-<h1>Complexity</h1>
-<p>The v0.0.6 pipeline performs, after DIMACS parsing: self-loop/isolate cleanup, spanning-forest-core construction, weighted MIDS gadget construction, the <code>epsilon</code>-controlled Baker PTAS weighted IDS solve, repair of uncovered edges, and final redundancy pruning. With <code>epsilon</code> activated, the IDS pass layers the bounded-treewidth gadget into <code>k = ceil(1/epsilon)</code> shifts and solves each by tree-decomposition dynamic programming, so the running time is <code>O(f(1/epsilon) * (n + m))</code> — near-linear for any fixed <code>epsilon</code>, and reducing to the linear greedy baseline at <code>epsilon &gt;= 1</code>. The implementation always verifies the vertex-cover condition by construction; approximation-ratio claims (including the <code>7/4</code> target tested in <code>car/</code>) are empirical/conjectural unless separately proved.</p>
 <hr>
 <h1>License</h1>
 <ul>

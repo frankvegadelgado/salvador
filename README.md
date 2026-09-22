@@ -1,10 +1,10 @@
 # Salvador: Approximate Vertex Cover Solver
 
-**Current version:** v0.0.6
+**Current version:** v0.0.7
 
 ![In Loving Memory of Salvador Vega (The Grandfather I Never Knew)](docs/salvador.jpg)
 
-This work builds upon [The Salvador Algorithm](https://dev.to/frank_vega_987689489099bf/the-salvador-algorithm-3enf).
+This work builds upon [The Salvador Algorithm](https://www.preprints.org/manuscript/202605.2000).
 
 ---
 
@@ -67,7 +67,7 @@ where the fields W and V specify the endpoints of the edge while the lower-case 
 
 _Example Solution:_
 
-Vertex Cover Found `1, 2, 3`: Nodes `1`, `2`, and `3` constitute an optimal solution.
+Vertex Cover Found `1, 3, 4`: Nodes `1`, `3`, and `4` constitute an optimal solution.
 
 ---
 
@@ -103,10 +103,10 @@ pip install salvador==0.0.6
    **Example Output:**
 
    ```
-   testMatrix1: Vertex Cover Found 1, 2, 3
+   testMatrix1: Vertex Cover Found 1, 3, 4
    ```
 
-   This indicates nodes `1, 2, 3` form a vertex cover.
+   This indicates nodes `1, 3, 4` form a vertex cover.
 
 ---
 
@@ -121,7 +121,7 @@ vega -i ./benchmarks/testMatrix2 -c
 **Output:**
 
 ```
-testMatrix2: Vertex Cover Size 6
+testMatrix2: Vertex Cover Size 5
 ```
 
 ---
@@ -217,12 +217,6 @@ options:
 # Code
 
 - Python implementation by **Frank Vega**.
-
----
-
-# Complexity
-
-The v0.0.6 pipeline performs, after DIMACS parsing: self-loop/isolate cleanup, spanning-forest-core construction, weighted MIDS gadget construction, the `epsilon`-controlled Baker PTAS weighted IDS solve, repair of uncovered edges, and final redundancy pruning. With `epsilon` activated, the IDS pass layers the bounded-treewidth gadget into `k = ceil(1/epsilon)` shifts and solves each by tree-decomposition dynamic programming, so the running time is `O(f(1/epsilon) * (n + m))` — near-linear for any fixed `epsilon`, and reducing to the linear greedy baseline at `epsilon >= 1`. The implementation always verifies the vertex-cover condition by construction; approximation-ratio claims (including the `7/4` target tested in `car/`) are empirical/conjectural unless separately proved.
 
 ---
 

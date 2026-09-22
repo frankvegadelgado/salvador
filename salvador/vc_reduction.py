@@ -145,7 +145,7 @@ def solve_vc(graph: nx.Graph, epsilon: float = 0.1) -> tuple[frozenset[Any], flo
             cover.add(u if graph.degree(u) >= graph.degree(v) else v)
 
     frozen_cover = frozenset(cover)
-    return frozen_cover, float(len(frozen_cover))
+    return frozen_cover
 
 
 def run_demo() -> None:
@@ -211,7 +211,7 @@ def run_demo() -> None:
     print("   " + "─" * 50)
     for name, g in cases:
         core, removed = _maximal_planar_subgraph(g)
-        cover, _ = solve_vc(g, epsilon=0.5)
+        cover = solve_vc(g, epsilon=0.5)
         valid = all(u in cover or v in cover for u, v in g.edges())
         print(
             f"   {name:<14} {g.number_of_nodes():>4} {g.number_of_edges():>4}"
