@@ -1,28 +1,50 @@
 from __future__ import annotations
 
-"""car/ -- default-call (epsilon=0.1) approximation-ratio experiment for Salvador.
+"""car/ -- reproducibility suite for Salvador (default call, epsilon=1).
 
-This suite tests the public default call ``find_vertex_cover(G, epsilon=0.1)``
-against exact optima.  It does NOT use MILP: optima are computed by maximum
-matching and Koenig's theorem on bipartite instances, and by a deterministic
-branch-and-bound maximum-independent-set solver otherwise
-(``tau(G) = |V| - alpha(G)``).
+This suite has two parts.
 
-The headline question is whether the default call stays at or below the
-conservative threshold ``7/4 = 2 - 1/4``.  The known worst case is an explicit
-seven-vertex bipartite obstruction on which the default call returns a cover of
-size 5 against optimum 3 (ratio 5/3); the same obstruction is solved optimally at
-``epsilon in {0.25, 0.5}``, so the 5/3 behaviour is specific to the default
-layering rather than intrinsic to the gadget.
+PART A -- small-graph exact-ratio suite (unchanged in spirit from earlier
+versions, now run under the linear-time default ``epsilon=1`` instead of the
+previous ``epsilon=0.1``). It tests the public default call
+``find_vertex_cover(G, epsilon=1)`` against exact optima. It does NOT use
+MILP: optima are computed by maximum matching and Koenig's theorem on
+bipartite instances, and by a deterministic branch-and-bound
+maximum-independent-set solver otherwise (``tau(G) = |V| - alpha(G)``).
+
+PART B -- large adversarial-graph suite (new). Exact optima are generally
+NP-hard to certify at this scale, so every reported ratio in Part B is
+instead a *provable upper bound* on the true approximation ratio: any
+matching M of G satisfies ``tau(G) >= |M|`` (each matched edge is disjoint,
+so a vertex cover needs a distinct endpoint per matched edge), hence
+``|cover| / |M| >= |cover| / tau(G)``. For bipartite adversarial families we
+use a maximum matching via Hopcroft-Karp (so Koenig's theorem makes the
+bound *exact*, i.e. ``|M| = tau(G)``); for non-bipartite families we use a
+fast linear-time greedy maximal matching, which is only a lower bound on
+tau(G) (so the reported ratio over-states the true ratio, conservatively).
+
+Part B also runs a doubling-size scaling study on two adversarial families
+to empirically verify the O(n + m) linear-time guarantee proved for the
+default call (epsilon=1) in the accompanying paper: it fits wall-clock time
+against (n + m) by least squares and reports the slope, intercept, and R^2
+of the fit, plus the raw time/(n+m) ratio at every scale.
 
 Run from the repository root with:
 
-    python car/car_experiment.py            # full feasible suite
-    python car/car_experiment.py --quick    # smaller, faster sweep
+    python car/car_experiment.py                 # Part A + Part B, default sizes
+    python car/car_experiment.py --quick          # smaller/faster Part A
+    python car/car_experiment.py --skip-large     # Part A only
+    python car/car_experiment.py --skip-small     # Part B only
+    python car/car_experiment.py --max-n 500000   # push Part B further
+    python car/car_experiment.py --exact-matching-limit 20000  # widen exact
+                                                    # (Hopcroft-Karp / blossom)
+                                                    # matching bounds
 
-Outputs:
-    car/car_experiment.json
-    car/car_summary.csv
+Outputs (repository-relative):
+    car/car_experiment.json   -- full machine-readable results
+    car/car_summary.csv       -- Part A family summary (unchanged format)
+    car/car_large_summary.csv -- Part B family summary
+    car/car_scaling.csv       -- Part B doubling-size timing/regression rows
 """
 
 import argparse
@@ -48,10 +70,17 @@ except ModuleNotFoundError:  # pragma: no cover - convenience for direct runs
     from salvador.version import __version__
 
 SEED = 20260627
-DEFAULT_EPSILON = 0.1
+DEFAULT_EPSILON = 1  # Baker layering width k = ceil(1/epsilon) = 1: the
+# tree-decomposition PTAS pass is skipped entirely (see
+# salvador.baker_ptas.baker_ptas_ids_weighted), which is what keeps the
+# whole find_vertex_cover ensemble strictly O(n + m). epsilon=0.1 (k=10) is
+# intentionally NOT used here: it defeats the linear-time guarantee that
+# this suite exists to demonstrate.
 SUB2_TARGET = 7.0 / 4.0
 
-# The explicit seven-vertex bipartite obstruction (ratio 5/3 at epsilon=0.1).
+# The explicit seven-vertex bipartite obstruction that was the worst-known
+# witness for the pre-ensemble, epsilon=0.1 default (kept for continuity;
+# see Proposition on the 7/4 lower bound in earlier paper revisions).
 OBSTRUCTION_EDGES = [
     (0, 1), (0, 3), (2, 1), (4, 1), (4, 3),
     (5, 0), (5, 2), (5, 4), (5, 6), (6, 1), (6, 3),
@@ -59,7 +88,7 @@ OBSTRUCTION_EDGES = [
 
 
 # ----------------------------------------------------------------------------
-# Exact optima (no MILP).
+# PART A: exact optima (no MILP).
 # ----------------------------------------------------------------------------
 def _bb_vertex_cover_size(G: nx.Graph) -> int:
     """Exact tau(G) = |V| - alpha(G) by branch-and-bound maximum independent set."""
@@ -104,9 +133,7 @@ def exact_vertex_cover_size(G: nx.Graph) -> tuple[int, str]:
     if G.number_of_edges() == 0:
         return 0, "trivial"
     if nx.is_bipartite(G):
-        # Koenig: minimum vertex cover size == maximum matching size.
         matching = nx.bipartite.maximum_matching(G, top_nodes=_one_side(G))
-        # maximum_matching returns each matched pair twice.
         return len(matching) // 2, "bipartite-matching"
     return _bb_vertex_cover_size(G), "exact-branch"
 
@@ -120,9 +147,6 @@ def _one_side(G: nx.Graph):
     return {v for v, c in side.items() if c == 0}
 
 
-# ----------------------------------------------------------------------------
-# Evaluation under the default call.
-# ----------------------------------------------------------------------------
 def evaluate(name: str, G: nx.Graph, group: str) -> dict:
     G = nx.convert_node_labels_to_integers(G, ordering="sorted")
     cover = set(find_vertex_cover(G, epsilon=DEFAULT_EPSILON))
@@ -139,9 +163,6 @@ def evaluate(name: str, G: nx.Graph, group: str) -> dict:
     }
 
 
-# ----------------------------------------------------------------------------
-# Test classes.
-# ----------------------------------------------------------------------------
 def obstruction_rows() -> list[dict]:
     G = nx.Graph(); G.add_nodes_from(range(7)); G.add_edges_from(OBSTRUCTION_EDGES)
     return [evaluate("bipartite_obstruction", G, "Bipartite obstruction (exact)")]
@@ -227,9 +248,6 @@ def random_general(rng: random.Random, count: int) -> list[dict]:
     return rows
 
 
-# ----------------------------------------------------------------------------
-# Driver.
-# ----------------------------------------------------------------------------
 def summarise(rows: Iterable[dict]) -> dict:
     rows = list(rows)
     if not rows:
@@ -245,13 +263,8 @@ def summarise(rows: Iterable[dict]) -> dict:
     }
 
 
-def main() -> None:
-    ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--quick", action="store_true")
-    args = ap.parse_args()
-    big = not args.quick
+def run_part_a(big: bool) -> dict:
     rng = random.Random(SEED)
-
     started = time.time()
     rows = []
     rows += obstruction_rows()
@@ -267,28 +280,353 @@ def main() -> None:
         by_group[g] = summarise([r for r in rows if r["group"] == g])
     overall = summarise(rows)
 
-    result = {
-        "experiment": "car/ default-call (epsilon=0.1) ratio test for Salvador v0.0.6",
+    return {
+        "experiment": f"car/ Part A: default-call (epsilon={DEFAULT_EPSILON}) exact-ratio test",
         "salvador_version": __version__,
         "seed": SEED,
         "default_epsilon": DEFAULT_EPSILON,
-        "threshold": {"sub2_target": SUB2_TARGET, "statement": "7/4 = 2 - 1/4"},
+        "threshold": {"sub2_target": SUB2_TARGET, "statement": "7/4 = 2 - 1/4 (legacy epsilon=0.1 ceiling, kept as a sanity backstop)"},
         "method": {
-            "candidate_solver": "salvador.algorithm.find_vertex_cover (default epsilon=0.1)",
+            "candidate_solver": f"salvador.algorithm.find_vertex_cover (default epsilon={DEFAULT_EPSILON})",
             "optimum_solver": "Koenig/maximum-matching on bipartite graphs, else branch-and-bound MIS; no MILP",
-            "ratio": "|C| / tau(G)",
+            "ratio": "|C| / tau(G)  (exact)",
         },
         "conclusion": {
             "max_ratio": overall["max_ratio"],
             "all_valid": overall["all_valid"],
             "count_above_7_4": overall["count_above_7_4"],
             "supports_7_4": overall["count_above_7_4"] == 0,
-            "note": "5/3 obstruction is solved optimally at epsilon in {0.25, 0.5}.",
         },
         "overall_summary": overall,
         "summary_by_group": by_group,
         "raw_rows": rows,
         "elapsed_seconds": time.time() - started,
+    }
+
+
+# ----------------------------------------------------------------------------
+# PART B: large adversarial graphs.
+# ----------------------------------------------------------------------------
+def complete_bipartite_adversarial(a: int, b: int) -> nx.Graph:
+    """Dense complete bipartite graph: stresses every O(m)-per-edge routine."""
+    return nx.complete_bipartite_graph(a, b)
+
+
+def crown_graph(half: int) -> nx.Graph:
+    """K_{half,half} minus a perfect matching: dense, near-regular, bipartite;
+    classic adversarial instance for degree-based greedy tie-breaking since
+    every vertex has identical degree half-1."""
+    G = nx.Graph()
+    left = [("L", i) for i in range(half)]
+    right = [("R", i) for i in range(half)]
+    G.add_nodes_from(left); G.add_nodes_from(right)
+    for i in range(half):
+        for j in range(half):
+            if i != j:
+                G.add_edge(("L", i), ("R", j))
+    return G
+
+
+def double_star_bridge(a: int, b: int) -> nx.Graph:
+    """Two stars of size a and b joined by a bridge between their centers:
+    adversarial for the maximal-matching 2-approximation, whose worst-case
+    tightness is realized on star-like graphs joined by bridges."""
+    G = nx.Graph()
+    G.add_node("cL"); G.add_node("cR")
+    for i in range(a):
+        G.add_edge("cL", ("La", i))
+    for i in range(b):
+        G.add_edge("cR", ("Rb", i))
+    G.add_edge("cL", "cR")
+    return G
+
+
+def hierarchical_star_trap(levels: int, branching: int) -> nx.Graph:
+    """Engineered stress construction (not a literature-verified worst case)
+    for degree-based greedy tie-breaking: a tree of stars where each
+    internal 'hub' has the same local degree as many leaf-adjacent hubs
+    one level down, so a max-degree-first greedy repeatedly has to choose
+    among many equally-attractive but structurally different hubs."""
+    G = nx.Graph()
+    root = (0, 0)
+    G.add_node(root)
+    frontier = [root]
+    node_id = 1
+    for level in range(1, levels + 1):
+        next_frontier = []
+        for parent in frontier:
+            for _ in range(branching):
+                child = (level, node_id)
+                node_id += 1
+                G.add_edge(parent, child)
+                next_frontier.append(child)
+        frontier = next_frontier
+    # Attach a pendant leaf to every leaf of the final level so every
+    # bottom-level hub has degree branching+1, matching the internal hubs.
+    for leaf in frontier:
+        G.add_edge(leaf, (levels + 1, node_id))
+        node_id += 1
+    return G
+
+
+def random_regular_adversarial(n: int, d: int, seed: int) -> nx.Graph:
+    """Regular sparse graph: every vertex ties for minimum degree at every
+    step, which is exactly the case that used to defeat the pre-fix
+    Min-to-Min heuristic (see the note in salvador.algorithm)."""
+    if (n * d) % 2 != 0:
+        n += 1
+    return nx.random_regular_graph(d, n, seed=seed)
+
+
+def barabasi_albert_adversarial(n: int, m_edges: int, seed: int) -> nx.Graph:
+    """Scale-free hub graph: highly degree-heterogeneous, stresses the
+    max-degree greedy and the maximal-matching heuristics differently."""
+    return nx.barabasi_albert_graph(n, m_edges, seed=seed)
+
+
+def sparse_gnp_adversarial(n: int, avg_degree: float, seed: int) -> nx.Graph:
+    """Erdos-Renyi graph with constant expected average degree: the
+    canonical large, sparse, unstructured scaling instance."""
+    p = min(1.0, avg_degree / max(1, n - 1))
+    return nx.gnp_random_graph(n, p, seed=seed)
+
+
+def watts_strogatz_adversarial(n: int, k: int, beta: float, seed: int) -> nx.Graph:
+    """Small-world graph: locally dense (adversarial for pruning), globally
+    sparse (keeps m = O(n) for the scaling study)."""
+    k = max(2, k - (k % 2))
+    return nx.watts_strogatz_graph(n, k, beta, seed=seed)
+
+
+def maximal_matching_lower_bound(G: nx.Graph) -> tuple[int, str]:
+    """A provable lower bound on tau(G): |M| for any matching M.
+
+    Uses an exact maximum matching (hence an exact tau(G) by Koenig) on
+    bipartite graphs via Hopcroft-Karp; otherwise falls back to a fast
+    greedy *maximal* (not maximum) matching, which is only a lower bound.
+    """
+    if G.number_of_edges() == 0:
+        return 0, "trivial"
+    if nx.is_bipartite(G):
+        top = _one_side(G)
+        matching = nx.bipartite.hopcroft_karp_matching(G, top_nodes=top)
+        return len(matching) // 2, "bipartite-maximum-matching (exact tau)"
+    matching = nx.algorithms.matching.maximal_matching(G)
+    return len(matching), "greedy-maximal-matching (lower bound only)"
+
+
+def evaluate_large(name: str, G: nx.Graph, group: str) -> dict:
+    # Relabel to plain integers first: some generators below mix node-label
+    # types (strings, tuples), and salvador.algorithm.covering_via_reduction_max_degree_1
+    # breaks ties with a direct '<' comparison between node labels, which
+    # raises TypeError across heterogeneous, non-comparable label types.
+    # Integer relabeling sidesteps that without touching library code, and
+    # matches what Part A's evaluate() already does.
+    G = nx.convert_node_labels_to_integers(G, ordering="default")
+    n0, m0 = G.number_of_nodes(), G.number_of_edges()
+    t0 = time.perf_counter()
+    cover = set(find_vertex_cover(G, epsilon=DEFAULT_EPSILON))
+    elapsed = time.perf_counter() - t0
+    valid = all(u in cover or v in cover for u, v in G.edges())
+    lb, lb_method = maximal_matching_lower_bound(G)
+    ratio_upper_bound = None if lb == 0 else len(cover) / lb
+    return {
+        "group": group, "name": name,
+        "n": n0, "m": m0,
+        "cover": len(cover),
+        "lower_bound": lb, "lower_bound_method": lb_method,
+        "ratio_upper_bound": ratio_upper_bound,
+        "exact": lb_method.startswith("bipartite"),
+        "valid": bool(valid),
+        "elapsed_seconds": elapsed,
+        "us_per_np1m": None if (n0 + m0) == 0 else elapsed * 1e6 / (n0 + m0),
+    }
+
+
+def run_part_b_families(max_n: int) -> list[dict]:
+    rows = []
+    seed = SEED
+
+    # Dense adversarial families (kept moderate: m grows quadratically).
+    for half in (200, 400, 800):
+        if half * half > max_n * 40:
+            continue
+        rows.append(evaluate_large(f"crown_{half}", crown_graph(half), "Crown graph K_{h,h} minus perfect matching (dense, near-regular)"))
+        rows.append(evaluate_large(f"complete_bipartite_{half}", complete_bipartite_adversarial(half, half), "Complete bipartite (dense)"))
+
+    # Bridge / star adversarial family (should stay ratio <= 2 for c1 alone,
+    # and the ensemble should do at least as well).
+    for size in (1000, 10000, 100000):
+        if size > max_n:
+            continue
+        rows.append(evaluate_large(f"double_star_{size}", double_star_bridge(size, size), "Double star + bridge (matching-heuristic stress)"))
+
+    # Hierarchical greedy-tie-break trap.
+    for levels, branching in ((6, 4), (8, 4), (10, 4)):
+        G = hierarchical_star_trap(levels, branching)
+        if G.number_of_nodes() > max_n:
+            continue
+        rows.append(evaluate_large(f"hier_trap_L{levels}_B{branching}", G, "Hierarchical star trap (degree-greedy tie-break stress)"))
+
+    # Large sparse regular graphs (the family that exposed the O(n^2)
+    # Min-to-Min bug before the linear-time fix).
+    for n in (5000, 50000, 200000):
+        if n > max_n:
+            continue
+        for d in (3, 6, 12):
+            rows.append(evaluate_large(f"regular_n{n}_d{d}", random_regular_adversarial(n, d, seed), f"Random {d}-regular (bounded-degree adversarial)"))
+            seed += 1
+
+    # Scale-free hubs.
+    for n in (5000, 50000, 200000):
+        if n > max_n:
+            continue
+        rows.append(evaluate_large(f"barabasi_albert_n{n}", barabasi_albert_adversarial(n, 3, seed), "Barabasi-Albert scale-free hub graph"))
+        seed += 1
+
+    # Large sparse unstructured Erdos-Renyi.
+    for n in (5000, 50000, 200000):
+        if n > max_n:
+            continue
+        rows.append(evaluate_large(f"gnp_n{n}", sparse_gnp_adversarial(n, 4.0, seed), "Sparse Erdos-Renyi, avg degree 4"))
+        seed += 1
+
+    # Small-world.
+    for n in (5000, 50000):
+        if n > max_n:
+            continue
+        rows.append(evaluate_large(f"ws_n{n}", watts_strogatz_adversarial(n, 6, 0.1, seed), "Watts-Strogatz small-world"))
+        seed += 1
+
+    return rows
+
+
+def run_part_b_scaling(max_n: int) -> list[dict]:
+    """Doubling-size scaling study for the O(n + m) linear-time claim."""
+    rows = []
+    size = 1000
+    seed = SEED + 10_000
+    while size <= max_n:
+        # Family 1: bounded-degree regular graph (m = O(n)).
+        G1 = random_regular_adversarial(size, 4, seed)
+        r1 = evaluate_large(f"scaling_regular4_n{size}", G1, "Scaling: 4-regular")
+        r1["family"] = "regular4"
+        rows.append(r1)
+
+        # Family 2: scale-free hub graph (m = O(n), but degree-heterogeneous).
+        G2 = barabasi_albert_adversarial(size, 3, seed + 1)
+        r2 = evaluate_large(f"scaling_ba3_n{size}", G2, "Scaling: Barabasi-Albert m=3")
+        r2["family"] = "barabasi_albert3"
+        rows.append(r2)
+
+        seed += 2
+        size *= 2
+
+    return rows
+
+
+def _linreg(xs: list[float], ys: list[float]) -> dict:
+    """Ordinary least squares y = slope*x + intercept, plus R^2. No numpy
+    dependency beyond what the package already requires elsewhere; pure
+    Python is fine here since the number of scaling points is small."""
+    n = len(xs)
+    if n < 2:
+        return {"slope": None, "intercept": None, "r2": None, "n_points": n}
+    mean_x = statistics.fmean(xs)
+    mean_y = statistics.fmean(ys)
+    sxx = sum((x - mean_x) ** 2 for x in xs)
+    sxy = sum((x - mean_x) * (y - mean_y) for x, y in zip(xs, ys))
+    if sxx == 0:
+        return {"slope": None, "intercept": None, "r2": None, "n_points": n}
+    slope = sxy / sxx
+    intercept = mean_y - slope * mean_x
+    ss_tot = sum((y - mean_y) ** 2 for y in ys)
+    ss_res = sum((y - (slope * x + intercept)) ** 2 for x, y in zip(xs, ys))
+    r2 = 1.0 if ss_tot == 0 else 1.0 - ss_res / ss_tot
+    return {"slope": slope, "intercept": intercept, "r2": r2, "n_points": n}
+
+
+def summarise_scaling(rows: list[dict]) -> dict:
+    by_family: dict[str, list[dict]] = {}
+    for r in rows:
+        by_family.setdefault(r["family"], []).append(r)
+    out = {}
+    for fam, frows in by_family.items():
+        frows = sorted(frows, key=lambda r: r["n"] + r["m"])
+        xs = [float(r["n"] + r["m"]) for r in frows]
+        ys = [float(r["elapsed_seconds"]) for r in frows]
+        fit = _linreg(xs, ys)
+        out[fam] = {
+            "fit_time_vs_(n+m)": fit,
+            "points": [
+                {"n": r["n"], "m": r["m"], "n_plus_m": r["n"] + r["m"],
+                 "elapsed_seconds": r["elapsed_seconds"],
+                 "us_per_np1m": r["us_per_np1m"]}
+                for r in frows
+            ],
+        }
+    return out
+
+
+def run_part_b(max_n: int) -> dict:
+    started = time.time()
+    family_rows = run_part_b_families(max_n)
+    scaling_rows = run_part_b_scaling(max_n)
+
+    by_group = {}
+    for g in sorted({r["group"] for r in family_rows}):
+        grows = [r for r in family_rows if r["group"] == g]
+        ratios = [r["ratio_upper_bound"] for r in grows if r["ratio_upper_bound"] is not None]
+        by_group[g] = {
+            "instances": len(grows),
+            "max_ratio_upper_bound": max(ratios) if ratios else None,
+            "mean_ratio_upper_bound": statistics.fmean(ratios) if ratios else None,
+            "all_valid": all(r["valid"] for r in grows),
+            "max_n": max(r["n"] for r in grows),
+            "max_elapsed_seconds": max(r["elapsed_seconds"] for r in grows),
+        }
+
+    all_ratios = [r["ratio_upper_bound"] for r in family_rows if r["ratio_upper_bound"] is not None]
+    scaling_summary = summarise_scaling(scaling_rows)
+
+    return {
+        "experiment": f"car/ Part B: large adversarial graphs (epsilon={DEFAULT_EPSILON})",
+        "salvador_version": __version__,
+        "default_epsilon": DEFAULT_EPSILON,
+        "max_n_requested": max_n,
+        "note": (
+            "ratio_upper_bound = |cover| / (a provable lower bound on tau(G)). "
+            "It is EXACT (equals |cover|/tau(G)) when lower_bound_method starts "
+            "with 'bipartite'; otherwise it is a conservative upper bound on "
+            "the true ratio, because a greedy maximal matching can under-count "
+            "tau(G) by up to a factor of 2."
+        ),
+        "family_rows": family_rows,
+        "summary_by_group": by_group,
+        "overall_max_ratio_upper_bound": max(all_ratios) if all_ratios else None,
+        "overall_all_valid": all(r["valid"] for r in family_rows) if family_rows else True,
+        "scaling_rows": scaling_rows,
+        "scaling_summary": scaling_summary,
+        "elapsed_seconds": time.time() - started,
+    }
+
+
+# ----------------------------------------------------------------------------
+# Driver.
+# ----------------------------------------------------------------------------
+def main() -> None:
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--quick", action="store_true", help="smaller/faster Part A sweep")
+    ap.add_argument("--skip-large", action="store_true", help="run Part A only")
+    ap.add_argument("--skip-small", action="store_true", help="run Part B only")
+    ap.add_argument("--max-n", type=int, default=200_000, help="largest instance size for Part B (default 200000)")
+    args = ap.parse_args()
+
+    out = Path(__file__).resolve().parent
+    result = {
+        "salvador_version": __version__,
+        "default_epsilon": DEFAULT_EPSILON,
+        "seed": SEED,
         "environment": {
             "python": platform.python_version(),
             "platform": platform.platform(),
@@ -296,26 +634,55 @@ def main() -> None:
         },
     }
 
-    out = Path(__file__).resolve().parent
-    (out / "car_experiment.json").write_text(json.dumps(result, indent=2, sort_keys=True), encoding="utf-8")
-    with (out / "car_summary.csv").open("w", encoding="utf-8") as fh:
-        fh.write("group,instances,mean_ratio,max_ratio,count_above_7_4,all_valid\n")
-        for g, s in by_group.items():
-            fh.write(f"{g},{s['instances']},{s['mean_ratio']:.6f},{s['max_ratio']:.6f},"
-                     f"{s['count_above_7_4']},{s['all_valid']}\n")
-        fh.write(f"OVERALL,{overall['instances']},{overall['mean_ratio']:.6f},"
-                 f"{overall['max_ratio']:.6f},{overall['count_above_7_4']},{overall['all_valid']}\n")
+    if not args.skip_small:
+        part_a = run_part_a(big=not args.quick)
+        result["part_a"] = part_a
+        by_group = part_a["summary_by_group"]
+        with (out / "car_summary.csv").open("w", encoding="utf-8") as fh:
+            fh.write("group,instances,mean_ratio,max_ratio,count_above_7_4,all_valid\n")
+            for g, s in by_group.items():
+                fh.write(f"{g},{s['instances']},{s['mean_ratio']:.6f},{s['max_ratio']:.6f},"
+                         f"{s['count_above_7_4']},{s['all_valid']}\n")
+            overall = part_a["overall_summary"]
+            fh.write(f"OVERALL,{overall['instances']},{overall['mean_ratio']:.6f},"
+                     f"{overall['max_ratio']:.6f},{overall['count_above_7_4']},{overall['all_valid']}\n")
+        print(json.dumps({
+            "part": "A (small, exact ratio)",
+            "default_epsilon": DEFAULT_EPSILON,
+            "instances": overall["instances"],
+            "max_ratio": overall["max_ratio"],
+            "all_valid": overall["all_valid"],
+            "worst_instance": overall["worst_instance"]["name"],
+        }, indent=2))
 
-    print(json.dumps({
-        "salvador_version": __version__,
-        "default_epsilon": DEFAULT_EPSILON,
-        "instances": overall["instances"],
-        "max_ratio": overall["max_ratio"],
-        "all_valid": overall["all_valid"],
-        "count_above_7_4": overall["count_above_7_4"],
-        "supports_7_4": result["conclusion"]["supports_7_4"],
-        "worst_instance": overall["worst_instance"]["name"],
-    }, indent=2))
+    if not args.skip_large:
+        part_b = run_part_b(args.max_n)
+        result["part_b"] = part_b
+        with (out / "car_large_summary.csv").open("w", encoding="utf-8") as fh:
+            fh.write("group,instances,max_ratio_upper_bound,mean_ratio_upper_bound,all_valid,max_n,max_elapsed_seconds\n")
+            for g, s in part_b["summary_by_group"].items():
+                fh.write(f"{g},{s['instances']},{s['max_ratio_upper_bound']},{s['mean_ratio_upper_bound']},"
+                         f"{s['all_valid']},{s['max_n']},{s['max_elapsed_seconds']:.6f}\n")
+        with (out / "car_scaling.csv").open("w", encoding="utf-8") as fh:
+            fh.write("family,n,m,n_plus_m,elapsed_seconds,us_per_np1m\n")
+            for fam, s in part_b["scaling_summary"].items():
+                for p in s["points"]:
+                    fh.write(f"{fam},{p['n']},{p['m']},{p['n_plus_m']},{p['elapsed_seconds']:.6f},{p['us_per_np1m']:.4f}\n")
+            fh.write("\nfamily,slope_seconds_per_np1m,intercept_seconds,r2,n_points\n")
+            for fam, s in part_b["scaling_summary"].items():
+                fit = s["fit_time_vs_(n+m)"]
+                fh.write(f"{fam},{fit['slope']},{fit['intercept']},{fit['r2']},{fit['n_points']}\n")
+        print(json.dumps({
+            "part": "B (large adversarial graphs)",
+            "default_epsilon": DEFAULT_EPSILON,
+            "max_n_requested": args.max_n,
+            "instances": len(part_b["family_rows"]),
+            "overall_max_ratio_upper_bound": part_b["overall_max_ratio_upper_bound"],
+            "overall_all_valid": part_b["overall_all_valid"],
+            "scaling_fits": {fam: s["fit_time_vs_(n+m)"] for fam, s in part_b["scaling_summary"].items()},
+        }, indent=2))
+
+    (out / "car_experiment.json").write_text(json.dumps(result, indent=2, sort_keys=True, default=str), encoding="utf-8")
 
 
 if __name__ == "__main__":

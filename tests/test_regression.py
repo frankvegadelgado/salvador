@@ -1,4 +1,4 @@
-"""Regression smoke tests for Salvador v0.0.7."""
+"""Regression smoke tests for Salvador v0.0.8."""
 
 from __future__ import annotations
 
@@ -10,8 +10,8 @@ from salvador.parser import read
 from salvador.utils import is_vertex_cover
 
 
-def test_version_is_006() -> None:
-    assert __version__ == "0.0.7"
+def test_version_is_008() -> None:
+    assert __version__ == "0.0.8"
 
 
 def test_small_benchmark_cover_is_valid() -> None:
@@ -43,11 +43,15 @@ def test_epsilon_is_active_and_always_valid() -> None:
 
 
 def test_default_call_within_7_4_on_car_witness() -> None:
-    """The default call stays within 7/4 of the optimum on the worst car/ witness.
+    """The default call stays within 7/4 of the optimum on the historical car/ witness.
 
-    This bipartite graph is the largest-ratio instance found by car/; under the
-    default epsilon=0.1 the algorithm returns a cover of size 7 against the exact
-    optimum 4 (ratio 7/4), so the cover must be valid and within the 7/4 bound.
+    This bipartite graph was the largest-ratio instance found by car/ under the
+    former default epsilon=0.1 (a single-pipeline call returned a cover of size 7
+    against the exact optimum 4, ratio 7/4). Under the current default epsilon=1,
+    find_vertex_cover instead runs the full linear-time ensemble (see
+    salvador.algorithm), which is never worse than any single candidate; this
+    test keeps the same conservative 7/4 upper bound as a regression backstop
+    while the cover must still be valid.
     """
     edges = [
         (0, 9), (0, 8), (0, 7), (0, 10), (1, 7), (1, 8), (1, 9), (1, 10),

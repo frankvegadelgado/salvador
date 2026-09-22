@@ -25,7 +25,7 @@ from . import baker_ptas
 
 def reduce_vc_to_mids(
     graph: nx.Graph,
-    epsilon: float = 0.1,
+    epsilon: float = 1,
     assume_planar: bool = False,
 ) -> tuple[nx.Graph, dict[Any, int], int]:
     """Build the weighted MIDS gadget for a planar graph.
@@ -132,8 +132,18 @@ def _solve_planar(core: nx.Graph, original_graph: nx.Graph, epsilon: float) -> s
     return cover
 
 
-def solve_vc(graph: nx.Graph, epsilon: float = 0.1) -> tuple[frozenset[Any], float]:
-    """Return a valid approximate vertex cover of any undirected graph."""
+def solve_vc(graph: nx.Graph, epsilon: float = 1) -> tuple[frozenset[Any], float]:
+    """Return a valid approximate vertex cover of any undirected graph.
+
+    ``epsilon`` defaults to ``1`` (Baker layering width ``k = 1``), which
+    skips the tree-decomposition PTAS pass entirely and falls back to the
+    linear-time greedy weighted independent-dominating-set baseline (see
+    :func:`salvador.baker_ptas.baker_ptas_ids_weighted`). This keeps the
+    default call strictly ``O(n + m)``. Passing a smaller ``epsilon`` (e.g.
+    ``0.1``) asks for a more thorough, no-longer-linear PTAS solve of the
+    gadget and is intended for offline quality experiments, not the default
+    production path.
+    """
     if graph.number_of_edges() == 0:
         return frozenset(), 0.0
 
