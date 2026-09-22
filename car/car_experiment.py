@@ -48,6 +48,7 @@ Outputs (repository-relative):
 """
 
 import argparse
+import gc
 import itertools
 import json
 import math
@@ -341,6 +342,19 @@ def double_star_bridge(a: int, b: int) -> nx.Graph:
     return G
 
 
+def hierarchical_star_trap_size(levels: int, branching: int) -> int:
+    """Exact node count of ``hierarchical_star_trap(levels, branching)``
+    without building it: root + all internal levels + one pendant leaf per
+    final-level node. Used to skip the (potentially huge) construction
+    entirely when it would exceed ``--max-n``, instead of building the full
+    graph first and discarding it -- for ``levels=10, branching=4`` that
+    construction alone is on the order of 1.4M nodes and can dominate the
+    wall-clock time of a run whose actual instances are far smaller."""
+    nodes_through_last_level = sum(branching ** i for i in range(levels + 1))
+    pendant_leaves = branching ** levels
+    return nodes_through_last_level + pendant_leaves
+
+
 def hierarchical_star_trap(levels: int, branching: int) -> nx.Graph:
     """Engineered stress construction (not a literature-verified worst case)
     for degree-based greedy tie-breaking: a tree of stars where each
@@ -415,7 +429,7 @@ def maximal_matching_lower_bound(G: nx.Graph) -> tuple[int, str]:
     return len(matching), "greedy-maximal-matching (lower bound only)"
 
 
-def evaluate_large(name: str, G: nx.Graph, group: str) -> dict:
+def evaluate_large(name: str, G: nx.Graph, group: str, *, verbose: bool = True) -> dict:
     # Relabel to plain integers first: some generators below mix node-label
     # types (strings, tuples), and salvador.algorithm.covering_via_reduction_max_degree_1
     # breaks ties with a direct '<' comparison between node labels, which
@@ -424,16 +438,21 @@ def evaluate_large(name: str, G: nx.Graph, group: str) -> dict:
     # matches what Part A's evaluate() already does.
     G = nx.convert_node_labels_to_integers(G, ordering="default")
     n0, m0 = G.number_of_nodes(), G.number_of_edges()
+    if verbose:
+        print(f"  [part B] {name}: n={n0:,} m={m0:,} ...", flush=True)
     t0 = time.perf_counter()
     cover = set(find_vertex_cover(G, epsilon=DEFAULT_EPSILON))
     elapsed = time.perf_counter() - t0
     valid = all(u in cover or v in cover for u, v in G.edges())
     lb, lb_method = maximal_matching_lower_bound(G)
     ratio_upper_bound = None if lb == 0 else len(cover) / lb
-    return {
+    cover_size = len(cover)
+    if verbose:
+        print(f"  [part B] {name}: done in {elapsed:.2f}s, cover={cover_size:,}, valid={valid}", flush=True)
+    result = {
         "group": group, "name": name,
         "n": n0, "m": m0,
-        "cover": len(cover),
+        "cover": cover_size,
         "lower_bound": lb, "lower_bound_method": lb_method,
         "ratio_upper_bound": ratio_upper_bound,
         "exact": lb_method.startswith("bipartite"),
@@ -441,6 +460,14 @@ def evaluate_large(name: str, G: nx.Graph, group: str) -> dict:
         "elapsed_seconds": elapsed,
         "us_per_np1m": None if (n0 + m0) == 0 else elapsed * 1e6 / (n0 + m0),
     }
+    # G (and the ensemble's internal candidate covers, gadgets, etc.) can be
+    # tens to hundreds of MB for the largest instances; drop the references
+    # and collect explicitly so peak memory doesn't ratchet up across a long
+    # sequential run through many large instances instead of being freed
+    # between them.
+    del G, cover
+    gc.collect()
+    return result
 
 
 def run_part_b_families(max_n: int) -> list[dict]:
@@ -461,11 +488,14 @@ def run_part_b_families(max_n: int) -> list[dict]:
             continue
         rows.append(evaluate_large(f"double_star_{size}", double_star_bridge(size, size), "Double star + bridge (matching-heuristic stress)"))
 
-    # Hierarchical greedy-tie-break trap.
+    # Hierarchical greedy-tie-break trap. Size is checked analytically
+    # (hierarchical_star_trap_size) BEFORE building the graph, so an
+    # oversized configuration (levels=10, branching=4 is ~1.4M nodes) is
+    # skipped without ever allocating it.
     for levels, branching in ((6, 4), (8, 4), (10, 4)):
-        G = hierarchical_star_trap(levels, branching)
-        if G.number_of_nodes() > max_n:
+        if hierarchical_star_trap_size(levels, branching) > max_n:
             continue
+        G = hierarchical_star_trap(levels, branching)
         rows.append(evaluate_large(f"hier_trap_L{levels}_B{branching}", G, "Hierarchical star trap (degree-greedy tie-break stress)"))
 
     # Large sparse regular graphs (the family that exposed the O(n^2)
@@ -570,8 +600,12 @@ def summarise_scaling(rows: list[dict]) -> dict:
 
 def run_part_b(max_n: int) -> dict:
     started = time.time()
+    print(f"[part B] starting family sweep (--max-n={max_n:,}) ...", flush=True)
     family_rows = run_part_b_families(max_n)
+    print(f"[part B] family sweep done in {time.time() - started:.1f}s; starting scaling study ...", flush=True)
+    scaling_started = time.time()
     scaling_rows = run_part_b_scaling(max_n)
+    print(f"[part B] scaling study done in {time.time() - scaling_started:.1f}s", flush=True)
 
     by_group = {}
     for g in sorted({r["group"] for r in family_rows}):

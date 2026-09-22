@@ -277,37 +277,66 @@ def covering_via_reduction_max_degree_1(graph):
     Creates one auxiliary vertex per original edge and solves the resulting
     (star-shaped) instance twice (unweighted + weighted 1/d). Maps back to
     original vertices.
+
+    Implementation note: this used to build and mutate a full ``nx.Graph``
+    for the auxiliary star-shaped instance (one ``add_edge``/``remove_node``
+    call per original vertex and edge). NetworkX's per-call object overhead
+    dominated the wall-clock cost on large graphs even though the algorithm
+    is O(n + m). This version performs the identical construction directly
+    on plain dict/set adjacency, which is asymptotically the same but with
+    a much smaller constant factor; it has been checked to return exactly
+    the same cover as the ``nx.Graph``-based version on randomized tests,
+    including graphs whose original node labels are themselves tuples.
     """
-    G = graph.copy()
-    weights = {}
+    live_adj: dict[Any, set[Any]] = {v: set(graph[v]) for v in graph.nodes()}
+    aux_weight: dict[Any, float] = {}
 
     for u in list(graph.nodes()):
-        neighbors = list(G.neighbors(u))
-        G.remove_node(u)
+        neighbors = list(live_adj.get(u, ()))
         k = len(neighbors)
-        if k == 0:
+        if k > 0:
+            for i, w in enumerate(neighbors):
+                aux_vertex = (u, i)
+                aux_weight[aux_vertex] = 1.0 / k
+                # aux_vertex takes over u's edge to w in the live graph, the
+                # same rewiring nx.Graph.add_edge/remove_node performed.
+                if w in live_adj:
+                    live_adj[w].discard(u)
+                    live_adj[w].add(aux_vertex)
+                live_adj[aux_vertex] = {w}
+        if u in live_adj:
+            del live_adj[u]
+
+    # Every remaining node is an auxiliary vertex with exactly one neighbor
+    # (itself possibly another auxiliary vertex): a perfect matching over
+    # the original edges. Extract each pair once.
+    pairs: list[tuple[Any, Any]] = []
+    seen: set[Any] = set()
+    for a, nbrs in live_adj.items():
+        if a in seen or not nbrs:
             continue
-        for i, v in enumerate(neighbors):
-            aux_vertex = (u, i)
-            G.add_edge(aux_vertex, v)
-            weights[aux_vertex] = 1.0 / k
+        b = next(iter(nbrs))
+        pairs.append((a, b))
+        seen.add(a)
+        seen.add(b)
 
-    # Unweighted solve
-    unweighted_cover = min_weighted_vertex_cover_max_degree_1(G)
+    def solve(weighted: bool) -> set[Any]:
+        cover: set[Any] = set()
+        for a, b in pairs:
+            wa = aux_weight[a] if weighted else 1.0
+            wb = aux_weight[b] if (weighted and b in aux_weight) else 1.0
+            if wa < wb or (wa == wb and str(a) < str(b)):
+                cover.add(a)
+            else:
+                cover.add(b)
+        return cover
 
-    # Weighted solve
-    nx.set_node_attributes(G, weights, 'weight')
-    weighted_cover = min_weighted_vertex_cover_max_degree_1(G)
+    unweighted_cover = solve(False)
+    weighted_cover = solve(True)
 
     # Map back to original vertices
     def map_back(cover):
-        res = set()
-        for x in cover:
-            if isinstance(x, tuple):
-                res.add(x[0])
-            else:
-                res.add(x)
-        return res
+        return {x[0] if x in aux_weight else x for x in cover}
 
     unweighted_sol = map_back(unweighted_cover)
     weighted_sol = map_back(weighted_cover)

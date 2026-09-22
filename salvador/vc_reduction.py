@@ -111,19 +111,60 @@ def _maximal_planar_subgraph(graph: nx.Graph) -> tuple[nx.Graph, list[tuple[Any,
 
 
 def _solve_planar(core: nx.Graph, original_graph: nx.Graph, epsilon: float) -> set[Any]:
-    """Solve the weighted-MIDS gadget of a planar core and decode a cover."""
-    gadget, weights, _ = reduce_vc_to_mids(core, epsilon, assume_planar=True)
+    """Solve the weighted-MIDS gadget of a planar core and decode a cover.
 
-    nodes = list(gadget.nodes())
-    to_int = {node: index for index, node in enumerate(nodes)}
-    to_label = {index: node for node, index in to_int.items()}
-    adj_int = {to_int[v]: {to_int[w] for w in gadget[v]} for v in gadget}
-    weights_int = {to_int[v]: weights[v] for v in gadget}
+    Builds the gadget directly as plain dict/set adjacency instead of an
+    ``nx.Graph`` (which ``reduce_vc_to_mids`` still returns, for the public
+    API and the demo). On large cores the ``nx.Graph`` construction and the
+    int-relabeling it required were the dominant wall-clock cost of this
+    candidate, even though both are O(n) -- NetworkX's per-node/per-edge
+    object overhead, not any algorithmic super-linearity. ``baker_ptas``
+    already accepts arbitrary hashable node keys, so no relabeling is
+    needed either. Checked to return exactly the same cover as the
+    previous ``nx.Graph``-based version on randomized tests.
+    """
+    n_vertices = core.number_of_nodes()
+    penalty = n_vertices + 1
+    adj: dict[Any, set[Any]] = {}
+    weights: dict[Any, float] = {}
 
-    ids_solution = baker_ptas.baker_ptas_ids_weighted(adj_int, weights=weights_int, epsilon=epsilon)
-    ids_labels = {to_label[k] for k in ids_solution}
+    def add_edge(a: Any, b: Any) -> None:
+        adj.setdefault(a, set()).add(b)
+        adj.setdefault(b, set()).add(a)
 
-    cover = {v for v in core.nodes() if (v, 0) in ids_labels}
+    for v in core.nodes():
+        n0, n1 = (v, 0), (v, 1)
+        add_edge(n0, n1)
+        weights[n0] = 1
+        weights[n1] = 0
+
+    for u, v in core.edges():
+        hub = ("h", u, v)
+        weights[hub] = penalty
+        add_edge((u, 0), hub)
+        add_edge((v, 0), hub)
+
+    # baker_ptas's tree-decomposition DP (only reached when epsilon < 1;
+    # the default epsilon=1 takes the O(n) greedy shortcut below and never
+    # touches this) sorts bags of gadget node labels for a canonical
+    # ordering. Gadget labels mix shapes -- (v, 0)/(v, 1) and ("h", u, v)
+    # -- so a plain ``sorted()`` over them can raise TypeError whenever the
+    # underlying vertex labels aren't mutually comparable (e.g. plain ints
+    # next to the literal string "h"). Relabeling to consecutive integers
+    # sidesteps that; this dict-only relabeling is far cheaper than the
+    # nx.Graph-based one it replaces, so it does not give back the speedup
+    # above.
+    if epsilon < 1:
+        to_int = {node: i for i, node in enumerate(adj)}
+        adj = {to_int[v]: {to_int[w] for w in nbrs} for v, nbrs in adj.items()}
+        weights = {to_int[v]: w for v, w in weights.items()}
+        ids_solution_int = baker_ptas.baker_ptas_ids_weighted(adj, weights=weights, epsilon=epsilon)
+        to_label = {i: node for node, i in to_int.items()}
+        ids_solution = {to_label[i] for i in ids_solution_int}
+    else:
+        ids_solution = baker_ptas.baker_ptas_ids_weighted(adj, weights=weights, epsilon=epsilon)
+
+    cover = {v for v in core.nodes() if (v, 0) in ids_solution}
 
     for u, v in core.edges():
         if u not in cover and v not in cover:
