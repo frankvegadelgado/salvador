@@ -9,6 +9,8 @@ __all__ = [
     "applogger",
     "baker_ptas",
     "batch",
+    "bipartite_reduction",
+    "local_search",
     "parser",
     "test",
     "utils",

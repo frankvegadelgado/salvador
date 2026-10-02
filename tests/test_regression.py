@@ -1,4 +1,4 @@
-"""Regression smoke tests for Salvador v0.0.7."""
+"""Regression smoke tests for Salvador v0.0.8."""
 
 from __future__ import annotations
 
@@ -10,8 +10,8 @@ from salvador.parser import read
 from salvador.utils import is_vertex_cover
 
 
-def test_version_is_007() -> None:
-    assert __version__ == "0.0.7"
+def test_version_is_008() -> None:
+    assert __version__ == "0.0.8"
 
 
 def test_small_benchmark_cover_is_valid() -> None:
@@ -65,3 +65,52 @@ def test_default_call_within_7_4_on_car_witness() -> None:
     assert is_vertex_cover(graph, cover)
     # Exact optimum is 4 (one side of the bipartition); allow the 7/4 bound.
     assert len(cover) <= (7 * 4) // 4  # 7
+
+
+def test_bipartite_planar_reduction_is_exact_and_valid() -> None:
+    """The auxiliary graph is bipartite planar, the linear-time cycle DP
+    matches brute force on every gadget, and every variant is a valid cover."""
+    import itertools
+
+    from salvador import bipartite_reduction as br
+
+    graphs = [
+        nx.petersen_graph(),
+        nx.cycle_graph(9),
+        nx.complete_graph(6),
+        nx.gnp_random_graph(18, 0.3, seed=3),
+        nx.relabel_nodes(nx.cycle_graph(6), {0: "a", 1: (1, 2)}),
+    ]
+    for graph in graphs:
+        aux = br.build_auxiliary_graph(graph)
+        assert nx.is_bipartite(aux) and nx.is_planar(aux)
+        assert all(aux.degree(x) in (1, 2) for x in aux)
+        adj = {v: set(graph[v]) for v in graph}
+        for cover in br.bipartite_planar_covers(adj):
+            assert is_vertex_cover(graph, cover)
+    for length in (2, 4, 6, 8, 10):
+        weights = [((7 * i) % 5 + 1) / 3 for i in range(length)]
+        sol = br.min_weight_vc_cycle(weights, [i % 2 for i in range(length)])
+        edges = [(i, i + 1) for i in range(length - 1)]
+        if length > 2:
+            edges.append((length - 1, 0))
+        best = min(
+            sum(w for w, b in zip(weights, bits) if b)
+            for bits in itertools.product((0, 1), repeat=length)
+            if all(bits[a] or bits[b] for a, b in edges)
+        )
+        assert abs(sum(w for w, b in zip(weights, sol) if b) - best) < 1e-9
+
+
+def test_local_search_candidate_never_worse_and_valid() -> None:
+    """c9 is a valid cover no larger than the best of c1..c8."""
+    from salvador.algorithm import ensemble_candidates
+
+    for seed in range(20):
+        graph = nx.gnp_random_graph(40, 0.12, seed=seed)
+        cands = ensemble_candidates(graph)
+        for cover in cands.values():
+            assert is_vertex_cover(graph, cover)
+        best_other = min(len(c) for k, c in cands.items() if k != "c9")
+        assert len(cands["c9"]) <= best_other
+

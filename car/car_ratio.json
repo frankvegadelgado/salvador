@@ -3,23 +3,17 @@
   "environment": {
     "networkx": "3.6.1",
     "platform": "Windows-11-10.0.26200-SP0",
-    "python": "3.12.3"
+    "python": "3.12.3",
+    "salvador": "0.0.8"
   },
   "part_a": {
     "conclusion": {
       "all_valid": true,
       "count_above_7_4": 0,
-      "max_ratio": 1.0,
-      "supports_7_4": true
+      "max_ratio": 1.0
     },
-    "default_epsilon": 1,
-    "elapsed_seconds": 2.000525712966919,
+    "elapsed_seconds": 3.5961036682128906,
     "experiment": "car/ Part A: default-call (epsilon=1) exact-ratio test",
-    "method": {
-      "candidate_solver": "salvador.algorithm.find_vertex_cover (default epsilon=1)",
-      "optimum_solver": "Koenig/maximum-matching on bipartite graphs, else branch-and-bound MIS; no MILP",
-      "ratio": "|C| / tau(G)  (exact)"
-    },
     "overall_summary": {
       "all_valid": true,
       "count_above_7_4": 0,
@@ -95546,7 +95540,7 @@
         "valid": true
       }
     ],
-    "salvador_version": "0.0.7",
+    "salvador_version": "0.0.8",
     "seed": 20260627,
     "summary_by_group": {
       "Bipartite hill-climb (exact)": {
@@ -95888,20 +95882,18 @@
           "valid": true
         }
       }
-    },
-    "threshold": {
-      "statement": "7/4 = 2 - 1/4 (legacy epsilon=0.1 ceiling, kept as a sanity backstop)",
-      "sub2_target": 1.75
     }
   },
   "part_b": {
-    "default_epsilon": 1,
-    "elapsed_seconds": 2600.6327369213104,
+    "elapsed_seconds": 2080.4016840457916,
     "experiment": "car/ Part B: large adversarial graphs (epsilon=1)",
     "family_rows": [
       {
+        "all_lower_bounds": {
+          "hopcroft_karp": 200
+        },
         "cover": 200,
-        "elapsed_seconds": 0.35246169999663834,
+        "elapsed_seconds": 0.4869124999968335,
         "exact": true,
         "group": "Crown graph K_{h,h} minus perfect matching (dense, near-regular)",
         "lower_bound": 200,
@@ -95910,12 +95902,15 @@
         "n": 400,
         "name": "crown_200",
         "ratio_upper_bound": 1.0,
-        "us_per_np1m": 8.76770398001588,
+        "ratio_upper_bound_legacy": 1.0,
         "valid": true
       },
       {
+        "all_lower_bounds": {
+          "hopcroft_karp": 200
+        },
         "cover": 200,
-        "elapsed_seconds": 0.3456054000016593,
+        "elapsed_seconds": 0.493316899985075,
         "exact": true,
         "group": "Complete bipartite (dense)",
         "lower_bound": 200,
@@ -95924,12 +95919,15 @@
         "n": 400,
         "name": "complete_bipartite_200",
         "ratio_upper_bound": 1.0,
-        "us_per_np1m": 8.554589108951962,
+        "ratio_upper_bound_legacy": 1.0,
         "valid": true
       },
       {
+        "all_lower_bounds": {
+          "hopcroft_karp": 400
+        },
         "cover": 400,
-        "elapsed_seconds": 1.8770039999981236,
+        "elapsed_seconds": 2.8470480000250973,
         "exact": true,
         "group": "Crown graph K_{h,h} minus perfect matching (dense, near-regular)",
         "lower_bound": 400,
@@ -95938,12 +95936,15 @@
         "n": 800,
         "name": "crown_400",
         "ratio_upper_bound": 1.0,
-        "us_per_np1m": 11.702019950112991,
+        "ratio_upper_bound_legacy": 1.0,
         "valid": true
       },
       {
+        "all_lower_bounds": {
+          "hopcroft_karp": 400
+        },
         "cover": 400,
-        "elapsed_seconds": 1.88938010000129,
+        "elapsed_seconds": 2.369244000001345,
         "exact": true,
         "group": "Complete bipartite (dense)",
         "lower_bound": 400,
@@ -95952,12 +95953,15 @@
         "n": 800,
         "name": "complete_bipartite_400",
         "ratio_upper_bound": 1.0,
-        "us_per_np1m": 11.749876243789117,
+        "ratio_upper_bound_legacy": 1.0,
         "valid": true
       },
       {
+        "all_lower_bounds": {
+          "hopcroft_karp": 800
+        },
         "cover": 800,
-        "elapsed_seconds": 9.033603299998504,
+        "elapsed_seconds": 10.753454399993643,
         "exact": true,
         "group": "Crown graph K_{h,h} minus perfect matching (dense, near-regular)",
         "lower_bound": 800,
@@ -95966,12 +95970,15 @@
         "n": 1600,
         "name": "crown_800",
         "ratio_upper_bound": 1.0,
-        "us_per_np1m": 14.097383426963956,
+        "ratio_upper_bound_legacy": 1.0,
         "valid": true
       },
       {
+        "all_lower_bounds": {
+          "hopcroft_karp": 800
+        },
         "cover": 800,
-        "elapsed_seconds": 8.951370900002075,
+        "elapsed_seconds": 10.874875099980272,
         "exact": true,
         "group": "Complete bipartite (dense)",
         "lower_bound": 800,
@@ -95980,12 +95987,15 @@
         "n": 1600,
         "name": "complete_bipartite_800",
         "ratio_upper_bound": 1.0,
-        "us_per_np1m": 13.951637936412212,
+        "ratio_upper_bound_legacy": 1.0,
         "valid": true
       },
       {
+        "all_lower_bounds": {
+          "hopcroft_karp": 2
+        },
         "cover": 2,
-        "elapsed_seconds": 0.030247499998949934,
+        "elapsed_seconds": 0.09421269997255877,
         "exact": true,
         "group": "Double star + bridge (matching-heuristic stress)",
         "lower_bound": 2,
@@ -95994,12 +96004,15 @@
         "n": 2002,
         "name": "double_star_1000",
         "ratio_upper_bound": 1.0,
-        "us_per_np1m": 7.556207843854592,
+        "ratio_upper_bound_legacy": 1.0,
         "valid": true
       },
       {
+        "all_lower_bounds": {
+          "hopcroft_karp": 2
+        },
         "cover": 2,
-        "elapsed_seconds": 0.5110103000006347,
+        "elapsed_seconds": 1.2639074999606237,
         "exact": true,
         "group": "Double star + bridge (matching-heuristic stress)",
         "lower_bound": 2,
@@ -96008,12 +96021,15 @@
         "n": 20002,
         "name": "double_star_10000",
         "ratio_upper_bound": 1.0,
-        "us_per_np1m": 12.774299427558802,
+        "ratio_upper_bound_legacy": 1.0,
         "valid": true
       },
       {
+        "all_lower_bounds": {
+          "hopcroft_karp": 2
+        },
         "cover": 2,
-        "elapsed_seconds": 6.284361300000455,
+        "elapsed_seconds": 13.21684579999419,
         "exact": true,
         "group": "Double star + bridge (matching-heuristic stress)",
         "lower_bound": 2,
@@ -96022,12 +96038,15 @@
         "n": 200002,
         "name": "double_star_100000",
         "ratio_upper_bound": 1.0,
-        "us_per_np1m": 15.710785419110495,
+        "ratio_upper_bound_legacy": 1.0,
         "valid": true
       },
       {
+        "all_lower_bounds": {
+          "hopcroft_karp": 4369
+        },
         "cover": 4369,
-        "elapsed_seconds": 0.23366579999856185,
+        "elapsed_seconds": 0.5228333999984898,
         "exact": true,
         "group": "Hierarchical star trap (degree-greedy tie-break stress)",
         "lower_bound": 4369,
@@ -96036,12 +96055,15 @@
         "n": 9557,
         "name": "hier_trap_L6_B4",
         "ratio_upper_bound": 1.0,
-        "us_per_np1m": 12.225490503770306,
+        "ratio_upper_bound_legacy": 1.0,
         "valid": true
       },
       {
+        "all_lower_bounds": {
+          "hopcroft_karp": 69905
+        },
         "cover": 69905,
-        "elapsed_seconds": 5.270622299998649,
+        "elapsed_seconds": 10.106337999983225,
         "exact": true,
         "group": "Hierarchical star trap (degree-greedy tie-break stress)",
         "lower_bound": 69905,
@@ -96050,712 +96072,450 @@
         "n": 152917,
         "name": "hier_trap_L8_B4",
         "ratio_upper_bound": 1.0,
-        "us_per_np1m": 17.233661181097688,
+        "ratio_upper_bound_legacy": 1.0,
         "valid": true
       },
       {
-        "cover": 2839,
-        "elapsed_seconds": 0.20391229999950156,
+        "all_lower_bounds": {
+          "clique_packing": 2198,
+          "greedy_maximal_matching": 2239,
+          "karp_sipser_matching": 2499,
+          "spectral_laplacian_hoffman": 2575
+        },
+        "cover": 2779,
+        "elapsed_seconds": 0.35948899999493733,
         "exact": false,
         "group": "Random 3-regular (bounded-degree adversarial)",
-        "lower_bound": 2239,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
+        "lower_bound": 2575,
+        "lower_bound_method": "spectral_laplacian_hoffman",
         "m": 7500,
         "n": 5000,
         "name": "regular_n5000_d3",
-        "ratio_upper_bound": 1.2679767753461366,
-        "us_per_np1m": 16.312983999960124,
+        "ratio_upper_bound": 1.0792233009708738,
+        "ratio_upper_bound_legacy": 1.241179097811523,
         "valid": true
       },
       {
-        "cover": 3355,
-        "elapsed_seconds": 0.2701128999979119,
+        "all_lower_bounds": {
+          "clique_packing": 2307,
+          "greedy_maximal_matching": 2340,
+          "karp_sipser_matching": 2499,
+          "spectral_laplacian_hoffman": 2870
+        },
+        "cover": 3284,
+        "elapsed_seconds": 0.47359880001749843,
         "exact": false,
         "group": "Random 6-regular (bounded-degree adversarial)",
-        "lower_bound": 2340,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
+        "lower_bound": 2870,
+        "lower_bound_method": "spectral_laplacian_hoffman",
         "m": 15000,
         "n": 5000,
         "name": "regular_n5000_d6",
-        "ratio_upper_bound": 1.4337606837606838,
-        "us_per_np1m": 13.505644999895594,
+        "ratio_upper_bound": 1.1442508710801393,
+        "ratio_upper_bound_legacy": 1.4034188034188033,
         "valid": true
       },
       {
-        "cover": 3826,
-        "elapsed_seconds": 0.4238837999982934,
+        "all_lower_bounds": {
+          "clique_packing": 2443,
+          "greedy_maximal_matching": 2399,
+          "karp_sipser_matching": 2498,
+          "spectral_laplacian_hoffman": 3220
+        },
+        "cover": 3758,
+        "elapsed_seconds": 0.6998092000139877,
         "exact": false,
         "group": "Random 12-regular (bounded-degree adversarial)",
-        "lower_bound": 2399,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
+        "lower_bound": 3220,
+        "lower_bound_method": "spectral_laplacian_hoffman",
         "m": 30000,
         "n": 5000,
         "name": "regular_n5000_d12",
-        "ratio_upper_bound": 1.5948311796581909,
-        "us_per_np1m": 12.110965714236954,
+        "ratio_upper_bound": 1.167080745341615,
+        "ratio_upper_bound_legacy": 1.5664860358482702,
         "valid": true
       },
       {
-        "cover": 28346,
-        "elapsed_seconds": 2.5104109999992943,
+        "all_lower_bounds": {
+          "clique_packing": 22054,
+          "greedy_maximal_matching": 22285,
+          "karp_sipser_matching": 24997,
+          "spectral_laplacian_hoffman": 25739
+        },
+        "cover": 27750,
+        "elapsed_seconds": 4.524955000029877,
         "exact": false,
         "group": "Random 3-regular (bounded-degree adversarial)",
-        "lower_bound": 22285,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
+        "lower_bound": 25739,
+        "lower_bound_method": "spectral_laplacian_hoffman",
         "m": 75000,
         "n": 50000,
         "name": "regular_n50000_d3",
-        "ratio_upper_bound": 1.2719766659187794,
-        "us_per_np1m": 20.08328799999435,
+        "ratio_upper_bound": 1.0781304634989703,
+        "ratio_upper_bound_legacy": 1.2452322189813776,
         "valid": true
       },
       {
-        "cover": 33547,
-        "elapsed_seconds": 4.041227700003219,
+        "all_lower_bounds": {
+          "clique_packing": 23077,
+          "greedy_maximal_matching": 23168,
+          "karp_sipser_matching": 24996,
+          "spectral_laplacian_hoffman": 28648
+        },
+        "cover": 32808,
+        "elapsed_seconds": 6.691141100018285,
         "exact": false,
         "group": "Random 6-regular (bounded-degree adversarial)",
-        "lower_bound": 23168,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
+        "lower_bound": 28648,
+        "lower_bound_method": "spectral_laplacian_hoffman",
         "m": 150000,
         "n": 50000,
         "name": "regular_n50000_d6",
-        "ratio_upper_bound": 1.4479886049723756,
-        "us_per_np1m": 20.206138500016095,
+        "ratio_upper_bound": 1.1452108349623011,
+        "ratio_upper_bound_legacy": 1.4160911602209945,
         "valid": true
       },
       {
-        "cover": 38339,
-        "elapsed_seconds": 6.88865480000095,
+        "all_lower_bounds": {
+          "clique_packing": 23873,
+          "greedy_maximal_matching": 23914,
+          "karp_sipser_matching": 24996,
+          "spectral_laplacian_hoffman": 32208
+        },
+        "cover": 37630,
+        "elapsed_seconds": 10.153833199990913,
         "exact": false,
         "group": "Random 12-regular (bounded-degree adversarial)",
-        "lower_bound": 23914,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
+        "lower_bound": 32208,
+        "lower_bound_method": "spectral_laplacian_hoffman",
         "m": 300000,
         "n": 50000,
         "name": "regular_n50000_d12",
-        "ratio_upper_bound": 1.6032031446014887,
-        "us_per_np1m": 19.681870857145572,
+        "ratio_upper_bound": 1.1683432687531048,
+        "ratio_upper_bound_legacy": 1.5735552396085974,
         "valid": true
       },
       {
-        "cover": 113461,
-        "elapsed_seconds": 14.258963299998868,
+        "all_lower_bounds": {
+          "clique_packing": 88370,
+          "greedy_maximal_matching": 89029,
+          "karp_sipser_matching": 99994,
+          "spectral_laplacian_hoffman": 102946
+        },
+        "cover": 111077,
+        "elapsed_seconds": 24.414389799989294,
         "exact": false,
         "group": "Random 3-regular (bounded-degree adversarial)",
-        "lower_bound": 89029,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
+        "lower_bound": 102946,
+        "lower_bound_method": "spectral_laplacian_hoffman",
         "m": 300000,
         "n": 200000,
         "name": "regular_n200000_d3",
-        "ratio_upper_bound": 1.2744274337575396,
-        "us_per_np1m": 28.517926599997736,
+        "ratio_upper_bound": 1.078983156217823,
+        "ratio_upper_bound_legacy": 1.2476496422514012,
         "valid": true
       },
       {
-        "cover": 134091,
-        "elapsed_seconds": 24.04541489999974,
+        "all_lower_bounds": {
+          "clique_packing": 92253,
+          "greedy_maximal_matching": 92589,
+          "karp_sipser_matching": 99996,
+          "spectral_laplacian_hoffman": 114588
+        },
+        "cover": 131137,
+        "elapsed_seconds": 35.46777619997738,
         "exact": false,
         "group": "Random 6-regular (bounded-degree adversarial)",
-        "lower_bound": 92589,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
+        "lower_bound": 114588,
+        "lower_bound_method": "spectral_laplacian_hoffman",
         "m": 600000,
         "n": 200000,
         "name": "regular_n200000_d6",
-        "ratio_upper_bound": 1.4482389916728768,
-        "us_per_np1m": 30.056768624999677,
+        "ratio_upper_bound": 1.1444217544594548,
+        "ratio_upper_bound_legacy": 1.4163345537806866,
         "valid": true
       },
       {
-        "cover": 153272,
-        "elapsed_seconds": 39.742823799999314,
+        "all_lower_bounds": {
+          "clique_packing": 95345,
+          "greedy_maximal_matching": 95547,
+          "karp_sipser_matching": 99997,
+          "spectral_laplacian_hoffman": 128812
+        },
+        "cover": 150628,
+        "elapsed_seconds": 54.388712999993004,
         "exact": false,
         "group": "Random 12-regular (bounded-degree adversarial)",
-        "lower_bound": 95547,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
+        "lower_bound": 128812,
+        "lower_bound_method": "spectral_laplacian_hoffman",
         "m": 1200000,
         "n": 200000,
         "name": "regular_n200000_d12",
-        "ratio_upper_bound": 1.604152929971637,
-        "us_per_np1m": 28.387731285713794,
+        "ratio_upper_bound": 1.1693631028165077,
+        "ratio_upper_bound_legacy": 1.5764806848985315,
         "valid": true
       },
       {
-        "cover": 2472,
-        "elapsed_seconds": 0.24615140000241809,
+        "all_lower_bounds": {
+          "clique_packing": 2319,
+          "greedy_maximal_matching": 1840,
+          "karp_sipser_matching": 2441,
+          "spectral_laplacian_hoffman": 91
+        },
+        "cover": 2469,
+        "elapsed_seconds": 0.5026351999840699,
         "exact": false,
         "group": "Barabasi-Albert scale-free hub graph",
-        "lower_bound": 1840,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
+        "lower_bound": 2441,
+        "lower_bound_method": "karp_sipser_matching",
         "m": 14991,
         "n": 5000,
         "name": "barabasi_albert_n5000",
-        "ratio_upper_bound": 1.3434782608695652,
-        "us_per_np1m": 12.313110900025915,
+        "ratio_upper_bound": 1.011470708725932,
+        "ratio_upper_bound_legacy": 1.3418478260869566,
         "valid": true
       },
       {
-        "cover": 24471,
-        "elapsed_seconds": 3.687342000001081,
+        "all_lower_bounds": {
+          "clique_packing": 22899,
+          "greedy_maximal_matching": 18140,
+          "karp_sipser_matching": 24339,
+          "spectral_laplacian_hoffman": 163
+        },
+        "cover": 24464,
+        "elapsed_seconds": 6.773810799990315,
         "exact": false,
         "group": "Barabasi-Albert scale-free hub graph",
-        "lower_bound": 18140,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
+        "lower_bound": 24339,
+        "lower_bound_method": "karp_sipser_matching",
         "m": 149991,
         "n": 50000,
         "name": "barabasi_albert_n50000",
-        "ratio_upper_bound": 1.3490077177508268,
-        "us_per_np1m": 18.437539689291423,
+        "ratio_upper_bound": 1.0051357902954106,
+        "ratio_upper_bound_legacy": 1.348621830209482,
         "valid": true
       },
       {
-        "cover": 98293,
-        "elapsed_seconds": 23.1754277,
+        "all_lower_bounds": {
+          "clique_packing": 91814,
+          "greedy_maximal_matching": 72598,
+          "karp_sipser_matching": 97761,
+          "spectral_laplacian_hoffman": 476
+        },
+        "cover": 98260,
+        "elapsed_seconds": 34.568533100013155,
         "exact": false,
         "group": "Barabasi-Albert scale-free hub graph",
-        "lower_bound": 72598,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
+        "lower_bound": 97761,
+        "lower_bound_method": "karp_sipser_matching",
         "m": 599991,
         "n": 200000,
         "name": "barabasi_albert_n200000",
-        "ratio_upper_bound": 1.353935370120389,
-        "us_per_np1m": 28.969610533118498,
+        "ratio_upper_bound": 1.0051042849398022,
+        "ratio_upper_bound_legacy": 1.3534808121435853,
         "valid": true
       },
       {
-        "cover": 2637,
-        "elapsed_seconds": 0.21578339999905438,
+        "all_lower_bounds": {
+          "clique_packing": 2319,
+          "greedy_maximal_matching": 2067,
+          "karp_sipser_matching": 2439,
+          "spectral_laplacian_hoffman": 320
+        },
+        "cover": 2596,
+        "elapsed_seconds": 0.40814939996926114,
         "exact": false,
         "group": "Sparse Erdos-Renyi, avg degree 4",
-        "lower_bound": 2067,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
+        "lower_bound": 2439,
+        "lower_bound_method": "karp_sipser_matching",
         "m": 9945,
         "n": 5000,
         "name": "gnp_n5000",
-        "ratio_upper_bound": 1.2757619738751815,
-        "us_per_np1m": 14.438501170896915,
+        "ratio_upper_bound": 1.064370643706437,
+        "ratio_upper_bound_legacy": 1.2559264634736333,
         "valid": true
       },
       {
-        "cover": 26455,
-        "elapsed_seconds": 2.9345691000016814,
+        "all_lower_bounds": {
+          "clique_packing": 23178,
+          "greedy_maximal_matching": 20728,
+          "karp_sipser_matching": 24447,
+          "spectral_laplacian_hoffman": 2982
+        },
+        "cover": 26065,
+        "elapsed_seconds": 5.241153799986932,
         "exact": false,
         "group": "Sparse Erdos-Renyi, avg degree 4",
-        "lower_bound": 20728,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
+        "lower_bound": 24447,
+        "lower_bound_method": "karp_sipser_matching",
         "m": 100249,
         "n": 50000,
         "name": "gnp_n50000",
-        "ratio_upper_bound": 1.2762929370899267,
-        "us_per_np1m": 19.531371922619662,
+        "ratio_upper_bound": 1.066183989855606,
+        "ratio_upper_bound_legacy": 1.2574778077962177,
         "valid": true
       },
       {
-        "cover": 105792,
-        "elapsed_seconds": 16.397803799998655,
+        "all_lower_bounds": {
+          "clique_packing": 92730,
+          "greedy_maximal_matching": 82811,
+          "karp_sipser_matching": 97796,
+          "spectral_laplacian_hoffman": 11886
+        },
+        "cover": 104218,
+        "elapsed_seconds": 27.847104699991178,
         "exact": false,
         "group": "Sparse Erdos-Renyi, avg degree 4",
-        "lower_bound": 82811,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
+        "lower_bound": 97796,
+        "lower_bound_method": "karp_sipser_matching",
         "m": 400234,
         "n": 200000,
         "name": "gnp_n200000",
-        "ratio_upper_bound": 1.2775114417166802,
-        "us_per_np1m": 27.319018582750488,
+        "ratio_upper_bound": 1.0656673074563376,
+        "ratio_upper_bound_legacy": 1.2585043049836375,
         "valid": true
       },
       {
-        "cover": 3592,
-        "elapsed_seconds": 0.2555190000020957,
+        "all_lower_bounds": {
+          "clique_packing": 3359,
+          "greedy_maximal_matching": 2499,
+          "karp_sipser_matching": 2493,
+          "spectral_laplacian_hoffman": 1284
+        },
+        "cover": 3543,
+        "elapsed_seconds": 0.46359110000776127,
         "exact": false,
         "group": "Watts-Strogatz small-world",
-        "lower_bound": 2499,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
+        "lower_bound": 3359,
+        "lower_bound_method": "clique_packing",
         "m": 15000,
         "n": 5000,
         "name": "ws_n5000",
-        "ratio_upper_bound": 1.437374949979992,
-        "us_per_np1m": 12.775950000104785,
+        "ratio_upper_bound": 1.0547782077999404,
+        "ratio_upper_bound_legacy": 1.417767106842737,
         "valid": true
       },
       {
-        "cover": 35950,
-        "elapsed_seconds": 3.1432635999990453,
+        "all_lower_bounds": {
+          "clique_packing": 33560,
+          "greedy_maximal_matching": 24993,
+          "karp_sipser_matching": 24926,
+          "spectral_laplacian_hoffman": 11864
+        },
+        "cover": 35418,
+        "elapsed_seconds": 5.393348299956415,
         "exact": false,
         "group": "Watts-Strogatz small-world",
-        "lower_bound": 24993,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
+        "lower_bound": 33560,
+        "lower_bound_method": "clique_packing",
         "m": 150000,
         "n": 50000,
         "name": "ws_n50000",
-        "ratio_upper_bound": 1.438402752770776,
-        "us_per_np1m": 15.716317999995224,
+        "ratio_upper_bound": 1.0553635280095353,
+        "ratio_upper_bound_legacy": 1.4171167927019566,
         "valid": true
       }
     ],
     "max_n_requested": 200000,
-    "note": "ratio_upper_bound = |cover| / (a provable lower bound on tau(G)). It is EXACT (equals |cover|/tau(G)) when lower_bound_method starts with 'bipartite'; otherwise it is a conservative upper bound on the true ratio, because a greedy maximal matching can under-count tau(G) by up to a factor of 2.",
+    "note": "ratio_upper_bound = |cover| / LB with LB the best certified lower bound on tau(G); exact when lower_bound_method starts with 'bipartite'. ratio_upper_bound_legacy uses the greedy maximal matching of earlier car/ versions and is reported only for comparison.",
     "overall_all_valid": true,
-    "overall_max_ratio_upper_bound": 1.604152929971637,
-    "salvador_version": "0.0.7",
-    "scaling_rows": [
-      {
-        "cover": 612,
-        "elapsed_seconds": 0.030563600001187297,
-        "exact": false,
-        "family": "regular4",
-        "group": "Scaling: 4-regular",
-        "lower_bound": 449,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
-        "m": 2000,
-        "n": 1000,
-        "name": "scaling_regular4_n1000",
-        "ratio_upper_bound": 1.3630289532293987,
-        "us_per_np1m": 10.187866667062432,
-        "valid": true
-      },
-      {
-        "cover": 491,
-        "elapsed_seconds": 0.03480960000160849,
-        "exact": false,
-        "family": "barabasi_albert3",
-        "group": "Scaling: Barabasi-Albert m=3",
-        "lower_bound": 362,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
-        "m": 2991,
-        "n": 1000,
-        "name": "scaling_ba3_n1000",
-        "ratio_upper_bound": 1.356353591160221,
-        "us_per_np1m": 8.72202455565234,
-        "valid": true
-      },
-      {
-        "cover": 1221,
-        "elapsed_seconds": 0.06687830000009853,
-        "exact": false,
-        "family": "regular4",
-        "group": "Scaling: 4-regular",
-        "lower_bound": 900,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
-        "m": 4000,
-        "n": 2000,
-        "name": "scaling_regular4_n2000",
-        "ratio_upper_bound": 1.3566666666666667,
-        "us_per_np1m": 11.146383333349755,
-        "valid": true
-      },
-      {
-        "cover": 988,
-        "elapsed_seconds": 0.07045259999722475,
-        "exact": false,
-        "family": "barabasi_albert3",
-        "group": "Scaling: Barabasi-Albert m=3",
-        "lower_bound": 742,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
-        "m": 5991,
-        "n": 2000,
-        "name": "scaling_ba3_n2000",
-        "ratio_upper_bound": 1.3315363881401616,
-        "us_per_np1m": 8.81649355490236,
-        "valid": true
-      },
-      {
-        "cover": 2440,
-        "elapsed_seconds": 0.15235260000190465,
-        "exact": false,
-        "family": "regular4",
-        "group": "Scaling: 4-regular",
-        "lower_bound": 1810,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
-        "m": 8000,
-        "n": 4000,
-        "name": "scaling_regular4_n4000",
-        "ratio_upper_bound": 1.3480662983425415,
-        "us_per_np1m": 12.69605000015872,
-        "valid": true
-      },
-      {
-        "cover": 1973,
-        "elapsed_seconds": 0.2028245000001334,
-        "exact": false,
-        "family": "barabasi_albert3",
-        "group": "Scaling: Barabasi-Albert m=3",
-        "lower_bound": 1465,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
-        "m": 11991,
-        "n": 4000,
-        "name": "scaling_ba3_n4000",
-        "ratio_upper_bound": 1.3467576791808873,
-        "us_per_np1m": 12.683665812027604,
-        "valid": true
-      },
-      {
-        "cover": 4865,
-        "elapsed_seconds": 0.3528870000009192,
-        "exact": false,
-        "family": "regular4",
-        "group": "Scaling: 4-regular",
-        "lower_bound": 3624,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
-        "m": 16000,
-        "n": 8000,
-        "name": "scaling_regular4_n8000",
-        "ratio_upper_bound": 1.3424392935982339,
-        "us_per_np1m": 14.7036250000383,
-        "valid": true
-      },
-      {
-        "cover": 3926,
-        "elapsed_seconds": 0.4141516000017873,
-        "exact": false,
-        "family": "barabasi_albert3",
-        "group": "Scaling: Barabasi-Albert m=3",
-        "lower_bound": 2902,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
-        "m": 23991,
-        "n": 8000,
-        "name": "scaling_ba3_n8000",
-        "ratio_upper_bound": 1.3528600964851827,
-        "us_per_np1m": 12.945878528391964,
-        "valid": true
-      },
-      {
-        "cover": 9738,
-        "elapsed_seconds": 0.762008000001515,
-        "exact": false,
-        "family": "regular4",
-        "group": "Scaling: 4-regular",
-        "lower_bound": 7246,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
-        "m": 32000,
-        "n": 16000,
-        "name": "scaling_regular4_n16000",
-        "ratio_upper_bound": 1.343913883521943,
-        "us_per_np1m": 15.87516666669823,
-        "valid": true
-      },
-      {
-        "cover": 7816,
-        "elapsed_seconds": 0.9298183000028075,
-        "exact": false,
-        "family": "barabasi_albert3",
-        "group": "Scaling: Barabasi-Albert m=3",
-        "lower_bound": 5800,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
-        "m": 47991,
-        "n": 16000,
-        "name": "scaling_ba3_n16000",
-        "ratio_upper_bound": 1.3475862068965516,
-        "us_per_np1m": 14.530454282677368,
-        "valid": true
-      },
-      {
-        "cover": 19525,
-        "elapsed_seconds": 1.7198920999981056,
-        "exact": false,
-        "family": "regular4",
-        "group": "Scaling: 4-regular",
-        "lower_bound": 14470,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
-        "m": 64000,
-        "n": 32000,
-        "name": "scaling_regular4_n32000",
-        "ratio_upper_bound": 1.3493434692467174,
-        "us_per_np1m": 17.9155427083136,
-        "valid": true
-      },
-      {
-        "cover": 15753,
-        "elapsed_seconds": 2.5871976999987965,
-        "exact": false,
-        "family": "barabasi_albert3",
-        "group": "Scaling: Barabasi-Albert m=3",
-        "lower_bound": 11676,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
-        "m": 95991,
-        "n": 32000,
-        "name": "scaling_ba3_n32000",
-        "ratio_upper_bound": 1.3491778006166495,
-        "us_per_np1m": 20.21390332131788,
-        "valid": true
-      },
-      {
-        "cover": 39017,
-        "elapsed_seconds": 4.549676399998134,
-        "exact": false,
-        "family": "regular4",
-        "group": "Scaling: 4-regular",
-        "lower_bound": 28887,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
-        "m": 128000,
-        "n": 64000,
-        "name": "scaling_regular4_n64000",
-        "ratio_upper_bound": 1.3506767750199051,
-        "us_per_np1m": 23.69623124999028,
-        "valid": true
-      },
-      {
-        "cover": 31472,
-        "elapsed_seconds": 5.7083806000009645,
-        "exact": false,
-        "family": "barabasi_albert3",
-        "group": "Scaling: Barabasi-Albert m=3",
-        "lower_bound": 23260,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
-        "m": 191991,
-        "n": 64000,
-        "name": "scaling_ba3_n64000",
-        "ratio_upper_bound": 1.3530524505588994,
-        "us_per_np1m": 22.299145673093836,
-        "valid": true
-      },
-      {
-        "cover": 78128,
-        "elapsed_seconds": 9.91559480000069,
-        "exact": false,
-        "family": "regular4",
-        "group": "Scaling: 4-regular",
-        "lower_bound": 57908,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
-        "m": 256000,
-        "n": 128000,
-        "name": "scaling_regular4_n128000",
-        "ratio_upper_bound": 1.349174552738827,
-        "us_per_np1m": 25.82186145833513,
-        "valid": true
-      },
-      {
-        "cover": 62936,
-        "elapsed_seconds": 12.534677399999055,
-        "exact": false,
-        "family": "barabasi_albert3",
-        "group": "Scaling: Barabasi-Albert m=3",
-        "lower_bound": 46524,
-        "lower_bound_method": "greedy-maximal-matching (lower bound only)",
-        "m": 383991,
-        "n": 128000,
-        "name": "scaling_ba3_n128000",
-        "ratio_upper_bound": 1.3527641647321813,
-        "us_per_np1m": 24.482222148434357,
-        "valid": true
-      }
-    ],
-    "scaling_summary": {
-      "barabasi_albert3": {
-        "fit_time_vs_(n+m)": {
-          "intercept": -0.33848714463327356,
-          "n_points": 8,
-          "r2": 0.9968437925948362,
-          "slope": 2.469802717159306e-05
-        },
-        "points": [
-          {
-            "elapsed_seconds": 0.03480960000160849,
-            "m": 2991,
-            "n": 1000,
-            "n_plus_m": 3991,
-            "us_per_np1m": 8.72202455565234
-          },
-          {
-            "elapsed_seconds": 0.07045259999722475,
-            "m": 5991,
-            "n": 2000,
-            "n_plus_m": 7991,
-            "us_per_np1m": 8.81649355490236
-          },
-          {
-            "elapsed_seconds": 0.2028245000001334,
-            "m": 11991,
-            "n": 4000,
-            "n_plus_m": 15991,
-            "us_per_np1m": 12.683665812027604
-          },
-          {
-            "elapsed_seconds": 0.4141516000017873,
-            "m": 23991,
-            "n": 8000,
-            "n_plus_m": 31991,
-            "us_per_np1m": 12.945878528391964
-          },
-          {
-            "elapsed_seconds": 0.9298183000028075,
-            "m": 47991,
-            "n": 16000,
-            "n_plus_m": 63991,
-            "us_per_np1m": 14.530454282677368
-          },
-          {
-            "elapsed_seconds": 2.5871976999987965,
-            "m": 95991,
-            "n": 32000,
-            "n_plus_m": 127991,
-            "us_per_np1m": 20.21390332131788
-          },
-          {
-            "elapsed_seconds": 5.7083806000009645,
-            "m": 191991,
-            "n": 64000,
-            "n_plus_m": 255991,
-            "us_per_np1m": 22.299145673093836
-          },
-          {
-            "elapsed_seconds": 12.534677399999055,
-            "m": 383991,
-            "n": 128000,
-            "n_plus_m": 511991,
-            "us_per_np1m": 24.482222148434357
-          }
-        ]
-      },
-      "regular4": {
-        "fit_time_vs_(n+m)": {
-          "intercept": -0.2968943515098297,
-          "n_points": 8,
-          "r2": 0.9944989329135941,
-          "slope": 2.604576158441986e-05
-        },
-        "points": [
-          {
-            "elapsed_seconds": 0.030563600001187297,
-            "m": 2000,
-            "n": 1000,
-            "n_plus_m": 3000,
-            "us_per_np1m": 10.187866667062432
-          },
-          {
-            "elapsed_seconds": 0.06687830000009853,
-            "m": 4000,
-            "n": 2000,
-            "n_plus_m": 6000,
-            "us_per_np1m": 11.146383333349755
-          },
-          {
-            "elapsed_seconds": 0.15235260000190465,
-            "m": 8000,
-            "n": 4000,
-            "n_plus_m": 12000,
-            "us_per_np1m": 12.69605000015872
-          },
-          {
-            "elapsed_seconds": 0.3528870000009192,
-            "m": 16000,
-            "n": 8000,
-            "n_plus_m": 24000,
-            "us_per_np1m": 14.7036250000383
-          },
-          {
-            "elapsed_seconds": 0.762008000001515,
-            "m": 32000,
-            "n": 16000,
-            "n_plus_m": 48000,
-            "us_per_np1m": 15.87516666669823
-          },
-          {
-            "elapsed_seconds": 1.7198920999981056,
-            "m": 64000,
-            "n": 32000,
-            "n_plus_m": 96000,
-            "us_per_np1m": 17.9155427083136
-          },
-          {
-            "elapsed_seconds": 4.549676399998134,
-            "m": 128000,
-            "n": 64000,
-            "n_plus_m": 192000,
-            "us_per_np1m": 23.69623124999028
-          },
-          {
-            "elapsed_seconds": 9.91559480000069,
-            "m": 256000,
-            "n": 128000,
-            "n_plus_m": 384000,
-            "us_per_np1m": 25.82186145833513
-          }
-        ]
-      }
-    },
+    "overall_max_ratio_upper_bound": 1.1693631028165077,
+    "overall_max_ratio_upper_bound_legacy": 1.5764806848985315,
+    "overall_worst_instance": "regular_n200000_d12",
+    "salvador_version": "0.0.8",
     "summary_by_group": {
       "Barabasi-Albert scale-free hub graph": {
         "all_valid": true,
         "instances": 3,
-        "max_elapsed_seconds": 23.1754277,
+        "max_elapsed_seconds": 34.568533100013155,
         "max_n": 200000,
-        "max_ratio_upper_bound": 1.353935370120389,
-        "mean_ratio_upper_bound": 1.3488071162469268
+        "max_ratio_upper_bound": 1.011470708725932,
+        "max_ratio_upper_bound_legacy": 1.3534808121435853,
+        "mean_ratio_upper_bound": 1.0072369279870481
       },
       "Complete bipartite (dense)": {
         "all_valid": true,
         "instances": 3,
-        "max_elapsed_seconds": 8.951370900002075,
+        "max_elapsed_seconds": 10.874875099980272,
         "max_n": 1600,
         "max_ratio_upper_bound": 1.0,
+        "max_ratio_upper_bound_legacy": 1.0,
         "mean_ratio_upper_bound": 1.0
       },
       "Crown graph K_{h,h} minus perfect matching (dense, near-regular)": {
         "all_valid": true,
         "instances": 3,
-        "max_elapsed_seconds": 9.033603299998504,
+        "max_elapsed_seconds": 10.753454399993643,
         "max_n": 1600,
         "max_ratio_upper_bound": 1.0,
+        "max_ratio_upper_bound_legacy": 1.0,
         "mean_ratio_upper_bound": 1.0
       },
       "Double star + bridge (matching-heuristic stress)": {
         "all_valid": true,
         "instances": 3,
-        "max_elapsed_seconds": 6.284361300000455,
+        "max_elapsed_seconds": 13.21684579999419,
         "max_n": 200002,
         "max_ratio_upper_bound": 1.0,
+        "max_ratio_upper_bound_legacy": 1.0,
         "mean_ratio_upper_bound": 1.0
       },
       "Hierarchical star trap (degree-greedy tie-break stress)": {
         "all_valid": true,
         "instances": 2,
-        "max_elapsed_seconds": 5.270622299998649,
+        "max_elapsed_seconds": 10.106337999983225,
         "max_n": 152917,
         "max_ratio_upper_bound": 1.0,
+        "max_ratio_upper_bound_legacy": 1.0,
         "mean_ratio_upper_bound": 1.0
       },
       "Random 12-regular (bounded-degree adversarial)": {
         "all_valid": true,
         "instances": 3,
-        "max_elapsed_seconds": 39.742823799999314,
+        "max_elapsed_seconds": 54.388712999993004,
         "max_n": 200000,
-        "max_ratio_upper_bound": 1.604152929971637,
-        "mean_ratio_upper_bound": 1.6007290847437723
+        "max_ratio_upper_bound": 1.1693631028165077,
+        "max_ratio_upper_bound_legacy": 1.5764806848985315,
+        "mean_ratio_upper_bound": 1.1682623723037426
       },
       "Random 3-regular (bounded-degree adversarial)": {
         "all_valid": true,
         "instances": 3,
-        "max_elapsed_seconds": 14.258963299998868,
+        "max_elapsed_seconds": 24.414389799989294,
         "max_n": 200000,
-        "max_ratio_upper_bound": 1.2744274337575396,
-        "mean_ratio_upper_bound": 1.271460291674152
+        "max_ratio_upper_bound": 1.0792233009708738,
+        "max_ratio_upper_bound_legacy": 1.2476496422514012,
+        "mean_ratio_upper_bound": 1.0787789735625557
       },
       "Random 6-regular (bounded-degree adversarial)": {
         "all_valid": true,
         "instances": 3,
-        "max_elapsed_seconds": 24.04541489999974,
+        "max_elapsed_seconds": 35.46777619997738,
         "max_n": 200000,
-        "max_ratio_upper_bound": 1.4482389916728768,
-        "mean_ratio_upper_bound": 1.4433294268019787
+        "max_ratio_upper_bound": 1.1452108349623011,
+        "max_ratio_upper_bound_legacy": 1.4163345537806866,
+        "mean_ratio_upper_bound": 1.1446278201672984
       },
       "Sparse Erdos-Renyi, avg degree 4": {
         "all_valid": true,
         "instances": 3,
-        "max_elapsed_seconds": 16.397803799998655,
+        "max_elapsed_seconds": 27.847104699991178,
         "max_n": 200000,
-        "max_ratio_upper_bound": 1.2775114417166802,
-        "mean_ratio_upper_bound": 1.276522117560596
+        "max_ratio_upper_bound": 1.066183989855606,
+        "max_ratio_upper_bound_legacy": 1.2585043049836375,
+        "mean_ratio_upper_bound": 1.0654073136727937
       },
       "Watts-Strogatz small-world": {
         "all_valid": true,
         "instances": 2,
-        "max_elapsed_seconds": 3.1432635999990453,
+        "max_elapsed_seconds": 5.393348299956415,
         "max_n": 50000,
-        "max_ratio_upper_bound": 1.438402752770776,
-        "mean_ratio_upper_bound": 1.437888851375384
+        "max_ratio_upper_bound": 1.0553635280095353,
+        "max_ratio_upper_bound_legacy": 1.417767106842737,
+        "mean_ratio_upper_bound": 1.0550708679047378
       }
     }
   },
-  "salvador_version": "0.0.7",
+  "salvador_version": "0.0.8",
   "seed": 20260627
 }
