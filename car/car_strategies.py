@@ -148,8 +148,8 @@ def main() -> None:
         for g, s in summary.items():
             for k in BASE:
                 p = s["per_strategy"][k]
-                fh.write(f"\"{g}\",{s['instances']},{k},{CANDIDATE_NAMES[k]},{p['wins']},{p['sole_wins']},{p['win_rate']:.4f}\n")
-            fh.write(f"\"{g}\",{s['instances']},c9,{CANDIDATE_NAMES['c9']} (strict improvements),"
+                fh.write(f"\"{g}\",{s['instances']},{k},\"{CANDIDATE_NAMES[k]}\",{p['wins']},{p['sole_wins']},{p['win_rate']:.4f}\n")
+            fh.write(f"\"{g}\",{s['instances']},c9,\"{CANDIDATE_NAMES['c9']} (strict improvements)\","
                      f"{s['c9_improved']},,{s['c9_improved_rate']:.4f}\n")
     (out / "car_strategies.json").write_text(json.dumps(
         {"salvador_version": cc.__version__, "environment": cc.environment(),
