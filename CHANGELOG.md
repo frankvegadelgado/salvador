@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.0.8
+## v0.0.9
 
 - **New candidate `c9`: budgeted (1,2)-swap iterated local search** (`salvador/local_search.py`). It improves the best of `c1`...`c8` through its complementary independent set, using the (1,2)-swap neighbourhood of Andrade, Resende and Werneck (2012) plus perturbations that are undone when they make the set smaller. Every adjacency scan is charged to a work counter capped at `budget * (n + m)` (default `budget = 100`), so `c9` stays `O(n + m)` and never returns a larger cover than its input. `algorithm.ensemble_candidates` now returns all nine named candidates, and `find_vertex_cover` returns their minimum.
 - **Sharper certified lower bounds in `car/`.** Part B used to divide by a greedy maximal matching, which is at most `n/2` and so cannot certify a ratio below about 1.4–1.5 on random regular graphs. That bound is behind the old `overall_max_ratio_upper_bound` of 1.604, reached on a random 12-regular graph. The best of a Karp–Sipser matching, the greedy matching, and the Laplacian Hoffman bound `tau >= n - floor(n(1 - delta/mu_max))` is now used. The old metric is still reported as `ratio_upper_bound_legacy` for comparison.

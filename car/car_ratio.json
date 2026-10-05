@@ -4,7 +4,7 @@
     "networkx": "3.6.1",
     "platform": "Windows-11-10.0.26200-SP0",
     "python": "3.12.3",
-    "salvador": "0.0.8"
+    "salvador": "0.0.9"
   },
   "part_a": {
     "conclusion": {
@@ -95540,7 +95540,7 @@
         "valid": true
       }
     ],
-    "salvador_version": "0.0.8",
+    "salvador_version": "0.0.9",
     "seed": 20260627,
     "summary_by_group": {
       "Bipartite hill-climb (exact)": {
@@ -96422,7 +96422,7 @@
     "overall_max_ratio_upper_bound": 1.1693631028165077,
     "overall_max_ratio_upper_bound_legacy": 1.5764806848985315,
     "overall_worst_instance": "regular_n200000_d12",
-    "salvador_version": "0.0.8",
+    "salvador_version": "0.0.9",
     "summary_by_group": {
       "Barabasi-Albert scale-free hub graph": {
         "all_valid": true,
@@ -96516,6 +96516,6 @@
       }
     }
   },
-  "salvador_version": "0.0.8",
+  "salvador_version": "0.0.9",
   "seed": 20260627
 }
