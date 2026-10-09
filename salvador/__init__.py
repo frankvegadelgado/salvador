@@ -10,9 +10,11 @@ __all__ = [
     "baker_ptas",
     "batch",
     "bipartite_reduction",
+    "eds_gadget",
     "local_search",
     "parser",
     "test",
+    "treewidth_dp",
     "utils",
     "vc_reduction",
 ]

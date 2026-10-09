@@ -1,41 +1,68 @@
-# Changelog
+# Salvador 0.1.0
 
-## v0.0.9
+## Strategies
 
-- **New candidate `c9`: budgeted (1,2)-swap iterated local search** (`salvador/local_search.py`). It improves the best of `c1`...`c8` through its complementary independent set, using the (1,2)-swap neighbourhood of Andrade, Resende and Werneck (2012) plus perturbations that are undone when they make the set smaller. Every adjacency scan is charged to a work counter capped at `budget * (n + m)` (default `budget = 100`), so `c9` stays `O(n + m)` and never returns a larger cover than its input. `algorithm.ensemble_candidates` now returns all nine named candidates, and `find_vertex_cover` returns their minimum.
-- **Sharper certified lower bounds in `car/`.** Part B used to divide by a greedy maximal matching, which is at most `n/2` and so cannot certify a ratio below about 1.4–1.5 on random regular graphs. That bound is behind the old `overall_max_ratio_upper_bound` of 1.604, reached on a random 12-regular graph. The best of a Karp–Sipser matching, the greedy matching, and the Laplacian Hoffman bound `tau >= n - floor(n(1 - delta/mu_max))` is now used. The old metric is still reported as `ratio_upper_bound_legacy` for comparison.
-- **Clique-packing lower bound in `car/`.** Each clique `K` needs `|K| - 1` cover vertices, and vertex-disjoint cliques need disjoint ones, so a greedy disjoint clique packing gives `tau >= sum (|K_i| - 1)`. A matching is the special case `|K_i| = 2`. On Watts–Strogatz graphs, whose ring lattice is made of overlapping `K4`'s, this bound is far above any matching (which is capped at `n/2`). Those graphs were the worst case of the previous `car_ratio.py` run, at 1.4178.
-- **`car/` split into separate scripts** sharing `car/car_common.py`: `car_ratio.py` (approximation ratio, Parts A and B), `car_scaling.py` (doubling-size timing study) and the new `car_strategies.py` (which candidate wins on each instance and how often, per graph family, with optional DIMACS edge-list input). `car_experiment.py` is now a thin wrapper that runs `car_ratio.py` and then `car_scaling.py`.
-- **New candidate `c8`: the bipartite planar oriented-incidence reduction, in linear time.** New module `salvador/bipartite_reduction.py` implements the manuscript's `ComponentCover` gadget (incidence nodes `x_uv`/`x_vu` with weights `1/deg`, forcing edges and local cycle edges). Every original edge is encoded once, from the endpoint processed first, so the auxiliary graph is a disjoint union of even cycles `C_2d` and single edges. It is therefore bipartite and planar by construction, and its minimum-weight vertex cover is solved *exactly* by a dynamic program along each cycle in `O(n + m)` total, replacing the `O(n^{3/2})` min-cut/Hopcroft-Karp solve. Checks: the cycle DP matches a MILP optimum of the auxiliary graph on 150 random graphs across 3 processing orders, and the manuscript-order variant reproduces 35 of the 43 cover sizes logged in the manuscript, with the other 8 within 3 vertices except `MANN_a45`, where it is 10 smaller (693 vs 703); the remaining differences come from ties among optimal auxiliary covers and pruning order. A second, quality-oriented variant (`residual_bipartite_planar_vertex_cover`) gives the next gadget to a minimum-*residual*-degree vertex, uses residual-degree weights, and deletes decoded vertices from the residual graph. It stays `O(n + m)` with a bucket queue. Mean ratio on 43 DIMACS clique complements: 1.042 (manuscript order) and 1.027 (residual order). With `c8` added, the ensemble improves on `C500.9` (449 to 448) and `gen200_p0.9_55` (163 to 162), and on random 5-regular graphs its mean ratio to the exact optimum drops from 1.028 to 1.020.
-- **Fixed `TypeError` on mixed node labels in `linear_min_weighted_vertex_cover`.** Edge deduplication used `tuple(sorted((u, v)))`, which compares labels with `<` and crashed (taking `find_vertex_cover` down with it) on graphs whose labels are not mutually comparable, e.g. strings mixed with tuples. Each edge is now processed only from the endpoint with the smaller integer iteration position, so no labels are compared and the `O(m)` `processed_edges` set is gone. Edges are visited in the same order as before, and the returned cover is identical on comparable-label graphs (checked on 500 random weighted and unweighted graphs). Self-loops now put their vertex in the cover directly; previously the doubled budget update meant such a vertex never saturated, leaving the loop uncovered.
-- **Selection-aware "Hallelujah" heuristic.** `covering_via_reduction_max_degree_1` used to resolve each auxiliary pair independently by weight and then by a `str(...)` label tie-break. On graphs where every vertex has the same degree, all `1/d` weights tie, so the cover was decided by labels alone and could hold almost every vertex (`n - 1` on an `n`-cycle, 251 of 256 on the 8-cube). Pairs are now resolved by (1) reusing an endpoint whose original vertex is already selected, (2) the smaller `1/d` weight, and (3) on a tie, selecting the neighbor of the vertex being scanned, with original vertices scanned in ascending degree order (bucket sort). The pass stays `O(n + m)`. Before pruning, the candidate drops from 98 to 50 on `C_100`, from 90 to 50 on `K_{50,50}`, from 251 to 128 on `Q_8`, and from 397 to 200 on the 20x20 torus.
+- **c1..c9:** the linear-time ensemble of 0.0.9, unchanged. `ensemble_candidates` returns c1..c11; c9 still starts from the best of c1..c8.
+- **c10: edge-dominating-set gadget (new)** (`salvador/eds_gadget.py`).
+  - **Gadget:** every original edge {u, v} becomes an edge-node. Every vertex u with neighbours v1..vd gets incidence nodes (u,1)..(u,ceil(d/2)), where (u,k) is joined to the edge-nodes of u's (2k-1)-th and 2k-th edges. There are no pendants.
+  - **Structure:** the gadget is bipartite with maximum degree 2, a disjoint union of paths and even cycles with 2m edges. Minimum edge dominating set is NP-hard in general, even on bipartite graphs of maximum degree 3 (Yannakakis–Gavril 1980), but here it is solved exactly in linear time: a path or cycle with L edges needs exactly ceil(L/3) edges, every third one. On cycles, the rotation that adds the fewest new vertices is kept.
+  - **Decoding:** u enters the cover when a chosen gadget edge uses an incidence node of u. This always covers every original edge, with no repair, and the cover is then pruned. c10 runs in O(n + m).
+- **c11: bounded-treewidth exact DP (new)** (`salvador/treewidth_dp.py`).
+  - **Method:** bucket (variable) elimination along a greedy minimum-degree elimination order, solving maximum independent set exactly on the tree decomposition this order defines.
+  - **Width cap:** a vertex is eliminated only while its current fill-graph degree is at most `tw_max_width`, default 10. Bags therefore have at most 11 vertices.
+  - **Work budget:** eliminations stop once the dynamic-programming tables (Σ 2^|bag|) would exceed `tw_budget × (n + m)`, default 256. This is the "treewidth small enough relative to the size of the instance" condition, and it keeps c11 worst-case O(n + m).
+  - **Core:** the vertices left un-eliminated form the core R, which is fixed as in the best of c1..c10. The rest is solved exactly given that choice.
+  - **Guarantees:** if R is empty, c11 is a **minimum vertex cover**. This covers trees, cycles, series-parallel and outerplanar graphs, thin grids, and any graph whose min-degree elimination width is at most the cap. In every case c11 is valid and no larger than the best of c1..c10.
+  - **Checks:** optimal on all 298 small random graphs with an empty core (brute force); 0.9 s on a 50 000-vertex tree, exact.
+- **c12: swap-maximize refinement (new, final strategy).** `refine_cover` refines every candidate c1..c11:
+  - For each u in C ∪ {v_max}, it moves u into the independent set and evicts N(u).
+  - It then regrows a maximal independent set in ascending-degree order (`maximize_solution`).
+  - It keeps the result if strictly smaller.
+- **Return values:** `find_vertex_cover` returns c12. `final_candidates(G, return_refined=True)` returns all twelve strategies plus each candidate's refinement.
 
-## v0.0.7
+## Guarantees
 
-- **Linear-time fix for the Min-to-Min (MtM) heuristic.** `min_to_min_vertex_cover_linear` previously pooled the neighborhoods of *every* vertex sharing the current minimum degree on each outer-loop step and rescanned that pooled set to break ties. On regular or near-regular graphs the entire active vertex set can share one bucket, and since only one vertex was consumed per rescan, the pooled neighborhood was recomputed from scratch up to `|bucket|` times, degrading to `O(n^2)`; profiling on random 3-regular graphs confirmed super-linear wall-clock growth (e.g. ~11x time for a 4x increase in `n`). The routine now pops and processes exactly one minimum-degree vertex per step and picks its cover target in `O(1)` from that vertex's current neighbor set, restoring an unconditional `O(n + m)` bound (verified on random 3-regular graphs up to `n=32000`, where time-per-vertex stays flat instead of growing).
-- **Unified the production `epsilon` default to `1`.** `salvador.vc_reduction.reduce_vc_to_mids` and `salvador.vc_reduction.solve_vc` previously defaulted to `epsilon=0.1` (Baker layering width `k=10`), inconsistent with `salvador.algorithm.find_vertex_cover`'s `epsilon=1` (`k=1`) default. Both now default to `epsilon=1`, which skips the tree-decomposition PTAS pass entirely and falls back to the linear-time greedy weighted-IDS baseline, so the whole production ensemble is strictly `O(n + m)` by default. Smaller `epsilon` remains available for offline quality experiments but is no longer the default anywhere in the package.
-- **Robustness fix for heterogeneous node labels.** `min_weighted_vertex_cover_max_degree_1`'s tie-break compared node labels directly with `<`, which raises `TypeError` on graphs whose node labels are not mutually comparable (e.g. a mix of strings and tuples, as produced by some of the new `car/` adversarial generators). The tie-break now compares `str(node)` instead.
-- **Documented the Hvala ensemble provenance.** Four of the six linear-time candidates evaluated by `find_vertex_cover` (maximal matching, bucket-queue max-degree greedy, the degree-1 weighted-reduction "Hallelujah" heuristic, and redundant-vertex pruning) adapt the ensemble published as the Hvala algorithm (Frank Vega, *The Hvala Algorithm*, Gauge Freedom Journal, v1 i1-004, DOI: 10.65323/gfj.2026.004, 2026; PyPI package `hvala`), which proves an unconditional `O(n + m)` time/space bound and a worst-case approximation ratio at most 2. This is now documented directly in `salvador/algorithm.py`.
-- **Replaced the `car/` suite** with a two-part reproducibility script: Part A is the existing small-graph exact-ratio suite, now run under the linear-time default `epsilon=1`; Part B is a new large adversarial-graph suite (complete bipartite, crown graphs, double-star bridges, a hierarchical greedy-tie-break stress construction, random regular graphs, Barabasi-Albert hub graphs, sparse Erdos-Renyi graphs, and Watts-Strogatz small-world graphs) with a doubling-size scaling study that fits wall-clock time against `n + m` to empirically verify the `O(n + m)` guarantee at scale.
+- c12 is never larger than any of c1..c11.
+- c11 is a minimum vertex cover whenever its elimination core is empty. Every guarantee of 0.0.9 therefore still holds, including ratio at most 2 on every graph.
+- Every strategy returns a valid cover.
 
-## v0.0.6
+## Running time: worst-case O(n + m)
 
-- Replaced the `car/` suite with a default-call (`epsilon=0.1`) experiment that measures the approximation ratio against exact optima (Koenig certificates on bipartite instances, no MILP) and checks the `7/4` threshold. The largest observed ratio is `7/4`, attained by an eleven-vertex bipartite witness; no instance exceeds it.
-- Updated regression smoke tests and documentation for the default-call `7/4` results.
-- Bumped package version metadata to 0.0.6.
+- **c1..c9:** O(n + m), as before.
+- **c10:** O(n + m).
+- **c11:** O(n · w² + m) for the elimination plus at most `tw_budget × (n + m)` table entries: O(n + m) for the fixed defaults.
+- **c12, local evaluation:** every candidate is a minimal cover, so only neighbours of evicted vertices can re-enter the independent set. Each move is therefore evaluated locally, and the result is identical to the global `maximize_solution` pass (tested move for move).
+- **c12, work budget:** every adjacency scan, and the sort of each local candidate list, is charged to a work counter. Moves stop when the next one would exceed `refine_budget × (n + m)`, with a default of 100, per distinct candidate cover.
+  - This makes c12, and the whole algorithm, worst-case O(n + m).
+  - When the budget is not exhausted, which is the usual case, the result equals the unbounded pass.
+  - `refine_budget=None` removes the cap; the worst case is then O(|C|·(n + m)).
 
-## v0.0.5
+## Removed (from the intermediate 0.1.0 draft)
 
-- **Activated the `epsilon` parameter.** The weighted-IDS pass is the Baker-style PTAS in `baker_ptas.baker_ptas_ids_weighted`: `epsilon` controls the layering width `k = ceil(1/epsilon)`, so smaller `epsilon` yields a more thorough (and never worse) solve, with the greedy maximal independent set as the `k = 1` baseline and fallback.
-- Because the forest-core gadget is itself a forest, the PTAS solves it near-optimally, so the decoded cover reflects a minimum-weight independent dominating set of the core.
-- Added the `car/` experiment folder: a reproducible suite that measures the default-call (`epsilon=0.1`) approximation ratio against exact optima on feasible graphs (Koenig certificates on bipartite instances, no MILP) and checks the `7/4` threshold.
-- Bumped package version metadata to 0.0.6.
+- The earlier c10 (König–Egerváry exact) and c11 (Nemhauser–Trotter kernel), with the modules `ke_exact.py` and `lp_kernel.py`, and `find_vertex_cover_certified`. They needed maximum matchings or an LP, so they were not linear.
 
-## v0.0.4
+## car/
 
-- Centralized package version metadata in `salvador.version` and updated all CLI version flags.
-- Kept the existing Salvador algorithmic pipeline intact: cleanup, spanning-forest core, weighted MIDS gadget, greedy weighted IDS pass, edge repair, and redundancy pruning.
-- Improved DIMACS parsing, compressed-file handling, deterministic CLI formatting, and generated DIMACS edge counts.
-- Clarified documentation to distinguish implemented guarantees from conjectural approximation-ratio claims.
-- Added regression smoke tests and a GitHub Actions test workflow.
-- Updated packaging metadata and build configuration.
+- **`car_strategies.py`** reports:
+  - wins, sole wins and win rate for the base strategies c1..c8, c10 and c11;
+  - c9's strict gain over the best of c1..c8;
+  - c12's strict gain over the best of c1..c11;
+  - `c12_from`, the strategies whose refinement produced the final cover.
+
+  - per instance: whether c11 was exact, its core size and its width; per family: c11's exact rate, mean core fraction and maximum width.
+
+  New options: `--refine-budget` (-1 = unbounded), `--tw-max-width` and `--tw-budget`.
+- **`car_ratio.py`:**
+  - It skips the sparse Erdős–Rényi G(n, p) Part B instance with n = 200 000, before building it, because construction takes too long. `--keep-gnp-200k` restores it.
+  - `--skip PATTERN` skips any other Part B instance whose name or group contains the pattern.
+  - Skipped instances are listed in `car_ratio.json`.
+
+## Tests
+
+`tests/test_v010.py`:
+- every strategy is a valid cover, and c12 is never larger than c1..c11;
+- c11 is optimal when its core is empty, exact on trees, and never larger than its reference;
+- the c10 gadget has maximum degree 2 and 2m edges, and its edge dominating set is minimum (brute force on small gadgets);
+- the local refinement equals the global `maximize_solution` pass;
+- the default budget does not change results on small graphs;
+- a tiny budget still gives a valid cover.

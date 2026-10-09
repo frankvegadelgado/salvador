@@ -24,6 +24,11 @@ Run from the repository root:
     python car/car_ratio.py --skip-large    # Part A only
     python car/car_ratio.py --skip-small    # Part B only
     python car/car_ratio.py --max-n 50000   # smaller Part B
+    python car/car_ratio.py --skip "watts"  # also skip instances matching a pattern
+
+The sparse Erdos-Renyi G(n, p) instance with n = 200,000 is skipped by default
+(``--keep-gnp-200k`` restores it): building it takes too long. It is skipped
+before its builder is called, so the graph is never constructed.
 
 Outputs (in car/): car_ratio.json, car_summary.csv, car_large_summary.csv.
 """
@@ -160,9 +165,33 @@ def evaluate_large(name: str, G: nx.Graph, group: str) -> dict:
     return row
 
 
-def run_part_b(max_n: int) -> dict:
+_GNP_MARKERS = ("erdos", "erdős", "renyi", "rényi", "gnp", "g(n,p)", "g(n, p)")
+_200K_MARKERS = ("200000", "200_000", "200,000", "200k", "2e5")
+
+
+def is_gnp_200k(name: str, group: str) -> bool:
+    """True for the sparse Erdos-Renyi G(n, p) Part B instance with n = 200,000."""
+    text = f"{name} {group}".lower()
+    return any(m in text for m in _GNP_MARKERS) and any(m in text for m in _200K_MARKERS)
+
+
+def skip_instance(name: str, group: str, patterns: list[str], keep_gnp_200k: bool) -> bool:
+    if not keep_gnp_200k and is_gnp_200k(name, group):
+        return True
+    text = f"{name} {group}".lower()
+    return any(p.lower() in text for p in patterns)
+
+
+def run_part_b(max_n: int, patterns: list[str] | None = None, keep_gnp_200k: bool = False) -> dict:
     started = time.time()
-    rows = [evaluate_large(name, build(), group) for name, group, build in cc.large_instances(max_n)]
+    rows = []
+    skipped = []
+    for name, group, build in cc.large_instances(max_n):
+        if skip_instance(name, group, patterns or [], keep_gnp_200k):
+            print(f"  [ratio] {name}: skipped (not built)", flush=True)
+            skipped.append(name)
+            continue
+        rows.append(evaluate_large(name, build(), group))
     by_group = {}
     for g in sorted({r["group"] for r in rows}):
         grows = [r for r in rows if r["group"] == g]
@@ -189,6 +218,7 @@ def run_part_b(max_n: int) -> dict:
                  "ratio_upper_bound_legacy uses the greedy maximal matching of earlier "
                  "car/ versions and is reported only for comparison."),
         "family_rows": rows,
+        "skipped_instances": skipped,
         "summary_by_group": by_group,
         "overall_max_ratio_upper_bound": max(ratios) if ratios else None,
         "overall_worst_instance": None if worst is None else worst["name"],
@@ -204,6 +234,10 @@ def main() -> None:
     ap.add_argument("--skip-large", action="store_true", help="run Part A only")
     ap.add_argument("--skip-small", action="store_true", help="run Part B only")
     ap.add_argument("--max-n", type=int, default=200_000, help="largest Part B instance (default 200000)")
+    ap.add_argument("--skip", action="append", default=[], metavar="PATTERN",
+                    help="skip Part B instances whose name or group contains PATTERN (repeatable)")
+    ap.add_argument("--keep-gnp-200k", action="store_true",
+                    help="do not skip the sparse Erdos-Renyi G(n, p) instance with n = 200,000")
     args = ap.parse_args()
 
     out = cc.OUT_DIR
@@ -226,7 +260,7 @@ def main() -> None:
                           "worst_instance": o["worst_instance"]["name"]}, indent=2))
 
     if not args.skip_large:
-        part_b = run_part_b(args.max_n)
+        part_b = run_part_b(args.max_n, args.skip, args.keep_gnp_200k)
         result["part_b"] = part_b
         with (out / "car_large_summary.csv").open("w", encoding="utf-8") as fh:
             fh.write("group,instances,max_ratio_upper_bound,mean_ratio_upper_bound,"
@@ -237,6 +271,7 @@ def main() -> None:
                          f"{s['max_elapsed_seconds']:.6f}\n")
         print(json.dumps({"part": "B (large adversarial graphs)", "max_n_requested": args.max_n,
                           "instances": len(part_b["family_rows"]),
+                          "skipped_instances": part_b["skipped_instances"],
                           "overall_max_ratio_upper_bound": part_b["overall_max_ratio_upper_bound"],
                           "overall_worst_instance": part_b["overall_worst_instance"],
                           "overall_max_ratio_upper_bound_legacy": part_b["overall_max_ratio_upper_bound_legacy"],
