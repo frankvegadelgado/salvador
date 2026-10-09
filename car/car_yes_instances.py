@@ -29,9 +29,12 @@ greedily, which leaves an independent set I'. Hence
 
     tau(G) <= number of non-isolated vertices outside I'   ("planted cover", a certified upper bound).
 
-For small instances (``--exact-max-n``, default 600) tau(G) is also
-computed by an integer program (scipy ``milp``, time limit ``--exact-time``);
-when it finishes, the reported ratio |C| / tau is exact.
+Every instance also gets a certified lower bound L <= tau(G): the optimum of
+the LP relaxation (half the maximum matching of the bipartite double cover)
+and, up to ``--exact-max-n`` vertices (default 1300), the bound of an integer
+program (scipy ``milp``/HiGHS, time limit ``--exact-time``, default 90 s), which
+often proves tau(G); |C| / L is reported as a certified upper bound on the
+ratio. When the integer program finishes, the reported ratio |C| / tau is exact.
 
 The Unique Games instance is generated with a planted labeling:
 
@@ -191,19 +194,38 @@ def instances(quick: bool, max_n: int):
 # ----------------------------------------------------------------------------
 # Evaluation
 # ----------------------------------------------------------------------------
+def lp_lower_bound(G: nx.Graph) -> float:
+    """Optimum of the LP relaxation of vertex cover, a certified lower bound on tau.
+
+    It equals half the maximum matching of the bipartite double cover G x K2
+    (Hopcroft-Karp), so no LP solver is needed.
+    """
+    H = nx.Graph()
+    top = [(v, 0) for v in G]
+    H.add_nodes_from(top)
+    H.add_nodes_from((v, 1) for v in G)
+    for u, v in G.edges():
+        H.add_edge((u, 0), (v, 1))
+        H.add_edge((v, 0), (u, 1))
+    if H.number_of_edges() == 0:
+        return 0.0
+    M = nx.bipartite.hopcroft_karp_matching(H, top_nodes=top)
+    return len(M) // 2 / 2
+
+
 def exact_tau(G: nx.Graph, time_limit: float):
-    """tau(G) by an integer program; (value, proved_optimal) or (None, False)."""
+    """tau(G) by an integer program: (value, proved_optimal, dual_bound) or (None, False, None)."""
     try:
         import numpy as np
         from scipy.optimize import Bounds, LinearConstraint, milp
         from scipy.sparse import lil_matrix
     except ImportError:
-        return None, False
+        return None, False, None
     nodes = list(G.nodes())
     idx = {v: i for i, v in enumerate(nodes)}
     E = list(G.edges())
     if not E:
-        return 0, True
+        return 0, True, 0.0
     A = lil_matrix((len(E), len(nodes)))
     for r, (u, v) in enumerate(E):
         A[r, idx[u]] = 1
@@ -211,9 +233,10 @@ def exact_tau(G: nx.Graph, time_limit: float):
     res = milp(c=np.ones(len(nodes)), constraints=LinearConstraint(A.tocsr(), lb=1, ub=np.inf),
                integrality=np.ones(len(nodes)), bounds=Bounds(0, 1),
                options={"time_limit": time_limit})
+    dual = getattr(res, "mip_dual_bound", None)
     if res.x is None:
-        return None, False
-    return int(round(res.fun)), res.status == 0
+        return None, False, dual
+    return int(round(res.fun)), res.status == 0, dual
 
 
 def run_instance(name: str, group: str, params: dict, rng: random.Random, args) -> dict:
@@ -234,9 +257,15 @@ def run_instance(name: str, group: str, params: dict, rng: random.Random, args) 
         C = cands[k]
         if not all(u in C or v in C for u, v in G.edges()):
             raise AssertionError(f"{name}: strategy {k} is not a vertex cover")
-    tau, tau_exact = (None, False)
+    import math
+    lower = math.ceil(lp_lower_bound(G) - 1e-9)
+    tau, tau_exact, dual = (None, False, None)
     if n <= args.exact_max_n:
-        tau, tau_exact = exact_tau(G, args.exact_time)
+        tau, tau_exact, dual = exact_tau(G, args.exact_time)
+        if dual is not None:
+            lower = max(lower, math.ceil(dual - 1e-6))
+    if tau_exact:
+        lower = tau
     final = sizes["c12"]
     row = {
         "group": group, "name": name, "params": params, "n": n, "m": m,
@@ -246,6 +275,8 @@ def run_instance(name: str, group: str, params: dict, rng: random.Random, args) 
         "sizes": sizes, "final": final,
         "ratio_vs_planted": final / planted if planted else 1.0,
         "ratio_vs_tau": (final / tau) if tau_exact and tau else None,
+        "lower_bound": lower,
+        "ratio_upper_bound": final / lower if lower else 1.0,
         "beats_or_matches_planted": final <= planted,
         "optimal": bool(tau_exact and final == tau),
         "c10_raw": info.get("c10_raw_size", sizes["c10"]),
@@ -274,6 +305,7 @@ def summarise(rows: list[dict]) -> dict:
             "tau_known": len(exact_rows),
             "optimal": sum(r["optimal"] for r in exact_rows),
             "max_ratio_vs_tau": max((r["ratio_vs_tau"] for r in exact_rows), default=None),
+            "max_ratio_upper_bound": max((r["ratio_upper_bound"] for r in grows), default=1.0),
             "best_by_strategy": {s: sum(r["sizes"][s] == r["final"] for r in grows) for s in NAMES},
             "seconds": sum(r["elapsed_seconds"] for r in grows),
         }
@@ -301,9 +333,9 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--quick", action="store_true", help="UG sizes N = 40, 80 only")
     ap.add_argument("--max-n", type=int, default=10_000, help="skip instances with more vertices")
-    ap.add_argument("--exact-max-n", type=int, default=600,
+    ap.add_argument("--exact-max-n", type=int, default=1300,
                     help="compute tau by integer programming up to this n (0 = never)")
-    ap.add_argument("--exact-time", type=float, default=60.0, help="time limit per integer program (s)")
+    ap.add_argument("--exact-time", type=float, default=90.0, help="time limit per integer program (s)")
     ap.add_argument("--eds-max-width", type=int, default=DEFAULT_EDS_MAX_WIDTH,
                     help=f"c10: largest elimination bag minus one (default {DEFAULT_EDS_MAX_WIDTH})")
     ap.add_argument("--eds-budget", type=float, default=DEFAULT_EDS_BUDGET,
@@ -322,7 +354,7 @@ def main() -> None:
     out = cc.OUT_DIR
     with (out / "car_yes_instances.csv").open("w", encoding="utf-8") as fh:
         fh.write("group,name,N,d,k,p,eta,s,linear,n,m,planted_cover,tau," + ",".join(NAMES)
-                 + ",final,ratio_vs_planted,ratio_vs_tau,beats_or_matches_planted,optimal,c10_raw,"
+                 + ",final,ratio_vs_planted,ratio_vs_tau,lower_bound,ratio_upper_bound,beats_or_matches_planted,optimal,c10_raw,"
                  + "c11_exact,elapsed_seconds\n")
         for r in rows:
             q = r["params"]
@@ -331,15 +363,16 @@ def main() -> None:
                      + ",".join(str(r["sizes"][k]) for k in NAMES)
                      + f",{r['final']},{r['ratio_vs_planted']:.6f},"
                      + (f"{r['ratio_vs_tau']:.6f}" if r["ratio_vs_tau"] else "")
+                     + f",{r['lower_bound']},{r['ratio_upper_bound']:.6f}"
                      + f",{r['beats_or_matches_planted']},{r['optimal']},{r['c10_raw']},"
                      + f"{r['c11_exact']},{r['elapsed_seconds']:.3f}\n")
     with (out / "car_yes_instances_summary.csv").open("w", encoding="utf-8") as fh:
         fh.write("group,instances,matches_or_beats_planted,max_ratio_vs_planted,mean_ratio_vs_planted,"
-                 "tau_known,optimal,max_ratio_vs_tau," + ",".join(f"attains_{k}" for k in NAMES) + ",seconds\n")
+                 "tau_known,optimal,max_ratio_vs_tau,max_ratio_upper_bound," + ",".join(f"attains_{k}" for k in NAMES) + ",seconds\n")
         for g, s in summary.items():
             mt = f"{s['max_ratio_vs_tau']:.6f}" if s["max_ratio_vs_tau"] is not None else ""
             fh.write(f"\"{g}\",{s['instances']},{s['matches_or_beats_planted']},{s['max_ratio_vs_planted']:.6f},"
-                     f"{s['mean_ratio_vs_planted']:.6f},{s['tau_known']},{s['optimal']},{mt},"
+                     f"{s['mean_ratio_vs_planted']:.6f},{s['tau_known']},{s['optimal']},{mt},{s['max_ratio_upper_bound']:.6f},"
                      + ",".join(str(s["best_by_strategy"][k]) for k in NAMES) + f",{s['seconds']:.2f}\n")
     (out / "car_yes_instances.json").write_text(json.dumps(
         {"salvador_version": cc.__version__, "environment": cc.environment(), "seed": SEED,
