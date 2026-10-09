@@ -1,0 +1,205 @@
+group,instances,strategy,name,wins,sole_wins,win_rate,final_source
+"Barabasi-Albert scale-free hub graph",2,c1,"maximal matching",0,0,0.0000,0
+"Barabasi-Albert scale-free hub graph",2,c2,"max-degree greedy",0,0,0.0000,0
+"Barabasi-Albert scale-free hub graph",2,c3,"Hallelujah reduction",0,0,0.0000,0
+"Barabasi-Albert scale-free hub graph",2,c4,"Min-to-Min",0,0,0.0000,0
+"Barabasi-Albert scale-free hub graph",2,c5,"primal-dual",0,0,0.0000,0
+"Barabasi-Albert scale-free hub graph",2,c6,"MIDS Baker reduction",0,0,0.0000,0
+"Barabasi-Albert scale-free hub graph",2,c7,"union re-prune",0,0,0.0000,0
+"Barabasi-Albert scale-free hub graph",2,c8,"bipartite planar reduction",0,0,0.0000,0
+"Barabasi-Albert scale-free hub graph",2,c10,"EDS reduction + treewidth DP (bipartite)",2,0,1.0000,2
+"Barabasi-Albert scale-free hub graph",2,c11,"bounded-treewidth exact DP",2,0,1.0000,2
+"Barabasi-Albert scale-free hub graph",2,c9,"(1,2)-swap local search (strict improvements)",2,,1.0000,2
+"Barabasi-Albert scale-free hub graph",2,c12,"swap-maximize refinement of c1..c11 (strict improvements)",0,,0.0000,
+"Bipartite obstruction (exact)",1,c1,"maximal matching",1,0,1.0000,1
+"Bipartite obstruction (exact)",1,c2,"max-degree greedy",1,0,1.0000,1
+"Bipartite obstruction (exact)",1,c3,"Hallelujah reduction",1,0,1.0000,1
+"Bipartite obstruction (exact)",1,c4,"Min-to-Min",1,0,1.0000,1
+"Bipartite obstruction (exact)",1,c5,"primal-dual",1,0,1.0000,1
+"Bipartite obstruction (exact)",1,c6,"MIDS Baker reduction",1,0,1.0000,1
+"Bipartite obstruction (exact)",1,c7,"union re-prune",1,0,1.0000,1
+"Bipartite obstruction (exact)",1,c8,"bipartite planar reduction",1,0,1.0000,1
+"Bipartite obstruction (exact)",1,c10,"EDS reduction + treewidth DP (bipartite)",1,0,1.0000,1
+"Bipartite obstruction (exact)",1,c11,"bounded-treewidth exact DP",1,0,1.0000,1
+"Bipartite obstruction (exact)",1,c9,"(1,2)-swap local search (strict improvements)",0,,0.0000,1
+"Bipartite obstruction (exact)",1,c12,"swap-maximize refinement of c1..c11 (strict improvements)",0,,0.0000,
+"Complete bipartite (dense)",3,c1,"maximal matching",3,0,1.0000,3
+"Complete bipartite (dense)",3,c2,"max-degree greedy",3,0,1.0000,3
+"Complete bipartite (dense)",3,c3,"Hallelujah reduction",3,0,1.0000,3
+"Complete bipartite (dense)",3,c4,"Min-to-Min",3,0,1.0000,3
+"Complete bipartite (dense)",3,c5,"primal-dual",3,0,1.0000,3
+"Complete bipartite (dense)",3,c6,"MIDS Baker reduction",3,0,1.0000,3
+"Complete bipartite (dense)",3,c7,"union re-prune",3,0,1.0000,3
+"Complete bipartite (dense)",3,c8,"bipartite planar reduction",3,0,1.0000,3
+"Complete bipartite (dense)",3,c10,"EDS reduction + treewidth DP (bipartite)",3,0,1.0000,3
+"Complete bipartite (dense)",3,c11,"bounded-treewidth exact DP",3,0,1.0000,3
+"Complete bipartite (dense)",3,c9,"(1,2)-swap local search (strict improvements)",0,,0.0000,3
+"Complete bipartite (dense)",3,c12,"swap-maximize refinement of c1..c11 (strict improvements)",0,,0.0000,
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",3,c1,"maximal matching",3,0,1.0000,3
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",3,c2,"max-degree greedy",3,0,1.0000,3
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",3,c3,"Hallelujah reduction",3,0,1.0000,3
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",3,c4,"Min-to-Min",3,0,1.0000,3
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",3,c5,"primal-dual",3,0,1.0000,3
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",3,c6,"MIDS Baker reduction",3,0,1.0000,3
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",3,c7,"union re-prune",3,0,1.0000,3
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",3,c8,"bipartite planar reduction",3,0,1.0000,3
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",3,c10,"EDS reduction + treewidth DP (bipartite)",3,0,1.0000,3
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",3,c11,"bounded-treewidth exact DP",3,0,1.0000,3
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",3,c9,"(1,2)-swap local search (strict improvements)",0,,0.0000,3
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",3,c12,"swap-maximize refinement of c1..c11 (strict improvements)",0,,0.0000,
+"Double star + bridge (matching-heuristic stress)",2,c1,"maximal matching",2,0,1.0000,2
+"Double star + bridge (matching-heuristic stress)",2,c2,"max-degree greedy",2,0,1.0000,2
+"Double star + bridge (matching-heuristic stress)",2,c3,"Hallelujah reduction",2,0,1.0000,2
+"Double star + bridge (matching-heuristic stress)",2,c4,"Min-to-Min",2,0,1.0000,2
+"Double star + bridge (matching-heuristic stress)",2,c5,"primal-dual",2,0,1.0000,2
+"Double star + bridge (matching-heuristic stress)",2,c6,"MIDS Baker reduction",2,0,1.0000,2
+"Double star + bridge (matching-heuristic stress)",2,c7,"union re-prune",2,0,1.0000,2
+"Double star + bridge (matching-heuristic stress)",2,c8,"bipartite planar reduction",2,0,1.0000,2
+"Double star + bridge (matching-heuristic stress)",2,c10,"EDS reduction + treewidth DP (bipartite)",2,0,1.0000,2
+"Double star + bridge (matching-heuristic stress)",2,c11,"bounded-treewidth exact DP",2,0,1.0000,2
+"Double star + bridge (matching-heuristic stress)",2,c9,"(1,2)-swap local search (strict improvements)",0,,0.0000,2
+"Double star + bridge (matching-heuristic stress)",2,c12,"swap-maximize refinement of c1..c11 (strict improvements)",0,,0.0000,
+"Graph atlas n<=7",1245,c1,"maximal matching",1023,0,0.8217,1245
+"Graph atlas n<=7",1245,c2,"max-degree greedy",1176,0,0.9446,1245
+"Graph atlas n<=7",1245,c3,"Hallelujah reduction",1180,0,0.9478,1245
+"Graph atlas n<=7",1245,c4,"Min-to-Min",1231,0,0.9888,1245
+"Graph atlas n<=7",1245,c5,"primal-dual",1023,0,0.8217,1245
+"Graph atlas n<=7",1245,c6,"MIDS Baker reduction",1155,0,0.9277,1245
+"Graph atlas n<=7",1245,c7,"union re-prune",1109,0,0.8908,1245
+"Graph atlas n<=7",1245,c8,"bipartite planar reduction",1233,0,0.9904,1245
+"Graph atlas n<=7",1245,c10,"EDS reduction + treewidth DP (bipartite)",1245,0,1.0000,1245
+"Graph atlas n<=7",1245,c11,"bounded-treewidth exact DP",1245,0,1.0000,1245
+"Graph atlas n<=7",1245,c9,"(1,2)-swap local search (strict improvements)",0,,0.0000,1245
+"Graph atlas n<=7",1245,c12,"swap-maximize refinement of c1..c11 (strict improvements)",0,,0.0000,
+"Grids, bipartite (exact)",64,c1,"maximal matching",64,0,1.0000,64
+"Grids, bipartite (exact)",64,c2,"max-degree greedy",48,0,0.7500,49
+"Grids, bipartite (exact)",64,c3,"Hallelujah reduction",25,0,0.3906,37
+"Grids, bipartite (exact)",64,c4,"Min-to-Min",40,0,0.6250,43
+"Grids, bipartite (exact)",64,c5,"primal-dual",64,0,1.0000,64
+"Grids, bipartite (exact)",64,c6,"MIDS Baker reduction",25,0,0.3906,37
+"Grids, bipartite (exact)",64,c7,"union re-prune",64,0,1.0000,64
+"Grids, bipartite (exact)",64,c8,"bipartite planar reduction",40,0,0.6250,43
+"Grids, bipartite (exact)",64,c10,"EDS reduction + treewidth DP (bipartite)",64,0,1.0000,64
+"Grids, bipartite (exact)",64,c11,"bounded-treewidth exact DP",64,0,1.0000,64
+"Grids, bipartite (exact)",64,c9,"(1,2)-swap local search (strict improvements)",0,,0.0000,64
+"Grids, bipartite (exact)",64,c12,"swap-maximize refinement of c1..c11 (strict improvements)",0,,0.0000,
+"Hierarchical star trap (degree-greedy tie-break stress)",1,c1,"maximal matching",0,0,0.0000,0
+"Hierarchical star trap (degree-greedy tie-break stress)",1,c2,"max-degree greedy",0,0,0.0000,0
+"Hierarchical star trap (degree-greedy tie-break stress)",1,c3,"Hallelujah reduction",0,0,0.0000,0
+"Hierarchical star trap (degree-greedy tie-break stress)",1,c4,"Min-to-Min",1,0,1.0000,1
+"Hierarchical star trap (degree-greedy tie-break stress)",1,c5,"primal-dual",0,0,0.0000,0
+"Hierarchical star trap (degree-greedy tie-break stress)",1,c6,"MIDS Baker reduction",0,0,0.0000,0
+"Hierarchical star trap (degree-greedy tie-break stress)",1,c7,"union re-prune",0,0,0.0000,0
+"Hierarchical star trap (degree-greedy tie-break stress)",1,c8,"bipartite planar reduction",1,0,1.0000,1
+"Hierarchical star trap (degree-greedy tie-break stress)",1,c10,"EDS reduction + treewidth DP (bipartite)",1,0,1.0000,1
+"Hierarchical star trap (degree-greedy tie-break stress)",1,c11,"bounded-treewidth exact DP",1,0,1.0000,1
+"Hierarchical star trap (degree-greedy tie-break stress)",1,c9,"(1,2)-swap local search (strict improvements)",0,,0.0000,1
+"Hierarchical star trap (degree-greedy tie-break stress)",1,c12,"swap-maximize refinement of c1..c11 (strict improvements)",0,,0.0000,
+"Random 12-regular (bounded-degree adversarial)",2,c1,"maximal matching",0,0,0.0000,0
+"Random 12-regular (bounded-degree adversarial)",2,c2,"max-degree greedy",0,0,0.0000,0
+"Random 12-regular (bounded-degree adversarial)",2,c3,"Hallelujah reduction",0,0,0.0000,0
+"Random 12-regular (bounded-degree adversarial)",2,c4,"Min-to-Min",0,0,0.0000,0
+"Random 12-regular (bounded-degree adversarial)",2,c5,"primal-dual",0,0,0.0000,0
+"Random 12-regular (bounded-degree adversarial)",2,c6,"MIDS Baker reduction",0,0,0.0000,0
+"Random 12-regular (bounded-degree adversarial)",2,c7,"union re-prune",0,0,0.0000,0
+"Random 12-regular (bounded-degree adversarial)",2,c8,"bipartite planar reduction",0,0,0.0000,0
+"Random 12-regular (bounded-degree adversarial)",2,c10,"EDS reduction + treewidth DP (bipartite)",2,0,1.0000,2
+"Random 12-regular (bounded-degree adversarial)",2,c11,"bounded-treewidth exact DP",2,0,1.0000,2
+"Random 12-regular (bounded-degree adversarial)",2,c9,"(1,2)-swap local search (strict improvements)",2,,1.0000,2
+"Random 12-regular (bounded-degree adversarial)",2,c12,"swap-maximize refinement of c1..c11 (strict improvements)",2,,1.0000,
+"Random 3-regular (bounded-degree adversarial)",2,c1,"maximal matching",0,0,0.0000,0
+"Random 3-regular (bounded-degree adversarial)",2,c2,"max-degree greedy",0,0,0.0000,0
+"Random 3-regular (bounded-degree adversarial)",2,c3,"Hallelujah reduction",0,0,0.0000,0
+"Random 3-regular (bounded-degree adversarial)",2,c4,"Min-to-Min",0,0,0.0000,0
+"Random 3-regular (bounded-degree adversarial)",2,c5,"primal-dual",0,0,0.0000,0
+"Random 3-regular (bounded-degree adversarial)",2,c6,"MIDS Baker reduction",0,0,0.0000,0
+"Random 3-regular (bounded-degree adversarial)",2,c7,"union re-prune",0,0,0.0000,0
+"Random 3-regular (bounded-degree adversarial)",2,c8,"bipartite planar reduction",0,0,0.0000,0
+"Random 3-regular (bounded-degree adversarial)",2,c10,"EDS reduction + treewidth DP (bipartite)",1,0,0.5000,1
+"Random 3-regular (bounded-degree adversarial)",2,c11,"bounded-treewidth exact DP",2,1,1.0000,2
+"Random 3-regular (bounded-degree adversarial)",2,c9,"(1,2)-swap local search (strict improvements)",2,,1.0000,1
+"Random 3-regular (bounded-degree adversarial)",2,c12,"swap-maximize refinement of c1..c11 (strict improvements)",2,,1.0000,
+"Random 6-regular (bounded-degree adversarial)",2,c1,"maximal matching",0,0,0.0000,0
+"Random 6-regular (bounded-degree adversarial)",2,c2,"max-degree greedy",0,0,0.0000,0
+"Random 6-regular (bounded-degree adversarial)",2,c3,"Hallelujah reduction",0,0,0.0000,0
+"Random 6-regular (bounded-degree adversarial)",2,c4,"Min-to-Min",0,0,0.0000,0
+"Random 6-regular (bounded-degree adversarial)",2,c5,"primal-dual",0,0,0.0000,0
+"Random 6-regular (bounded-degree adversarial)",2,c6,"MIDS Baker reduction",0,0,0.0000,0
+"Random 6-regular (bounded-degree adversarial)",2,c7,"union re-prune",0,0,0.0000,0
+"Random 6-regular (bounded-degree adversarial)",2,c8,"bipartite planar reduction",0,0,0.0000,0
+"Random 6-regular (bounded-degree adversarial)",2,c10,"EDS reduction + treewidth DP (bipartite)",2,0,1.0000,2
+"Random 6-regular (bounded-degree adversarial)",2,c11,"bounded-treewidth exact DP",2,0,1.0000,2
+"Random 6-regular (bounded-degree adversarial)",2,c9,"(1,2)-swap local search (strict improvements)",2,,1.0000,2
+"Random 6-regular (bounded-degree adversarial)",2,c12,"swap-maximize refinement of c1..c11 (strict improvements)",1,,0.5000,
+"Random bipartite (exact)",99,c1,"maximal matching",82,0,0.8283,99
+"Random bipartite (exact)",99,c2,"max-degree greedy",92,0,0.9293,97
+"Random bipartite (exact)",99,c3,"Hallelujah reduction",83,0,0.8384,99
+"Random bipartite (exact)",99,c4,"Min-to-Min",94,0,0.9495,98
+"Random bipartite (exact)",99,c5,"primal-dual",82,0,0.8283,99
+"Random bipartite (exact)",99,c6,"MIDS Baker reduction",84,0,0.8485,98
+"Random bipartite (exact)",99,c7,"union re-prune",82,0,0.8283,96
+"Random bipartite (exact)",99,c8,"bipartite planar reduction",96,0,0.9697,98
+"Random bipartite (exact)",99,c10,"EDS reduction + treewidth DP (bipartite)",99,0,1.0000,99
+"Random bipartite (exact)",99,c11,"bounded-treewidth exact DP",99,0,1.0000,99
+"Random bipartite (exact)",99,c9,"(1,2)-swap local search (strict improvements)",0,,0.0000,99
+"Random bipartite (exact)",99,c12,"swap-maximize refinement of c1..c11 (strict improvements)",0,,0.0000,
+"Random general (exact, n<=12)",173,c1,"maximal matching",128,0,0.7399,172
+"Random general (exact, n<=12)",173,c2,"max-degree greedy",150,0,0.8671,170
+"Random general (exact, n<=12)",173,c3,"Hallelujah reduction",159,0,0.9191,172
+"Random general (exact, n<=12)",173,c4,"Min-to-Min",168,0,0.9711,172
+"Random general (exact, n<=12)",173,c5,"primal-dual",128,0,0.7399,172
+"Random general (exact, n<=12)",173,c6,"MIDS Baker reduction",150,0,0.8671,171
+"Random general (exact, n<=12)",173,c7,"union re-prune",130,0,0.7514,172
+"Random general (exact, n<=12)",173,c8,"bipartite planar reduction",169,0,0.9769,173
+"Random general (exact, n<=12)",173,c10,"EDS reduction + treewidth DP (bipartite)",173,0,1.0000,173
+"Random general (exact, n<=12)",173,c11,"bounded-treewidth exact DP",173,0,1.0000,173
+"Random general (exact, n<=12)",173,c9,"(1,2)-swap local search (strict improvements)",0,,0.0000,173
+"Random general (exact, n<=12)",173,c12,"swap-maximize refinement of c1..c11 (strict improvements)",0,,0.0000,
+"Relabel / order stress (exact)",56,c1,"maximal matching",53,0,0.9464,56
+"Relabel / order stress (exact)",56,c2,"max-degree greedy",56,0,1.0000,56
+"Relabel / order stress (exact)",56,c3,"Hallelujah reduction",44,0,0.7857,56
+"Relabel / order stress (exact)",56,c4,"Min-to-Min",56,0,1.0000,56
+"Relabel / order stress (exact)",56,c5,"primal-dual",53,0,0.9464,56
+"Relabel / order stress (exact)",56,c6,"MIDS Baker reduction",43,0,0.7679,56
+"Relabel / order stress (exact)",56,c7,"union re-prune",44,0,0.7857,56
+"Relabel / order stress (exact)",56,c8,"bipartite planar reduction",56,0,1.0000,56
+"Relabel / order stress (exact)",56,c10,"EDS reduction + treewidth DP (bipartite)",56,0,1.0000,56
+"Relabel / order stress (exact)",56,c11,"bounded-treewidth exact DP",56,0,1.0000,56
+"Relabel / order stress (exact)",56,c9,"(1,2)-swap local search (strict improvements)",0,,0.0000,56
+"Relabel / order stress (exact)",56,c12,"swap-maximize refinement of c1..c11 (strict improvements)",0,,0.0000,
+"Sparse Erdos-Renyi, avg degree 4",2,c1,"maximal matching",0,0,0.0000,0
+"Sparse Erdos-Renyi, avg degree 4",2,c2,"max-degree greedy",0,0,0.0000,0
+"Sparse Erdos-Renyi, avg degree 4",2,c3,"Hallelujah reduction",0,0,0.0000,0
+"Sparse Erdos-Renyi, avg degree 4",2,c4,"Min-to-Min",0,0,0.0000,0
+"Sparse Erdos-Renyi, avg degree 4",2,c5,"primal-dual",0,0,0.0000,0
+"Sparse Erdos-Renyi, avg degree 4",2,c6,"MIDS Baker reduction",0,0,0.0000,0
+"Sparse Erdos-Renyi, avg degree 4",2,c7,"union re-prune",0,0,0.0000,0
+"Sparse Erdos-Renyi, avg degree 4",2,c8,"bipartite planar reduction",0,0,0.0000,0
+"Sparse Erdos-Renyi, avg degree 4",2,c10,"EDS reduction + treewidth DP (bipartite)",2,0,1.0000,2
+"Sparse Erdos-Renyi, avg degree 4",2,c11,"bounded-treewidth exact DP",2,0,1.0000,2
+"Sparse Erdos-Renyi, avg degree 4",2,c9,"(1,2)-swap local search (strict improvements)",2,,1.0000,2
+"Sparse Erdos-Renyi, avg degree 4",2,c12,"swap-maximize refinement of c1..c11 (strict improvements)",1,,0.5000,
+"Watts-Strogatz small-world",2,c1,"maximal matching",0,0,0.0000,0
+"Watts-Strogatz small-world",2,c2,"max-degree greedy",0,0,0.0000,0
+"Watts-Strogatz small-world",2,c3,"Hallelujah reduction",0,0,0.0000,0
+"Watts-Strogatz small-world",2,c4,"Min-to-Min",0,0,0.0000,0
+"Watts-Strogatz small-world",2,c5,"primal-dual",0,0,0.0000,0
+"Watts-Strogatz small-world",2,c6,"MIDS Baker reduction",0,0,0.0000,0
+"Watts-Strogatz small-world",2,c7,"union re-prune",0,0,0.0000,0
+"Watts-Strogatz small-world",2,c8,"bipartite planar reduction",0,0,0.0000,0
+"Watts-Strogatz small-world",2,c10,"EDS reduction + treewidth DP (bipartite)",1,0,0.5000,1
+"Watts-Strogatz small-world",2,c11,"bounded-treewidth exact DP",2,1,1.0000,2
+"Watts-Strogatz small-world",2,c9,"(1,2)-swap local search (strict improvements)",2,,1.0000,1
+"Watts-Strogatz small-world",2,c12,"swap-maximize refinement of c1..c11 (strict improvements)",1,,0.5000,
+"ALL",1659,c1,"maximal matching",1359,0,0.8192,1645
+"ALL",1659,c2,"max-degree greedy",1531,0,0.9228,1626
+"ALL",1659,c3,"Hallelujah reduction",1500,0,0.9042,1618
+"ALL",1659,c4,"Min-to-Min",1599,0,0.9638,1624
+"ALL",1659,c5,"primal-dual",1359,0,0.8192,1645
+"ALL",1659,c6,"MIDS Baker reduction",1466,0,0.8837,1616
+"ALL",1659,c7,"union re-prune",1438,0,0.8668,1642
+"ALL",1659,c8,"bipartite planar reduction",1604,0,0.9668,1625
+"ALL",1659,c10,"EDS reduction + treewidth DP (bipartite)",1657,0,0.9988,1657
+"ALL",1659,c11,"bounded-treewidth exact DP",1659,2,1.0000,1659
+"ALL",1659,c9,"(1,2)-swap local search (strict improvements)",12,,0.0072,1657
+"ALL",1659,c12,"swap-maximize refinement of c1..c11 (strict improvements)",7,,0.0042,
