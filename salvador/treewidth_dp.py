@@ -39,8 +39,12 @@ DEFAULT_MAX_WIDTH = 10
 DEFAULT_DP_BUDGET = 256
 
 
-def _elimination_order(adj: Mapping[Any, Iterable[Any]], max_width: int, limit: float):
+def _elimination_order(adj: Mapping[Any, Iterable[Any]], max_width: int, limit: float, states: int = 2):
     """Greedy min-degree elimination with a width cap and a table budget.
+
+    ``states`` is the number of states per variable of the dynamic program
+    that will run on the order (2 for vertex cover); a bag of ``k`` vertices
+    is charged ``states ** k`` table entries.
 
     Returns ``(order, scopes, core)``: the eliminated vertices in order, the
     later neighbours of each eliminated vertex at its elimination time (its
@@ -66,7 +70,7 @@ def _elimination_order(adj: Mapping[Any, Iterable[Any]], max_width: int, limit: 
         if v in eliminated or deg[v] != low:
             continue  # stale entry
         nbrs = list(fill[v])
-        cost = 1 << (len(nbrs) + 1)
+        cost = states ** (len(nbrs) + 1)
         if table_work + cost > limit:
             break
         table_work += cost

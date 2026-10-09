@@ -10,7 +10,7 @@ __all__ = [
     "baker_ptas",
     "batch",
     "bipartite_reduction",
-    "eds_gadget",
+    "eds_treewidth",
     "local_search",
     "parser",
     "test",
