@@ -24,9 +24,17 @@ Run from the repository root:
 
     python car/car_c10_bags.py --quick           # sizes 100 and 1000
     python car/car_c10_bags.py --max-n 10000
+    python car/car_c10_bags.py --timeout 60      # skip instances taking more than 60 s
+
+Every instance of part A (construction, c10, tau and the lower bound) runs in a
+worker process with a time limit (``--timeout``, default 120 s, 0 = no limit);
+an instance that takes longer is skipped and listed in car_c10_bags.json
+(``skipped_instances``). Each instance has its own random generator derived from
+the seed and its name.
 
 Outputs (in car/): car_c10_bags.json, car_c10_bags.csv (one row per instance)
-and car_c10_bags_summary.csv (one row per family).
+and car_c10_bags_summary.csv (one row per family). The gadget is eliminated in
+min-degree order (eds_treewidth.DEFAULT_ORDER).
 """
 
 from __future__ import annotations
@@ -81,18 +89,33 @@ def gadget_graph(G: nx.Graph) -> nx.Graph:
 
 
 def minor_min_width(G: nx.Graph) -> int:
-    """Treewidth lower bound: repeatedly contract a min-degree vertex into its min-degree neighbour."""
-    G = nx.Graph(G)
+    """Treewidth lower bound (minor-min-width): repeatedly contract a minimum-degree vertex into its
+    minimum-degree neighbour; the largest minimum degree seen bounds the treewidth from below.
+
+    In-place contraction on adjacency sets with a lazy heap, about O(m log n) overall (contracting
+    with networkx's ``contracted_nodes`` copies the graph at every step, which is quadratic)."""
+    import heapq  # noqa: PLC0415
+
+    adj = {v: set(G[v]) - {v} for v in G}
+    heap = [(len(nb), v) for v, nb in adj.items()]
+    heapq.heapify(heap)
     lb = 0
-    while G.number_of_nodes() > 1:
-        v = min(G, key=G.degree)
-        d = G.degree(v)
+    while len(adj) > 1:
+        d, v = heapq.heappop(heap)
+        if v not in adj or d != len(adj[v]):
+            continue  # stale entry
         lb = max(lb, d)
-        if d == 0:
-            G.remove_node(v)
+        nbrs = adj.pop(v)
+        if not nbrs:
             continue
-        u = min(G[v], key=G.degree)
-        G = nx.contracted_nodes(G, u, v, self_loops=False)
+        u = min(nbrs, key=lambda w: len(adj[w]))
+        for w in nbrs:
+            adj[w].discard(v)
+            if w != u and u not in adj[w]:
+                adj[w].add(u)
+                adj[u].add(w)
+        for w in nbrs:
+            heapq.heappush(heap, (len(adj[w]), w))
     return lb
 
 
@@ -107,27 +130,46 @@ def run_c10(G: nx.Graph) -> dict:
             "overlap": overlap(adj, cover), **info}
 
 
-def part_a(args, rng) -> list[dict]:
-    print(f"Part A: largest bag of c10 (MAX_BAG = {eds_treewidth.MAX_BAG})")
-    rows = []
-    for name, group, make in instances(args.max_n, args.quick, rng):
+def _instance_job(name: str, args) -> dict:
+    """Build instance ``name`` of car_bipartite.py's families (own generator) and measure it; runs in
+    the worker process."""
+    rng = random.Random(args.seed)
+    for nm, group, make in instances(args.max_n, args.quick, rng):
+        if nm != name:
+            continue
+        rng.seed(f"{args.seed}:{name}")
         G = shuffle_labels(nx.convert_node_labels_to_integers(make()), rng)
         G.remove_edges_from(nx.selfloop_edges(G))
         r = run_c10(G)
         tau = exact_tau(G)
-        lb = None
-        if G.number_of_nodes() <= args.lb_max_n:
-            lb = minor_min_width(gadget_graph(G))
-        row = {"instance": name, "family": group, "n": G.number_of_nodes(), "m": G.number_of_edges(),
-               "max_bag": r["max_bag"], "width": r["width"], "core_size": r["core_size"], "exact": r["exact"],
-               "exact_components": r["exact_components"], "bipartite_components": r["bipartite_components"],
-               "cover": len(r["cover"]), "tau": tau, "reference": r["reference"], "valid": r["valid"],
-               "overlap": r["overlap"], "gadget_tw_lb": lb, "seconds": round(r["seconds"], 3)}
-        rows.append(row)
-        print(f"  {name:40} bag {row['max_bag']}  core {row['core_size']:>7}  exact {str(row['exact']):5}  "
-              f"|C| {row['cover']:>6}  tau {tau:>6}  ref {row['reference']:>6}  valid {row['valid']}  "
-              f"tw>= {lb if lb is not None else '-':>3}  {row['seconds']:.2f}s", flush=True)
-    return rows
+        lb = minor_min_width(gadget_graph(G)) if G.number_of_nodes() <= args.lb_max_n else None
+        return {"instance": name, "family": group, "n": G.number_of_nodes(), "m": G.number_of_edges(),
+                "max_bag": r["max_bag"], "width": r["width"], "core_size": r["core_size"], "exact": r["exact"],
+                "exact_components": r["exact_components"], "bipartite_components": r["bipartite_components"],
+                "cover": len(r["cover"]), "tau": tau, "reference": r["reference"], "valid": r["valid"],
+                "overlap": r["overlap"], "gadget_tw_lb": lb, "seconds": round(r["seconds"], 3)}
+    raise KeyError(name)
+
+
+def part_a(args) -> tuple[list[dict], list[str]]:
+    print(f"Part A: largest bag of c10 (MAX_BAG = {eds_treewidth.MAX_BAG}, {eds_treewidth.DEFAULT_ORDER} order), "
+          f"time limit {args.timeout:g} s per instance")
+    rows = []
+    skipped = []
+    names = [name for name, _, _ in instances(args.max_n, args.quick, random.Random(args.seed))]
+    with cc.InstanceRunner(args.timeout) as runner:
+        for name in names:
+            row = runner.run(_instance_job, name, args)
+            if row is None:
+                print(f"  {name:40} skipped (more than {args.timeout:g} s)", flush=True)
+                skipped.append(name)
+                continue
+            rows.append(row)
+            lb = row["gadget_tw_lb"]
+            print(f"  {name:40} bag {row['max_bag']}  core {row['core_size']:>7}  exact {str(row['exact']):5}  "
+                  f"|C| {row['cover']:>6}  tau {row['tau']:>6}  ref {row['reference']:>6}  valid {row['valid']}  "
+                  f"tw>= {lb if lb is not None else '-':>3}  {row['seconds']:.2f}s", flush=True)
+    return rows, skipped
 
 
 def part_b(args, rng) -> dict:
@@ -183,10 +225,11 @@ def main() -> None:
     helper.add_argument("--lb-max-n", type=int, default=1000,
                         help="largest instance for the treewidth lower bound of part C (default: 1000)")
     helper.add_argument("--seed", type=int, default=SEED)
+    cc.add_timeout_argument(helper)
     args = helper.parse_args()
     rng = random.Random(args.seed)
 
-    rows = part_a(args, rng)
+    rows, skipped = part_a(args)
     exactness = part_b(args, rng)
     summary = summarise(rows)
     print("\nSummary per family")
@@ -196,13 +239,17 @@ def main() -> None:
         print(f"{s['family']:45} {s['instances']:>3} {s['max_bag']:>7} {str(s['all_bags_le_6']):>4} {s['exact']:>5} "
               f"{s['cover_eq_tau']:>4} {s['invalid']:>7} {str(s['max_gadget_tw_lb']):>5} {s['needs_bag_gt_6']:>6}")
     overall = max((r["max_bag"] for r in rows), default=0)
-    print(f"\nLargest bag over all instances: {overall} (MAX_BAG = {eds_treewidth.MAX_BAG})")
+    print(f"\nLargest bag over all instances: {overall} (MAX_BAG = {eds_treewidth.MAX_BAG}); "
+          f"skipped (time limit): {len(skipped)}" + (f" -- {', '.join(skipped)}" if skipped else ""))
 
     out = cc.OUT_DIR
-    with open(out / "car_c10_bags.json", "w") as fh:
-        json.dump({"environment": cc.environment(), "max_bag": eds_treewidth.MAX_BAG, "rows": rows,
+    stem = "car_c10_bags"
+    with open(out / f"{stem}.json", "w") as fh:
+        json.dump({"environment": cc.environment(), "max_bag": eds_treewidth.MAX_BAG, "order": eds_treewidth.DEFAULT_ORDER,
+                   "timeout": args.timeout,
+                   "skipped_instances": skipped, "rows": rows,
                    "exactness": exactness, "summary": summary}, fh, indent=1)
-    for path, data in ((out / "car_c10_bags.csv", rows), (out / "car_c10_bags_summary.csv", summary)):
+    for path, data in ((out / f"{stem}.csv", rows), (out / f"{stem}_summary.csv", summary)):
         with open(path, "w", newline="") as fh:
             if data:
                 writer = csv.DictWriter(fh, fieldnames=list(data[0]))

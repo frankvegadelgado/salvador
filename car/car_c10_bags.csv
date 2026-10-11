@@ -1,0 +1,109 @@
+instance,family,n,m,max_bag,width,core_size,exact,exact_components,bipartite_components,cover,tau,reference,valid,overlap,gadget_tw_lb,seconds
+gnp_bip_bal_n100_d3_r0,random bipartite (balanced),100,157,3,5,43,False,2,3,66,47,86,True,98,7,0.032
+gnp_bip_unbal_n100_d3_r0,random bipartite (1:2),100,163,3,5,44,False,0,1,52,33,64,True,65,7,0.032
+gnp_bip_bal_n100_d6_r0,random bipartite (balanced),100,282,3,5,120,False,0,1,90,50,94,True,249,12,0.032
+gnp_bip_unbal_n100_d6_r0,random bipartite (1:2),100,277,3,5,114,False,0,1,63,33,66,True,150,9,0.032
+gnp_bip_bal_n100_d20_r0,random bipartite (balanced),100,997,3,5,570,False,0,1,98,50,98,True,965,17,0.096
+gnp_bip_unbal_n100_d20_r0,random bipartite (1:2),100,992,4,5,565,False,0,1,66,33,66,True,495,10,0.096
+reg_bip_n100_d3_r0,random d-regular bipartite,100,150,4,5,33,False,0,1,71,50,88,True,63,6,0.032
+reg_bip_n100_d4_r0,random d-regular bipartite,100,194,3,5,64,False,0,1,84,50,88,True,132,9,0.031
+reg_bip_n100_d8_r0,random d-regular bipartite,100,373,3,5,180,False,0,1,90,50,90,True,299,12,0.048
+powerlaw_bip_n100_r0,power-law bipartite,100,111,3,5,13,False,6,7,43,42,74,True,17,4,0.02
+double_cover_n100_d3_r0,double cover G x K2 of random regular,100,150,3,5,33,False,0,1,69,50,86,True,57,6,0.024
+double_cover_n100_d5_r0,double cover G x K2 of random regular,100,250,3,5,98,False,0,1,90,50,92,True,200,10,0.042
+hidden_matching_n100_e1.5_r0,hidden perfect matching + random edges,100,124,3,5,15,False,0,1,56,50,86,True,30,5,0.032
+hidden_matching_n100_e4.0_r0,hidden perfect matching + random edges,100,249,3,5,98,False,0,1,91,50,92,True,209,10,0.032
+tree_n100_r0,random tree,100,99,2,1,0,True,1,1,42,42,76,True,8,1,0.006
+thinned_grid_10x10_r0,"2D grid, 70% edges kept",100,123,4,5,7,False,1,2,52,47,90,True,16,4,0.063
+gnp_bip_bal_n100_d3_r1,random bipartite (balanced),100,150,3,5,35,False,0,1,63,47,82,True,84,6,0.032
+gnp_bip_unbal_n100_d3_r1,random bipartite (1:2),100,160,3,5,44,False,0,1,52,32,64,True,82,8,0.032
+gnp_bip_bal_n100_d6_r1,random bipartite (balanced),100,305,3,5,132,False,0,1,86,50,88,True,243,12,0.047
+gnp_bip_unbal_n100_d6_r1,random bipartite (1:2),100,314,3,5,138,False,0,1,61,33,66,True,168,11,0.032
+gnp_bip_bal_n100_d20_r1,random bipartite (balanced),100,1005,3,5,573,False,0,1,98,50,98,True,977,19,0.096
+gnp_bip_unbal_n100_d20_r1,random bipartite (1:2),100,998,3,5,578,False,0,1,66,33,66,True,497,11,0.086
+reg_bip_n100_d3_r1,random d-regular bipartite,100,144,3,5,33,False,0,1,72,50,88,True,66,6,0.016
+reg_bip_n100_d4_r1,random d-regular bipartite,100,192,3,5,61,False,0,1,80,50,88,True,115,8,0.036
+reg_bip_n100_d8_r1,random d-regular bipartite,100,362,3,5,171,False,0,1,92,50,92,True,304,12,0.047
+powerlaw_bip_n100_r1,power-law bipartite,100,125,3,5,19,False,3,4,43,38,68,True,31,5,0.012
+double_cover_n100_d3_r1,double cover G x K2 of random regular,100,150,3,5,36,False,0,1,74,50,88,True,72,6,0.016
+double_cover_n100_d5_r1,double cover G x K2 of random regular,100,250,3,5,98,False,0,1,84,50,86,True,170,10,0.048
+hidden_matching_n100_e1.5_r1,hidden perfect matching + random edges,100,124,4,5,14,False,0,1,54,50,90,True,22,4,0.016
+hidden_matching_n100_e4.0_r1,hidden perfect matching + random edges,100,247,3,5,96,False,0,1,85,50,90,True,187,10,0.032
+tree_n100_r1,random tree,100,99,2,1,0,True,1,1,43,43,78,True,5,1,0.016
+thinned_grid_10x10_r1,"2D grid, 70% edges kept",100,120,6,5,0,True,2,2,47,47,90,True,3,3,0.179
+gnp_bip_bal_n100_d3_r2,random bipartite (balanced),100,140,3,5,29,False,1,2,52,43,72,True,66,6,0.024
+gnp_bip_unbal_n100_d3_r2,random bipartite (1:2),100,148,3,5,41,False,0,1,48,33,64,True,58,6,0.028
+gnp_bip_bal_n100_d6_r2,random bipartite (balanced),100,293,3,5,126,False,0,1,83,49,90,True,236,11,0.045
+gnp_bip_unbal_n100_d6_r2,random bipartite (1:2),100,295,3,5,126,False,0,1,62,33,66,True,144,10,0.03
+gnp_bip_bal_n100_d20_r2,random bipartite (balanced),100,996,3,5,564,False,0,1,98,50,98,True,961,18,0.111
+gnp_bip_unbal_n100_d20_r2,random bipartite (1:2),100,988,3,5,564,False,0,1,66,33,66,True,487,11,0.096
+reg_bip_n100_d3_r2,random d-regular bipartite,100,148,3,5,33,False,0,1,71,50,88,True,63,6,0.032
+reg_bip_n100_d4_r2,random d-regular bipartite,100,195,4,5,60,False,0,1,84,50,90,True,133,8,0.032
+reg_bip_n100_d8_r2,random d-regular bipartite,100,368,3,5,172,False,0,1,94,50,94,True,327,12,0.032
+powerlaw_bip_n100_r2,power-law bipartite,100,120,3,5,15,False,3,4,38,36,68,True,28,4,0.026
+double_cover_n100_d3_r2,double cover G x K2 of random regular,100,150,3,5,34,False,0,1,69,50,84,True,57,6,0.033
+double_cover_n100_d5_r2,double cover G x K2 of random regular,100,250,3,5,97,False,0,1,86,50,88,True,180,10,0.027
+hidden_matching_n100_e1.5_r2,hidden perfect matching + random edges,100,131,3,5,22,False,0,1,58,50,88,True,38,5,0.025
+hidden_matching_n100_e4.0_r2,hidden perfect matching + random edges,100,246,3,5,98,False,0,1,88,50,90,True,199,10,0.024
+tree_n100_r2,random tree,100,99,2,1,0,True,1,1,43,43,74,True,4,1,0.016
+thinned_grid_10x10_r2,"2D grid, 70% edges kept",100,136,6,5,0,True,1,1,48,48,92,True,0,4,0.395
+grid_10x10,2D grid,100,180,4,5,49,False,0,1,82,50,98,True,123,5,0.048
+grid3d_5^3,3D grid,125,300,3,5,119,False,0,1,119,62,124,True,275,8,0.032
+even_cycle_100,even cycle,100,100,3,2,0,True,1,1,50,50,100,True,0,2,0.016
+K_25_75,complete bipartite,100,1875,4,5,893,False,0,1,50,25,50,True,625,5,0.211
+crown_50,crown graph,100,2450,5,5,1313,False,0,1,100,50,100,True,2450,5,0.287
+gnp_bip_bal_n1000_d3_r0,random bipartite (balanced),1000,1477,3,5,380,False,2,3,594,460,770,True,729,18,0.233
+gnp_bip_unbal_n1000_d3_r0,random bipartite (1:2),1000,1475,3,5,400,False,1,2,486,329,632,True,590,19,0.224
+gnp_bip_bal_n1000_d6_r0,random bipartite (balanced),1000,3146,3,5,1415,False,0,1,869,500,902,True,2587,36,0.448
+gnp_bip_unbal_n1000_d6_r0,random bipartite (1:2),1000,2952,3,5,1286,False,0,1,630,333,662,True,1529,34,0.409
+gnp_bip_bal_n1000_d20_r0,random bipartite (balanced),1000,10051,3,5,5765,False,0,1,964,500,964,True,9376,68,1.226
+gnp_bip_unbal_n1000_d20_r0,random bipartite (1:2),1000,9976,3,5,5722,False,0,1,666,333,666,True,5046,46,1.196
+reg_bip_n1000_d3_r0,random d-regular bipartite,1000,1496,3,5,370,False,0,1,743,500,874,True,728,18,0.254
+reg_bip_n1000_d4_r0,random d-regular bipartite,1000,1995,3,5,690,False,0,1,848,500,884,True,1391,24,0.308
+reg_bip_n1000_d8_r0,random d-regular bipartite,1000,3978,3,5,1929,False,0,1,936,500,936,True,3467,40,0.542
+powerlaw_bip_n1000_r0,power-law bipartite,1000,1086,3,5,140,False,109,110,367,353,660,True,268,11,0.189
+double_cover_n1000_d3_r0,double cover G x K2 of random regular,1000,1500,3,5,360,False,0,1,744,500,882,True,732,17,0.254
+double_cover_n1000_d5_r0,double cover G x K2 of random regular,1000,2500,3,5,995,False,0,1,912,500,916,True,2060,30,0.367
+hidden_matching_n1000_e1.5_r0,hidden perfect matching + random edges,1000,1244,3,5,192,False,0,1,582,500,846,True,332,12,0.253
+hidden_matching_n1000_e4.0_r0,hidden perfect matching + random edges,1000,2497,3,5,989,False,0,1,875,500,914,True,2035,29,0.382
+tree_n1000_r0,random tree,1000,999,2,1,0,True,1,1,427,427,772,True,47,1,0.142
+thinned_grid_31x31_r0,"2D grid, 70% edges kept",961,1280,4,5,133,False,1,2,549,466,886,True,299,5,0.446
+gnp_bip_bal_n1000_d3_r1,random bipartite (balanced),1000,1488,3,5,392,False,2,3,580,455,754,True,759,18,0.252
+gnp_bip_unbal_n1000_d3_r1,random bipartite (1:2),1000,1471,3,5,383,False,3,4,479,329,646,True,552,18,0.254
+gnp_bip_bal_n1000_d6_r1,random bipartite (balanced),1000,3003,3,5,1297,False,0,1,845,499,880,True,2419,34,0.414
+gnp_bip_unbal_n1000_d6_r1,random bipartite (1:2),1000,3049,3,5,1337,False,0,1,630,333,666,True,1567,35,0.398
+gnp_bip_bal_n1000_d20_r1,random bipartite (balanced),1000,10130,3,5,5823,False,0,1,974,500,974,True,9645,68,1.241
+gnp_bip_unbal_n1000_d20_r1,random bipartite (1:2),1000,9978,3,5,5724,False,0,1,666,333,666,True,4994,46,1.193
+reg_bip_n1000_d3_r1,random d-regular bipartite,1000,1499,3,5,358,False,0,1,731,500,872,True,693,17,0.267
+reg_bip_n1000_d4_r1,random d-regular bipartite,1000,1996,3,5,689,False,0,1,838,500,878,True,1350,25,0.302
+reg_bip_n1000_d8_r1,random d-regular bipartite,1000,3976,3,5,1942,False,0,1,938,500,938,True,3485,41,0.53
+powerlaw_bip_n1000_r1,power-law bipartite,1000,1049,3,5,110,False,114,115,364,354,664,True,208,11,0.175
+double_cover_n1000_d3_r1,double cover G x K2 of random regular,1000,1500,3,5,364,False,0,1,741,500,900,True,723,18,0.271
+double_cover_n1000_d5_r1,double cover G x K2 of random regular,1000,2500,3,5,997,False,0,1,909,500,916,True,2045,30,0.372
+hidden_matching_n1000_e1.5_r1,hidden perfect matching + random edges,1000,1257,3,5,202,False,0,1,589,500,856,True,363,13,0.239
+hidden_matching_n1000_e4.0_r1,hidden perfect matching + random edges,1000,2498,3,5,993,False,0,1,888,500,920,True,2083,30,0.368
+tree_n1000_r1,random tree,1000,999,2,1,0,True,1,1,429,429,768,True,48,1,0.143
+thinned_grid_31x31_r1,"2D grid, 70% edges kept",961,1286,5,5,152,False,3,4,555,468,876,True,358,5,0.43
+gnp_bip_bal_n1000_d3_r2,random bipartite (balanced),1000,1474,3,5,379,False,3,4,593,463,784,True,719,19,0.239
+gnp_bip_unbal_n1000_d3_r2,random bipartite (1:2),1000,1483,3,5,394,False,0,1,481,329,644,True,548,18,0.255
+gnp_bip_bal_n1000_d6_r2,random bipartite (balanced),1000,2939,3,5,1273,False,0,1,831,499,876,True,2296,34,0.399
+gnp_bip_unbal_n1000_d6_r2,random bipartite (1:2),1000,3029,3,5,1316,False,0,1,631,333,666,True,1565,34,0.399
+gnp_bip_bal_n1000_d20_r2,random bipartite (balanced),1000,9971,3,5,5688,False,0,1,970,500,970,True,9425,69,1.26
+gnp_bip_unbal_n1000_d20_r2,random bipartite (1:2),1000,9946,3,5,5701,False,0,1,666,333,666,True,5020,46,1.2
+reg_bip_n1000_d3_r2,random d-regular bipartite,1000,1493,3,5,355,False,0,1,735,500,876,True,703,17,0.255
+reg_bip_n1000_d4_r2,random d-regular bipartite,1000,1993,3,5,682,False,0,1,852,500,896,True,1402,24,0.302
+reg_bip_n1000_d8_r2,random d-regular bipartite,1000,3985,3,5,1932,False,0,1,938,500,938,True,3491,40,0.541
+powerlaw_bip_n1000_r2,power-law bipartite,1000,1445,3,5,328,False,12,13,429,380,698,True,498,17,0.248
+double_cover_n1000_d3_r2,double cover G x K2 of random regular,1000,1500,3,5,352,False,0,1,745,500,886,True,735,18,0.27
+double_cover_n1000_d5_r2,double cover G x K2 of random regular,1000,2500,3,5,993,False,0,1,902,500,908,True,2010,30,0.366
+hidden_matching_n1000_e1.5_r2,hidden perfect matching + random edges,1000,1242,3,5,184,False,0,1,586,500,852,True,319,13,0.252
+hidden_matching_n1000_e4.0_r2,hidden perfect matching + random edges,1000,2499,3,5,994,False,0,1,871,500,910,True,2008,30,0.4
+tree_n1000_r2,random tree,1000,999,2,1,0,True,1,1,436,436,766,True,37,1,0.155
+thinned_grid_31x31_r2,"2D grid, 70% edges kept",961,1295,5,5,150,False,3,4,559,471,900,True,342,4,0.466
+grid_31x31,2D grid,961,1860,4,5,569,False,0,1,842,480,958,True,1424,7,0.35
+grid3d_10^3,3D grid,1000,2700,3,5,1123,False,0,1,979,500,994,True,2612,15,0.391
+even_cycle_1000,even cycle,1000,1000,3,2,0,True,1,1,500,500,1000,True,0,2,0.282
+K_250_750,complete bipartite,1000,187500,4,5,93859,False,0,1,500,250,500,True,62500,5,29.06
+crown_500,crown graph,1000,249500,4,5,135981,False,0,1,1000,500,1000,True,249500,6,41.117
+hypercube_Q8,hypercube,256,1024,3,5,498,False,0,1,250,128,250,True,976,19,0.111
+hypercube_Q8_half,"hypercube, 50% edges kept",256,530,3,5,187,False,0,1,206,128,238,True,387,12,0.064

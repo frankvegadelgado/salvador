@@ -56,7 +56,13 @@ Run from the repository root:
     python car/car_strategies.py --dimacs experiment/clique_complement
     python car/car_strategies.py --refine-budget -1    # unbounded c12 refinement
     python car/car_strategies.py --tw-max-width 12 --tw-budget 1024   # larger c11 limits
-    python car/car_strategies.py --eds-max-width 8 --eds-budget 1024  # larger c10 limits
+    python car/car_strategies.py --eds-max-width 5 --eds-budget 1024  # larger c10 budget (bags <= 6)
+    python car/car_strategies.py --timeout 60    # skip instances taking more than 60 s
+
+The Part B families and the edge-list files are built and evaluated in a worker
+process with a time limit (``--timeout``, default 120 s, 0 = no limit): an
+instance whose construction or evaluation takes longer is skipped and listed
+in car_strategies.json (``skipped_instances``).
 
 Outputs (in car/): car_strategies.json, car_strategies.csv (one row per
 instance) and car_strategies_summary.csv (one row per family x strategy).
@@ -90,6 +96,35 @@ TW_MAX_WIDTH: int = DEFAULT_MAX_WIDTH
 TW_BUDGET: float = DEFAULT_DP_BUDGET
 EDS_MAX_WIDTH: int = DEFAULT_EDS_MAX_WIDTH
 EDS_BUDGET: float = DEFAULT_EDS_BUDGET
+
+
+def _set_limits(limits: dict) -> None:
+    """Apply the command-line limits (the worker process starts with the module defaults)."""
+    global REFINE_BUDGET, TW_MAX_WIDTH, TW_BUDGET, EDS_MAX_WIDTH, EDS_BUDGET
+    REFINE_BUDGET = limits["refine_budget"]
+    TW_MAX_WIDTH = limits["tw_max_width"]
+    TW_BUDGET = limits["tw_budget"]
+    EDS_MAX_WIDTH = limits["eds_max_width"]
+    EDS_BUDGET = limits["eds_budget"]
+
+
+def _large_job(name: str, max_n: int, limits: dict) -> dict:
+    """Build Part B instance ``name`` and evaluate it; runs in the worker process."""
+    _set_limits(limits)
+    for nm, group, build in cc.large_instances(max_n):
+        if nm == name:
+            return run_instance(name, group, build())
+    raise KeyError(name)
+
+
+def _dimacs_job(path: str, limits: dict) -> dict:
+    """Load an edge-list file and evaluate it (an empty dict for a file without edges); runs in the
+    worker process."""
+    _set_limits(limits)
+    G = cc.load_edge_list(Path(path))
+    if not G.number_of_edges():
+        return {}
+    return run_instance(Path(path).name.split(".clq")[0], "DIMACS / edge-list files", G)
 
 
 def run_instance(name: str, group: str, G: nx.Graph) -> dict:
@@ -233,6 +268,7 @@ def main() -> None:
                     help=f"c10: largest elimination bag minus one (default {DEFAULT_EDS_MAX_WIDTH})")
     ap.add_argument("--eds-budget", type=float, default=DEFAULT_EDS_BUDGET,
                     help=f"c10: DP table budget in units of (n + m) (default {DEFAULT_EDS_BUDGET})")
+    cc.add_timeout_argument(ap)
     args = ap.parse_args()
     REFINE_BUDGET = None if args.refine_budget < 0 else args.refine_budget
     TW_MAX_WIDTH = args.tw_max_width
@@ -246,16 +282,28 @@ def main() -> None:
         rng = random.Random(cc.SEED)
         for name, group, G in cc.small_instances(rng, big=not args.quick):
             rows.append(run_instance(name, group, G))
-    if not args.skip_large:
-        for name, group, build in cc.large_instances(args.max_n):
-            rows.append(run_instance(name, group, build()))
-            gc.collect()
-    if args.dimacs:
-        for path in sorted(Path(args.dimacs).iterdir()):
-            if path.is_file():
-                G = cc.load_edge_list(path)
-                if G.number_of_edges():
-                    rows.append(run_instance(path.name.split(".clq")[0], "DIMACS / edge-list files", G))
+    limits = {"refine_budget": REFINE_BUDGET, "tw_max_width": TW_MAX_WIDTH, "tw_budget": TW_BUDGET,
+              "eds_max_width": EDS_MAX_WIDTH, "eds_budget": EDS_BUDGET}
+    skipped: list[str] = []
+    with cc.InstanceRunner(args.timeout) as runner:
+        if not args.skip_large:
+            for name, group, _ in cc.large_instances(args.max_n):
+                row = runner.run(_large_job, name, args.max_n, limits)
+                if row is None:
+                    print(f"  [strategies] {group[:28]:28} {name:28} skipped (more than {args.timeout:g} s)", flush=True)
+                    skipped.append(name)
+                else:
+                    rows.append(row)
+                gc.collect()
+        if args.dimacs:
+            for path in sorted(Path(args.dimacs).iterdir()):
+                if path.is_file():
+                    row = runner.run(_dimacs_job, str(path), limits)
+                    if row is None:
+                        print(f"  [strategies] {path.name}: skipped (more than {args.timeout:g} s)", flush=True)
+                        skipped.append(path.name)
+                    elif row:
+                        rows.append(row)
 
     summary = summarise(rows)
     out = cc.OUT_DIR
@@ -288,9 +336,12 @@ def main() -> None:
          "candidates": CANDIDATE_NAMES, "base_strategies": BASE,
          "refine_budget": REFINE_BUDGET, "tw_max_width": TW_MAX_WIDTH, "tw_budget": TW_BUDGET,
          "eds_max_width": EDS_MAX_WIDTH, "eds_budget": EDS_BUDGET,
+         "timeout": args.timeout, "skipped_instances": skipped,
          "summary": summary, "rows": rows,
          "elapsed_seconds": time.time() - started}, indent=2, default=str), encoding="utf-8")
     print_table(summary)
+    if skipped:
+        print(f"\nSkipped (more than {args.timeout:g} s): {', '.join(skipped)}")
 
 
 if __name__ == "__main__":

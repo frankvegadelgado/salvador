@@ -40,7 +40,7 @@ DEFAULT_DP_BUDGET = 256
 
 
 def _elimination_order(adj: Mapping[Any, Iterable[Any]], max_width: int, limit: float, states: int | Mapping[Any, int] = 2,
-                       nodes: Iterable[Any] | None = None):
+                       nodes: Iterable[Any] | None = None, max_table: float | None = None):
     """Greedy min-degree elimination with a width cap and a table budget.
 
     ``states`` is the number of states per variable of the dynamic program
@@ -53,7 +53,9 @@ def _elimination_order(adj: Mapping[Any, Iterable[Any]], max_width: int, limit: 
     ``states`` may also be a mapping node -> number of states (a bag is then
     charged the product of the state counts of its nodes); ``nodes``
     restricts the elimination to a subset of ``adj`` (the other nodes are
-    ignored, as if fixed).
+    ignored, as if fixed). With ``max_table``, a node whose bag would need
+    more table entries is skipped (it stays in the core unless a later
+    elimination lowers its degree) instead of stopping the elimination.
     """
     node_list = list(adj) if nodes is None else list(nodes)
     node_set = set(node_list)
@@ -83,6 +85,8 @@ def _elimination_order(adj: Mapping[Any, Iterable[Any]], max_width: int, limit: 
             cost = states[v]
             for a in nbrs:
                 cost *= states[a]
+        if max_table is not None and cost > max_table:
+            continue  # this bag alone is too large: skip the node, keep eliminating others
         if table_work + cost > limit:
             break
         table_work += cost

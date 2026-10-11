@@ -45,12 +45,17 @@ vertex cover**, with the fewest doubly covered edges among minimum covers.
 
 Dynamic program
 ---------------
-Bucket elimination along a greedy minimum-degree elimination order of the
-gadget (``salvador.treewidth_dp._elimination_order``). A node state is the
+Bucket elimination along a greedy elimination order of the gadget
+(``salvador.treewidth_dp._elimination_order``), the min-degree order
+(``DEFAULT_ORDER = "min_degree"``: the node of smallest current degree first). A node state is the
 EDS state ``t`` -- ``0`` untouched, ``1`` touched with the chosen edge
 provided elsewhere, ``2`` touched by a chosen edge of this factor (witness)
--- together with the labels (one on an incidence node, two on an edge-node;
-6 and 12 states). Factors are joined with "same membership, same labels,
+-- together with the labels (one on an incidence node, two on an edge-node).
+Only penalty-free states are kept, since the minimum-weight solution pays no
+penalty: an incidence node is untouched exactly when its vertex is out
+(states ``(0,0)``, ``(1,1)``, ``(2,1)``), and an edge-node is touched and has
+at least one vertex in (6 states). So a bag of at most 6 nodes has at most
+``6^6 = 46,656`` table entries. Factors are joined with "same membership, same labels,
 witness if either", a node is eliminated only if it is untouched or
 witnessed, and back-pointers recover the chosen edges and the labels; the
 cover is read from the labels.
@@ -58,9 +63,12 @@ cover is read from the labels.
 Bags and core
 -------------
 **No bag has more than ``MAX_BAG = 6`` nodes**: a node is eliminated only while
-its fill degree is at most ``max_width <= MAX_BAG - 1``, every joined table is
-checked against ``MAX_BAG``, and the tables (product of the state counts of
-a bag) must fit in ``max(budget * (n + m), MIN_DP_WORK)``. Nodes left over
+its fill degree is at most ``max_width <= MAX_BAG - 1`` and its bag table (the
+product of the state counts of the bag) has at most ``MAX_BAG_TABLE`` entries
+(otherwise the node is skipped and the elimination goes on); every joined
+table is checked against ``MAX_BAG``; and all the tables together must fit in
+``budget * (n + m)`` (n + m of the gadget; default budget 1024). Since every bag is bounded, the dynamic
+program stays linear. Nodes left over
 form the core, fixed from a reference cover ``C``: its EDS "all path edges of
 ``C``" with labels ``s_u = [u in C]``; the rest is solved exactly given that
 choice (a core node of ``u`` fixes the label of ``u``). With an empty core the
@@ -68,9 +76,8 @@ result is a minimum vertex cover of the component (``exact``). Non-bipartite
 components take the reference cover, as before. The result is pruned and, if
 it is larger than the reference, the reference is used.
 
-Running time: ``O(n + m)`` for the gadget and at most
-``max(budget * (n + m), MIN_DP_WORK)`` DP work; worst-case ``O(n + m)`` for
-fixed limits.
+Running time: ``O(n + m)`` for the gadget and at most ``budget * (n + m)`` DP
+work; worst-case ``O(n + m)`` for fixed limits.
 """
 
 from __future__ import annotations
@@ -82,8 +89,9 @@ from .treewidth_dp import _elimination_order
 
 MAX_BAG = 6
 DEFAULT_MAX_WIDTH = MAX_BAG - 1
-DEFAULT_DP_BUDGET = 256
-MIN_DP_WORK = 2_000_000  # floor of the table budget, so that small components are solved exactly
+DEFAULT_DP_BUDGET = 1024  # table entries per unit of n + m (penalty-free nodes have 3 or 6 states)
+MAX_BAG_TABLE = 50_000    # largest table of a single bag (product of the state counts of its nodes)
+DEFAULT_ORDER = "min_degree"  # elimination order of the gadget (the only one used)
 
 INF = float("inf")
 _EDGE_TABLE = {(0, 1): 0, (1, 0): 0, (1, 1): 0, (2, 2): 1, (2, 1): 1, (1, 2): 1}
@@ -183,22 +191,25 @@ def _solve_component(comp, adj, reference, max_width, budget, stats):
                                                              g["ends"], g["side"], g["weights"])
     n_edge_nodes = g["n_edge_nodes"]
     penalty = sum(weights) + n_edge_nodes + 1  # more than every weight and overlap together
-    states = {x: (12 if x < n_edge_nodes else 6) for x in gadj}
-    limit = max(budget * max(g["n_nodes"] + len(gedges), 1), MIN_DP_WORK)
-    order, scopes, core = _elimination_order(gadj, max_width, limit, states=states)
+    states = {x: (6 if x < n_edge_nodes else 3) for x in gadj}
+    limit = budget * max(g["n_nodes"] + len(gedges), 1)
+    order, scopes, core = _elimination_order(gadj, max_width, limit, states=states, max_table=MAX_BAG_TABLE)
     stats["width"] = max(stats.get("width", 0), max((len(s) for s in scopes.values()), default=0))
     if core:
         stats["core"] = stats.get("core", 0) + len(core)
     pos = {x: p for p, x in enumerate(order)}
     in_ref = {u: int(u in reference) for u in comp}
 
-    def labels_of(x):
-        if x < n_edge_nodes:
-            return [(a, b) for a in (0, 1) for b in (0, 1)]
-        return [(a,) for a in (0, 1)]
+    # Only penalty-free states are kept (the minimum-weight solution pays no penalty):
+    # * an incidence node of u is untouched when u is out, touched when u is in;
+    # * an edge-node is touched, and at least one of its two vertices is in (else its edge
+    #   is uncovered, which no penalty-free solution allows).
+    # "Touched" keeps its two local forms, 1 (the chosen edge is in another factor) and 2.
+    _incidence_states = [(0, 0), (1, 1), (2, 1)]
+    _edge_node_states = [(t, a, b) for (a, b) in ((1, 0), (0, 1), (1, 1)) for t in (1, 2)]
 
     def domain(x):
-        return [(t,) + lab for t in (0, 1, 2) for lab in labels_of(x)]
+        return _edge_node_states if x < n_edge_nodes else _incidence_states
 
     def fixed_state(y):
         """Class of a core node in the reference: (touched, labels)."""
@@ -279,7 +290,10 @@ def _solve_component(comp, adj, reference, max_width, budget, stats):
             p, q = ends[x]
             weight += in_ref[p] and in_ref[q]
             continue
-        place(((x,), {(sx,): (1 if sx[1] and sx[2] else 0) for sx in domain(x)}, ("overlap", x)))
+        # Only "untouched" (0) or "touched" (1) here: this factor never witnesses a chosen edge, so
+        # it must not offer state 2 (joins keep "witness if either", which would dominate for free).
+        place(((x,), {(sx,): (1 if sx[1] and sx[2] else 0) for sx in domain(x) if sx[0] != 2},
+               ("overlap", x)))
 
     def join(f, h):
         nonlocal work
@@ -388,7 +402,8 @@ def eds_treewidth_cover(
 
     ``reference_cover`` (a valid cover) fixes the DP core and covers the
     non-bipartite components. ``max_width`` is clamped to ``MAX_BAG - 1``, so
-    no bag has more than ``MAX_BAG`` nodes. ``info`` (optional dict) receives
+    no bag has more than ``MAX_BAG`` nodes; the gadget is eliminated in
+    min-degree order (``DEFAULT_ORDER``). ``info`` (optional dict) receives
     ``bipartite_fraction`` (share of non-isolated vertices in bipartite
     components), ``bipartite_components``, ``exact_components`` (solved with
     an empty core), ``core_size`` (gadget nodes), ``width`` (largest fill

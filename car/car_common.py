@@ -6,13 +6,14 @@
 * ``car_strategies.py`` -- which ensemble strategy wins on which graphs.
 
 This module holds the graph generators, the exact solvers, the certified
-lower bounds on tau(G) and small numeric helpers they share. It has no
-side effects on import.
+lower bounds on tau(G), small numeric helpers and the per-instance time limit
+(``InstanceRunner``) they share. It has no side effects on import.
 """
 
 from __future__ import annotations
 
 import math
+import multiprocessing
 import random
 import statistics
 import sys
@@ -482,3 +483,68 @@ def environment() -> dict:
     import platform
     return {"python": platform.python_version(), "platform": platform.platform(),
             "networkx": nx.__version__, "salvador": __version__}
+
+
+# ----------------------------------------------------------------------------
+# Per-instance time limit.
+# ----------------------------------------------------------------------------
+#: Default time limit (seconds) for building and evaluating one instance.
+INSTANCE_TIMEOUT = 120.0
+
+
+def add_timeout_argument(ap, default: float = INSTANCE_TIMEOUT) -> None:
+    """The ``--timeout`` option shared by the car/ scripts."""
+    ap.add_argument("--timeout", type=float, default=default,
+                    help="skip an instance whose construction and evaluation take longer than this many "
+                         f"seconds (default {default:g}; 0 = no limit, run in this process)")
+
+
+def instance_rng(seed, name: str) -> random.Random:
+    """Random generator of one instance, derived from the seed and the instance name only, so that
+    the instance is the same whichever process builds it and whatever was built before it."""
+    return random.Random(f"{seed}:{name}")
+
+
+class InstanceRunner:
+    """Runs one instance job -- construction *and* evaluation -- in a worker process with a time limit.
+
+    ``run(func, *args)`` returns ``func(*args)``, or ``None`` when it takes longer than ``timeout``
+    seconds: the worker is then terminated (so a graph that takes too long to *build* is abandoned
+    too) and a fresh worker is started for the next instance. ``func`` must be a module-level
+    function of the calling script and its arguments picklable (the worker is spawned, as on
+    Windows). Exceptions raised by ``func`` (e.g. an invalid cover) propagate. With ``timeout <= 0``
+    the job runs in the calling process without a limit.
+    """
+
+    def __init__(self, timeout: float | None):
+        self.timeout = timeout or 0.0
+        self._pool = None
+
+    def run(self, func, *args):
+        if self.timeout <= 0:
+            return func(*args)
+        if self._pool is None:
+            self._pool = multiprocessing.get_context("spawn").Pool(processes=1)
+        result = self._pool.apply_async(func, args)
+        try:
+            return result.get(self.timeout)
+        except multiprocessing.TimeoutError:
+            self._pool.terminate()
+            self._pool.join()
+            self._pool = None
+            return None
+
+    def close(self) -> None:
+        if self._pool is not None:
+            self._pool.close()
+            self._pool.join()
+            self._pool = None
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc):
+        if self._pool is not None:
+            self._pool.terminate()
+            self._pool.join()
+            self._pool = None

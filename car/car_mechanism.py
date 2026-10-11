@@ -98,6 +98,13 @@ Run from the repository root:
     python car/car_mechanism.py                 # default sizes
     python car/car_mechanism.py --quick         # small sizes only
     python car/car_mechanism.py --exact-max-n 0 # no integer programs
+    python car/car_mechanism.py --timeout 600   # per-instance time limit (default 300 s)
+
+Every instance is built and measured in a worker process with a time limit
+(``--timeout``, default 300 s, above the integer-program limit; 0 = no limit):
+an instance that takes longer is skipped and listed in car_mechanism.json
+(``skipped_instances``). Each instance has its own random generator, derived
+from SEED and its name.
 
 """
 
@@ -376,6 +383,15 @@ def pearson(xs, ys):
 # ----------------------------------------------------------------------------
 # Main loop
 # ----------------------------------------------------------------------------
+def _instance_job(name, sizes, args):
+    """Build instance ``name`` with its own generator and measure it; runs in the worker process."""
+    for nm, family, size, build in instances(sizes, args.quick):
+        if nm == name:
+            G, planted = build(cc.instance_rng(SEED, name))
+            return run_instance(name, family, size, G, planted, args)
+    raise KeyError(name)
+
+
 def run_instance(name, family, size, G, planted, args):
     G = nx.Graph(G)
     G.remove_edges_from(nx.selfloop_edges(G))
@@ -523,15 +539,21 @@ def main():
     ap.add_argument("--exact-time", type=float, default=90.0, help="time limit per integer program (s)")
     ap.add_argument("--matching-max-m", type=int, default=40_000,
                     help="compute the matching number exactly up to this many edges")
+    cc.add_timeout_argument(ap, default=300.0)  # above the 90 s integer-program limit
     args = ap.parse_args()
     sizes = [10, 20] if args.quick else [int(x) for x in args.sizes.split(",")]
 
     started = time.time()
-    rng = random.Random(SEED)
     rows = []
-    for name, family, size, build in instances(sizes, args.quick):
-        G, planted = build(rng)
-        rows.append(run_instance(name, family, size, G, planted, args))
+    skipped = []
+    with cc.InstanceRunner(args.timeout) as runner:
+        for name, family, size, _ in instances(sizes, args.quick):
+            row = runner.run(_instance_job, name, sizes, args)
+            if row is None:
+                print(f"  [mechanism] {family[:34]:34} {name:30} skipped (more than {args.timeout:g} s)", flush=True)
+                skipped.append(name)
+            else:
+                rows.append(row)
     summary = summarise(rows)
     scal = scaling(rows)
 
@@ -554,6 +576,7 @@ def main():
     (out / "car_mechanism.json").write_text(json.dumps(
         {"salvador_version": cc.__version__, "environment": cc.environment(), "seed": SEED, "R0": R0,
          "sizes": sizes, "exact_max_n": args.exact_max_n, "exact_time": args.exact_time,
+         "timeout": args.timeout, "skipped_instances": skipped,
          "summary": summary, "scaling": scal, "rows": rows,
          "elapsed_seconds": time.time() - started}, indent=2, default=str), encoding="utf-8")
     print_report(summary, scal)

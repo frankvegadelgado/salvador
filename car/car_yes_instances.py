@@ -61,6 +61,13 @@ Run from the repository root:
     python car/car_yes_instances.py              # default families
     python car/car_yes_instances.py --quick      # small instances only
     python car/car_yes_instances.py --exact-max-n 0   # skip the integer program
+    python car/car_yes_instances.py --timeout 600     # per-instance time limit (default 300 s)
+
+Every instance is built and evaluated in a worker process with a time limit
+(``--timeout``, default 300 s, above the integer-program limit; 0 = no limit):
+an instance that takes longer is skipped and listed in car_yes_instances.json
+(``skipped_instances``). Each instance has its own random generator, derived
+from SEED and its name.
 
 Outputs (in car/): car_yes_instances.json, car_yes_instances.csv (one row per
 instance) and car_yes_instances_summary.csv (one row per family).
@@ -239,6 +246,11 @@ def exact_tau(G: nx.Graph, time_limit: float):
     return int(round(res.fun)), res.status == 0, dual
 
 
+def _instance_job(name: str, group: str, params: dict, args) -> dict:
+    """Build and evaluate one instance with its own generator; runs in the worker process."""
+    return run_instance(name, group, params, cc.instance_rng(SEED, name), args)
+
+
 def run_instance(name: str, group: str, params: dict, rng: random.Random, args) -> dict:
     G, I = khot_regev_yes(rng=rng, **params)
     G, I = shuffle_labels(G, I, rng)
@@ -340,15 +352,22 @@ def main() -> None:
                     help=f"c10: largest elimination bag minus one (default {DEFAULT_EDS_MAX_WIDTH})")
     ap.add_argument("--eds-budget", type=float, default=DEFAULT_EDS_BUDGET,
                     help=f"c10: DP table budget in units of (n + m) (default {DEFAULT_EDS_BUDGET})")
+    cc.add_timeout_argument(ap, default=300.0)  # above the 90 s integer-program limit
     args = ap.parse_args()
 
     started = time.time()
-    rng = random.Random(SEED)
     rows = []
-    for name, group, params in instances(args.quick, args.max_n):
-        if params["N"] * params["s"] > args.max_n:
-            continue
-        rows.append(run_instance(name, group, params, rng, args))
+    skipped = []
+    with cc.InstanceRunner(args.timeout) as runner:
+        for name, group, params in instances(args.quick, args.max_n):
+            if params["N"] * params["s"] > args.max_n:
+                continue
+            row = runner.run(_instance_job, name, group, params, args)
+            if row is None:
+                print(f"  [yes] {group[:34]:34} {name:28} skipped (more than {args.timeout:g} s)", flush=True)
+                skipped.append(name)
+            else:
+                rows.append(row)
     summary = summarise(rows)
 
     out = cc.OUT_DIR
@@ -378,6 +397,7 @@ def main() -> None:
         {"salvador_version": cc.__version__, "environment": cc.environment(), "seed": SEED,
          "candidates": CANDIDATE_NAMES, "eds_max_width": args.eds_max_width, "eds_budget": args.eds_budget,
          "exact_max_n": args.exact_max_n, "exact_time": args.exact_time,
+         "timeout": args.timeout, "skipped_instances": skipped,
          "summary": summary, "rows": rows, "elapsed_seconds": time.time() - started},
         indent=2, default=str), encoding="utf-8")
     print_table(summary)

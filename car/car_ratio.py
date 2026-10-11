@@ -25,10 +25,16 @@ Run from the repository root:
     python car/car_ratio.py --skip-small    # Part B only
     python car/car_ratio.py --max-n 50000   # smaller Part B
     python car/car_ratio.py --skip "watts"  # also skip instances matching a pattern
+    python car/car_ratio.py --timeout 60    # skip Part B instances taking more than 60 s
 
 The sparse Erdos-Renyi G(n, p) instance with n = 200,000 is skipped by default
 (``--keep-gnp-200k`` restores it): building it takes too long. It is skipped
 before its builder is called, so the graph is never constructed.
+
+Every other Part B instance is built and evaluated in a worker process with a
+time limit (``--timeout``, default 120 s, 0 = no limit): an instance whose
+construction or evaluation takes longer is skipped and listed in car_ratio.json
+(``part_b.timed_out_instances``).
 
 Outputs (in car/): car_ratio.json, car_summary.csv, car_large_summary.csv.
 """
@@ -182,16 +188,33 @@ def skip_instance(name: str, group: str, patterns: list[str], keep_gnp_200k: boo
     return any(p.lower() in text for p in patterns)
 
 
-def run_part_b(max_n: int, patterns: list[str] | None = None, keep_gnp_200k: bool = False) -> dict:
+def _large_job(name: str, max_n: int) -> dict:
+    """Build Part B instance ``name`` and evaluate it; runs in the worker process."""
+    for nm, group, build in cc.large_instances(max_n):
+        if nm == name:
+            return evaluate_large(name, build(), group)
+    raise KeyError(name)
+
+
+def run_part_b(max_n: int, patterns: list[str] | None = None, keep_gnp_200k: bool = False,
+               timeout: float = cc.INSTANCE_TIMEOUT) -> dict:
     started = time.time()
     rows = []
     skipped = []
-    for name, group, build in cc.large_instances(max_n):
-        if skip_instance(name, group, patterns or [], keep_gnp_200k):
-            print(f"  [ratio] {name}: skipped (not built)", flush=True)
-            skipped.append(name)
-            continue
-        rows.append(evaluate_large(name, build(), group))
+    timed_out = []
+    with cc.InstanceRunner(timeout) as runner:
+        for name, group, _ in cc.large_instances(max_n):
+            if skip_instance(name, group, patterns or [], keep_gnp_200k):
+                print(f"  [ratio] {name}: skipped (not built)", flush=True)
+                skipped.append(name)
+                continue
+            row = runner.run(_large_job, name, max_n)
+            if row is None:
+                print(f"  [ratio] {name}: skipped (more than {timeout:g} s to build and evaluate)", flush=True)
+                skipped.append(name)
+                timed_out.append(name)
+                continue
+            rows.append(row)
     by_group = {}
     for g in sorted({r["group"] for r in rows}):
         grows = [r for r in rows if r["group"] == g]
@@ -219,6 +242,8 @@ def run_part_b(max_n: int, patterns: list[str] | None = None, keep_gnp_200k: boo
                  "car/ versions and is reported only for comparison."),
         "family_rows": rows,
         "skipped_instances": skipped,
+        "timed_out_instances": timed_out,
+        "timeout": timeout,
         "summary_by_group": by_group,
         "overall_max_ratio_upper_bound": max(ratios) if ratios else None,
         "overall_worst_instance": None if worst is None else worst["name"],
@@ -238,6 +263,7 @@ def main() -> None:
                     help="skip Part B instances whose name or group contains PATTERN (repeatable)")
     ap.add_argument("--keep-gnp-200k", action="store_true",
                     help="do not skip the sparse Erdos-Renyi G(n, p) instance with n = 200,000")
+    cc.add_timeout_argument(ap)
     args = ap.parse_args()
 
     out = cc.OUT_DIR
@@ -260,7 +286,7 @@ def main() -> None:
                           "worst_instance": o["worst_instance"]["name"]}, indent=2))
 
     if not args.skip_large:
-        part_b = run_part_b(args.max_n, args.skip, args.keep_gnp_200k)
+        part_b = run_part_b(args.max_n, args.skip, args.keep_gnp_200k, args.timeout)
         result["part_b"] = part_b
         with (out / "car_large_summary.csv").open("w", encoding="utf-8") as fh:
             fh.write("group,instances,max_ratio_upper_bound,mean_ratio_upper_bound,"

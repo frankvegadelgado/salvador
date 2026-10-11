@@ -42,6 +42,13 @@ Run from the repository root:
     python car/car_bipartite.py                  # default sizes (up to --max-n)
     python car/car_bipartite.py --quick          # small sizes only
     python car/car_bipartite.py --max-n 5000
+    python car/car_bipartite.py --timeout 60     # skip instances taking more than 60 s
+
+Every instance is built and evaluated in a worker process with a time limit
+(``--timeout``, default 120 s, 0 = no limit): an instance whose construction or
+evaluation takes longer is skipped and listed in car_bipartite.json
+(``skipped_instances``). Each instance has its own random generator, derived
+from SEED and its name, so the worker can rebuild it independently.
 
 Outputs (in car/): car_bipartite.json, car_bipartite.csv (one row per
 instance) and car_bipartite_summary.csv (one row per family).
@@ -235,6 +242,16 @@ def run_instance(name: str, group: str, G: nx.Graph, rng: random.Random, args) -
     return row
 
 
+def _instance_job(name: str, args) -> dict:
+    """Build instance ``name`` (with its own generator) and evaluate it; runs in the worker process."""
+    rng = random.Random(SEED)
+    for nm, group, build in instances(args.max_n, args.quick, rng):
+        if nm == name:
+            rng.seed(f"{SEED}:{name}")  # the builders draw from this generator
+            return run_instance(name, group, build(), rng, args)
+    raise KeyError(name)
+
+
 def summarise(rows: list[dict]) -> dict:
     out = {}
     for g in sorted({r["group"] for r in rows}) + ["ALL"]:
@@ -280,12 +297,21 @@ def main() -> None:
                     help=f"c10: largest elimination bag minus one (default {DEFAULT_EDS_MAX_WIDTH})")
     ap.add_argument("--eds-budget", type=float, default=DEFAULT_EDS_BUDGET,
                     help=f"c10: DP table budget in units of (n + m) (default {DEFAULT_EDS_BUDGET})")
+    cc.add_timeout_argument(ap)
     args = ap.parse_args()
 
     started = time.time()
-    rng = random.Random(SEED)
-    rows = [run_instance(name, group, build(), rng, args)
-            for name, group, build in instances(args.max_n, args.quick, rng)]
+    rows = []
+    skipped = []
+    names = [(name, group) for name, group, _ in instances(args.max_n, args.quick, random.Random(SEED))]
+    with cc.InstanceRunner(args.timeout) as runner:
+        for name, group in names:
+            row = runner.run(_instance_job, name, args)
+            if row is None:
+                print(f"  [bipartite] {group[:34]:34} {name:34} skipped (more than {args.timeout:g} s)", flush=True)
+                skipped.append(name)
+            else:
+                rows.append(row)
     summary = summarise(rows)
 
     out = cc.OUT_DIR
@@ -310,6 +336,7 @@ def main() -> None:
     (out / "car_bipartite.json").write_text(json.dumps(
         {"salvador_version": cc.__version__, "environment": cc.environment(), "seed": SEED,
          "candidates": CANDIDATE_NAMES, "eds_max_width": args.eds_max_width, "eds_budget": args.eds_budget,
+         "timeout": args.timeout, "skipped_instances": skipped,
          "summary": summary, "rows": rows, "elapsed_seconds": time.time() - started},
         indent=2, default=str), encoding="utf-8")
     print_table(summary)

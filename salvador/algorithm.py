@@ -541,7 +541,8 @@ def ensemble_candidates(
     occurrences of a vertex and not others, equal total weight per vertex and
     a unit overlap weight for an edge covered by both endpoints; its
     minimum-weight solution, computed by the treewidth DP of
-    :mod:`salvador.eds_treewidth` with bags of at most 6 nodes (width cap
+    :mod:`salvador.eds_treewidth` along a min-degree elimination order of
+    the gadget with bags of at most 6 nodes (width cap
     ``eds_max_width <= 5``, tables within ``eds_budget * (n + m)``), labels a
     minimum vertex cover when the DP core is empty. The DP core and the
     non-bipartite components are fixed as in the smallest of ``c1``...``c9``.
@@ -598,8 +599,9 @@ def ensemble_candidates(
     best = min(cands.values(), key=len)
     c9 = local_search.improve_vertex_cover(adj, best, budget=local_search_budget)
     cands["c9"] = c9 if len(c9) <= len(best) else set(best)
-    # 10: edge-dominating-set gadget, minimum EDS by a treewidth DP on the
-    # bipartite components; core and non-bipartite parts from the best of c1..c9.
+    # 10: edge-dominating-set gadget, minimum EDS by a treewidth DP (min-degree
+    # elimination order, bags <= 6) on the bipartite components; core and
+    # non-bipartite parts from the best of c1..c9.
     best = min(cands.values(), key=len)
     eds_info: dict = {}
     c10 = prune_redundant_vertices(
