@@ -1,4 +1,4 @@
-"""car/ YES-type instances of the Khot-Regev reduction (Salvador 0.1.0).
+"""car/ YES-type instances of the Khot-Regev reduction (Salvador 0.1.1).
 
 Khot and Regev reduce Unique Games to Vertex Cover. A Unique Games instance
 is a graph H with a label set [k] and, on every edge (v, w), a permutation

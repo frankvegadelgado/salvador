@@ -1,8 +1,9 @@
-"""Public vertex-cover solvers exposed by Salvador (version 0.1.0).
+"""Public vertex-cover solvers exposed by Salvador (version 0.1.1).
 
-Version 0.1.0 keeps the linear-time ensemble c1..c9 described below, adds c10,
-the edge-dominating-set reduction solved by a treewidth DP on the bipartite
-components (:mod:`salvador.eds_treewidth`), c11, the
+Version 0.1.1 keeps the linear-time ensemble c1..c9 described below, adds c10,
+the labelled, weighted edge-dominating-set reduction solved by a treewidth DP
+with bags of at most 6 nodes on the bipartite components
+(:mod:`salvador.eds_treewidth`), c11, the
 bounded-treewidth exact dynamic program (:mod:`salvador.treewidth_dp`), and a
 final strategy, c12: every candidate is refined by a budgeted swap-maximize
 pass (:func:`refine_cover`) and the smallest refined cover is returned. With
@@ -483,14 +484,15 @@ CANDIDATE_NAMES: dict[str, str] = {
     "c7": "union re-prune",
     "c8": "bipartite planar reduction",
     "c9": "(1,2)-swap local search",
-    "c10": "EDS reduction + treewidth DP (bipartite)",
+    "c10": "labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",
     "c11": "bounded-treewidth exact DP",
     "c12": "swap-maximize refinement of c1..c11",
 }
 
 #: Base strategies, computed independently of the improvers c9 and c12.
-#: (c10 solves an edge-dominating-set gadget; c11 is exact when its core is
-#: empty. Both complete a reference cover outside their DP core.)
+#: (c10 solves a labelled, weighted edge-dominating-set gadget and c11 a
+#: vertex-cover DP; both are exact when their core is empty and complete a
+#: reference cover outside it.)
 BASE_NAMES: tuple[str, ...] = ("c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c10", "c11")
 
 #: The candidates c9 starts from (as in 0.0.9).
@@ -534,22 +536,25 @@ def ensemble_candidates(
     :mod:`salvador.local_search`, so ``|c9| <= min(|c1|, ..., |c8|)``.
     Pass ``local_search_budget=0`` to effectively disable ``c9``. ``c10``
     builds the edge-dominating-set gadget of every bipartite component (one
-    node per edge, and for each vertex a path through its edge-nodes), computes
-    a minimum edge dominating set with the treewidth DP of
-    :mod:`salvador.eds_treewidth` (width cap ``eds_max_width``, tables within
-    ``eds_budget * (n + m)``) and decodes each chosen edge ``((u, k), (u, x))``
-    to ``u``; the DP core and the non-bipartite components are fixed as in the
-    smallest of ``c1``...``c9``. The decoded cover is pruned and kept only if
-    it is no larger than that reference (a minimum EDS does not always decode
-    to a minimum cover).
+    node per edge, and for each vertex a path through its edge-nodes) with a
+    cover label per vertex carried along its path, a penalty for choosing some
+    occurrences of a vertex and not others, equal total weight per vertex and
+    a unit overlap weight for an edge covered by both endpoints; its
+    minimum-weight solution, computed by the treewidth DP of
+    :mod:`salvador.eds_treewidth` with bags of at most 6 nodes (width cap
+    ``eds_max_width <= 5``, tables within ``eds_budget * (n + m)``), labels a
+    minimum vertex cover when the DP core is empty. The DP core and the
+    non-bipartite components are fixed as in the smallest of ``c1``...``c9``.
+    The decoded cover is pruned and kept only if it is no larger than that
+    reference.
     ``c11`` is the bounded-treewidth dynamic program of
     :mod:`salvador.treewidth_dp`: exact on the part of the graph that a
     min-degree elimination removes with bags of at most ``tw_max_width + 1``
     vertices within ``tw_budget * (n + m)`` table entries, with the remaining
     core fixed as in the smallest of ``c1``...``c10``. It is a minimum vertex
     cover when the core is empty and never larger than that reference.
-    ``info`` (optional dict) receives ``c10_exact`` (minimum EDS computed
-    with an empty core), ``c10_raw_size`` (pruned decoded cover before the
+    ``info`` (optional dict) receives ``c10_exact`` (labelled EDS computed
+    with an empty core: a minimum cover of the bipartite components), ``c10_raw_size`` (pruned decoded cover before the
     comparison with the reference), ``c10_core_size``, ``c10_width``,
     ``c10_bipartite_fraction``, ``c11_core_size``, ``c11_width``
     and ``c11_exact``.
@@ -609,6 +614,7 @@ def ensemble_candidates(
         info.update({"c10_exact": eds_info["exact"], "c10_raw_size": len(c10),
                      "c10_core_size": eds_info["core_size"],
                      "c10_width": eds_info["width"],
+                     "c10_max_bag": eds_info["max_bag"],
                      "c10_bipartite_fraction": eds_info["bipartite_fraction"],
                      "c11_core_size": tw_info["core_size"], "c11_width": tw_info["width"],
                      "c11_exact": tw_info["exact"]})
@@ -796,7 +802,7 @@ def final_candidates(
     eds_max_width: int = DEFAULT_EDS_MAX_WIDTH,
     eds_budget: float = DEFAULT_EDS_BUDGET,
 ):
-    """Every strategy of Salvador 0.1.0 (``c1``...``c12``) by name.
+    """Every strategy of Salvador 0.1.1 (``c1``...``c12``) by name.
 
     ``c1``...``c11`` are the candidates of :func:`ensemble_candidates`. ``c12``
     is the final swap-maximize refinement: :func:`refine_cover` is applied to
@@ -839,7 +845,7 @@ def find_vertex_cover(
     eds_max_width: int = DEFAULT_EDS_MAX_WIDTH,
     eds_budget: float = DEFAULT_EDS_BUDGET,
 ) -> set[Any]:
-    """Return the final cover of Salvador 0.1.0.
+    """Return the final cover of Salvador 0.1.1.
     """
     return final_candidates(graph, epsilon, refine_budget=refine_budget,
                                      eds_max_width=eds_max_width, eds_budget=eds_budget)["c12"]

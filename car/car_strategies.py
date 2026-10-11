@@ -1,4 +1,4 @@
-"""car/ strategy-winner report: which strategy wins, and how often (Salvador 0.1.0).
+"""car/ strategy-winner report: which strategy wins, and how often (Salvador 0.1.1).
 
 ``salvador.algorithm.final_candidates`` exposes all twelve strategies (every
 one a valid cover); ``salvador.algorithm.find_vertex_cover`` returns ``c12``:

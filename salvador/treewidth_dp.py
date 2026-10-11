@@ -39,7 +39,8 @@ DEFAULT_MAX_WIDTH = 10
 DEFAULT_DP_BUDGET = 256
 
 
-def _elimination_order(adj: Mapping[Any, Iterable[Any]], max_width: int, limit: float, states: int = 2):
+def _elimination_order(adj: Mapping[Any, Iterable[Any]], max_width: int, limit: float, states: int | Mapping[Any, int] = 2,
+                       nodes: Iterable[Any] | None = None):
     """Greedy min-degree elimination with a width cap and a table budget.
 
     ``states`` is the number of states per variable of the dynamic program
@@ -49,8 +50,14 @@ def _elimination_order(adj: Mapping[Any, Iterable[Any]], max_width: int, limit: 
     Returns ``(order, scopes, core)``: the eliminated vertices in order, the
     later neighbours of each eliminated vertex at its elimination time (its
     bag minus itself), and the set of vertices left un-eliminated.
+    ``states`` may also be a mapping node -> number of states (a bag is then
+    charged the product of the state counts of its nodes); ``nodes``
+    restricts the elimination to a subset of ``adj`` (the other nodes are
+    ignored, as if fixed).
     """
-    fill = {v: set(adj[v]) - {v} for v in adj}
+    node_list = list(adj) if nodes is None else list(nodes)
+    node_set = set(node_list)
+    fill = {v: (set(adj[v]) & node_set) - {v} for v in node_list}
     deg = {v: len(fill[v]) for v in fill}
     buckets: list[list[Any]] = [[] for _ in range(max_width + 1)]
     for v, d in deg.items():
@@ -70,7 +77,12 @@ def _elimination_order(adj: Mapping[Any, Iterable[Any]], max_width: int, limit: 
         if v in eliminated or deg[v] != low:
             continue  # stale entry
         nbrs = list(fill[v])
-        cost = states ** (len(nbrs) + 1)
+        if isinstance(states, int):
+            cost = states ** (len(nbrs) + 1)
+        else:
+            cost = states[v]
+            for a in nbrs:
+                cost *= states[a]
         if table_work + cost > limit:
             break
         table_work += cost
@@ -94,7 +106,7 @@ def _elimination_order(adj: Mapping[Any, Iterable[Any]], max_width: int, limit: 
                 if d < low:
                     low = d
         fill[v] = set()
-    core = {v for v in adj if v not in eliminated}
+    core = {v for v in node_list if v not in eliminated}
     return order, scopes, core
 
 
