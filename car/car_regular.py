@@ -55,7 +55,7 @@ SEED = cc.SEED
 DEFAULT_DEGREES = (3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 32, 48, 64)
 DEFAULT_SIZES = (200, 1000, 5000)
 FAMILIES = ("general", "bipartite")
-PRE_FINAL = [k for k in CANDIDATE_NAMES if k != "c14"]
+PRE_FINAL = [k for k in CANDIDATE_NAMES if k != "c15"]
 
 
 # ----------------------------------------------------------------------------
@@ -162,7 +162,7 @@ def run_instance(name: str, family: str, n: int, d: int, exact_n: int) -> dict:
             raise AssertionError(f"{name}: strategy {k} is not a vertex cover")
         if exact and len(C) < lb:
             raise AssertionError(f"{name}: strategy {k} is below tau -- impossible")
-    final = sizes["c14"]
+    final = sizes["c15"]
     best_pre = min(sizes[k] for k in PRE_FINAL)
     est = frieze_luczak_tau(n_actual, d) if family == "general" else None
     row = {
@@ -172,9 +172,9 @@ def run_instance(name: str, family: str, n: int, d: int, exact_n: int) -> dict:
         "ratio": final / lb if lb else 1.0,
         "optimal": exact and final == lb,
         "ratio_vs_fl_estimate": None if est is None else final / est,
-        "best_before_c14": best_pre,
+        "best_before_c15": best_pre,
         "winners": [k for k in PRE_FINAL if sizes[k] == best_pre],
-        "c14_gain": best_pre - final,
+        "c15_gain": best_pre - final,
         **{f"size_{k}": sizes[k] for k in CANDIDATE_NAMES},
         "c10_exact": bool(info.get("c10_exact", False)),
         "c10_core_size": info.get("c10_core_size", 0),
@@ -216,7 +216,7 @@ def summarise(rows: list[dict]) -> list[dict]:
             "mean_ratio_vs_fl_estimate": round(statistics.fmean(fl), 6) if fl else None,
             "top_winner": wins.most_common(1)[0][0] if wins else None,
             "winner_counts": " ".join(f"{k}:{v}" for k, v in sorted(wins.items(), key=lambda kv: -kv[1])),
-            "mean_c14_gain": round(statistics.fmean(r["c14_gain"] for r in g), 3),
+            "mean_c15_gain": round(statistics.fmean(r["c15_gain"] for r in g), 3),
             "c10_exact": sum(r["c10_exact"] for r in g),
             "mean_c10_core": round(statistics.fmean(r["c10_core_size"] for r in g), 1),
             "mean_c13_core": round(statistics.fmean(r["c13_core_size"] for r in g), 1),
@@ -229,12 +229,12 @@ def summarise(rows: list[dict]) -> list[dict]:
 def print_summary(summary: list[dict]) -> None:
     print("\nSummary per family, n and degree (ratio is exact when 'exact', else |C| / certified LB)")
     print(f"{'family':10} {'n':>6} {'d':>4} {'N':>3} {'exact':>5} {'mean ratio':>10} {'max ratio':>9} {'opt':>4} "
-          f"{'|C|/n':>7} {'vs FL':>7} {'winner':>7} {'c14 gain':>8} {'c10 ex':>6} {'mean s':>7}")
+          f"{'|C|/n':>7} {'vs FL':>7} {'winner':>7} {'c15 gain':>8} {'c10 ex':>6} {'mean s':>7}")
     for s in summary:
         fl = "" if s["mean_ratio_vs_fl_estimate"] is None else f"{s['mean_ratio_vs_fl_estimate']:.4f}"
         print(f"{s['family']:10} {s['n']:>6} {s['d']:>4} {s['instances']:>3} {str(s['exact_bound']):>5} "
               f"{s['mean_ratio']:>10.4f} {s['max_ratio']:>9.4f} {s['optimal']:>4} {s['mean_cover_fraction']:>7.4f} "
-              f"{fl:>7} {str(s['top_winner']):>7} {s['mean_c14_gain']:>8} {s['c10_exact']:>6} {s['mean_seconds']:>7}")
+              f"{fl:>7} {str(s['top_winner']):>7} {s['mean_c15_gain']:>8} {s['c10_exact']:>6} {s['mean_seconds']:>7}")
 
 
 def main() -> None:

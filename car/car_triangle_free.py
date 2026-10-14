@@ -11,7 +11,7 @@ them (unless P = NP).
 What this experiment can and cannot show
 -----------------------------------------
 * It **certifies, per instance**, an interval for the ratio
-  ``|C| / tau(G)`` of Salvador's final cover ``C = c14``:
+  ``|C| / tau(G)`` of Salvador's final cover ``C = c15``:
 
       ratio_lower = |C| / tau_upper  <=  |C| / tau(G)  <=  |C| / tau_lower = ratio_upper,
 
@@ -72,6 +72,21 @@ eps_certified, LP gap, timings) and car_triangle_free_summary.csv (one row per
 family: worst exact ratio, worst certified upper bound, smallest certified
 margin, worst planted lower bound, counts below 2 - eps for several eps).
 
+A priori bound checked on every row (Theorem "2 - r/tau" of the paper): for
+every graph with r >= 1 connected components that have an edge, Salvador's
+final cover satisfies |C| <= 2 tau - r, because c1 (pruned maximal matching)
+already does and |c15| <= |c1|. Rows with exact tau assert it; every row
+records the implied ratio bound 2 - r / tau_upper (valid since tau <= tau_upper)
+and whether it is <= 1.999999999.
+
+Robustness for large runs: the stages of each large instance (build,
+Salvador, bounds) are printed with their times, so a timeout shows which
+stage was slow; the Laplacian spectral bound is computed only when the
+minimum degree is at least 3 (it is vacuous or weak below that); and after
+an instance of a family exceeds --timeout, the larger instances of the same
+family are skipped (--no-skip-family turns this off). A LaTeX table of the
+per-family summary is written to car_triangle_free_table.tex.
+
 Run from the repository root:
 
     python car/car_triangle_free.py --quick               # minutes
@@ -79,6 +94,7 @@ Run from the repository root:
     python car/car_triangle_free.py --skip-small --max-n 100000
     python car/car_triangle_free.py --hill-restarts 40 --hill-steps 400
     python car/car_triangle_free.py --exact-max-n 3000 --exact-time 300
+    python car/car_triangle_free.py --skip-small --skip-hill --max-n 10000   # Part B only
 """
 
 from __future__ import annotations
@@ -99,9 +115,11 @@ import car_yes_instances as kr
 from salvador.algorithm import CANDIDATE_NAMES, final_candidates
 
 SEED = 20261013
-NAMES = list(CANDIDATE_NAMES)  # c1..c14
-FINAL = "c14"
+NAMES = list(CANDIDATE_NAMES)  # c1..c15
+FINAL = "c15"
 EPS_LEVELS = (0.5, 0.25, 0.1, 0.05, 0.01)
+BARRIER = 1.999999999  # the 2 - 1e-9 threshold of the a priori bound 2 - r / tau
+STAGE_LOG_N = 20_000   # print the stage times of instances at least this large
 
 
 # ----------------------------------------------------------------------------
@@ -433,11 +451,16 @@ def evaluate(name: str, group: str, G: nx.Graph, planted_I, args: dict, exact_sm
     if tri:
         raise AssertionError(f"{name}: {tri} triangles -- the generator is not triangle-free")
     degs = [d for _, d in G.degree()]
+    log = n >= STAGE_LOG_N
+    if log:
+        print(f"  [tf]   {name}: built n={n:,} m={m:,}; running Salvador ...", flush=True)
 
     info: dict = {}
     t0 = time.perf_counter()
     cands = final_candidates(G, epsilon=cc.DEFAULT_EPSILON, info=info)
     salvador_seconds = time.perf_counter() - t0
+    if log:
+        print(f"  [tf]   {name}: Salvador {salvador_seconds:.1f}s; computing bounds ...", flush=True)
     sizes = {k: len(cands[k]) for k in NAMES}
     edges = list(G.edges())
     for k in NAMES:
@@ -449,7 +472,7 @@ def evaluate(name: str, group: str, G: nx.Graph, planted_I, args: dict, exact_sm
     # Certified bounds on tau.
     t0 = time.perf_counter()
     lower: dict[str, float] = {}
-    upper: dict[str, int] = {"salvador_c14": final}
+    upper: dict[str, int] = {"salvador_c15": final}
     tau = None
     method = None
     if nx.is_bipartite(G):
@@ -470,7 +493,8 @@ def evaluate(name: str, group: str, G: nx.Graph, planted_I, args: dict, exact_sm
         lp = kr.lp_lower_bound(G)
         lower["lp_relaxation"] = lp
     if tau is None:
-        lb, lb_method, all_lb = cc.best_lower_bound(G, spectral=not args["no_spectral"])
+        spectral = (not args["no_spectral"]) and min(degs) >= 3
+        lb, lb_method, all_lb = cc.best_lower_bound(G, spectral=spectral)
         for key, val in all_lb.items():
             lower[key] = float(val)
     if planted_I is not None:
@@ -489,6 +513,11 @@ def evaluate(name: str, group: str, G: nx.Graph, planted_I, args: dict, exact_sm
     tau_lower = max(tau_lower, 1)
     ratio_upper = final / tau_lower
     ratio_lower = final / tau_upper
+    # A priori bound |C| <= 2 tau - r (r = components with an edge; isolated vertices were removed).
+    r_comp = nx.number_connected_components(G)
+    if tau is not None and final > 2 * tau - r_comp:
+        raise AssertionError(f"{name}: |C| = {final} > 2 tau - r = {2 * tau - r_comp}")
+    thm_bound = 2 - r_comp / tau_upper
     row = {
         "group": group, "name": name, "n": n, "m": m,
         "min_degree": min(degs), "max_degree": max(degs), "avg_degree": 2 * m / n,
@@ -505,7 +534,10 @@ def evaluate(name: str, group: str, G: nx.Graph, planted_I, args: dict, exact_sm
         "integrality_gap": (tau / lp) if (tau and lp) else None,
         "planted_cover": upper.get("planted"),
         "ratio_vs_planted": (final / upper["planted"]) if upper.get("planted") else None,
+        "components": r_comp, "thm_ratio_bound": thm_bound, "thm_below_barrier": thm_bound <= BARRIER,
         "c11_exact": bool(info.get("c11_exact", False)), "c13_exact": bool(info.get("c13_exact", False)),
+        "c11_peels": info.get("c11_peels"), "c12_search_gain": info.get("c12_search_gain"),
+        "c12_reduce_gain": info.get("c12_reduce_gain"),
         "salvador_seconds": salvador_seconds, "bound_seconds": bound_seconds,
     }
     rat = f"ratio={row['ratio']:.4f}" if row["ratio"] else f"ratio in [{ratio_lower:.4f}, {ratio_upper:.4f}]"
@@ -518,8 +550,28 @@ def evaluate(name: str, group: str, G: nx.Graph, planted_I, args: dict, exact_sm
 def _job(name: str, group: str, kind: str, params: dict, args: dict, exact_small: bool) -> dict:
     """Build and evaluate one instance (module level: runs in the worker process)."""
     rng = cc.instance_rng(SEED, name)
+    t0 = time.perf_counter()
+    if estimated_n(kind, params) >= STAGE_LOG_N:
+        print(f"  [tf]   {name}: building ...", flush=True)
     G, I = build(kind, params, rng)
-    return evaluate(name, group, G, I, args, exact_small)
+    row = evaluate(name, group, G, I, args, exact_small)
+    row["build_seconds"] = time.perf_counter() - t0 - row["salvador_seconds"] - row["bound_seconds"]
+    return row
+
+
+def estimated_n(kind: str, params: dict) -> int:
+    """Number of vertices of an instance before it is built (for logging and family skipping)."""
+    if "n" in params:
+        return int(params["n"])
+    if kind == "kr":
+        return int(params["N"] * params["s"])
+    if kind == "fr":
+        return 1 << params["q"]
+    if kind == "mycielski":
+        return 3 * 2 ** (params["k"] - 2) - 1
+    if kind == "andrasfai":
+        return 3 * params["k"] - 1
+    return 0
 
 
 # ----------------------------------------------------------------------------
@@ -601,6 +653,8 @@ def summarise(rows: list[dict]) -> dict:
             "max_integrality_gap": max(gaps, default=None),
             "certified_below": {str(e): sum(r["ratio_upper"] <= 2 - e for r in F) for e in EPS_LEVELS},
             "max_n": max(r["n"] for r in F),
+            "max_thm_bound": max(r["thm_ratio_bound"] for r in F),
+            "thm_below_barrier": sum(bool(r["thm_below_barrier"]) for r in F),
             "seconds": sum(r["salvador_seconds"] for r in F),
         }
     return out
@@ -608,7 +662,7 @@ def summarise(rows: list[dict]) -> dict:
 
 def print_summary(summary: dict) -> None:
     f = lambda x: "-" if x is None else f"{x:.4f}"
-    print("\nTriangle-free graphs: ratio of Salvador's final cover c14 (exact where tau is proved, else the"
+    print("\nTriangle-free graphs: ratio of Salvador's final cover c15 (exact where tau is proved, else the"
           " certified interval)")
     head = (f"{'family':48} {'N':>4} {'exact':>5} {'opt':>4} {'max exact':>9} {'max ub':>8} {'min eps':>8}"
             f" {'max lb':>7} {'vs plant':>8} {'LP gap':>7} " + " ".join(f"<=2-{e:<4}" for e in EPS_LEVELS))
@@ -627,9 +681,36 @@ def print_summary(summary: dict) -> None:
     print("max lb   = largest |C| / tau_upper (the true ratio is at least this);"
           " vs plant = |C| / planted cover (Khot-Regev YES instances);")
     print("LP gap   = tau / LP optimum where tau is exact (how far these instances are from LP-easy).")
+    print(f"\nA priori bound |C| <= 2 tau - r: ratio <= {a['max_thm_bound']:.9f} on every instance; "
+          f"{a['thm_below_barrier']}/{a['instances']} instances are provably <= {BARRIER} "
+          "(this holds whenever tau <= 1e9 r; the margin r / tau vanishes as tau grows).")
     print("\nCaveat: these numbers certify the ratio on the instances above only. UGC-hardness of 2 - eps on"
           " triangle-free graphs is a worst-case statement over all such graphs; a finite experiment cannot"
           " show the barrier is broken, which under UGC would imply P = NP.")
+
+
+def write_latex_table(summary: dict, path: Path) -> None:
+    """Per-family summary as a LaTeX tabular (booktabs), for the paper."""
+    def f(x, d=4):
+        return "--" if x is None else f"{x:.{d}f}"
+
+    def tex(s: str) -> str:
+        return s.replace("_", "\\_").replace("&", "\\&").replace("%", "\\%")
+
+    lines = [
+        "% Generated by car/car_triangle_free.py -- per-family summary of the triangle-free study.",
+        "\\begin{tabular}{lrrrrrr}",
+        "\\toprule",
+        "Family & Inst. & Exact & Opt. & Max exact ratio & Max cert. upper & Max $2-r/\\tau$ \\\\",
+        "\\midrule",
+    ]
+    for g, s in summary.items():
+        if g == "ALL":
+            lines.append("\\midrule")
+        lines.append(f"{tex(g)} & {s['instances']} & {s['exact']} & {s['optimal']} & {f(s['max_exact_ratio'])} & "
+                     f"{f(s['max_ratio_upper'])} & {f(s['max_thm_bound'], 6)} \\\\")
+    lines += ["\\bottomrule", "\\end{tabular}", ""]
+    path.write_text("\n".join(lines), encoding="utf-8")
 
 
 # ----------------------------------------------------------------------------
@@ -652,6 +733,8 @@ def main() -> None:
     ap.add_argument("--exact-time", type=float, default=60.0, help="integer-program time limit, s (default 60)")
     ap.add_argument("--lp-max-m", type=int, default=600_000, help="LP lower bound up to this many edges")
     ap.add_argument("--no-spectral", action="store_true", help="skip the Laplacian spectral bound")
+    ap.add_argument("--no-skip-family", action="store_true",
+                    help="keep running larger instances of a family after one of them timed out")
     cc.add_timeout_argument(ap, default=600.0)
     args = ap.parse_args()
     bounds_args = {"bb_max_n": args.bb_max_n, "exact_max_n": args.exact_max_n, "exact_time": args.exact_time,
@@ -676,11 +759,19 @@ def main() -> None:
             steps = args.hill_steps or (80 if args.quick else 250)
             rows.extend(hill_climb(random.Random(SEED), restarts, steps))
         if not args.skip_large:
+            failed_n: dict[str, int] = {}  # family -> smallest n that timed out
             for name, group, kind, params in part_b_instances(args.quick, args.max_n, args.max_m):
+                est = estimated_n(kind, params)
+                if not args.no_skip_family and group in failed_n and est >= failed_n[group]:
+                    print(f"  [tf] {group[:34]:34} {name:26} skipped (a smaller instance of this family timed out)",
+                          flush=True)
+                    skipped.append(name)
+                    continue
                 row = runner.run(_job, name, group, kind, params, bounds_args, False)
                 if row is None:
                     print(f"  [tf] {group[:34]:34} {name:26} skipped (more than {args.timeout:g} s)", flush=True)
                     skipped.append(name)
+                    failed_n[group] = min(est, failed_n.get(group, est))
                 else:
                     rows.append(row)
                 gc.collect()
@@ -688,7 +779,7 @@ def main() -> None:
     summary = summarise(rows)
     out = cc.OUT_DIR
     cols = ["group", "name", "n", "m", "min_degree", "max_degree", "avg_degree", "bipartite"]
-    tail = ["final", "final_fraction", "tau", "tau_method", "exact", "tau_lower", "tau_lower_method", "tau_upper",
+    tail = ["components", "thm_ratio_bound", "thm_below_barrier", "final", "final_fraction", "tau", "tau_method", "exact", "tau_lower", "tau_lower_method", "tau_upper",
             "tau_upper_method", "ratio", "ratio_lower", "ratio_upper", "eps_certified", "lp", "ratio_vs_lp",
             "integrality_gap", "planted_cover", "ratio_vs_planted", "c11_exact", "c13_exact",
             "salvador_seconds", "bound_seconds"]
@@ -726,6 +817,7 @@ def main() -> None:
                     "2 - eps barrier for triangle-free graphs is broken (a worst-case statement)."),
          "skipped_instances": skipped, "summary": summary, "rows": rows,
          "elapsed_seconds": time.time() - started}, indent=2, default=str), encoding="utf-8")
+    write_latex_table(summary, out / "car_triangle_free_table.tex")
     print_summary(summary)
     if skipped:
         print(f"\nSkipped (more than {args.timeout:g} s): {', '.join(skipped)}")

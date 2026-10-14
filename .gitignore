@@ -174,3 +174,4 @@ cython_debug/
 app.log
 sparse_matrix_*
 experiment/
+docs/paper/

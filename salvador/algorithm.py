@@ -12,9 +12,12 @@ every edge-node is dominated), c12, the reduce-and-search improver
 budgeted (1,2)-swap iterated local search alternated with c11's exact
 reductions and folds guided by the searched cover), c13, the
 bounded-treewidth exact dynamic program
-(:mod:`salvador.treewidth_dp`), and a final strategy, c14: every candidate is
+(:mod:`salvador.treewidth_dp`), c14, consensus forcing
+(:mod:`salvador.consensus_force`: the vertices that all, then most, of
+c1..c13 contain are forced into the cover and the rest is solved again), and
+a final strategy, c15: every candidate is
 refined by a budgeted swap-maximize pass (:func:`refine_cover`) and the
-smallest refined cover is returned. With the default budgets c1..c14 run in
+smallest refined cover is returned. With the default budgets c1..c15 run in
 worst-case O(n + m) time.
 
 :func:`find_vertex_cover` runs an ensemble of independently linear-time
@@ -61,7 +64,7 @@ import itertools
 from typing import Any
 import networkx as nx
 
-from . import (bipartite_reduction, eds_treewidth, local_search, reduce_search, subdivision_reduction,
+from . import (bipartite_reduction, consensus_force, eds_treewidth, local_search, reduce_search, subdivision_reduction,
                treewidth_dp, utils, vc_reduction)
 from collections import deque
 
@@ -497,10 +500,11 @@ CANDIDATE_NAMES: dict[str, str] = {
     "c11": "weighted subdivision reduction (bipartite) + reducing-peeling",
     "c12": "reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c11",
     "c13": "bounded-treewidth exact DP",
-    "c14": "swap-maximize refinement of c1..c13",
+    "c14": "consensus forcing: vertices in all/most of c1..c13 forced, rest re-solved",
+    "c15": "swap-maximize refinement of c1..c14",
 }
 
-#: Base strategies, computed independently of the improvers c9, c12 and c14.
+#: Base strategies, computed independently of the improvers c9, c12 and c15.
 #: (c10 solves a labelled, weighted edge-dominating-set gadget and c13 a
 #: vertex-cover DP; both are exact when their core is empty and complete a
 #: reference cover outside it. c11 is the weighted subdivision reduction; its
@@ -514,8 +518,11 @@ C9_INPUT_NAMES: tuple[str, ...] = ("c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8
 #: The candidates whose best cover is c10's reference (core and non-bipartite parts).
 C10_INPUT_NAMES: tuple[str, ...] = C9_INPUT_NAMES + ("c9",)
 
-#: Default work budget of the c14 refinement, in units of (n + m) per cover.
+#: Default work budget of the c15 refinement, in units of (n + m) per cover.
 DEFAULT_REFINE_BUDGET: float | None = 100
+
+#: Default number of consensus-forcing rounds of c14.
+DEFAULT_CONSENSUS_ROUNDS: int = consensus_force.DEFAULT_ROUNDS
 
 #: Default limits of the c12 reduce-and-search improver (rounds, search budget per (n + m) per round).
 DEFAULT_SEARCH_ROUNDS: int = reduce_search.DEFAULT_ROUNDS
@@ -534,6 +541,30 @@ def _clean(graph: nx.Graph) -> nx.Graph:
     return G
 
 
+def _matching_cover(adj: dict[Any, set[Any]]) -> set[Any]:
+    """Both endpoints of a greedy maximal matching, in O(n + m)."""
+    matched: set[Any] = set()
+    for u, nb in adj.items():
+        if u in matched:
+            continue
+        for v in nb:
+            if v != u and v not in matched:
+                matched.add(u)
+                matched.add(v)
+                break
+    return matched
+
+
+def _consensus_inner(adj: dict[Any, set[Any]]) -> set[Any]:
+    """Residual solver of c14: best of pruned matching, Min-to-Min and c11 (max+fold), all O(n + m)."""
+    if not adj:
+        return set()
+    covers = [prune_redundant_vertices(adj, _matching_cover(adj)),
+              prune_redundant_vertices(adj, min_to_min_vertex_cover_linear(adj)),
+              prune_redundant_vertices(adj, subdivision_reduction.subdivision_vertex_cover(adj, None, "max", True))]
+    return min(covers, key=len)
+
+
 def ensemble_candidates(
     graph: nx.Graph,
     epsilon: float = 1,
@@ -545,8 +576,9 @@ def ensemble_candidates(
     eds_budget: float = DEFAULT_EDS_BUDGET,
     search_rounds: int = DEFAULT_SEARCH_ROUNDS,
     search_budget: float = DEFAULT_SEARCH_BUDGET,
+    consensus_rounds: int = DEFAULT_CONSENSUS_ROUNDS,
 ) -> dict[str, set[Any]]:
-    """Return every pruned linear-time candidate ``c1``...``c13`` by name.
+    """Return every pruned linear-time candidate ``c1``...``c14`` by name.
 
     Each value is a valid vertex cover of ``graph``. ``c1``...``c6`` and
     ``c8`` are independent linear-time heuristics; ``c7`` re-prunes their
@@ -583,6 +615,14 @@ def ensemble_candidates(
     followed by c11's exact reductions and folds guided by the searched cover,
     keeping a cover only when it is not larger, so
     ``|c12| <= min(|c1|, ..., |c11|)``.
+    ``c14`` is the consensus-forcing strategy of :mod:`salvador.consensus_force`:
+    for up to ``consensus_rounds`` rounds it forces into the cover the vertices
+    that lie in all (then 90%, then 75%) of the covers found so far (c1..c13
+    and its own earlier rounds), solves the rest with the best of the pruned
+    maximal matching, Min-to-Min and c11 (``max+fold``), and keeps the
+    smallest cover; it stops early when the best cover equals the matching
+    lower bound. It is a heuristic: a forced vertex need not lie in a minimum
+    cover.
     ``c13`` is the bounded-treewidth dynamic program of
     :mod:`salvador.treewidth_dp`: exact on the part of the graph that a
     min-degree elimination removes with bags of at most ``tw_max_width + 1``
@@ -598,12 +638,14 @@ def ensemble_candidates(
     ``c11_edges`` of the subdivision and ``c11_variant`` (the kept variant), the c12
     counts ``c12_start``, ``c12_search_gain``, ``c12_reduce_gain`` and
     ``c12_rounds_improved``, and
-    ``c13_core_size``, ``c13_width`` and ``c13_exact``.
+    ``c13_core_size``, ``c13_width`` and ``c13_exact``, and the c14 values
+    ``c14_lower_bound``, ``c14_rounds_run``, ``c14_forced``, ``c14_certified``,
+    ``c14_gain`` and ``c14_certified_ratio``.
     """
     G = _clean(graph)
 
     if G.number_of_edges() == 0:
-        return {name: set() for name in CANDIDATE_NAMES if name != "c14"}
+        return {name: set() for name in CANDIDATE_NAMES if name != "c15"}
 
     adj = {v: set(G[v]) for v in G}
 
@@ -670,6 +712,14 @@ def ensemble_candidates(
     tw_info: dict = {}
     cands["c13"] = prune_redundant_vertices(
         adj, treewidth_dp.treewidth_vertex_cover(adj, ref, tw_max_width, tw_budget, tw_info))
+    # 14: consensus forcing. The vertices that all (then most) of c1..c13 contain
+    # are forced into the cover -- deleted from the graph and added to the cover,
+    # which is what a self-loop on them would do, without going through _clean,
+    # which drops self-loops -- and the residual graph is solved again.
+    cons_info: dict = {}
+    cands["c14"] = consensus_force.consensus_force_cover(
+        adj, [cands[f"c{i}"] for i in range(1, 14)], _consensus_inner, prune_redundant_vertices,
+        rounds=consensus_rounds, info=cons_info)
     if info is not None:
         info.update({"c10_exact": eds_info["exact"], "c10_raw_size": len(c10),
                      "c10_core_size": eds_info["core_size"],
@@ -683,7 +733,9 @@ def ensemble_candidates(
                      **{f"c12_{k}": search_info[k] for k in
                         ("start", "search_gain", "reduce_gain", "rounds_improved")},
                      "c13_core_size": tw_info["core_size"], "c13_width": tw_info["width"],
-                     "c13_exact": tw_info["exact"]})
+                     "c13_exact": tw_info["exact"],
+                     **{f"c14_{k}": cons_info[k] for k in
+                        ("lower_bound", "rounds_run", "forced", "certified", "gain", "certified_ratio")}})
     return cands
 
 
@@ -765,7 +817,7 @@ def refine_cover(
     v_max: Any = None,
     budget: float | None = DEFAULT_REFINE_BUDGET,
 ) -> set[Any]:
-    """Swap-maximize refinement of one cover (strategy c14).
+    """Swap-maximize refinement of one cover (strategy c15).
 
     For every ``u`` in ``cover ∪ {v_max}`` it forms the cover
     ``(cover - {u}) ∪ N(u)``, i.e. it moves ``u`` into the independent set
@@ -869,16 +921,17 @@ def final_candidates(
     eds_budget: float = DEFAULT_EDS_BUDGET,
     search_rounds: int = DEFAULT_SEARCH_ROUNDS,
     search_budget: float = DEFAULT_SEARCH_BUDGET,
+    consensus_rounds: int = DEFAULT_CONSENSUS_ROUNDS,
 ):
-    """Every strategy of Salvador 0.1.2 (``c1``...``c14``) by name.
+    """Every strategy of Salvador 0.1.2 (``c1``...``c15``) by name.
 
-    ``c1``...``c13`` are the candidates of :func:`ensemble_candidates`. ``c14``
+    ``c1``...``c14`` are the candidates of :func:`ensemble_candidates`. ``c15``
     is the final swap-maximize refinement: :func:`refine_cover` is applied to
-    every candidate ``c1``...``c13`` (with the same maximum-degree vertex
+    every candidate ``c1``...``c14`` (with the same maximum-degree vertex
     ``v_max`` for all of them, and a work budget of ``refine_budget * (n + m)``
     per distinct cover) and the smallest refined cover is kept. A refined
     cover is never larger than its input, so
-    ``|c14| <= min(|c1|, ..., |c13|)``. Identical candidate covers are refined
+    ``|c15| <= min(|c1|, ..., |c14|)``. Identical candidate covers are refined
     only once.
 
     With ``return_refined=True`` the result is ``(candidates, refined)``, where
@@ -892,9 +945,10 @@ def final_candidates(
     G = _clean(graph)
     cands = ensemble_candidates(G, epsilon, local_search_budget, tw_max_width, tw_budget, info=info,
                                 eds_max_width=eds_max_width, eds_budget=eds_budget,
-                                search_rounds=search_rounds, search_budget=search_budget)
+                                search_rounds=search_rounds, search_budget=search_budget,
+                                consensus_rounds=consensus_rounds)
     if G.number_of_edges() == 0:
-        cands["c14"] = set()
+        cands["c15"] = set()
         return (cands, {k: set() for k in cands}) if return_refined else cands
     v_max = max(set(G.nodes()), key=G.degree)
     seen: dict[frozenset, set[Any]] = {}
@@ -904,7 +958,7 @@ def final_candidates(
         if key not in seen:
             seen[key] = refine_cover(G, cover, v_max, refine_budget)
         refined[name] = seen[key]
-    cands["c14"] = min(refined.values(), key=len)
+    cands["c15"] = min(refined.values(), key=len)
     return (cands, refined) if return_refined else cands
 
 
@@ -918,7 +972,7 @@ def find_vertex_cover(
     """Return the final cover of Salvador 0.1.2.
     """
     return final_candidates(graph, epsilon, refine_budget=refine_budget,
-                                     eds_max_width=eds_max_width, eds_budget=eds_budget)["c14"]
+                                     eds_max_width=eds_max_width, eds_budget=eds_budget)["c15"]
 
 
 def find_vertex_cover_brute_force(graph: nx.Graph) -> set[Any] | None:

@@ -136,7 +136,7 @@ e 3 5
 <li>Python ≥ 3.12</li>
 </ul>
 <h2>Installation</h2>
-<pre><code class="language-bash">pip install salvador==0.0.6
+<pre><code class="language-bash">pip install salvador==0.1.2
 </code></pre>
 <h2>Execution</h2>
 <ol>
@@ -230,6 +230,92 @@ options:
   -v, --verbose         enable verbose output
   -l, --log             enable file logging
   --version             show program's version number and exit
+</code></pre>
+<hr>
+<h1>Reproducibility Experiments (<code>car/</code>)</h1>
+<p>The <code>car/</code> folder contains the experiment scripts. Each script writes its results next to itself as <code>.json</code> and <code>.csv</code> files.</p>
+<h2>How to run</h2>
+<p><strong>Recommended:</strong> run every experiment quickly, on small graphs, with one command from the <code>car/</code> folder:</p>
+<pre><code class="language-bash">cd car
+python run_all.py --quick
+</code></pre>
+<p>Install the package and its dependencies, then run a script from the repository root:</p>
+<pre><code class="language-bash">pip install salvador==0.1.2
+python car/car_strategies.py
+</code></pre>
+<p>The scripts also run from a clone of the repository without installing the package. Every script accepts <code>-h</code> to list its options, <code>--quick</code> for a shorter run and <code>--timeout</code> to limit the time spent on each graph.</p>
+<p>To run all the experiments one after another, use <code>car/run_all.py</code>:</p>
+<pre><code class="language-bash">python car/run_all.py --quick                          # every experiment on small graphs (much shorter)
+python car/run_all.py --quick --only strategies scaling # only some experiments
+python car/run_all.py --list                           # list the experiments and their quick options
+python car/run_all.py                                  # every experiment in full (hours)
+python car/run_all.py --skip triangle_free mechanism   # full runs except some
+</code></pre>
+<p>Each experiment writes its own result files, and <code>car/run_all_log.txt</code> records the time and status of each one.</p>
+<h2>What each script does</h2>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>car_ratio.py</code></td>
+<td>Measures the approximation ratio on small graphs with a known optimum and on large adversarial graphs.</td>
+</tr>
+<tr>
+<td><code>car_ratio_timing.py</code></td>
+<td>Shows where the running time of <code>car_ratio.py</code> goes, strategy by strategy.</td>
+</tr>
+<tr>
+<td><code>car_scaling.py</code></td>
+<td>Measures how the running time grows with the size of the graph.</td>
+</tr>
+<tr>
+<td><code>car_strategies.py</code></td>
+<td>Reports which of the strategies <code>c1</code>...<code>c15</code> finds the smallest cover, and how often.</td>
+</tr>
+<tr>
+<td><code>car_c11_variants.py</code></td>
+<td>Compares the variants of strategy <code>c11</code>.</td>
+</tr>
+<tr>
+<td><code>car_c10_bags.py</code></td>
+<td>Checks the bag sizes of the dynamic program of strategy <code>c10</code>.</td>
+</tr>
+<tr>
+<td><code>car_regular.py</code></td>
+<td>Runs regular graphs of increasing degree.</td>
+</tr>
+<tr>
+<td><code>car_bipartite.py</code></td>
+<td>Runs bipartite graphs, where the optimum is known exactly.</td>
+</tr>
+<tr>
+<td><code>car_yes_instances.py</code></td>
+<td>Runs YES instances of the Khot–Regev reduction from Unique Games.</td>
+</tr>
+<tr>
+<td><code>car_mechanism.py</code></td>
+<td>Studies which proved bounds apply to each graph and why the covers are good.</td>
+</tr>
+<tr>
+<td><code>car_triangle_free.py</code></td>
+<td>Runs triangle-free graphs.</td>
+</tr>
+<tr>
+<td><code>run_all.py</code></td>
+<td>Runs all the scripts above, quickly (<code>--quick</code>) or in full.</td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<pre><code class="language-bash">python car/car_ratio.py
+python car/car_bipartite.py
+python car/car_scaling.py --quick
+python car/car_triangle_free.py --quick
 </code></pre>
 <hr>
 <h1>Code</h1>

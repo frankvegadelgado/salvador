@@ -10,7 +10,7 @@ from salvador.parser import read
 from salvador.utils import is_vertex_cover
 
 
-def test_version_is_008() -> None:
+def test_version_is_012() -> None:
     assert __version__ == "0.1.2"
 
 
@@ -155,39 +155,8 @@ def test_subdivision_c11_valid_and_exact_when_unpeeled() -> None:
                 if vi["exact"] and n <= 14:
                     assert len(c) == len(find_vertex_cover_brute_force(graph))
         cands = ensemble_candidates(graph)
-        assert set(cands) == {f"c{i}" for i in range(1, 14)}
+        assert set(cands) == {f"c{i}" for i in range(1, 15)}
         assert is_vertex_cover(graph, cands["c11"])
-
-
-def test_split_domination_c12_valid_and_exact_when_core_empty() -> None:
-    """c12: the split graph has 2m nodes and maximum degree 3; the cover is
-    valid, never larger than its reference, and minimum when the core is empty."""
-    from salvador import split_domination as sd
-    from salvador.algorithm import ensemble_candidates, find_vertex_cover_brute_force
-
-    graphs = [
-        nx.path_graph(7), nx.cycle_graph(9), nx.complete_graph(6), nx.petersen_graph(),
-        nx.complete_bipartite_graph(3, 5), nx.balanced_tree(2, 4),
-        nx.relabel_nodes(nx.cycle_graph(6), {0: "a", 1: (1, 2)}),
-    ] + [nx.gnp_random_graph(12, 0.3, seed=s) for s in range(15)]
-    for graph in graphs:
-        graph = graph.copy()
-        graph.remove_nodes_from(list(nx.isolates(graph)))
-        m = graph.number_of_edges()
-        H = sd.build_split_nx(graph)
-        assert H.number_of_nodes() == 2 * m and max(d for _, d in H.degree()) <= 3
-        adj = {v: set(graph[v]) for v in graph}
-        ref = set(graph)
-        for width in (10, 2):
-            info: dict = {}
-            cover = sd.split_dominating_cover(adj, ref, max_width=width, info=info)
-            assert is_vertex_cover(graph, cover) and len(cover) <= len(ref)
-            if info["exact"] and graph.number_of_nodes() <= 14:
-                assert len(cover) == len(find_vertex_cover_brute_force(graph))
-        cands = ensemble_candidates(graph)
-        assert is_vertex_cover(graph, cands["c12"])
-        assert len(cands["c12"]) <= min(len(cands[k]) for k in
-                                        ("c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "c10", "c11"))
 
 
 def test_reduce_search_c12_never_worse_and_valid() -> None:
@@ -207,3 +176,61 @@ def test_reduce_search_c12_never_worse_and_valid() -> None:
         assert is_vertex_cover(graph, cands["c12"])
         assert len(cands["c12"]) <= min(len(cands[k]) for k in
                                         ("c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "c10", "c11"))
+
+
+def test_a_priori_bound_two_tau_minus_components() -> None:
+    """Theorem (2 - r/tau): a pruned maximal-matching cover, hence Salvador's final cover, has
+    at most 2 tau - r vertices, r = number of connected components with an edge."""
+    import random
+
+    from salvador.algorithm import find_vertex_cover_brute_force, final_candidates, prune_redundant_vertices
+
+    graphs = [nx.path_graph(3), nx.disjoint_union(nx.path_graph(3), nx.path_graph(3)), nx.complete_graph(3),
+              nx.disjoint_union(nx.complete_graph(3), nx.complete_graph(3)), nx.cycle_graph(5),
+              nx.complete_bipartite_graph(4, 4), nx.petersen_graph(), nx.star_graph(6)]
+    crown = nx.complete_bipartite_graph(5, 5)
+    crown.remove_edges_from([(i, 5 + i) for i in range(5)])
+    graphs.append(crown)
+    graphs += [nx.gnp_random_graph(11, p, seed=s) for s in range(10) for p in (0.2, 0.4)]
+    rng = random.Random(7)
+    for graph in graphs:
+        graph = graph.copy()
+        graph.remove_nodes_from(list(nx.isolates(graph)))
+        if graph.number_of_edges() == 0:
+            continue
+        tau = len(find_vertex_cover_brute_force(graph))
+        r = nx.number_connected_components(graph)
+        adj = {v: set(graph[v]) for v in graph}
+        for _ in range(10):  # every maximal matching, in random edge orders
+            edges = list(graph.edges())
+            rng.shuffle(edges)
+            matched: set = set()
+            for u, v in edges:
+                if u not in matched and v not in matched:
+                    matched |= {u, v}
+            c1 = prune_redundant_vertices(adj, matched)
+            assert is_vertex_cover(graph, c1) and len(c1) <= 2 * tau - r
+        assert len(final_candidates(graph)["c15"]) <= 2 * tau - r
+
+
+def test_consensus_c14_valid_and_never_breaks_the_ensemble() -> None:
+    """c14: valid cover; the forced vertices are deleted and added to the cover directly (no self-loops,
+    which _clean would drop); the lower bound used to stop is a true lower bound; reproducible."""
+    from salvador import consensus_force as cf
+    from salvador.algorithm import ensemble_candidates, final_candidates, find_vertex_cover_brute_force
+
+    graphs = [nx.petersen_graph(), nx.cycle_graph(9), nx.barbell_graph(4, 2), nx.star_graph(5)]
+    graphs += [nx.gnp_random_graph(12, p, seed=s) for s in range(10) for p in (0.2, 0.4)]
+    for graph in graphs:
+        graph = graph.copy()
+        graph.remove_nodes_from(list(nx.isolates(graph)))
+        if graph.number_of_edges() == 0:
+            continue
+        adj = {v: set(graph[v]) for v in graph}
+        tau = len(find_vertex_cover_brute_force(graph))
+        assert cf.lower_bound(adj) <= tau
+        info: dict = {}
+        cands = ensemble_candidates(graph, info=info)
+        assert is_vertex_cover(graph, cands["c14"])
+        assert cands["c14"] == ensemble_candidates(graph)["c14"]
+        assert len(final_candidates(graph)["c15"]) <= min(len(cands[f"c{i}"]) for i in range(1, 15))

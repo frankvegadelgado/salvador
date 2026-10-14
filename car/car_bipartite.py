@@ -13,16 +13,16 @@ reference only* (it is never given to Salvador) by a Hopcroft-Karp maximum
 matching: on a bipartite graph tau(G) = nu(G) by Koenig's theorem, so the
 reported ratio |C| / tau(G) is exact.
 
-The cover evaluated is ``c14``, the final cover of
+The cover evaluated is ``c15``, the final cover of
 ``salvador.algorithm.final_candidates`` (the same cover
 ``find_vertex_cover`` returns).
 
-Per instance the report gives every strategy size c1..c14, tau(G), the c14
-ratio and excess |c14| - tau(G), which strategies already reach tau(G),
+Per instance the report gives every strategy size c1..c15, tau(G), the c15
+ratio and excess |c15| - tau(G), which strategies already reach tau(G),
 c10's decoded cover before the comparison with its reference (``c10_raw``),
 whether c10 (minimum EDS) and c13 (minimum cover) were exact and their core
 sizes, and the time.
-Per family it gives how many instances c14 solved exactly, the worst ratio,
+Per family it gives how many instances c15 solved exactly, the worst ratio,
 the total excess, and how many instances each strategy solved exactly.
 
 Families (all bipartite, labels shuffled):
@@ -67,7 +67,7 @@ import car_common as cc
 from salvador.algorithm import CANDIDATE_NAMES, DEFAULT_EDS_BUDGET, DEFAULT_EDS_MAX_WIDTH, final_candidates
 
 SEED = 20261009
-NAMES = list(CANDIDATE_NAMES)  # c1..c14
+NAMES = list(CANDIDATE_NAMES)  # c1..c15
 
 
 # ----------------------------------------------------------------------------
@@ -220,7 +220,7 @@ def run_instance(name: str, group: str, G: nx.Graph, rng: random.Random, args) -
             raise AssertionError(f"{name}: strategy {k} is not a vertex cover")
         if len(C) < tau:
             raise AssertionError(f"{name}: strategy {k} is below tau -- impossible")
-    final = sizes["c14"]
+    final = sizes["c15"]
     row = {
         "group": group, "name": name, "n": G.number_of_nodes(), "m": G.number_of_edges(),
         "tau": tau, "sizes": sizes, "final": final,
@@ -236,7 +236,7 @@ def run_instance(name: str, group: str, G: nx.Graph, rng: random.Random, args) -
         "elapsed_seconds": elapsed,
     }
     print(f"  [bipartite] {group[:34]:34} {name:34} n={row['n']:>7,} tau={tau:>7,}"
-          f" c14={sizes['c14']:>7,} ratio={row['ratio']:.6f} excess={row['excess']:<4}"
+          f" c15={sizes['c15']:>7,} ratio={row['ratio']:.6f} excess={row['excess']:<4}"
           f" c10={'exact' if row['c10_exact'] else 'core=' + str(row['c10_core_size'])}"
           f" c13={'exact' if row['c13_exact'] else 'core=' + str(row['c13_core_size'])} {elapsed:6.2f}s", flush=True)
     return row
@@ -278,8 +278,8 @@ def summarise(rows: list[dict]) -> dict:
 
 def print_table(summary: dict) -> None:
     header = (f"{'family':42} {'inst':>5} {'opt':>5} {'opt%':>6} {'max ratio':>10} {'excess':>7}"
-              f" {'c10ex':>5} {'raw10':>5} {'c13ex':>5}  optimal by strategy (c1..c14)")
-    print("\nBipartite graphs: final cover c14 against the exact optimum tau = nu (Koenig)")
+              f" {'c10ex':>5} {'raw10':>5} {'c13ex':>5}  optimal by strategy (c1..c15)")
+    print("\nBipartite graphs: final cover c15 against the exact optimum tau = nu (Koenig)")
     print(header)
     print("-" * len(header))
     for g, s in summary.items():

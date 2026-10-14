@@ -55,7 +55,7 @@ Mechanism probes (the candidate explanations)
     H3 local optimality: the returned cover is checked for (1,2)-swap
        improvements; the excess |C| - tau is split into what the greedy
        candidates left (best of c1..c8 minus tau) and what local search
-       removed (c9, c14).
+       removed (c9, c15).
     H4 scaling: every family is generated at several sizes, so the excess
        ratio can be fitted against n (does it stay bounded, grow like
        log n, or tend to 0?).
@@ -402,7 +402,7 @@ def run_instance(name, family, size, G, planted, args):
     cands = A.final_candidates(G, epsilon=cc.DEFAULT_EPSILON)
     elapsed = time.perf_counter() - t0
     sizes = {k: len(cands[k]) for k in NAMES}
-    C = cands["c14"]
+    C = cands["c15"]
     assert all(u in C or v in C for u, v in G.edges()), name
 
     lp, V0, V1, Vh = nt_decomposition(G)
@@ -522,7 +522,7 @@ def print_report(summary, scal):
           f" persistency respected on {alls['persistency_respected']}/{alls['instances']}")
     print(f"  H1 corr(excess, degree AUC) over all exact instances:      {f(alls['corr_excess_auc'], 3)}")
     print(f"  H3 mean relative excess after greedy (best c1..c8): {f(alls['mean_greedy_excess_rel'])};"
-          f" after local search (c14): {f(alls['mean_excess_rel'])}; (1,2)-swap left: {alls['with_12_swap']}")
+          f" after local search (c15): {f(alls['mean_excess_rel'])}; (1,2)-swap left: {alls['with_12_swap']}")
     print(f"  Residue: {alls['in_residue']}/{alls['instances']} instances have no proved certificate <= R0;"
           f" best certificate counts: {alls['best_certificate_counts']}")
     print("\n  H4 scaling (mean exact ratio, or certified upper bound when tau is unknown)")

@@ -214,6 +214,68 @@ options:
 
 ---
 
+# Reproducibility Experiments (`car/`)
+
+The `car/` folder contains the experiment scripts. Each script writes its results next to itself as `.json` and `.csv` files.
+
+## How to run
+
+**Recommended:** run every experiment quickly, on small graphs, with one command from the `car/` folder:
+
+```bash
+cd car
+python run_all.py --quick
+```
+
+Install the package and its dependencies, then run a script from the repository root:
+
+```bash
+pip install salvador==0.1.2
+python car/car_strategies.py
+```
+
+The scripts also run from a clone of the repository without installing the package. Every script accepts `-h` to list its options, `--quick` for a shorter run and `--timeout` to limit the time spent on each graph.
+
+To run all the experiments one after another, use `car/run_all.py`:
+
+```bash
+python car/run_all.py --quick                          # every experiment on small graphs (much shorter)
+python car/run_all.py --quick --only strategies scaling # only some experiments
+python car/run_all.py --list                           # list the experiments and their quick options
+python car/run_all.py                                  # every experiment in full (hours)
+python car/run_all.py --skip triangle_free mechanism   # full runs except some
+```
+
+Each experiment writes its own result files, and `car/run_all_log.txt` records the time and status of each one.
+
+## What each script does
+
+| Script | What it does |
+| ------ | ------------ |
+| `car_ratio.py` | Measures the approximation ratio on small graphs with a known optimum and on large adversarial graphs. |
+| `car_ratio_timing.py` | Shows where the running time of `car_ratio.py` goes, strategy by strategy. |
+| `car_scaling.py` | Measures how the running time grows with the size of the graph. |
+| `car_strategies.py` | Reports which of the strategies `c1`...`c15` finds the smallest cover, and how often. |
+| `car_c11_variants.py` | Compares the variants of strategy `c11`. |
+| `car_c10_bags.py` | Checks the bag sizes of the dynamic program of strategy `c10`. |
+| `car_regular.py` | Runs regular graphs of increasing degree. |
+| `car_bipartite.py` | Runs bipartite graphs, where the optimum is known exactly. |
+| `car_yes_instances.py` | Runs YES instances of the Khot–Regev reduction from Unique Games. |
+| `car_mechanism.py` | Studies which proved bounds apply to each graph and why the covers are good. |
+| `car_triangle_free.py` | Runs triangle-free graphs. |
+| `run_all.py` | Runs all the scripts above, quickly (`--quick`) or in full. |
+
+Examples:
+
+```bash
+python car/car_ratio.py
+python car/car_bipartite.py
+python car/car_scaling.py --quick
+python car/car_triangle_free.py --quick
+```
+
+---
+
 # Code
 
 - Python implementation by **Frank Vega**.

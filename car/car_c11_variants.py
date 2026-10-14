@@ -171,7 +171,7 @@ def print_table(summary: dict) -> None:
         print(f"{g[:40]:40} {s['instances']:>5} " + " ".join(f"{c:>30}" for c in cells))
     print("\nSeconds per variant (all instances): "
           + ", ".join(f"{nm} {summary['ALL']['per_variant'][nm]['seconds']:.2f}" for nm in NAMES)
-          + f"; ensemble c1..c13 {summary['ALL']['ensemble_seconds']:.2f}")
+          + f"; ensemble c1..c14 {summary['ALL']['ensemble_seconds']:.2f}")
 
 
 def main() -> None:

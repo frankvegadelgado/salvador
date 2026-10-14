@@ -11,7 +11,8 @@ changing its result:
 * c11  -- subdivision_reduction.subdivision_vertex_cover (weighted subdivision)
 * c12  -- reduce_search.reduce_search_cover (ILS + exact reductions)
 * c13  -- treewidth_dp.treewidth_vertex_cover
-* c14  -- refine_cover (all calls of one find_vertex_cover)
+* c14  -- consensus_force.consensus_force_cover (consensus forcing)
+* c15  -- refine_cover (all calls of one find_vertex_cover)
 * rest -- everything else inside find_vertex_cover (c1..c5, c7, pruning)
 * exact -- car_common.exact_vertex_cover_size (the exact optimum, not Salvador)
 
@@ -34,11 +35,11 @@ import time
 
 import car_common as cc
 import car_ratio
-from salvador import (algorithm, bipartite_reduction, eds_treewidth, local_search, reduce_search,
+from salvador import (algorithm, bipartite_reduction, consensus_force, eds_treewidth, local_search, reduce_search,
                       subdivision_reduction,
                       treewidth_dp, vc_reduction)
 
-PIECES = ("c6", "c8", "c9", "c10", "c11", "c12", "c13", "c14")
+PIECES = ("c6", "c8", "c9", "c10", "c11", "c12", "c13", "c14", "c15")
 _current: dict[str, float] = {}
 
 
@@ -62,7 +63,8 @@ def install() -> None:
         "c11", subdivision_reduction.subdivision_vertex_cover)
     reduce_search.reduce_search_cover = _timed("c12", reduce_search.reduce_search_cover)
     treewidth_dp.treewidth_vertex_cover = _timed("c13", treewidth_dp.treewidth_vertex_cover)
-    algorithm.refine_cover = _timed("c14", algorithm.refine_cover)
+    consensus_force.consensus_force_cover = _timed("c14", consensus_force.consensus_force_cover)
+    algorithm.refine_cover = _timed("c15", algorithm.refine_cover)
 
 
 def main() -> None:
@@ -116,10 +118,10 @@ def main() -> None:
         print(f"{k:10} {totals[k]:>10.2f} {share:>6.1%}")
     slow = sorted(rows, key=lambda r: r["salvador"], reverse=True)[:15]
     print("\nSlowest find_vertex_cover calls")
-    print(f"{'#':>5} {'n':>4} {'m':>5} {'total':>8} {'c10':>8} {'c11':>8} {'c12':>8} {'c13':>8} {'c9':>8} {'c14':>8}")
+    print(f"{'#':>5} {'n':>4} {'m':>5} {'total':>8} {'c10':>8} {'c11':>8} {'c12':>8} {'c13':>8} {'c14':>8} {'c9':>8} {'c15':>8}")
     for r in slow:
         print(f"{r['index']:>5} {r['n']:>4} {r['m']:>5} {r['salvador']:>8.3f} {r['c10']:>8.3f} {r['c11']:>8.3f} {r['c12']:>8.3f} "
-              f"{r['c13']:>8.3f} {r['c9']:>8.3f} {r['c14']:>8.3f}")
+              f"{r['c13']:>8.3f} {r.get('c14', 0.0):>8.3f} {r['c9']:>8.3f} {r['c15']:>8.3f}")
 
     out = cc.OUT_DIR
     with open(out / "car_ratio_timing.json", "w") as fh:

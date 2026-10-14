@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import math
 import multiprocessing
+import os
 import random
 import statistics
 import sys
@@ -22,12 +23,72 @@ from typing import Callable, Iterator
 
 import networkx as nx
 
-try:
-    import salvador  # noqa: F401
-except ModuleNotFoundError:  # pragma: no cover - convenience for direct runs
-    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+# ----------------------------------------------------------------------------
+# Which salvador is used: the repository copy or a pip installation.
+# ----------------------------------------------------------------------------
+# The car/ scripts use the full v0.1.2 API (c1..c15, BASE_NAMES, reduce_search,
+# subdivision_reduction, ...). Two layouts are supported:
+#
+# * car/ inside a clone of the repository: the repository copy of the package
+#   (../salvador) is used, even when an older salvador is pip-installed, so the
+#   scripts always match the code next to them;
+# * car/ copied anywhere with ``pip install salvador==0.1.2``: the installed
+#   package is used.
+#
+# Set the environment variable SALVADOR_CAR_USE_INSTALLED=1 to force the
+# installed package inside a clone. An installed package older than
+# REQUIRED_VERSION stops the script with an explicit message instead of an
+# obscure ImportError.
+REQUIRED_VERSION = "0.1.2"
+_REPO_ROOT = Path(__file__).resolve().parents[1]
+
+
+def _version_tuple(v: str) -> tuple[int, ...]:
+    out = []
+    for part in v.split("."):
+        digits = "".join(ch for ch in part if ch.isdigit())
+        out.append(int(digits) if digits else 0)
+    return tuple(out)
+
+
+def _select_salvador() -> None:
+    use_installed = os.environ.get("SALVADOR_CAR_USE_INSTALLED", "").strip() not in ("", "0")
+    if not use_installed and (_REPO_ROOT / "salvador" / "__init__.py").is_file():
+        root = str(_REPO_ROOT)
+        if root not in sys.path:
+            sys.path.insert(0, root)
+    try:
+        import salvador  # noqa: F401
+    except ModuleNotFoundError:  # pragma: no cover
+        sys.exit("car/: salvador is not importable. Install it with\n"
+                 f"    pip install salvador=={REQUIRED_VERSION}\n"
+                 "or run the scripts from a clone of the repository.")
+    try:
+        from salvador.version import __version__ as found
+    except ImportError:  # pragma: no cover
+        found = "0"
+    if _version_tuple(found) < _version_tuple(REQUIRED_VERSION):
+        sys.exit(f"car/: salvador {found} was imported from {Path(salvador.__file__).parent}, "
+                 f"but these scripts need salvador >= {REQUIRED_VERSION} (strategies c1..c15).\n"
+                 f"    pip install --upgrade salvador=={REQUIRED_VERSION}\n"
+                 "or run the scripts from a clone of the repository (the repository copy is then used).")
+    try:
+        from salvador.algorithm import CANDIDATE_NAMES
+    except ImportError:  # pragma: no cover
+        CANDIDATE_NAMES = {}
+    if "c15" not in CANDIDATE_NAMES:
+        sys.exit(f"car/: the salvador imported from {Path(salvador.__file__).parent} has no strategies c14..c15 "
+                 "(consensus forcing); update it, or run the scripts from a clone of the repository.")
+
+
+_select_salvador()
 
 from salvador.version import __version__  # noqa: E402
+
+SALVADOR_PATH = str(Path(sys.modules["salvador"].__file__).resolve().parent)
+SALVADOR_SOURCE = ("repository" if Path(SALVADOR_PATH).parent == _REPO_ROOT else "installed")
+if multiprocessing.current_process().name == "MainProcess":  # not again in the time-limit workers
+    print(f"[car] salvador {__version__} ({SALVADOR_SOURCE}: {SALVADOR_PATH})", file=sys.stderr, flush=True)
 
 SEED = 20260627
 DEFAULT_EPSILON = 1  # Baker layering width k = ceil(1/epsilon) = 1: keeps the
@@ -482,7 +543,8 @@ def linreg(xs: list[float], ys: list[float]) -> dict:
 def environment() -> dict:
     import platform
     return {"python": platform.python_version(), "platform": platform.platform(),
-            "networkx": nx.__version__, "salvador": __version__}
+            "networkx": nx.__version__, "salvador": __version__,
+            "salvador_source": SALVADOR_SOURCE, "salvador_path": SALVADOR_PATH}
 
 
 # ----------------------------------------------------------------------------
