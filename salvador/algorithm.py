@@ -1,13 +1,21 @@
-"""Public vertex-cover solvers exposed by Salvador (version 0.1.1).
+"""Public vertex-cover solvers exposed by Salvador (version 0.1.2).
 
-Version 0.1.1 keeps the linear-time ensemble c1..c9 described below, adds c10,
+Version 0.1.2 keeps the linear-time ensemble c1..c9 described below, adds c10,
 the labelled, weighted edge-dominating-set reduction solved by a treewidth DP
 with bags of at most 6 nodes on the bipartite components
-(:mod:`salvador.eds_treewidth`), c11, the
-bounded-treewidth exact dynamic program (:mod:`salvador.treewidth_dp`), and a
-final strategy, c12: every candidate is refined by a budgeted swap-maximize
-pass (:func:`refine_cover`) and the smallest refined cover is returned. With
-the default budgets c1..c12 run in worst-case O(n + m) time.
+(:mod:`salvador.eds_treewidth`), c11, the weighted subdivision reduction to
+a bipartite graph (:mod:`salvador.subdivision_reduction`: the vertices are
+kept, every edge ``(u, w)`` becomes ``((u, u), (u, w))`` and
+``((w, w), (u, w))``, and a reducing-peeling solver selects vertex-nodes until
+every edge-node is dominated), c12, the reduce-and-search improver
+(:mod:`salvador.reduce_search`: from the best of c1..c11, rounds of the
+budgeted (1,2)-swap iterated local search alternated with c11's exact
+reductions and folds guided by the searched cover), c13, the
+bounded-treewidth exact dynamic program
+(:mod:`salvador.treewidth_dp`), and a final strategy, c14: every candidate is
+refined by a budgeted swap-maximize pass (:func:`refine_cover`) and the
+smallest refined cover is returned. With the default budgets c1..c14 run in
+worst-case O(n + m) time.
 
 :func:`find_vertex_cover` runs an ensemble of independently linear-time
 O(n + m) heuristics and returns the smallest valid cover found. Four of the
@@ -53,7 +61,8 @@ import itertools
 from typing import Any
 import networkx as nx
 
-from . import bipartite_reduction, eds_treewidth, local_search, treewidth_dp, utils, vc_reduction
+from . import (bipartite_reduction, eds_treewidth, local_search, reduce_search, subdivision_reduction,
+               treewidth_dp, utils, vc_reduction)
 from collections import deque
 
 def min_to_min_vertex_cover_linear(adj):
@@ -485,15 +494,19 @@ CANDIDATE_NAMES: dict[str, str] = {
     "c8": "bipartite planar reduction",
     "c9": "(1,2)-swap local search",
     "c10": "labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",
-    "c11": "bounded-treewidth exact DP",
-    "c12": "swap-maximize refinement of c1..c11",
+    "c11": "weighted subdivision reduction (bipartite) + reducing-peeling",
+    "c12": "reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c11",
+    "c13": "bounded-treewidth exact DP",
+    "c14": "swap-maximize refinement of c1..c13",
 }
 
-#: Base strategies, computed independently of the improvers c9 and c12.
-#: (c10 solves a labelled, weighted edge-dominating-set gadget and c11 a
+#: Base strategies, computed independently of the improvers c9, c12 and c14.
+#: (c10 solves a labelled, weighted edge-dominating-set gadget and c13 a
 #: vertex-cover DP; both are exact when their core is empty and complete a
-#: reference cover outside it.)
-BASE_NAMES: tuple[str, ...] = ("c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c10", "c11")
+#: reference cover outside it. c11 is the weighted subdivision reduction; its
+#: guided variant peels along the best of c1..c10. c12, an improver like c9,
+#: starts from the best of c1..c11.)
+BASE_NAMES: tuple[str, ...] = ("c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c10", "c11", "c13")
 
 #: The candidates c9 starts from (as in 0.0.9).
 C9_INPUT_NAMES: tuple[str, ...] = ("c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8")
@@ -501,8 +514,12 @@ C9_INPUT_NAMES: tuple[str, ...] = ("c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8
 #: The candidates whose best cover is c10's reference (core and non-bipartite parts).
 C10_INPUT_NAMES: tuple[str, ...] = C9_INPUT_NAMES + ("c9",)
 
-#: Default work budget of the c12 refinement, in units of (n + m) per cover.
+#: Default work budget of the c14 refinement, in units of (n + m) per cover.
 DEFAULT_REFINE_BUDGET: float | None = 100
+
+#: Default limits of the c12 reduce-and-search improver (rounds, search budget per (n + m) per round).
+DEFAULT_SEARCH_ROUNDS: int = reduce_search.DEFAULT_ROUNDS
+DEFAULT_SEARCH_BUDGET: float = reduce_search.DEFAULT_BUDGET
 
 #: Default limits of the c10 EDS dynamic program (width cap, table budget per (n + m)).
 DEFAULT_EDS_MAX_WIDTH: int = eds_treewidth.DEFAULT_MAX_WIDTH
@@ -526,8 +543,10 @@ def ensemble_candidates(
     info: dict | None = None,
     eds_max_width: int = DEFAULT_EDS_MAX_WIDTH,
     eds_budget: float = DEFAULT_EDS_BUDGET,
+    search_rounds: int = DEFAULT_SEARCH_ROUNDS,
+    search_budget: float = DEFAULT_SEARCH_BUDGET,
 ) -> dict[str, set[Any]]:
-    """Return every pruned linear-time candidate ``c1``...``c11`` by name.
+    """Return every pruned linear-time candidate ``c1``...``c13`` by name.
 
     Each value is a valid vertex cover of ``graph``. ``c1``...``c6`` and
     ``c8`` are independent linear-time heuristics; ``c7`` re-prunes their
@@ -548,22 +567,43 @@ def ensemble_candidates(
     non-bipartite components are fixed as in the smallest of ``c1``...``c9``.
     The decoded cover is pruned and kept only if it is no larger than that
     reference.
-    ``c11`` is the bounded-treewidth dynamic program of
+    ``c11`` is the weighted subdivision reduction of
+    :mod:`salvador.subdivision_reduction`: every edge ``(u, w)`` becomes the
+    edge-node ``(u, w)`` joined to the vertex-nodes ``(u, u)`` and ``(w, w)``
+    (a bipartite graph); vertex-nodes weigh 1 and an undominated edge-node
+    ``n + 1``, and the degree-0, degree-1, triangle and (budgeted) degree-2
+    fold reductions are applied exactly, peeling when none applies (largest
+    residual degree selected, the same restricted to the best of
+    ``c1``...``c10`` (guided), or smallest residual degree left out); the
+    smallest pruned cover over :data:`subdivision_reduction.VARIANTS` is kept.
+    It is a minimum cover when no peel was needed.
+    ``c12`` is the reduce-and-search improver of :mod:`salvador.reduce_search`:
+    from the best of ``c1``...``c11`` it runs ``search_rounds`` rounds of the
+    (1,2)-swap iterated local search (``search_budget * (n + m)`` work each)
+    followed by c11's exact reductions and folds guided by the searched cover,
+    keeping a cover only when it is not larger, so
+    ``|c12| <= min(|c1|, ..., |c11|)``.
+    ``c13`` is the bounded-treewidth dynamic program of
     :mod:`salvador.treewidth_dp`: exact on the part of the graph that a
     min-degree elimination removes with bags of at most ``tw_max_width + 1``
     vertices within ``tw_budget * (n + m)`` table entries, with the remaining
-    core fixed as in the smallest of ``c1``...``c10``. It is a minimum vertex
+    core fixed as in the smallest of ``c1``...``c12``. It is a minimum vertex
     cover when the core is empty and never larger than that reference.
     ``info`` (optional dict) receives ``c10_exact`` (labelled EDS computed
     with an empty core: a minimum cover of the bipartite components), ``c10_raw_size`` (pruned decoded cover before the
     comparison with the reference), ``c10_core_size``, ``c10_width``,
-    ``c10_bipartite_fraction``, ``c11_core_size``, ``c11_width``
-    and ``c11_exact``.
+    ``c10_bipartite_fraction``, the c11 counts ``c11_deg0``, ``c11_deg1``,
+    ``c11_triangle``, ``c11_folds``, ``c11_peels``, ``c11_exact``,
+    ``c11_fold_budget_hit``, ``c11_undominated`` (always 0), ``c11_nodes`` and
+    ``c11_edges`` of the subdivision and ``c11_variant`` (the kept variant), the c12
+    counts ``c12_start``, ``c12_search_gain``, ``c12_reduce_gain`` and
+    ``c12_rounds_improved``, and
+    ``c13_core_size``, ``c13_width`` and ``c13_exact``.
     """
     G = _clean(graph)
 
     if G.number_of_edges() == 0:
-        return {name: set() for name in CANDIDATE_NAMES if name != "c12"}
+        return {name: set() for name in CANDIDATE_NAMES if name != "c14"}
 
     adj = {v: set(G[v]) for v in G}
 
@@ -607,10 +647,28 @@ def ensemble_candidates(
     c10 = prune_redundant_vertices(
         adj, eds_treewidth.eds_treewidth_cover(adj, best, eds_max_width, eds_budget, eds_info))
     cands["c10"] = c10 if len(c10) <= len(best) else set(best)
-    # 11: bounded-treewidth exact DP, core fixed from the best of c1..c10.
+    # 11: weighted subdivision reduction (bipartite), reducing-peeling solver;
+    # the guided ("ref") variant peels along the best of c1..c10.
+    variant_info: dict = {}
+    c11_ref = min(cands.values(), key=len)
+    c11_variants = {
+        key: prune_redundant_vertices(adj, cover)
+        for key, cover in subdivision_reduction.subdivision_covers(
+            adj, info=variant_info, reference=c11_ref).items()
+    }
+    c11_key = min(c11_variants, key=lambda k: len(c11_variants[k]))
+    cands["c11"] = c11_variants[c11_key]
+    sub_info = variant_info[c11_key]
+    # 12: reduce-and-search improver from the best of c1..c11.
+    best = min(cands.values(), key=len)
+    search_info: dict = {}
+    c12 = prune_redundant_vertices(
+        adj, reduce_search.reduce_search_cover(adj, best, search_rounds, search_budget, info=search_info))
+    cands["c12"] = c12 if len(c12) <= len(best) else set(best)
+    # 13: bounded-treewidth exact DP, core fixed from the best of c1..c12.
     ref = min(cands.values(), key=len)
     tw_info: dict = {}
-    cands["c11"] = prune_redundant_vertices(
+    cands["c13"] = prune_redundant_vertices(
         adj, treewidth_dp.treewidth_vertex_cover(adj, ref, tw_max_width, tw_budget, tw_info))
     if info is not None:
         info.update({"c10_exact": eds_info["exact"], "c10_raw_size": len(c10),
@@ -618,8 +676,14 @@ def ensemble_candidates(
                      "c10_width": eds_info["width"],
                      "c10_max_bag": eds_info["max_bag"],
                      "c10_bipartite_fraction": eds_info["bipartite_fraction"],
-                     "c11_core_size": tw_info["core_size"], "c11_width": tw_info["width"],
-                     "c11_exact": tw_info["exact"]})
+                     **{f"c11_{k}": sub_info[k] for k in
+                        ("deg0", "deg1", "triangle", "folds", "peels", "ref_peels", "exact", "fold_budget_hit",
+                         "undominated", "nodes", "edges")},
+                     "c11_variant": f"{c11_key[0]}{'+fold' if c11_key[1] else ''}",
+                     **{f"c12_{k}": search_info[k] for k in
+                        ("start", "search_gain", "reduce_gain", "rounds_improved")},
+                     "c13_core_size": tw_info["core_size"], "c13_width": tw_info["width"],
+                     "c13_exact": tw_info["exact"]})
     return cands
 
 
@@ -701,7 +765,7 @@ def refine_cover(
     v_max: Any = None,
     budget: float | None = DEFAULT_REFINE_BUDGET,
 ) -> set[Any]:
-    """Swap-maximize refinement of one cover (strategy c12).
+    """Swap-maximize refinement of one cover (strategy c14).
 
     For every ``u`` in ``cover ∪ {v_max}`` it forms the cover
     ``(cover - {u}) ∪ N(u)``, i.e. it moves ``u`` into the independent set
@@ -803,30 +867,34 @@ def final_candidates(
     tw_budget: float = treewidth_dp.DEFAULT_DP_BUDGET,
     eds_max_width: int = DEFAULT_EDS_MAX_WIDTH,
     eds_budget: float = DEFAULT_EDS_BUDGET,
+    search_rounds: int = DEFAULT_SEARCH_ROUNDS,
+    search_budget: float = DEFAULT_SEARCH_BUDGET,
 ):
-    """Every strategy of Salvador 0.1.1 (``c1``...``c12``) by name.
+    """Every strategy of Salvador 0.1.2 (``c1``...``c14``) by name.
 
-    ``c1``...``c11`` are the candidates of :func:`ensemble_candidates`. ``c12``
+    ``c1``...``c13`` are the candidates of :func:`ensemble_candidates`. ``c14``
     is the final swap-maximize refinement: :func:`refine_cover` is applied to
-    every candidate ``c1``...``c11`` (with the same maximum-degree vertex
+    every candidate ``c1``...``c13`` (with the same maximum-degree vertex
     ``v_max`` for all of them, and a work budget of ``refine_budget * (n + m)``
     per distinct cover) and the smallest refined cover is kept. A refined
     cover is never larger than its input, so
-    ``|c12| <= min(|c1|, ..., |c11|)``. Identical candidate covers are refined
+    ``|c14| <= min(|c1|, ..., |c13|)``. Identical candidate covers are refined
     only once.
 
     With ``return_refined=True`` the result is ``(candidates, refined)``, where
     ``refined[name]`` is the refinement of candidate ``name``. ``info``
-    (optional dict) receives the c11 diagnostics of :func:`ensemble_candidates`.
+    (optional dict) receives the c10, c11, c12 and c13 diagnostics of
+    :func:`ensemble_candidates`.
 
     Running time: ``O(n + m)`` for fixed ``epsilon = 1``, ``local_search_budget``,
-    ``refine_budget``, ``eds_max_width``/``eds_budget`` and the c11 limits.
+    ``refine_budget``, ``eds_max_width``/``eds_budget`` and the c13 limits.
     """
     G = _clean(graph)
     cands = ensemble_candidates(G, epsilon, local_search_budget, tw_max_width, tw_budget, info=info,
-                                eds_max_width=eds_max_width, eds_budget=eds_budget)
+                                eds_max_width=eds_max_width, eds_budget=eds_budget,
+                                search_rounds=search_rounds, search_budget=search_budget)
     if G.number_of_edges() == 0:
-        cands["c12"] = set()
+        cands["c14"] = set()
         return (cands, {k: set() for k in cands}) if return_refined else cands
     v_max = max(set(G.nodes()), key=G.degree)
     seen: dict[frozenset, set[Any]] = {}
@@ -836,7 +904,7 @@ def final_candidates(
         if key not in seen:
             seen[key] = refine_cover(G, cover, v_max, refine_budget)
         refined[name] = seen[key]
-    cands["c12"] = min(refined.values(), key=len)
+    cands["c14"] = min(refined.values(), key=len)
     return (cands, refined) if return_refined else cands
 
 
@@ -847,10 +915,10 @@ def find_vertex_cover(
     eds_max_width: int = DEFAULT_EDS_MAX_WIDTH,
     eds_budget: float = DEFAULT_EDS_BUDGET,
 ) -> set[Any]:
-    """Return the final cover of Salvador 0.1.1.
+    """Return the final cover of Salvador 0.1.2.
     """
     return final_candidates(graph, epsilon, refine_budget=refine_budget,
-                                     eds_max_width=eds_max_width, eds_budget=eds_budget)["c12"]
+                                     eds_max_width=eds_max_width, eds_budget=eds_budget)["c14"]
 
 
 def find_vertex_cover_brute_force(graph: nx.Graph) -> set[Any] | None:

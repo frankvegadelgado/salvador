@@ -1,0 +1,103 @@
+group,instances,variant,beats_best_c1_c10,ties,loses,total_gap,mean_gap,best_variant,exact,optimal,with_tau,fold_budget_hit,seconds
+"Barabasi-Albert scale-free hub graph",2,max,0,2,0,0,0.0000,2,0,0,0,0,0.268
+"Barabasi-Albert scale-free hub graph",2,max+fold,0,2,0,0,0.0000,2,0,0,0,1,1.437
+"Barabasi-Albert scale-free hub graph",2,min,0,0,2,12,6.0000,0,0,0,0,0,0.268
+"Barabasi-Albert scale-free hub graph",2,min+fold,0,1,1,6,3.0000,1,0,0,0,1,1.336
+"Barabasi-Albert scale-free hub graph",2,ref,0,2,0,0,0.0000,2,0,0,0,0,0.344
+"Barabasi-Albert scale-free hub graph",2,ref+fold,0,2,0,0,0.0000,2,0,0,0,1,1.491
+"Bipartite obstruction (exact)",1,max,0,1,0,0,0.0000,1,0,1,1,0,0.000
+"Bipartite obstruction (exact)",1,max+fold,0,1,0,0,0.0000,1,1,1,1,0,0.000
+"Bipartite obstruction (exact)",1,min,0,1,0,0,0.0000,1,0,1,1,0,0.000
+"Bipartite obstruction (exact)",1,min+fold,0,1,0,0,0.0000,1,1,1,1,0,0.000
+"Bipartite obstruction (exact)",1,ref,0,1,0,0,0.0000,1,0,1,1,0,0.000
+"Bipartite obstruction (exact)",1,ref+fold,0,1,0,0,0.0000,1,1,1,1,0,0.000
+"Complete bipartite (dense)",3,max,0,3,0,0,0.0000,3,0,0,0,0,0.408
+"Complete bipartite (dense)",3,max+fold,0,3,0,0,0.0000,3,0,0,0,0,0.401
+"Complete bipartite (dense)",3,min,0,3,0,0,0.0000,3,0,0,0,0,0.392
+"Complete bipartite (dense)",3,min+fold,0,3,0,0,0.0000,3,0,0,0,0,0.380
+"Complete bipartite (dense)",3,ref,0,3,0,0,0.0000,3,0,0,0,0,0.402
+"Complete bipartite (dense)",3,ref+fold,0,3,0,0,0.0000,3,0,0,0,0,0.415
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",3,max,0,3,0,0,0.0000,3,0,0,0,0,0.407
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",3,max+fold,0,3,0,0,0.0000,3,0,0,0,0,0.402
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",3,min,0,3,0,0,0.0000,3,0,0,0,0,0.387
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",3,min+fold,0,3,0,0,0.0000,3,0,0,0,0,0.389
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",3,ref,0,3,0,0,0.0000,3,0,0,0,0,0.400
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",3,ref+fold,0,3,0,0,0.0000,3,0,0,0,0,0.405
+"Double star + bridge (matching-heuristic stress)",2,max,0,2,0,0,0.0000,2,2,0,0,0,0.065
+"Double star + bridge (matching-heuristic stress)",2,max+fold,0,2,0,0,0.0000,2,2,0,0,0,0.039
+"Double star + bridge (matching-heuristic stress)",2,min,0,2,0,0,0.0000,2,2,0,0,0,0.061
+"Double star + bridge (matching-heuristic stress)",2,min+fold,0,2,0,0,0.0000,2,2,0,0,0,0.039
+"Double star + bridge (matching-heuristic stress)",2,ref,0,2,0,0,0.0000,2,2,0,0,0,0.060
+"Double star + bridge (matching-heuristic stress)",2,ref+fold,0,2,0,0,0.0000,2,2,0,0,0,0.037
+"Graph atlas n<=7",1245,max,0,1240,5,5,0.0040,1240,728,1240,1245,0,0.042
+"Graph atlas n<=7",1245,max+fold,0,1244,1,1,0.0008,1244,918,1244,1245,0,0.039
+"Graph atlas n<=7",1245,min,0,1219,26,26,0.0209,1219,728,1219,1245,0,0.034
+"Graph atlas n<=7",1245,min+fold,0,1225,20,20,0.0161,1225,918,1225,1245,0,0.035
+"Graph atlas n<=7",1245,ref,0,1245,0,0,0.0000,1245,728,1245,1245,0,0.035
+"Graph atlas n<=7",1245,ref+fold,0,1245,0,0,0.0000,1245,918,1245,1245,0,0.037
+"Grids, bipartite (exact)",64,max,0,49,15,15,0.2344,49,0,38,47,0,0.005
+"Grids, bipartite (exact)",64,max+fold,0,64,0,0,0.0000,64,28,47,47,0,0.009
+"Grids, bipartite (exact)",64,min,0,64,0,0,0.0000,64,0,47,47,0,0.005
+"Grids, bipartite (exact)",64,min+fold,0,55,9,9,0.1406,55,28,44,47,0,0.008
+"Grids, bipartite (exact)",64,ref,0,64,0,0,0.0000,64,0,47,47,0,0.005
+"Grids, bipartite (exact)",64,ref+fold,0,64,0,0,0.0000,64,28,47,47,0,0.009
+"Hierarchical star trap (degree-greedy tie-break stress)",1,max,0,1,0,0,0.0000,1,1,0,0,0,0.039
+"Hierarchical star trap (degree-greedy tie-break stress)",1,max+fold,0,1,0,0,0.0000,1,1,0,0,0,0.038
+"Hierarchical star trap (degree-greedy tie-break stress)",1,min,0,1,0,0,0.0000,1,1,0,0,0,0.019
+"Hierarchical star trap (degree-greedy tie-break stress)",1,min+fold,0,1,0,0,0.0000,1,1,0,0,0,0.037
+"Hierarchical star trap (degree-greedy tie-break stress)",1,ref,0,1,0,0,0.0000,1,1,0,0,0,0.019
+"Hierarchical star trap (degree-greedy tie-break stress)",1,ref+fold,0,1,0,0,0.0000,1,1,0,0,0,0.043
+"Random 12-regular (bounded-degree adversarial)",2,max,0,0,2,1343,671.5000,0,0,0,0,0,0.458
+"Random 12-regular (bounded-degree adversarial)",2,max+fold,0,0,2,1000,500.0000,0,0,0,0,0,0.863
+"Random 12-regular (bounded-degree adversarial)",2,min,0,0,2,770,385.0000,0,0,0,0,0,0.514
+"Random 12-regular (bounded-degree adversarial)",2,min+fold,0,0,2,711,355.5000,0,0,0,0,0,0.609
+"Random 12-regular (bounded-degree adversarial)",2,ref,0,2,0,0,0.0000,0,0,0,0,0,0.462
+"Random 12-regular (bounded-degree adversarial)",2,ref+fold,2,0,0,-3,-1.5000,2,0,0,0,0,0.806
+"Random 3-regular (bounded-degree adversarial)",2,max,0,0,2,1107,553.5000,0,0,0,0,0,0.171
+"Random 3-regular (bounded-degree adversarial)",2,max+fold,2,0,0,-19,-9.5000,1,0,0,0,0,0.565
+"Random 3-regular (bounded-degree adversarial)",2,min,0,0,2,692,346.0000,0,0,0,0,0,0.170
+"Random 3-regular (bounded-degree adversarial)",2,min+fold,0,0,2,274,137.0000,0,0,0,0,0,0.454
+"Random 3-regular (bounded-degree adversarial)",2,ref,2,0,0,-15,-7.5000,0,0,0,0,0,0.232
+"Random 3-regular (bounded-degree adversarial)",2,ref+fold,2,0,0,-41,-20.5000,1,0,0,0,0,0.524
+"Random 6-regular (bounded-degree adversarial)",2,max,0,0,2,1394,697.0000,0,0,0,0,0,0.296
+"Random 6-regular (bounded-degree adversarial)",2,max+fold,0,0,2,918,459.0000,0,0,0,0,0,0.643
+"Random 6-regular (bounded-degree adversarial)",2,min,0,0,2,786,393.0000,0,0,0,0,0,0.370
+"Random 6-regular (bounded-degree adversarial)",2,min+fold,0,0,2,594,297.0000,0,0,0,0,0,0.417
+"Random 6-regular (bounded-degree adversarial)",2,ref,1,1,0,-2,-1.0000,1,0,0,0,0,0.399
+"Random 6-regular (bounded-degree adversarial)",2,ref+fold,1,1,0,-9,-4.5000,2,0,0,0,0,0.684
+"Random bipartite (exact)",99,max,0,97,2,3,0.0303,97,61,97,99,0,0.003
+"Random bipartite (exact)",99,max+fold,0,99,0,0,0.0000,99,88,99,99,0,0.003
+"Random bipartite (exact)",99,min,0,97,2,2,0.0202,97,61,97,99,0,0.002
+"Random bipartite (exact)",99,min+fold,0,97,2,2,0.0202,97,88,97,99,0,0.003
+"Random bipartite (exact)",99,ref,0,99,0,0,0.0000,99,61,99,99,0,0.003
+"Random bipartite (exact)",99,ref+fold,0,99,0,0,0.0000,99,88,99,99,0,0.003
+"Random general (exact, n<=12)",173,max,0,170,3,3,0.0173,170,89,170,173,0,0.007
+"Random general (exact, n<=12)",173,max+fold,0,172,1,1,0.0058,172,109,172,173,0,0.009
+"Random general (exact, n<=12)",173,min,0,167,6,6,0.0347,167,89,167,173,0,0.006
+"Random general (exact, n<=12)",173,min+fold,0,169,4,4,0.0231,169,109,169,173,0,0.006
+"Random general (exact, n<=12)",173,ref,0,173,0,0,0.0000,173,89,173,173,0,0.006
+"Random general (exact, n<=12)",173,ref+fold,0,173,0,0,0.0000,173,109,173,173,0,0.007
+"Relabel / order stress (exact)",56,max,0,56,0,0,0.0000,56,0,56,56,0,0.002
+"Relabel / order stress (exact)",56,max+fold,0,56,0,0,0.0000,56,56,56,56,0,0.002
+"Relabel / order stress (exact)",56,min,0,56,0,0,0.0000,56,0,56,56,0,0.001
+"Relabel / order stress (exact)",56,min+fold,0,56,0,0,0.0000,56,56,56,56,0,0.002
+"Relabel / order stress (exact)",56,ref,0,56,0,0,0.0000,56,0,56,56,0,0.002
+"Relabel / order stress (exact)",56,ref+fold,0,56,0,0,0.0000,56,56,56,56,0,0.002
+"Sparse Erdos-Renyi, avg degree 4",2,max,0,0,2,92,46.0000,0,0,0,0,0,0.211
+"Sparse Erdos-Renyi, avg degree 4",2,max+fold,2,0,0,-44,-22.0000,2,0,0,0,0,0.645
+"Sparse Erdos-Renyi, avg degree 4",2,min,0,0,2,428,214.0000,0,0,0,0,0,0.282
+"Sparse Erdos-Renyi, avg degree 4",2,min+fold,0,0,2,124,62.0000,0,0,0,0,0,0.639
+"Sparse Erdos-Renyi, avg degree 4",2,ref,2,0,0,-22,-11.0000,0,0,0,0,0,0.230
+"Sparse Erdos-Renyi, avg degree 4",2,ref+fold,1,1,0,-22,-11.0000,0,0,0,0,0,0.720
+"Watts-Strogatz small-world",2,max,0,0,2,528,264.0000,0,0,0,0,0,0.329
+"Watts-Strogatz small-world",2,max+fold,0,0,2,473,236.5000,0,0,0,0,0,0.280
+"Watts-Strogatz small-world",2,min,0,0,2,567,283.5000,0,0,0,0,0,0.287
+"Watts-Strogatz small-world",2,min+fold,0,0,2,536,268.0000,0,0,0,0,0,0.238
+"Watts-Strogatz small-world",2,ref,2,0,0,-13,-6.5000,1,0,0,0,0,0.304
+"Watts-Strogatz small-world",2,ref+fold,2,0,0,-19,-9.5000,1,0,0,0,0,0.386
+"ALL",1659,max,0,1624,35,4490,2.7064,1624,881,1602,1621,0,2.710
+"ALL",1659,max+fold,4,1647,8,2330,1.4045,1650,1203,1619,1621,1,5.374
+"ALL",1659,min,0,1613,46,3289,1.9825,1613,881,1587,1621,0,2.799
+"ALL",1659,min+fold,0,1613,46,2280,1.3743,1613,1203,1592,1621,1,4.592
+"ALL",1659,ref,7,1652,0,-52,-0.0313,1651,881,1621,1621,0,2.902
+"ALL",1659,ref+fold,8,1651,0,-94,-0.0567,1655,1203,1621,1621,1,5.570

@@ -12,7 +12,7 @@
       "count_above_7_4": 0,
       "max_ratio": 1.0
     },
-    "elapsed_seconds": 23.621837615966797,
+    "elapsed_seconds": 36.77670764923096,
     "experiment": "car/ Part A: default-call (epsilon=1) exact-ratio test",
     "overall_summary": {
       "all_valid": true,
@@ -95885,7 +95885,7 @@
     }
   },
   "part_b": {
-    "elapsed_seconds": 989.0050415992737,
+    "elapsed_seconds": 1430.8664779663086,
     "experiment": "car/ Part B: large adversarial graphs (epsilon=1)",
     "family_rows": [
       {
@@ -95893,7 +95893,7 @@
           "hopcroft_karp": 200
         },
         "cover": 200,
-        "elapsed_seconds": 5.660008700000617,
+        "elapsed_seconds": 6.14881470000546,
         "exact": true,
         "group": "Crown graph K_{h,h} minus perfect matching (dense, near-regular)",
         "lower_bound": 200,
@@ -95910,7 +95910,7 @@
           "hopcroft_karp": 200
         },
         "cover": 200,
-        "elapsed_seconds": 5.956612500000119,
+        "elapsed_seconds": 7.6455431999929715,
         "exact": true,
         "group": "Complete bipartite (dense)",
         "lower_bound": 200,
@@ -95927,7 +95927,7 @@
           "hopcroft_karp": 400
         },
         "cover": 400,
-        "elapsed_seconds": 24.3571565000002,
+        "elapsed_seconds": 41.86016730000847,
         "exact": true,
         "group": "Crown graph K_{h,h} minus perfect matching (dense, near-regular)",
         "lower_bound": 400,
@@ -95944,7 +95944,7 @@
           "hopcroft_karp": 400
         },
         "cover": 400,
-        "elapsed_seconds": 25.249787799999467,
+        "elapsed_seconds": 43.12312380000367,
         "exact": true,
         "group": "Complete bipartite (dense)",
         "lower_bound": 400,
@@ -95958,44 +95958,10 @@
       },
       {
         "all_lower_bounds": {
-          "hopcroft_karp": 800
-        },
-        "cover": 800,
-        "elapsed_seconds": 101.93078700000115,
-        "exact": true,
-        "group": "Crown graph K_{h,h} minus perfect matching (dense, near-regular)",
-        "lower_bound": 800,
-        "lower_bound_method": "bipartite-maximum-matching (exact tau)",
-        "m": 639200,
-        "n": 1600,
-        "name": "crown_800",
-        "ratio_upper_bound": 1.0,
-        "ratio_upper_bound_legacy": 1.0,
-        "valid": true
-      },
-      {
-        "all_lower_bounds": {
-          "hopcroft_karp": 800
-        },
-        "cover": 800,
-        "elapsed_seconds": 105.91909099999975,
-        "exact": true,
-        "group": "Complete bipartite (dense)",
-        "lower_bound": 800,
-        "lower_bound_method": "bipartite-maximum-matching (exact tau)",
-        "m": 640000,
-        "n": 1600,
-        "name": "complete_bipartite_800",
-        "ratio_upper_bound": 1.0,
-        "ratio_upper_bound_legacy": 1.0,
-        "valid": true
-      },
-      {
-        "all_lower_bounds": {
           "hopcroft_karp": 2
         },
         "cover": 2,
-        "elapsed_seconds": 0.4650533000003634,
+        "elapsed_seconds": 0.7339043999963906,
         "exact": true,
         "group": "Double star + bridge (matching-heuristic stress)",
         "lower_bound": 2,
@@ -96012,7 +95978,7 @@
           "hopcroft_karp": 2
         },
         "cover": 2,
-        "elapsed_seconds": 5.361408599999777,
+        "elapsed_seconds": 11.240114000000176,
         "exact": true,
         "group": "Double star + bridge (matching-heuristic stress)",
         "lower_bound": 2,
@@ -96026,27 +95992,10 @@
       },
       {
         "all_lower_bounds": {
-          "hopcroft_karp": 2
-        },
-        "cover": 2,
-        "elapsed_seconds": 55.68513019999955,
-        "exact": true,
-        "group": "Double star + bridge (matching-heuristic stress)",
-        "lower_bound": 2,
-        "lower_bound_method": "bipartite-maximum-matching (exact tau)",
-        "m": 200001,
-        "n": 200002,
-        "name": "double_star_100000",
-        "ratio_upper_bound": 1.0,
-        "ratio_upper_bound_legacy": 1.0,
-        "valid": true
-      },
-      {
-        "all_lower_bounds": {
           "hopcroft_karp": 4369
         },
         "cover": 4369,
-        "elapsed_seconds": 2.361872499999663,
+        "elapsed_seconds": 3.3345797000074526,
         "exact": true,
         "group": "Hierarchical star trap (degree-greedy tie-break stress)",
         "lower_bound": 4369,
@@ -96063,7 +96012,7 @@
           "hopcroft_karp": 69905
         },
         "cover": 69905,
-        "elapsed_seconds": 43.10847670000112,
+        "elapsed_seconds": 92.32736219999788,
         "exact": true,
         "group": "Hierarchical star trap (degree-greedy tie-break stress)",
         "lower_bound": 69905,
@@ -96082,8 +96031,8 @@
           "karp_sipser_matching": 2499,
           "spectral_laplacian_hoffman": 2575
         },
-        "cover": 2778,
-        "elapsed_seconds": 0.5660201000009693,
+        "cover": 2757,
+        "elapsed_seconds": 1.961689000003389,
         "exact": false,
         "group": "Random 3-regular (bounded-degree adversarial)",
         "lower_bound": 2575,
@@ -96091,8 +96040,8 @@
         "m": 7500,
         "n": 5000,
         "name": "regular_n5000_d3",
-        "ratio_upper_bound": 1.0788349514563107,
-        "ratio_upper_bound_legacy": 1.2407324698526128,
+        "ratio_upper_bound": 1.0706796116504855,
+        "ratio_upper_bound_legacy": 1.231353282715498,
         "valid": true
       },
       {
@@ -96102,8 +96051,8 @@
           "karp_sipser_matching": 2499,
           "spectral_laplacian_hoffman": 2870
         },
-        "cover": 3284,
-        "elapsed_seconds": 0.9418239999995421,
+        "cover": 3269,
+        "elapsed_seconds": 2.715927199998987,
         "exact": false,
         "group": "Random 6-regular (bounded-degree adversarial)",
         "lower_bound": 2870,
@@ -96111,8 +96060,8 @@
         "m": 15000,
         "n": 5000,
         "name": "regular_n5000_d6",
-        "ratio_upper_bound": 1.1442508710801393,
-        "ratio_upper_bound_legacy": 1.4034188034188033,
+        "ratio_upper_bound": 1.1390243902439023,
+        "ratio_upper_bound_legacy": 1.397008547008547,
         "valid": true
       },
       {
@@ -96122,8 +96071,8 @@
           "karp_sipser_matching": 2498,
           "spectral_laplacian_hoffman": 3220
         },
-        "cover": 3757,
-        "elapsed_seconds": 1.5611150999993697,
+        "cover": 3749,
+        "elapsed_seconds": 4.184957200006465,
         "exact": false,
         "group": "Random 12-regular (bounded-degree adversarial)",
         "lower_bound": 3220,
@@ -96131,8 +96080,8 @@
         "m": 30000,
         "n": 5000,
         "name": "regular_n5000_d12",
-        "ratio_upper_bound": 1.1667701863354036,
-        "ratio_upper_bound_legacy": 1.5660691954981243,
+        "ratio_upper_bound": 1.1642857142857144,
+        "ratio_upper_bound_legacy": 1.562734472696957,
         "valid": true
       },
       {
@@ -96142,8 +96091,8 @@
           "karp_sipser_matching": 24997,
           "spectral_laplacian_hoffman": 25739
         },
-        "cover": 27748,
-        "elapsed_seconds": 8.125972700001512,
+        "cover": 27630,
+        "elapsed_seconds": 27.614070499999798,
         "exact": false,
         "group": "Random 3-regular (bounded-degree adversarial)",
         "lower_bound": 25739,
@@ -96151,8 +96100,8 @@
         "m": 75000,
         "n": 50000,
         "name": "regular_n50000_d3",
-        "ratio_upper_bound": 1.078052760402502,
-        "ratio_upper_bound_legacy": 1.2451424725151448,
+        "ratio_upper_bound": 1.0734682777108668,
+        "ratio_upper_bound_legacy": 1.2398474310074041,
         "valid": true
       },
       {
@@ -96162,8 +96111,8 @@
           "karp_sipser_matching": 24996,
           "spectral_laplacian_hoffman": 28648
         },
-        "cover": 32807,
-        "elapsed_seconds": 14.633180900000298,
+        "cover": 32666,
+        "elapsed_seconds": 45.34923639999761,
         "exact": false,
         "group": "Random 6-regular (bounded-degree adversarial)",
         "lower_bound": 28648,
@@ -96171,8 +96120,8 @@
         "m": 150000,
         "n": 50000,
         "name": "regular_n50000_d6",
-        "ratio_upper_bound": 1.145175928511589,
-        "ratio_upper_bound_legacy": 1.416047997237569,
+        "ratio_upper_bound": 1.1402541189611841,
+        "ratio_upper_bound_legacy": 1.4099620165745856,
         "valid": true
       },
       {
@@ -96182,8 +96131,8 @@
           "karp_sipser_matching": 24996,
           "spectral_laplacian_hoffman": 32208
         },
-        "cover": 37629,
-        "elapsed_seconds": 26.220988099999886,
+        "cover": 37541,
+        "elapsed_seconds": 75.94693299999926,
         "exact": false,
         "group": "Random 12-regular (bounded-degree adversarial)",
         "lower_bound": 32208,
@@ -96191,48 +96140,8 @@
         "m": 300000,
         "n": 50000,
         "name": "regular_n50000_d12",
-        "ratio_upper_bound": 1.168312220566319,
-        "ratio_upper_bound_legacy": 1.5735134230994396,
-        "valid": true
-      },
-      {
-        "all_lower_bounds": {
-          "clique_packing": 88370,
-          "greedy_maximal_matching": 89029,
-          "karp_sipser_matching": 99994,
-          "spectral_laplacian_hoffman": 102946
-        },
-        "cover": 111074,
-        "elapsed_seconds": 45.556620600000315,
-        "exact": false,
-        "group": "Random 3-regular (bounded-degree adversarial)",
-        "lower_bound": 102946,
-        "lower_bound_method": "spectral_laplacian_hoffman",
-        "m": 300000,
-        "n": 200000,
-        "name": "regular_n200000_d3",
-        "ratio_upper_bound": 1.0789540147261671,
-        "ratio_upper_bound_legacy": 1.2476159453661166,
-        "valid": true
-      },
-      {
-        "all_lower_bounds": {
-          "clique_packing": 92253,
-          "greedy_maximal_matching": 92589,
-          "karp_sipser_matching": 99996,
-          "spectral_laplacian_hoffman": 114588
-        },
-        "cover": 131135,
-        "elapsed_seconds": 85.86918870000045,
-        "exact": false,
-        "group": "Random 6-regular (bounded-degree adversarial)",
-        "lower_bound": 114588,
-        "lower_bound_method": "spectral_laplacian_hoffman",
-        "m": 600000,
-        "n": 200000,
-        "name": "regular_n200000_d6",
-        "ratio_upper_bound": 1.1444043006248472,
-        "ratio_upper_bound_legacy": 1.4163129529425742,
+        "ratio_upper_bound": 1.1655799801291604,
+        "ratio_upper_bound_legacy": 1.569833570293552,
         "valid": true
       },
       {
@@ -96243,7 +96152,7 @@
           "spectral_laplacian_hoffman": 91
         },
         "cover": 2469,
-        "elapsed_seconds": 0.8914909000013722,
+        "elapsed_seconds": 2.0250134999951115,
         "exact": false,
         "group": "Barabasi-Albert scale-free hub graph",
         "lower_bound": 2441,
@@ -96263,7 +96172,7 @@
           "spectral_laplacian_hoffman": 163
         },
         "cover": 24464,
-        "elapsed_seconds": 12.617766700001084,
+        "elapsed_seconds": 44.09885490000306,
         "exact": false,
         "group": "Barabasi-Albert scale-free hub graph",
         "lower_bound": 24339,
@@ -96277,33 +96186,13 @@
       },
       {
         "all_lower_bounds": {
-          "clique_packing": 91814,
-          "greedy_maximal_matching": 72598,
-          "karp_sipser_matching": 97761,
-          "spectral_laplacian_hoffman": 476
-        },
-        "cover": 98260,
-        "elapsed_seconds": 78.94161389999863,
-        "exact": false,
-        "group": "Barabasi-Albert scale-free hub graph",
-        "lower_bound": 97761,
-        "lower_bound_method": "karp_sipser_matching",
-        "m": 599991,
-        "n": 200000,
-        "name": "barabasi_albert_n200000",
-        "ratio_upper_bound": 1.0051042849398022,
-        "ratio_upper_bound_legacy": 1.3534808121435853,
-        "valid": true
-      },
-      {
-        "all_lower_bounds": {
           "clique_packing": 2319,
           "greedy_maximal_matching": 2067,
           "karp_sipser_matching": 2439,
           "spectral_laplacian_hoffman": 320
         },
-        "cover": 2595,
-        "elapsed_seconds": 0.7220816999997623,
+        "cover": 2586,
+        "elapsed_seconds": 1.5998739000060596,
         "exact": false,
         "group": "Sparse Erdos-Renyi, avg degree 4",
         "lower_bound": 2439,
@@ -96311,28 +96200,8 @@
         "m": 9945,
         "n": 5000,
         "name": "gnp_n5000",
-        "ratio_upper_bound": 1.063960639606396,
-        "ratio_upper_bound_legacy": 1.25544267053701,
-        "valid": true
-      },
-      {
-        "all_lower_bounds": {
-          "clique_packing": 23178,
-          "greedy_maximal_matching": 20728,
-          "karp_sipser_matching": 24447,
-          "spectral_laplacian_hoffman": 2982
-        },
-        "cover": 26064,
-        "elapsed_seconds": 10.956904500000746,
-        "exact": false,
-        "group": "Sparse Erdos-Renyi, avg degree 4",
-        "lower_bound": 24447,
-        "lower_bound_method": "karp_sipser_matching",
-        "m": 100249,
-        "n": 50000,
-        "name": "gnp_n50000",
-        "ratio_upper_bound": 1.0661430850411093,
-        "ratio_upper_bound_legacy": 1.2574295638749518,
+        "ratio_upper_bound": 1.0602706027060271,
+        "ratio_upper_bound_legacy": 1.251088534107402,
         "valid": true
       },
       {
@@ -96342,8 +96211,8 @@
           "karp_sipser_matching": 2493,
           "spectral_laplacian_hoffman": 1284
         },
-        "cover": 3543,
-        "elapsed_seconds": 0.8460438000001886,
+        "cover": 3535,
+        "elapsed_seconds": 1.5849718000099529,
         "exact": false,
         "group": "Watts-Strogatz small-world",
         "lower_bound": 3359,
@@ -96351,8 +96220,8 @@
         "m": 15000,
         "n": 5000,
         "name": "ws_n5000",
-        "ratio_upper_bound": 1.0547782077999404,
-        "ratio_upper_bound_legacy": 1.417767106842737,
+        "ratio_upper_bound": 1.0523965465912475,
+        "ratio_upper_bound_legacy": 1.4145658263305323,
         "valid": true
       },
       {
@@ -96362,8 +96231,8 @@
           "karp_sipser_matching": 24926,
           "spectral_laplacian_hoffman": 11864
         },
-        "cover": 35417,
-        "elapsed_seconds": 10.208157700000811,
+        "cover": 35351,
+        "elapsed_seconds": 18.28170659999887,
         "exact": false,
         "group": "Watts-Strogatz small-world",
         "lower_bound": 33560,
@@ -96371,55 +96240,62 @@
         "m": 150000,
         "n": 50000,
         "name": "ws_n50000",
-        "ratio_upper_bound": 1.0553337306317043,
-        "ratio_upper_bound_legacy": 1.4170767814988197,
+        "ratio_upper_bound": 1.0533671036948749,
+        "ratio_upper_bound_legacy": 1.4144360420917856,
         "valid": true
       }
     ],
     "max_n_requested": 200000,
     "note": "ratio_upper_bound = |cover| / LB with LB the best certified lower bound on tau(G); exact when lower_bound_method starts with 'bipartite'. ratio_upper_bound_legacy uses the greedy maximal matching of earlier car/ versions and is reported only for comparison.",
     "overall_all_valid": true,
-    "overall_max_ratio_upper_bound": 1.168312220566319,
-    "overall_max_ratio_upper_bound_legacy": 1.5735134230994396,
+    "overall_max_ratio_upper_bound": 1.1655799801291604,
+    "overall_max_ratio_upper_bound_legacy": 1.569833570293552,
     "overall_worst_instance": "regular_n50000_d12",
     "salvador_version": "0.1.1",
     "skipped_instances": [
+      "crown_800",
+      "complete_bipartite_800",
+      "double_star_100000",
+      "regular_n200000_d3",
+      "regular_n200000_d6",
       "regular_n200000_d12",
+      "barabasi_albert_n200000",
+      "gnp_n50000",
       "gnp_n200000"
     ],
     "summary_by_group": {
       "Barabasi-Albert scale-free hub graph": {
         "all_valid": true,
-        "instances": 3,
-        "max_elapsed_seconds": 78.94161389999863,
-        "max_n": 200000,
+        "instances": 2,
+        "max_elapsed_seconds": 44.09885490000306,
+        "max_n": 50000,
         "max_ratio_upper_bound": 1.011470708725932,
-        "max_ratio_upper_bound_legacy": 1.3534808121435853,
-        "mean_ratio_upper_bound": 1.0072369279870481
+        "max_ratio_upper_bound_legacy": 1.348621830209482,
+        "mean_ratio_upper_bound": 1.0083032495106714
       },
       "Complete bipartite (dense)": {
         "all_valid": true,
-        "instances": 3,
-        "max_elapsed_seconds": 105.91909099999975,
-        "max_n": 1600,
+        "instances": 2,
+        "max_elapsed_seconds": 43.12312380000367,
+        "max_n": 800,
         "max_ratio_upper_bound": 1.0,
         "max_ratio_upper_bound_legacy": 1.0,
         "mean_ratio_upper_bound": 1.0
       },
       "Crown graph K_{h,h} minus perfect matching (dense, near-regular)": {
         "all_valid": true,
-        "instances": 3,
-        "max_elapsed_seconds": 101.93078700000115,
-        "max_n": 1600,
+        "instances": 2,
+        "max_elapsed_seconds": 41.86016730000847,
+        "max_n": 800,
         "max_ratio_upper_bound": 1.0,
         "max_ratio_upper_bound_legacy": 1.0,
         "mean_ratio_upper_bound": 1.0
       },
       "Double star + bridge (matching-heuristic stress)": {
         "all_valid": true,
-        "instances": 3,
-        "max_elapsed_seconds": 55.68513019999955,
-        "max_n": 200002,
+        "instances": 2,
+        "max_elapsed_seconds": 11.240114000000176,
+        "max_n": 20002,
         "max_ratio_upper_bound": 1.0,
         "max_ratio_upper_bound_legacy": 1.0,
         "mean_ratio_upper_bound": 1.0
@@ -96427,7 +96303,7 @@
       "Hierarchical star trap (degree-greedy tie-break stress)": {
         "all_valid": true,
         "instances": 2,
-        "max_elapsed_seconds": 43.10847670000112,
+        "max_elapsed_seconds": 92.32736219999788,
         "max_n": 152917,
         "max_ratio_upper_bound": 1.0,
         "max_ratio_upper_bound_legacy": 1.0,
@@ -96436,51 +96312,58 @@
       "Random 12-regular (bounded-degree adversarial)": {
         "all_valid": true,
         "instances": 2,
-        "max_elapsed_seconds": 26.220988099999886,
+        "max_elapsed_seconds": 75.94693299999926,
         "max_n": 50000,
-        "max_ratio_upper_bound": 1.168312220566319,
-        "max_ratio_upper_bound_legacy": 1.5735134230994396,
-        "mean_ratio_upper_bound": 1.1675412034508614
+        "max_ratio_upper_bound": 1.1655799801291604,
+        "max_ratio_upper_bound_legacy": 1.569833570293552,
+        "mean_ratio_upper_bound": 1.1649328472074374
       },
       "Random 3-regular (bounded-degree adversarial)": {
         "all_valid": true,
-        "instances": 3,
-        "max_elapsed_seconds": 45.556620600000315,
-        "max_n": 200000,
-        "max_ratio_upper_bound": 1.0789540147261671,
-        "max_ratio_upper_bound_legacy": 1.2476159453661166,
-        "mean_ratio_upper_bound": 1.07861390886166
+        "instances": 2,
+        "max_elapsed_seconds": 27.614070499999798,
+        "max_n": 50000,
+        "max_ratio_upper_bound": 1.0734682777108668,
+        "max_ratio_upper_bound_legacy": 1.2398474310074041,
+        "mean_ratio_upper_bound": 1.0720739446806762
       },
       "Random 6-regular (bounded-degree adversarial)": {
         "all_valid": true,
-        "instances": 3,
-        "max_elapsed_seconds": 85.86918870000045,
-        "max_n": 200000,
-        "max_ratio_upper_bound": 1.145175928511589,
-        "max_ratio_upper_bound_legacy": 1.4163129529425742,
-        "mean_ratio_upper_bound": 1.1446103667388585
+        "instances": 2,
+        "max_elapsed_seconds": 45.34923639999761,
+        "max_n": 50000,
+        "max_ratio_upper_bound": 1.1402541189611841,
+        "max_ratio_upper_bound_legacy": 1.4099620165745856,
+        "mean_ratio_upper_bound": 1.1396392546025433
       },
       "Sparse Erdos-Renyi, avg degree 4": {
         "all_valid": true,
-        "instances": 2,
-        "max_elapsed_seconds": 10.956904500000746,
-        "max_n": 50000,
-        "max_ratio_upper_bound": 1.0661430850411093,
-        "max_ratio_upper_bound_legacy": 1.2574295638749518,
-        "mean_ratio_upper_bound": 1.0650518623237528
+        "instances": 1,
+        "max_elapsed_seconds": 1.5998739000060596,
+        "max_n": 5000,
+        "max_ratio_upper_bound": 1.0602706027060271,
+        "max_ratio_upper_bound_legacy": 1.251088534107402,
+        "mean_ratio_upper_bound": 1.0602706027060271
       },
       "Watts-Strogatz small-world": {
         "all_valid": true,
         "instances": 2,
-        "max_elapsed_seconds": 10.208157700000811,
+        "max_elapsed_seconds": 18.28170659999887,
         "max_n": 50000,
-        "max_ratio_upper_bound": 1.0553337306317043,
-        "max_ratio_upper_bound_legacy": 1.417767106842737,
-        "mean_ratio_upper_bound": 1.0550559692158223
+        "max_ratio_upper_bound": 1.0533671036948749,
+        "max_ratio_upper_bound_legacy": 1.4145658263305323,
+        "mean_ratio_upper_bound": 1.0528818251430612
       }
     },
     "timed_out_instances": [
-      "regular_n200000_d12"
+      "crown_800",
+      "complete_bipartite_800",
+      "double_star_100000",
+      "regular_n200000_d3",
+      "regular_n200000_d6",
+      "regular_n200000_d12",
+      "barabasi_albert_n200000",
+      "gnp_n50000"
     ],
     "timeout": 120.0
   },

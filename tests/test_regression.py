@@ -1,4 +1,4 @@
-"""Regression smoke tests for Salvador v0.1.1."""
+"""Regression smoke tests for Salvador v0.1.2."""
 
 from __future__ import annotations
 
@@ -11,7 +11,7 @@ from salvador.utils import is_vertex_cover
 
 
 def test_version_is_008() -> None:
-    assert __version__ == "0.1.1"
+    assert __version__ == "0.1.2"
 
 
 def test_small_benchmark_cover_is_valid() -> None:
@@ -114,3 +114,96 @@ def test_local_search_candidate_never_worse_and_valid() -> None:
         best_other = min(len(c) for k, c in cands.items() if k != "c9")
         assert len(cands["c9"]) <= best_other
 
+
+
+
+def test_subdivision_c11_valid_and_exact_when_unpeeled() -> None:
+    """c11: S is the bipartite subdivision (n + m nodes, 2m edges); the cover
+    dominates every edge-node (a vertex cover of G), Phi < n + 1, and when no
+    peel was needed the cover is minimum (checked by brute force)."""
+    from salvador import subdivision_reduction as sr
+    from salvador.algorithm import ensemble_candidates, find_vertex_cover_brute_force
+
+    graphs = [
+        nx.path_graph(7),
+        nx.cycle_graph(9),
+        nx.complete_graph(6),
+        nx.petersen_graph(),
+        nx.complete_bipartite_graph(3, 5),
+        nx.balanced_tree(2, 4),
+        nx.relabel_nodes(nx.cycle_graph(6), {0: "a", 1: (1, 2)}),
+    ] + [nx.gnp_random_graph(12, 0.25, seed=s) for s in range(20)]
+    for graph in graphs:
+        graph = graph.copy()
+        graph.remove_nodes_from(list(nx.isolates(graph)))
+        n, m = graph.number_of_nodes(), graph.number_of_edges()
+        S = sr.build_subdivision_graph(graph)
+        assert nx.is_bipartite(S)
+        assert S.number_of_nodes() == n + m and S.number_of_edges() == 2 * m
+        adj = {v: set(graph[v]) for v in graph}
+        info: dict = {}
+        cover = sr.subdivision_vertex_cover(adj, info)
+        assert info["undominated"] == 0 and is_vertex_cover(graph, cover)
+        assert sr.phi(graph, cover) < n + 1
+        if info["exact"] and n <= 14:
+            assert len(cover) == len(find_vertex_cover_brute_force(graph))
+        for peel in ("max", "min", "ref"):
+            for fold in (False, True):
+                vi: dict = {}
+                c = sr.subdivision_vertex_cover(adj, vi, peel, fold, reference=set(graph))
+                assert vi["undominated"] == 0 and is_vertex_cover(graph, c)
+                if vi["exact"] and n <= 14:
+                    assert len(c) == len(find_vertex_cover_brute_force(graph))
+        cands = ensemble_candidates(graph)
+        assert set(cands) == {f"c{i}" for i in range(1, 14)}
+        assert is_vertex_cover(graph, cands["c11"])
+
+
+def test_split_domination_c12_valid_and_exact_when_core_empty() -> None:
+    """c12: the split graph has 2m nodes and maximum degree 3; the cover is
+    valid, never larger than its reference, and minimum when the core is empty."""
+    from salvador import split_domination as sd
+    from salvador.algorithm import ensemble_candidates, find_vertex_cover_brute_force
+
+    graphs = [
+        nx.path_graph(7), nx.cycle_graph(9), nx.complete_graph(6), nx.petersen_graph(),
+        nx.complete_bipartite_graph(3, 5), nx.balanced_tree(2, 4),
+        nx.relabel_nodes(nx.cycle_graph(6), {0: "a", 1: (1, 2)}),
+    ] + [nx.gnp_random_graph(12, 0.3, seed=s) for s in range(15)]
+    for graph in graphs:
+        graph = graph.copy()
+        graph.remove_nodes_from(list(nx.isolates(graph)))
+        m = graph.number_of_edges()
+        H = sd.build_split_nx(graph)
+        assert H.number_of_nodes() == 2 * m and max(d for _, d in H.degree()) <= 3
+        adj = {v: set(graph[v]) for v in graph}
+        ref = set(graph)
+        for width in (10, 2):
+            info: dict = {}
+            cover = sd.split_dominating_cover(adj, ref, max_width=width, info=info)
+            assert is_vertex_cover(graph, cover) and len(cover) <= len(ref)
+            if info["exact"] and graph.number_of_nodes() <= 14:
+                assert len(cover) == len(find_vertex_cover_brute_force(graph))
+        cands = ensemble_candidates(graph)
+        assert is_vertex_cover(graph, cands["c12"])
+        assert len(cands["c12"]) <= min(len(cands[k]) for k in
+                                        ("c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "c10", "c11"))
+
+
+def test_reduce_search_c12_never_worse_and_valid() -> None:
+    """c12: valid cover, never larger than its start (the best of c1..c11), reproducible."""
+    from salvador import reduce_search as rs
+    from salvador.algorithm import ensemble_candidates
+
+    for seed in range(8):
+        graph = nx.random_regular_graph(3, 60, seed=seed) if seed % 2 else nx.gnp_random_graph(50, 0.1, seed=seed)
+        adj = {v: set(graph[v]) for v in graph}
+        start = set(graph)
+        info: dict = {}
+        cover = rs.reduce_search_cover(adj, start, rounds=2, budget=20, info=info)
+        assert is_vertex_cover(graph, cover) and len(cover) <= len(start)
+        assert cover == rs.reduce_search_cover(adj, start, rounds=2, budget=20)
+        cands = ensemble_candidates(graph)
+        assert is_vertex_cover(graph, cands["c12"])
+        assert len(cands["c12"]) <= min(len(cands[k]) for k in
+                                        ("c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "c10", "c11"))

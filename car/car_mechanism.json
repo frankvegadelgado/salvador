@@ -1,10 +1,10 @@
 {
-  "salvador_version": "0.1.1",
+  "salvador_version": "0.1.2",
   "environment": {
     "python": "3.12.3",
     "platform": "Windows-11-10.0.26200-SP0",
     "networkx": "3.6.1",
-    "salvador": "0.1.1"
+    "salvador": "0.1.2"
   },
   "seed": 20261010,
   "R0": 1.999999999,
@@ -38,10 +38,10 @@
       "corr_excess_auc": -0.25384102001096503,
       "best_certificate_counts": {
         "C1_matching": 1,
-        "C2_caro_wei": 11
+        "C8_caro_wei": 11
       },
       "corr_excess_kernel": -0.1483965925599209,
-      "seconds": 7.204638000002888
+      "seconds": 11.819512599977315
     },
     "kr_fixedweight (k=5, |x|=2, s=16)": {
       "instances": 12,
@@ -49,9 +49,9 @@
       "optimal": 4,
       "mean_ratio": 1.0182291666666667,
       "max_ratio": 1.09375,
-      "max_ratio_upper_bound": 1.137628111273792,
+      "max_ratio_upper_bound": 1.1443298969072164,
       "in_residue": 0,
-      "max_best_certified": 1.7759882869692534,
+      "max_best_certified": 1.7864506627393226,
       "mean_degree_auc": 0.5171426782391597,
       "mean_kernel_fraction": 1.0,
       "persistency_respected": 12,
@@ -61,56 +61,56 @@
       "mean_excess_rel": 0.018229166666666668,
       "corr_excess_auc": -0.14911057181531504,
       "best_certificate_counts": {
-        "C2_caro_wei": 12
+        "C8_caro_wei": 12
       },
       "corr_excess_kernel": null,
-      "seconds": 3.2393246999999974
+      "seconds": 6.612204100019881
     },
     "kr_fixedweight (k=6, |x|=3, s=16)": {
       "instances": 12,
       "tau_known": 12,
-      "optimal": 10,
-      "mean_ratio": 1.0004734180192896,
-      "max_ratio": 1.0038461538461538,
-      "max_ratio_upper_bound": 1.0038461538461538,
+      "optimal": 12,
+      "mean_ratio": 1.0,
+      "max_ratio": 1.0,
+      "max_ratio_upper_bound": 1.0,
       "in_residue": 0,
       "max_best_certified": 1.796875,
       "mean_degree_auc": 0.7948364070305782,
       "mean_kernel_fraction": 0.2651812245326482,
-      "persistency_respected": 10,
+      "persistency_respected": 12,
       "mean_ke_gap": 1.0,
       "with_12_swap": 0,
       "mean_greedy_excess_rel": 0.01647038888251133,
-      "mean_excess_rel": 0.00047341801928957897,
-      "corr_excess_auc": -0.05203603271551241,
+      "mean_excess_rel": 0.0,
+      "corr_excess_auc": null,
       "best_certificate_counts": {
-        "C2_caro_wei": 12
+        "C8_caro_wei": 12
       },
-      "corr_excess_kernel": -0.1572762630100475,
-      "seconds": 6.397102599999926
+      "corr_excess_kernel": null,
+      "seconds": 9.709948700037785
     },
     "kr_sampled (k=4, p=0.45, s=16)": {
       "instances": 12,
-      "tau_known": 10,
-      "optimal": 6,
-      "mean_ratio": 1.0017199849043776,
+      "tau_known": 9,
+      "optimal": 5,
+      "mean_ratio": 1.0019110943381975,
       "max_ratio": 1.0058479532163742,
-      "max_ratio_upper_bound": 1.0498489425981874,
+      "max_ratio_upper_bound": 1.0499243570347958,
       "in_residue": 0,
       "max_best_certified": 1.8404907975460123,
-      "mean_degree_auc": 0.851940565356041,
+      "mean_degree_auc": 0.8346608735404867,
       "mean_kernel_fraction": 0.980859375,
       "persistency_respected": 12,
-      "mean_ke_gap": 1.077501572554034,
+      "mean_ke_gap": 1.07968924728226,
       "with_12_swap": 0,
-      "mean_greedy_excess_rel": 0.02016928449414388,
-      "mean_excess_rel": 0.001719984904377727,
-      "corr_excess_auc": -0.644235207764501,
+      "mean_greedy_excess_rel": 0.020933211230158226,
+      "mean_excess_rel": 0.0019110943381974745,
+      "corr_excess_auc": -0.6155819179273802,
       "best_certificate_counts": {
-        "C2_caro_wei": 12
+        "C8_caro_wei": 12
       },
-      "corr_excess_kernel": 0.24896698559396555,
-      "seconds": 3.7655427000208874
+      "corr_excess_kernel": 0.28887553033904273,
+      "seconds": 8.423173599963775
     },
     "kr_sampled (k=6, p=0.45, s=16)": {
       "instances": 12,
@@ -130,10 +130,10 @@
       "mean_excess_rel": 0.0,
       "corr_excess_auc": null,
       "best_certificate_counts": {
-        "C2_caro_wei": 12
+        "C8_caro_wei": 12
       },
       "corr_excess_kernel": null,
-      "seconds": 2.3742174000071827
+      "seconds": 6.576648500005831
     },
     "planted_regular (alpha=0.45, d=6)": {
       "instances": 12,
@@ -141,9 +141,9 @@
       "optimal": 9,
       "mean_ratio": 1.0,
       "max_ratio": 1.0,
-      "max_ratio_upper_bound": 1.0494752623688155,
+      "max_ratio_upper_bound": 1.0510510510510511,
       "in_residue": 0,
-      "max_best_certified": 1.6506746626686657,
+      "max_best_certified": 1.6531531531531531,
       "mean_degree_auc": 0.6003690543880809,
       "mean_kernel_fraction": 1.0,
       "persistency_respected": 12,
@@ -153,10 +153,10 @@
       "mean_excess_rel": 0.0,
       "corr_excess_auc": null,
       "best_certificate_counts": {
-        "C2_caro_wei": 12
+        "C8_caro_wei": 12
       },
       "corr_excess_kernel": null,
-      "seconds": 1.3713921000162372
+      "seconds": 3.831562200008193
     },
     "planted_regular (alpha=0.48, d=10)": {
       "instances": 12,
@@ -176,33 +176,33 @@
       "mean_excess_rel": 0.0,
       "corr_excess_auc": null,
       "best_certificate_counts": {
-        "C2_caro_wei": 12
+        "C8_caro_wei": 12
       },
       "corr_excess_kernel": null,
-      "seconds": 1.9036886999965645
+      "seconds": 4.959895200008759
     },
     "random_regular (d=3)": {
       "instances": 12,
       "tau_known": 6,
       "optimal": 3,
-      "mean_ratio": 1.0056497175141244,
-      "max_ratio": 1.0169491525423728,
-      "max_ratio_upper_bound": 1.0804248861911987,
+      "mean_ratio": 1.002824858757062,
+      "max_ratio": 1.0056497175141244,
+      "max_ratio_upper_bound": 1.082442748091603,
       "in_residue": 0,
-      "max_best_certified": 1.456752655538695,
+      "max_best_certified": 1.465648854961832,
       "mean_degree_auc": 0.5,
       "mean_kernel_fraction": 1.0,
       "persistency_respected": 12,
       "mean_ke_gap": 1.109375,
       "with_12_swap": 0,
       "mean_greedy_excess_rel": 0.0309888063649252,
-      "mean_excess_rel": 0.005649717514124294,
+      "mean_excess_rel": 0.002824858757062147,
       "corr_excess_auc": null,
       "best_certificate_counts": {
-        "C2_caro_wei": 12
+        "C8_caro_wei": 12
       },
       "corr_excess_kernel": null,
-      "seconds": 0.7974749000059091
+      "seconds": 2.320036499964772
     },
     "random_regular (d=6)": {
       "instances": 12,
@@ -210,9 +210,9 @@
       "optimal": 1,
       "mean_ratio": 1.0063492063492063,
       "max_ratio": 1.0095238095238095,
-      "max_ratio_upper_bound": 1.2313323572474377,
+      "max_ratio_upper_bound": 1.2371134020618557,
       "in_residue": 0,
-      "max_best_certified": 1.6061493411420205,
+      "max_best_certified": 1.6156111929307806,
       "mean_degree_auc": 0.5,
       "mean_kernel_fraction": 1.0,
       "persistency_respected": 12,
@@ -222,57 +222,57 @@
       "mean_excess_rel": 0.00634920634920635,
       "corr_excess_auc": null,
       "best_certificate_counts": {
-        "C2_caro_wei": 12
+        "C8_caro_wei": 12
       },
       "corr_excess_kernel": null,
-      "seconds": 1.2662732000026153
+      "seconds": 3.459263400029158
     },
     "thinned_grid (70% edges)": {
       "instances": 12,
       "tau_known": 12,
-      "optimal": 7,
-      "mean_ratio": 1.002486377396145,
-      "max_ratio": 1.009933774834437,
-      "max_ratio_upper_bound": 1.009933774834437,
+      "optimal": 12,
+      "mean_ratio": 1.0,
+      "max_ratio": 1.0,
+      "max_ratio_upper_bound": 1.0,
       "in_residue": 0,
       "max_best_certified": 1.46,
       "mean_degree_auc": 0.6406733776378961,
       "mean_kernel_fraction": 0.44170643738896676,
-      "persistency_respected": 7,
+      "persistency_respected": 12,
       "mean_ke_gap": 1.0,
       "with_12_swap": 0,
       "mean_greedy_excess_rel": 0.029686671656498322,
-      "mean_excess_rel": 0.00248637739614487,
-      "corr_excess_auc": -0.1526881513475416,
+      "mean_excess_rel": 0.0,
+      "corr_excess_auc": null,
       "best_certificate_counts": {
-        "C2_caro_wei": 12
+        "C8_caro_wei": 12
       },
-      "corr_excess_kernel": -0.37023682128179536,
-      "seconds": 5.129808599995158
+      "corr_excess_kernel": null,
+      "seconds": 8.282254699995974
     },
     "ALL": {
       "instances": 120,
-      "tau_known": 93,
-      "optimal": 70,
-      "mean_ratio": 1.0037981674168412,
+      "tau_known": 92,
+      "optimal": 76,
+      "mean_ratio": 1.003269161654768,
       "max_ratio": 1.09375,
-      "max_ratio_upper_bound": 1.2313323572474377,
+      "max_ratio_upper_bound": 1.2371134020618557,
       "in_residue": 1,
       "max_best_certified": 2.0,
-      "mean_degree_auc": 0.6581353856857252,
+      "mean_degree_auc": 0.6564074165041698,
       "mean_kernel_fraction": 0.7358865025822197,
-      "persistency_respected": 108,
-      "mean_ke_gap": 1.052368443791216,
+      "persistency_respected": 115,
+      "mean_ke_gap": 1.0523092692672074,
       "with_12_swap": 0,
-      "mean_greedy_excess_rel": 0.022672022261144953,
-      "mean_excess_rel": 0.0037981674168413473,
-      "corr_excess_auc": -0.25873165944621207,
+      "mean_greedy_excess_rel": 0.022773957895831153,
+      "mean_excess_rel": 0.0032691616547680332,
+      "corr_excess_auc": -0.23441530846411496,
       "best_certificate_counts": {
         "C1_matching": 1,
-        "C2_caro_wei": 119
+        "C8_caro_wei": 119
       },
-      "corr_excess_kernel": -0.07627613937021045,
-      "seconds": 33.449462900047365
+      "corr_excess_kernel": -0.06072229856813548,
+      "seconds": 65.99449950001144
     }
   },
   "scaling": {
@@ -280,7 +280,7 @@
       "10": 1.0,
       "20": 1.0018018018018018,
       "40": 1.0039314812127906,
-      "80": 1.0315416873337242
+      "80": 1.0345675502878462
     },
     "kr_sampled (k=6, p=0.45, s=16)": {
       "10": 1.0,
@@ -297,20 +297,20 @@
     "kr_fixedweight (k=6, |x|=3, s=16)": {
       "10": 1.0,
       "20": 1.0,
-      "40": 1.0012820512820513,
-      "80": 1.000611620795107
+      "40": 1.0,
+      "80": 1.0
     },
     "kr_fixedweight (k=5, |x|=2, s=16)": {
       "10": 1.03125,
       "20": 1.0052083333333333,
-      "40": 1.0731327531026196,
-      "80": 1.1250804563555217
+      "40": 1.077190617723156,
+      "80": 1.1278696947643319
     },
     "planted_regular (alpha=0.45, d=6)": {
       "10": 1.0,
       "20": 1.0,
       "40": 1.0,
-      "80": 1.0361373212538485
+      "80": 1.040210923922884
     },
     "planted_regular (alpha=0.48, d=10)": {
       "10": 1.0,
@@ -320,21 +320,21 @@
     },
     "random_regular (d=3)": {
       "10": 1.0,
-      "20": 1.0112994350282485,
-      "40": 1.046133617072812,
-      "80": 1.0685706094407703
+      "20": 1.0056497175141244,
+      "40": 1.04625799282028,
+      "80": 1.0775952244988931
     },
     "random_regular (d=6)": {
       "10": 1.0063492063492063,
-      "20": 1.1056158915808039,
-      "40": 1.1520204439257988,
-      "80": 1.2102992716668335
+      "20": 1.1075837742504409,
+      "40": 1.150653012639314,
+      "80": 1.234579958985451
     },
     "thinned_grid (70% edges)": {
       "10": 1.0,
       "20": 1.0,
-      "40": 1.0054899075156183,
-      "80": 1.004455602068961
+      "40": 1.0,
+      "80": 1.0
     }
   },
   "rows": [
@@ -362,7 +362,9 @@
         "c9": 88,
         "c10": 88,
         "c11": 88,
-        "c12": 88
+        "c12": 88,
+        "c13": 88,
+        "c14": 88
       },
       "final": 88,
       "tau": 88,
@@ -378,13 +380,13 @@
       "ls_repair": 1,
       "certificates": {
         "C1_matching": 1.8181818181818181,
-        "C2_caro_wei": 1.7159090909090908,
+        "C8_caro_wei": 1.7159090909090908,
         "C3_hallelujah": 5.269510913000638,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7159090909090908,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -396,7 +398,7 @@
       "degree_auc": 0.9306344696969697,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.0683195000019623
+      "elapsed_seconds": 0.11483719998796005
     },
     {
       "family": "kr_sampled (k=6, p=0.45, s=16)",
@@ -422,7 +424,9 @@
         "c9": 80,
         "c10": 80,
         "c11": 80,
-        "c12": 80
+        "c12": 80,
+        "c13": 80,
+        "c14": 80
       },
       "final": 80,
       "tau": 80,
@@ -438,13 +442,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.975,
-        "C2_caro_wei": 1.7875,
+        "C8_caro_wei": 1.7875,
         "C3_hallelujah": 4.114391528201929,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7875,
       "in_residue": false,
       "kernel_fraction": 0.9559748427672956,
@@ -456,7 +460,7 @@
       "degree_auc": 0.9527689873417722,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.03297490000113612
+      "elapsed_seconds": 0.07078989999718033
     },
     {
       "family": "kr_fixedweight (k=4, |x|=2, s=16)",
@@ -482,7 +486,9 @@
         "c9": 81,
         "c10": 81,
         "c11": 81,
-        "c12": 81
+        "c12": 81,
+        "c13": 81,
+        "c14": 81
       },
       "final": 81,
       "tau": 79,
@@ -498,13 +504,13 @@
       "ls_repair": 3,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.8227848101265822,
+        "C8_caro_wei": 1.8227848101265822,
         "C3_hallelujah": 4.090663342455277,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.8227848101265822,
       "in_residue": false,
       "kernel_fraction": 0.1875,
@@ -516,7 +522,7 @@
       "degree_auc": 0.5250820440693859,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.14986030000000028
+      "elapsed_seconds": 0.19103319999703672
     },
     {
       "family": "kr_fixedweight (k=6, |x|=3, s=16)",
@@ -542,7 +548,9 @@
         "c9": 68,
         "c10": 68,
         "c11": 68,
-        "c12": 68
+        "c12": 68,
+        "c13": 68,
+        "c14": 68
       },
       "final": 68,
       "tau": 68,
@@ -558,13 +566,13 @@
       "ls_repair": 1,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.6911764705882353,
+        "C8_caro_wei": 1.6911764705882353,
         "C3_hallelujah": 2.614177783158117,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.6911764705882353,
       "in_residue": false,
       "kernel_fraction": 0.40522875816993464,
@@ -576,7 +584,7 @@
       "degree_auc": 0.7730968858131488,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.2275724999999511
+      "elapsed_seconds": 0.2629072000127053
     },
     {
       "family": "kr_fixedweight (k=5, |x|=2, s=16)",
@@ -602,7 +610,9 @@
         "c9": 105,
         "c10": 105,
         "c11": 105,
-        "c12": 105
+        "c12": 105,
+        "c13": 105,
+        "c14": 105
       },
       "final": 105,
       "tau": 96,
@@ -618,13 +628,13 @@
       "ls_repair": 1,
       "certificates": {
         "C1_matching": 1.6666666666666667,
-        "C2_caro_wei": 1.5729166666666667,
+        "C8_caro_wei": 1.5729166666666667,
         "C3_hallelujah": 4.885370023676612,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.5729166666666667,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -636,7 +646,7 @@
       "degree_auc": 0.5111490885416667,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.07085109999752603
+      "elapsed_seconds": 0.11242900000070222
     },
     {
       "family": "planted_regular (alpha=0.45, d=6)",
@@ -662,7 +672,9 @@
         "c9": 87,
         "c10": 87,
         "c11": 87,
-        "c12": 87
+        "c12": 87,
+        "c13": 87,
+        "c14": 87
       },
       "final": 87,
       "tau": 87,
@@ -678,13 +690,13 @@
       "ls_repair": 1,
       "certificates": {
         "C1_matching": 1.839080459770115,
-        "C2_caro_wei": 1.5747126436781609,
+        "C8_caro_wei": 1.5747126436781609,
         "C3_hallelujah": 3.1661468445684102,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.5747126436781609,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -696,7 +708,7 @@
       "degree_auc": 0.6088017635018108,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.02471740000328282
+      "elapsed_seconds": 0.04739300000073854
     },
     {
       "family": "planted_regular (alpha=0.48, d=10)",
@@ -722,7 +734,9 @@
         "c9": 84,
         "c10": 84,
         "c11": 84,
-        "c12": 84
+        "c12": 84,
+        "c13": 84,
+        "c14": 84
       },
       "final": 84,
       "tau": 84,
@@ -738,13 +752,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.9047619047619047,
-        "C2_caro_wei": 1.7261904761904763,
+        "C8_caro_wei": 1.7261904761904763,
         "C3_hallelujah": 4.218374544708626,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7261904761904763,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -756,7 +770,7 @@
       "degree_auc": 0.5714285714285714,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.02951069999835454
+      "elapsed_seconds": 0.054855700000189245
     },
     {
       "family": "random_regular (d=3)",
@@ -782,7 +796,9 @@
         "c9": 89,
         "c10": 89,
         "c11": 89,
-        "c12": 89
+        "c12": 89,
+        "c13": 89,
+        "c14": 89
       },
       "final": 89,
       "tau": 89,
@@ -798,13 +814,13 @@
       "ls_repair": 2,
       "certificates": {
         "C1_matching": 1.797752808988764,
-        "C2_caro_wei": 1.348314606741573,
+        "C8_caro_wei": 1.348314606741573,
         "C3_hallelujah": 2.201788532838812,
         "C4_mtm_class": null,
         "C5_subcubic": 1.8333333333333333,
         "C6_regular": 1.5
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.348314606741573,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -816,7 +832,7 @@
       "degree_auc": 0.5,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.016012400003091898
+      "elapsed_seconds": 0.034384200000204146
     },
     {
       "family": "random_regular (d=6)",
@@ -842,7 +858,9 @@
         "c9": 106,
         "c10": 106,
         "c11": 106,
-        "c12": 106
+        "c12": 106,
+        "c13": 106,
+        "c14": 106
       },
       "final": 106,
       "tau": 105,
@@ -858,13 +876,13 @@
       "ls_repair": 4,
       "certificates": {
         "C1_matching": 1.5238095238095237,
-        "C2_caro_wei": 1.3047619047619048,
+        "C8_caro_wei": 1.3047619047619048,
         "C3_hallelujah": 2.6393155162954325,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": 1.7142857142857144
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.3047619047619048,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -876,7 +894,7 @@
       "degree_auc": 0.5,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.022877800001879223
+      "elapsed_seconds": 0.04737850000674371
     },
     {
       "family": "thinned_grid (70% edges)",
@@ -902,7 +920,9 @@
         "c9": 68,
         "c10": 68,
         "c11": 68,
-        "c12": 68
+        "c12": 68,
+        "c13": 68,
+        "c14": 68
       },
       "final": 68,
       "tau": 68,
@@ -918,13 +938,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.411764705882353,
+        "C8_caro_wei": 1.411764705882353,
         "C3_hallelujah": 2.049611744818581,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.411764705882353,
       "in_residue": false,
       "kernel_fraction": 0.6428571428571429,
@@ -936,7 +956,7 @@
       "degree_auc": 0.705984477124183,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.2855115000056685
+      "elapsed_seconds": 0.3110718999960227
     },
     {
       "family": "kr_sampled (k=4, p=0.45, s=16)",
@@ -962,7 +982,9 @@
         "c9": 90,
         "c10": 90,
         "c11": 90,
-        "c12": 90
+        "c12": 90,
+        "c13": 90,
+        "c14": 90
       },
       "final": 90,
       "tau": 90,
@@ -978,13 +1000,13 @@
       "ls_repair": 2,
       "certificates": {
         "C1_matching": 1.7777777777777777,
-        "C2_caro_wei": 1.6777777777777778,
+        "C8_caro_wei": 1.6777777777777778,
         "C3_hallelujah": 5.247443995510811,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.6777777777777778,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -996,7 +1018,7 @@
       "degree_auc": 0.9405555555555556,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.08659670000633923
+      "elapsed_seconds": 0.12610090000089258
     },
     {
       "family": "kr_sampled (k=6, p=0.45, s=16)",
@@ -1022,7 +1044,9 @@
         "c9": 75,
         "c10": 75,
         "c11": 75,
-        "c12": 75
+        "c12": 75,
+        "c13": 75,
+        "c14": 75
       },
       "final": 75,
       "tau": 75,
@@ -1038,13 +1062,13 @@
       "ls_repair": 1,
       "certificates": {
         "C1_matching": 1.9466666666666668,
-        "C2_caro_wei": 1.8666666666666667,
+        "C8_caro_wei": 1.8666666666666667,
         "C3_hallelujah": 4.035349494702002,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.8666666666666667,
       "in_residue": false,
       "kernel_fraction": 0.7961783439490446,
@@ -1056,7 +1080,7 @@
       "degree_auc": 0.9155284552845528,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.04060340000432916
+      "elapsed_seconds": 0.07132730000012089
     },
     {
       "family": "kr_fixedweight (k=4, |x|=2, s=16)",
@@ -1082,7 +1106,9 @@
         "c9": 76,
         "c10": 76,
         "c11": 76,
-        "c12": 76
+        "c12": 76,
+        "c13": 76,
+        "c14": 76
       },
       "final": 76,
       "tau": 76,
@@ -1098,13 +1124,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.9078947368421053,
+        "C8_caro_wei": 1.9078947368421053,
         "C3_hallelujah": 4.495600164897125,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.9078947368421053,
       "in_residue": false,
       "kernel_fraction": 0.0,
@@ -1116,7 +1142,7 @@
       "degree_auc": 0.6303258145363408,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.14362550000078045
+      "elapsed_seconds": 0.1687514000077499
     },
     {
       "family": "kr_fixedweight (k=6, |x|=3, s=16)",
@@ -1142,7 +1168,9 @@
         "c9": 66,
         "c10": 66,
         "c11": 66,
-        "c12": 66
+        "c12": 66,
+        "c13": 66,
+        "c14": 66
       },
       "final": 66,
       "tau": 66,
@@ -1158,13 +1186,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.7121212121212122,
+        "C8_caro_wei": 1.7121212121212122,
         "C3_hallelujah": 2.5414018965194565,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7121212121212122,
       "in_residue": false,
       "kernel_fraction": 0.2911392405063291,
@@ -1176,7 +1204,7 @@
       "degree_auc": 0.7976778656126482,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.17794940000021597
+      "elapsed_seconds": 0.2011147000011988
     },
     {
       "family": "kr_fixedweight (k=5, |x|=2, s=16)",
@@ -1202,7 +1230,9 @@
         "c9": 96,
         "c10": 96,
         "c11": 96,
-        "c12": 96
+        "c12": 96,
+        "c13": 96,
+        "c14": 96
       },
       "final": 96,
       "tau": 96,
@@ -1218,13 +1248,13 @@
       "ls_repair": 12,
       "certificates": {
         "C1_matching": 1.6666666666666667,
-        "C2_caro_wei": 1.5729166666666667,
+        "C8_caro_wei": 1.5729166666666667,
         "C3_hallelujah": 4.827828888068578,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.5729166666666667,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -1236,7 +1266,7 @@
       "degree_auc": 0.45328776041666663,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.06278880000172649
+      "elapsed_seconds": 0.09320960000331979
     },
     {
       "family": "planted_regular (alpha=0.45, d=6)",
@@ -1262,7 +1292,9 @@
         "c9": 88,
         "c10": 88,
         "c11": 88,
-        "c12": 88
+        "c12": 88,
+        "c13": 88,
+        "c14": 88
       },
       "final": 88,
       "tau": 88,
@@ -1278,13 +1310,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.8181818181818181,
-        "C2_caro_wei": 1.5568181818181819,
+        "C8_caro_wei": 1.5568181818181819,
         "C3_hallelujah": 3.1254379858358705,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.5568181818181819,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -1296,7 +1328,7 @@
       "degree_auc": 0.5909090909090908,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.02566800000204239
+      "elapsed_seconds": 0.05013699999835808
     },
     {
       "family": "planted_regular (alpha=0.48, d=10)",
@@ -1322,7 +1354,9 @@
         "c9": 84,
         "c10": 84,
         "c11": 84,
-        "c12": 84
+        "c12": 84,
+        "c13": 84,
+        "c14": 84
       },
       "final": 84,
       "tau": 84,
@@ -1338,13 +1372,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.9047619047619047,
-        "C2_caro_wei": 1.7261904761904763,
+        "C8_caro_wei": 1.7261904761904763,
         "C3_hallelujah": 4.246642887334328,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7261904761904763,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -1356,7 +1390,7 @@
       "degree_auc": 0.6531954887218046,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.030743299997993745
+      "elapsed_seconds": 0.05734330000996124
     },
     {
       "family": "random_regular (d=3)",
@@ -1382,7 +1416,9 @@
         "c9": 89,
         "c10": 89,
         "c11": 89,
-        "c12": 89
+        "c12": 89,
+        "c13": 89,
+        "c14": 89
       },
       "final": 89,
       "tau": 89,
@@ -1398,13 +1434,13 @@
       "ls_repair": 3,
       "certificates": {
         "C1_matching": 1.797752808988764,
-        "C2_caro_wei": 1.348314606741573,
+        "C8_caro_wei": 1.348314606741573,
         "C3_hallelujah": 2.201788532838812,
         "C4_mtm_class": null,
         "C5_subcubic": 1.8333333333333333,
         "C6_regular": 1.5
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.348314606741573,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -1416,7 +1452,7 @@
       "degree_auc": 0.5,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.01578989999688929
+      "elapsed_seconds": 0.03638119999959599
     },
     {
       "family": "random_regular (d=6)",
@@ -1442,7 +1478,9 @@
         "c9": 106,
         "c10": 106,
         "c11": 106,
-        "c12": 106
+        "c12": 106,
+        "c13": 106,
+        "c14": 106
       },
       "final": 106,
       "tau": 105,
@@ -1458,13 +1496,13 @@
       "ls_repair": 2,
       "certificates": {
         "C1_matching": 1.5238095238095237,
-        "C2_caro_wei": 1.3047619047619048,
+        "C8_caro_wei": 1.3047619047619048,
         "C3_hallelujah": 2.6393155162954325,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": 1.7142857142857144
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.3047619047619048,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -1476,7 +1514,7 @@
       "degree_auc": 0.5,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.022807599998486694
+      "elapsed_seconds": 0.04802949998702388
     },
     {
       "family": "thinned_grid (70% edges)",
@@ -1502,7 +1540,9 @@
         "c9": 71,
         "c10": 71,
         "c11": 70,
-        "c12": 70
+        "c12": 70,
+        "c13": 70,
+        "c14": 70
       },
       "final": 70,
       "tau": 70,
@@ -1518,13 +1558,13 @@
       "ls_repair": 2,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.4285714285714286,
+        "C8_caro_wei": 1.4285714285714286,
         "C3_hallelujah": 2.136753211232941,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.4285714285714286,
       "in_residue": false,
       "kernel_fraction": 0.9787234042553191,
@@ -1536,7 +1576,7 @@
       "degree_auc": 0.6288732394366197,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.10985149999760324
+      "elapsed_seconds": 0.1333015999989584
     },
     {
       "family": "kr_sampled (k=4, p=0.45, s=16)",
@@ -1562,7 +1602,9 @@
         "c9": 83,
         "c10": 83,
         "c11": 83,
-        "c12": 83
+        "c12": 83,
+        "c13": 83,
+        "c14": 83
       },
       "final": 83,
       "tau": 83,
@@ -1578,13 +1620,13 @@
       "ls_repair": 1,
       "certificates": {
         "C1_matching": 1.8313253012048192,
-        "C2_caro_wei": 1.783132530120482,
+        "C8_caro_wei": 1.783132530120482,
         "C3_hallelujah": 4.767746856206648,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.783132530120482,
       "in_residue": false,
       "kernel_fraction": 0.78125,
@@ -1596,7 +1638,7 @@
       "degree_auc": 0.8996244719136286,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.057347499998286366
+      "elapsed_seconds": 0.0981616000062786
     },
     {
       "family": "kr_sampled (k=6, p=0.45, s=16)",
@@ -1622,7 +1664,9 @@
         "c9": 75,
         "c10": 75,
         "c11": 75,
-        "c12": 75
+        "c12": 75,
+        "c13": 75,
+        "c14": 75
       },
       "final": 75,
       "tau": 75,
@@ -1638,13 +1682,13 @@
       "ls_repair": 1,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.92,
+        "C8_caro_wei": 1.92,
         "C3_hallelujah": 4.267146012674391,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.92,
       "in_residue": false,
       "kernel_fraction": 0.1375,
@@ -1656,7 +1700,7 @@
       "degree_auc": 0.9606274509803922,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.03959730000497075
+      "elapsed_seconds": 0.07383310000295751
     },
     {
       "family": "kr_fixedweight (k=4, |x|=2, s=16)",
@@ -1682,7 +1726,9 @@
         "c9": 67,
         "c10": 67,
         "c11": 67,
-        "c12": 67
+        "c12": 67,
+        "c13": 67,
+        "c14": 67
       },
       "final": 67,
       "tau": 67,
@@ -1698,7 +1744,7 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 2.1492537313432836,
+        "C8_caro_wei": 2.1492537313432836,
         "C3_hallelujah": 4.8382575900237255,
         "C4_mtm_class": null,
         "C5_subcubic": null,
@@ -1716,7 +1762,7 @@
       "degree_auc": 0.7733108650296903,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.1492428999990807
+      "elapsed_seconds": 0.19442699999490287
     },
     {
       "family": "kr_fixedweight (k=6, |x|=3, s=16)",
@@ -1742,7 +1788,9 @@
         "c9": 64,
         "c10": 64,
         "c11": 64,
-        "c12": 64
+        "c12": 64,
+        "c13": 64,
+        "c14": 64
       },
       "final": 64,
       "tau": 64,
@@ -1758,13 +1806,13 @@
       "ls_repair": 1,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.796875,
+        "C8_caro_wei": 1.796875,
         "C3_hallelujah": 2.6342259214724053,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.796875,
       "in_residue": false,
       "kernel_fraction": 0.20125786163522014,
@@ -1776,7 +1824,7 @@
       "degree_auc": 0.8138157894736842,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.13097120000020368
+      "elapsed_seconds": 0.17412640000111423
     },
     {
       "family": "kr_fixedweight (k=5, |x|=2, s=16)",
@@ -1802,7 +1850,9 @@
         "c9": 96,
         "c10": 96,
         "c11": 96,
-        "c12": 96
+        "c12": 96,
+        "c13": 96,
+        "c14": 96
       },
       "final": 96,
       "tau": 96,
@@ -1818,13 +1868,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.6666666666666667,
-        "C2_caro_wei": 1.5833333333333333,
+        "C8_caro_wei": 1.5833333333333333,
         "C3_hallelujah": 4.992465608559405,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.5833333333333333,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -1836,7 +1886,7 @@
       "degree_auc": 0.489013671875,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.059860700006538536
+      "elapsed_seconds": 0.09285380000073928
     },
     {
       "family": "planted_regular (alpha=0.45, d=6)",
@@ -1862,7 +1912,9 @@
         "c9": 86,
         "c10": 86,
         "c11": 86,
-        "c12": 86
+        "c12": 86,
+        "c13": 86,
+        "c14": 86
       },
       "final": 86,
       "tau": 86,
@@ -1878,13 +1930,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.8604651162790697,
-        "C2_caro_wei": 1.5930232558139534,
+        "C8_caro_wei": 1.5930232558139534,
         "C3_hallelujah": 3.1876163167146045,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.5930232558139534,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -1896,7 +1948,7 @@
       "degree_auc": 0.5748742928975488,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.029545599994889926
+      "elapsed_seconds": 0.04623619999620132
     },
     {
       "family": "planted_regular (alpha=0.48, d=10)",
@@ -1922,7 +1974,9 @@
         "c9": 84,
         "c10": 84,
         "c11": 84,
-        "c12": 84
+        "c12": 84,
+        "c13": 84,
+        "c14": 84
       },
       "final": 84,
       "tau": 84,
@@ -1938,13 +1992,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.9047619047619047,
-        "C2_caro_wei": 1.7261904761904763,
+        "C8_caro_wei": 1.7261904761904763,
         "C3_hallelujah": 4.227041050108765,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7261904761904763,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -1956,7 +2010,7 @@
       "degree_auc": 0.6011904761904762,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.03318279999803053
+      "elapsed_seconds": 0.05652070000360254
     },
     {
       "family": "random_regular (d=3)",
@@ -1982,7 +2036,9 @@
         "c9": 89,
         "c10": 89,
         "c11": 89,
-        "c12": 89
+        "c12": 89,
+        "c13": 89,
+        "c14": 89
       },
       "final": 89,
       "tau": 89,
@@ -1998,13 +2054,13 @@
       "ls_repair": 3,
       "certificates": {
         "C1_matching": 1.797752808988764,
-        "C2_caro_wei": 1.348314606741573,
+        "C8_caro_wei": 1.348314606741573,
         "C3_hallelujah": 2.201788532838812,
         "C4_mtm_class": null,
         "C5_subcubic": 1.8333333333333333,
         "C6_regular": 1.5
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.348314606741573,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -2016,7 +2072,7 @@
       "degree_auc": 0.5,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.016738700003770646
+      "elapsed_seconds": 0.03632449998985976
     },
     {
       "family": "random_regular (d=6)",
@@ -2042,7 +2098,9 @@
         "c9": 105,
         "c10": 105,
         "c11": 105,
-        "c12": 105
+        "c12": 105,
+        "c13": 105,
+        "c14": 105
       },
       "final": 105,
       "tau": 105,
@@ -2058,13 +2116,13 @@
       "ls_repair": 3,
       "certificates": {
         "C1_matching": 1.5238095238095237,
-        "C2_caro_wei": 1.3047619047619048,
+        "C8_caro_wei": 1.3047619047619048,
         "C3_hallelujah": 2.6393155162954325,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": 1.7142857142857144
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.3047619047619048,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -2076,7 +2134,7 @@
       "degree_auc": 0.5,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.024055699999735225
+      "elapsed_seconds": 0.052907600009348243
     },
     {
       "family": "thinned_grid (70% edges)",
@@ -2102,7 +2160,9 @@
         "c9": 70,
         "c10": 70,
         "c11": 69,
-        "c12": 69
+        "c12": 69,
+        "c13": 69,
+        "c14": 69
       },
       "final": 69,
       "tau": 69,
@@ -2118,13 +2178,13 @@
       "ls_repair": 3,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.4492753623188406,
+        "C8_caro_wei": 1.4492753623188406,
         "C3_hallelujah": 2.1752652799181122,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.4492753623188406,
       "in_residue": false,
       "kernel_fraction": 0.1276595744680851,
@@ -2136,7 +2196,7 @@
       "degree_auc": 0.5604871175523349,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.10260109999944689
+      "elapsed_seconds": 0.124143399996683
     },
     {
       "family": "kr_sampled (k=4, p=0.45, s=16)",
@@ -2162,7 +2222,9 @@
         "c9": 168,
         "c10": 168,
         "c11": 168,
-        "c12": 168
+        "c12": 168,
+        "c13": 168,
+        "c14": 168
       },
       "final": 168,
       "tau": 168,
@@ -2178,13 +2240,13 @@
       "ls_repair": 4,
       "certificates": {
         "C1_matching": 1.9047619047619047,
-        "C2_caro_wei": 1.7976190476190477,
+        "C8_caro_wei": 1.7976190476190477,
         "C3_hallelujah": 5.3171400348220725,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7976190476190477,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -2196,7 +2258,7 @@
       "degree_auc": 0.794329573934837,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.16548109999712324
+      "elapsed_seconds": 0.22892599999613594
     },
     {
       "family": "kr_sampled (k=6, p=0.45, s=16)",
@@ -2222,7 +2284,9 @@
         "c9": 153,
         "c10": 153,
         "c11": 153,
-        "c12": 153
+        "c12": 153,
+        "c13": 153,
+        "c14": 153
       },
       "final": 153,
       "tau": 153,
@@ -2238,13 +2302,13 @@
       "ls_repair": 1,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.9019607843137254,
+        "C8_caro_wei": 1.9019607843137254,
         "C3_hallelujah": 4.4566797525035255,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.9019607843137254,
       "in_residue": false,
       "kernel_fraction": 0.06875,
@@ -2256,7 +2320,7 @@
       "degree_auc": 0.9232123987319478,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.09050179999758257
+      "elapsed_seconds": 0.1787218999961624
     },
     {
       "family": "kr_fixedweight (k=4, |x|=2, s=16)",
@@ -2282,7 +2346,9 @@
         "c9": 166,
         "c10": 166,
         "c11": 166,
-        "c12": 166
+        "c12": 166,
+        "c13": 166,
+        "c14": 166
       },
       "final": 166,
       "tau": 154,
@@ -2298,13 +2364,13 @@
       "ls_repair": 9,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.8896103896103895,
+        "C8_caro_wei": 1.8896103896103895,
         "C3_hallelujah": 4.472571857314594,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.8896103896103895,
       "in_residue": false,
       "kernel_fraction": 0.0,
@@ -2316,7 +2382,7 @@
       "degree_auc": 0.5862345485839462,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.3188344000009238
+      "elapsed_seconds": 0.49104379999334924
     },
     {
       "family": "kr_fixedweight (k=6, |x|=3, s=16)",
@@ -2342,7 +2408,9 @@
         "c9": 136,
         "c10": 136,
         "c11": 136,
-        "c12": 136
+        "c12": 136,
+        "c13": 136,
+        "c14": 136
       },
       "final": 136,
       "tau": 136,
@@ -2358,13 +2426,13 @@
       "ls_repair": 3,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.6691176470588236,
+        "C8_caro_wei": 1.6691176470588236,
         "C3_hallelujah": 2.521968071310677,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.6691176470588236,
       "in_residue": false,
       "kernel_fraction": 0.38064516129032255,
@@ -2376,7 +2444,7 @@
       "degree_auc": 0.7747210953346856,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.30668319999676896
+      "elapsed_seconds": 0.3977028999943286
     },
     {
       "family": "kr_fixedweight (k=5, |x|=2, s=16)",
@@ -2402,7 +2470,9 @@
         "c9": 186,
         "c10": 186,
         "c11": 186,
-        "c12": 186
+        "c12": 186,
+        "c13": 186,
+        "c14": 186
       },
       "final": 186,
       "tau": 186,
@@ -2418,13 +2488,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.7204301075268817,
-        "C2_caro_wei": 1.6290322580645162,
+        "C8_caro_wei": 1.6290322580645162,
         "C3_hallelujah": 5.037252605987777,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.6290322580645162,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -2436,7 +2506,7 @@
       "degree_auc": 0.5475244744021827,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.11836680000124034
+      "elapsed_seconds": 0.2228597999928752
     },
     {
       "family": "planted_regular (alpha=0.45, d=6)",
@@ -2462,7 +2532,9 @@
         "c9": 175,
         "c10": 175,
         "c11": 175,
-        "c12": 175
+        "c12": 175,
+        "c13": 175,
+        "c14": 175
       },
       "final": 175,
       "tau": 175,
@@ -2478,13 +2550,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.8285714285714285,
-        "C2_caro_wei": 1.5714285714285714,
+        "C8_caro_wei": 1.5714285714285714,
         "C3_hallelujah": 3.1598873655979105,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.5714285714285714,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -2496,7 +2568,7 @@
       "degree_auc": 0.5885714285714285,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.07796700000471901
+      "elapsed_seconds": 0.10996289999457076
     },
     {
       "family": "planted_regular (alpha=0.48, d=10)",
@@ -2522,7 +2594,9 @@
         "c9": 167,
         "c10": 167,
         "c11": 167,
-        "c12": 167
+        "c12": 167,
+        "c13": 167,
+        "c14": 167
       },
       "final": 167,
       "tau": 167,
@@ -2538,13 +2612,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.9161676646706587,
-        "C2_caro_wei": 1.7425149700598803,
+        "C8_caro_wei": 1.7425149700598803,
         "C3_hallelujah": 4.275891890722865,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7425149700598803,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -2556,7 +2630,7 @@
       "degree_auc": 0.6347305389221557,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.08409519999986514
+      "elapsed_seconds": 0.1404676000092877
     },
     {
       "family": "random_regular (d=3)",
@@ -2581,30 +2655,32 @@
         "c8": 182,
         "c9": 179,
         "c10": 179,
-        "c11": 179,
-        "c12": 179
+        "c11": 178,
+        "c12": 178,
+        "c13": 178,
+        "c14": 178
       },
-      "final": 179,
+      "final": 178,
       "tau": 177,
       "lower_bound": 177,
       "lp": 160.0,
       "nu": 160,
       "ke_gap": 1.10625,
       "planted_cover": null,
-      "ratio": 1.0112994350282485,
-      "ratio_upper_bound": 1.0112994350282485,
-      "excess": 2,
+      "ratio": 1.0056497175141244,
+      "ratio_upper_bound": 1.0056497175141244,
+      "excess": 1,
       "greedy_excess": 5,
-      "ls_repair": 3,
+      "ls_repair": 4,
       "certificates": {
         "C1_matching": 1.807909604519774,
-        "C2_caro_wei": 1.3559322033898304,
+        "C8_caro_wei": 1.3559322033898304,
         "C3_hallelujah": 2.214228016075189,
         "C4_mtm_class": null,
         "C5_subcubic": 1.8333333333333333,
         "C6_regular": 1.5
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.3559322033898304,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -2616,7 +2692,7 @@
       "degree_auc": 0.5,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.0366582999995444
+      "elapsed_seconds": 0.10758599999826401
     },
     {
       "family": "random_regular (d=6)",
@@ -2642,7 +2718,9 @@
         "c9": 207,
         "c10": 207,
         "c11": 207,
-        "c12": 207
+        "c12": 207,
+        "c13": 207,
+        "c14": 207
       },
       "final": 207,
       "tau": null,
@@ -2658,13 +2736,13 @@
       "ls_repair": 8,
       "certificates": {
         "C1_matching": 1.693121693121693,
-        "C2_caro_wei": 1.4497354497354498,
+        "C8_caro_wei": 1.4497354497354498,
         "C3_hallelujah": 2.9325727958838135,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": 1.7142857142857144
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.4497354497354498,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -2676,7 +2754,7 @@
       "degree_auc": 0.5,
       "auc_reference": "returned",
       "has_12_swap": false,
-      "elapsed_seconds": 0.04984169999806909
+      "elapsed_seconds": 0.10957469999266323
     },
     {
       "family": "thinned_grid (70% edges)",
@@ -2702,7 +2780,9 @@
         "c9": 142,
         "c10": 142,
         "c11": 141,
-        "c12": 141
+        "c12": 141,
+        "c13": 141,
+        "c14": 141
       },
       "final": 141,
       "tau": 141,
@@ -2718,13 +2798,13 @@
       "ls_repair": 4,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.4113475177304964,
+        "C8_caro_wei": 1.4113475177304964,
         "C3_hallelujah": 2.0603721859388204,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.4113475177304964,
       "in_residue": false,
       "kernel_fraction": 0.2097902097902098,
@@ -2736,7 +2816,7 @@
       "degree_auc": 0.6581071166544388,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.34862450000218814
+      "elapsed_seconds": 0.4064088000013726
     },
     {
       "family": "kr_sampled (k=4, p=0.45, s=16)",
@@ -2762,7 +2842,9 @@
         "c9": 186,
         "c10": 186,
         "c11": 186,
-        "c12": 186
+        "c12": 186,
+        "c13": 186,
+        "c14": 186
       },
       "final": 186,
       "tau": 185,
@@ -2778,13 +2860,13 @@
       "ls_repair": 2,
       "certificates": {
         "C1_matching": 1.7297297297297298,
-        "C2_caro_wei": 1.654054054054054,
+        "C8_caro_wei": 1.654054054054054,
         "C3_hallelujah": 5.41484203433772,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.654054054054054,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -2796,7 +2878,7 @@
       "degree_auc": 0.7662062062062063,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.2471335000009276
+      "elapsed_seconds": 0.2742780999979004
     },
     {
       "family": "kr_sampled (k=6, p=0.45, s=16)",
@@ -2822,7 +2904,9 @@
         "c9": 155,
         "c10": 155,
         "c11": 155,
-        "c12": 155
+        "c12": 155,
+        "c13": 155,
+        "c14": 155
       },
       "final": 155,
       "tau": 155,
@@ -2838,13 +2922,13 @@
       "ls_repair": 1,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.8774193548387097,
+        "C8_caro_wei": 1.8774193548387097,
         "C3_hallelujah": 4.432651090180431,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.8774193548387097,
       "in_residue": false,
       "kernel_fraction": 0.0877742946708464,
@@ -2856,7 +2940,7 @@
       "degree_auc": 0.9415027537372148,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.11404980000224896
+      "elapsed_seconds": 0.19598550000227988
     },
     {
       "family": "kr_fixedweight (k=4, |x|=2, s=16)",
@@ -2882,7 +2966,9 @@
         "c9": 156,
         "c10": 156,
         "c11": 156,
-        "c12": 156
+        "c12": 156,
+        "c13": 156,
+        "c14": 156
       },
       "final": 156,
       "tau": 155,
@@ -2898,13 +2984,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.864516129032258,
+        "C8_caro_wei": 1.864516129032258,
         "C3_hallelujah": 4.245698620489383,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.864516129032258,
       "in_residue": false,
       "kernel_fraction": 0.1125,
@@ -2916,7 +3002,7 @@
       "degree_auc": 0.7296187683284457,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.26821449999988545
+      "elapsed_seconds": 0.36016270000254735
     },
     {
       "family": "kr_fixedweight (k=6, |x|=3, s=16)",
@@ -2942,7 +3028,9 @@
         "c9": 124,
         "c10": 124,
         "c11": 124,
-        "c12": 124
+        "c12": 124,
+        "c13": 124,
+        "c14": 124
       },
       "final": 124,
       "tau": 124,
@@ -2958,13 +3046,13 @@
       "ls_repair": 3,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.7338709677419355,
+        "C8_caro_wei": 1.7338709677419355,
         "C3_hallelujah": 2.5156402150331427,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7338709677419355,
       "in_residue": false,
       "kernel_fraction": 0.18360655737704917,
@@ -2976,7 +3064,7 @@
       "degree_auc": 0.7974291570130101,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.2353161999999429
+      "elapsed_seconds": 0.2988242999999784
     },
     {
       "family": "kr_fixedweight (k=5, |x|=2, s=16)",
@@ -3002,7 +3090,9 @@
         "c9": 174,
         "c10": 174,
         "c11": 174,
-        "c12": 174
+        "c12": 174,
+        "c13": 174,
+        "c14": 174
       },
       "final": 174,
       "tau": 174,
@@ -3018,13 +3108,13 @@
       "ls_repair": 21,
       "certificates": {
         "C1_matching": 1.839080459770115,
-        "C2_caro_wei": 1.7413793103448276,
+        "C8_caro_wei": 1.7413793103448276,
         "C3_hallelujah": 5.241506489793446,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7413793103448276,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -3036,7 +3126,7 @@
       "degree_auc": 0.6956975279483546,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.13011489999917103
+      "elapsed_seconds": 0.22088710000389256
     },
     {
       "family": "planted_regular (alpha=0.45, d=6)",
@@ -3062,7 +3152,9 @@
         "c9": 175,
         "c10": 175,
         "c11": 175,
-        "c12": 175
+        "c12": 175,
+        "c13": 175,
+        "c14": 175
       },
       "final": 175,
       "tau": 175,
@@ -3078,13 +3170,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.8285714285714285,
-        "C2_caro_wei": 1.5714285714285714,
+        "C8_caro_wei": 1.5714285714285714,
         "C3_hallelujah": 3.1638227114773456,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.5714285714285714,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -3096,7 +3188,7 @@
       "degree_auc": 0.5885714285714285,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.05190250000305241
+      "elapsed_seconds": 0.10867059999145567
     },
     {
       "family": "planted_regular (alpha=0.48, d=10)",
@@ -3122,7 +3214,9 @@
         "c9": 167,
         "c10": 167,
         "c11": 167,
-        "c12": 167
+        "c12": 167,
+        "c13": 167,
+        "c14": 167
       },
       "final": 167,
       "tau": 167,
@@ -3138,13 +3232,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.9161676646706587,
-        "C2_caro_wei": 1.7425149700598803,
+        "C8_caro_wei": 1.7425149700598803,
         "C3_hallelujah": 4.277332966751238,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7425149700598803,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -3156,7 +3250,7 @@
       "degree_auc": 0.6646706586826348,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.07117830000061076
+      "elapsed_seconds": 0.12957200000528246
     },
     {
       "family": "random_regular (d=3)",
@@ -3181,30 +3275,32 @@
         "c8": 184,
         "c9": 180,
         "c10": 180,
-        "c11": 180,
-        "c12": 180
+        "c11": 179,
+        "c12": 178,
+        "c13": 178,
+        "c14": 178
       },
-      "final": 180,
+      "final": 178,
       "tau": 177,
       "lower_bound": 177,
       "lp": 160.0,
       "nu": 160,
       "ke_gap": 1.10625,
       "planted_cover": null,
-      "ratio": 1.0169491525423728,
-      "ratio_upper_bound": 1.0169491525423728,
-      "excess": 3,
+      "ratio": 1.0056497175141244,
+      "ratio_upper_bound": 1.0056497175141244,
+      "excess": 1,
       "greedy_excess": 7,
-      "ls_repair": 4,
+      "ls_repair": 6,
       "certificates": {
         "C1_matching": 1.807909604519774,
-        "C2_caro_wei": 1.3559322033898304,
+        "C8_caro_wei": 1.3559322033898304,
         "C3_hallelujah": 2.214228016075189,
         "C4_mtm_class": null,
         "C5_subcubic": 1.8333333333333333,
         "C6_regular": 1.5
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.3559322033898304,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -3216,7 +3312,7 @@
       "degree_auc": 0.5,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.03366720000485657
+      "elapsed_seconds": 0.08407299999089446
     },
     {
       "family": "random_regular (d=6)",
@@ -3242,7 +3338,9 @@
         "c9": 209,
         "c10": 209,
         "c11": 209,
-        "c12": 209
+        "c12": 209,
+        "c13": 209,
+        "c14": 209
       },
       "final": 209,
       "tau": null,
@@ -3258,13 +3356,13 @@
       "ls_repair": 6,
       "certificates": {
         "C1_matching": 1.693121693121693,
-        "C2_caro_wei": 1.4497354497354498,
+        "C8_caro_wei": 1.4497354497354498,
         "C3_hallelujah": 2.9325727958838135,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": 1.7142857142857144
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.4497354497354498,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -3276,7 +3374,7 @@
       "degree_auc": 0.5,
       "auc_reference": "returned",
       "has_12_swap": false,
-      "elapsed_seconds": 0.05144540000037523
+      "elapsed_seconds": 0.13552060000074562
     },
     {
       "family": "thinned_grid (70% edges)",
@@ -3302,7 +3400,9 @@
         "c9": 140,
         "c10": 140,
         "c11": 140,
-        "c12": 140
+        "c12": 140,
+        "c13": 140,
+        "c14": 140
       },
       "final": 140,
       "tau": 140,
@@ -3318,13 +3418,13 @@
       "ls_repair": 4,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.45,
+        "C8_caro_wei": 1.45,
         "C3_hallelujah": 2.1537974689870367,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.45,
       "in_residue": false,
       "kernel_fraction": 0.43205574912891986,
@@ -3336,7 +3436,7 @@
       "degree_auc": 0.6476190476190475,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.18779599999834318
+      "elapsed_seconds": 0.424426500001573
     },
     {
       "family": "kr_sampled (k=4, p=0.45, s=16)",
@@ -3362,7 +3462,9 @@
         "c9": 163,
         "c10": 163,
         "c11": 163,
-        "c12": 163
+        "c12": 163,
+        "c13": 163,
+        "c14": 163
       },
       "final": 163,
       "tau": 163,
@@ -3378,13 +3480,13 @@
       "ls_repair": 9,
       "certificates": {
         "C1_matching": 1.9631901840490797,
-        "C2_caro_wei": 1.8404907975460123,
+        "C8_caro_wei": 1.8404907975460123,
         "C3_hallelujah": 5.086033146945434,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.8404907975460123,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -3396,7 +3498,7 @@
       "degree_auc": 0.8452580985502716,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.1392799000022933
+      "elapsed_seconds": 0.40566600000602193
     },
     {
       "family": "kr_sampled (k=6, p=0.45, s=16)",
@@ -3422,7 +3524,9 @@
         "c9": 162,
         "c10": 162,
         "c11": 162,
-        "c12": 162
+        "c12": 162,
+        "c13": 162,
+        "c14": 162
       },
       "final": 162,
       "tau": 162,
@@ -3438,13 +3542,13 @@
       "ls_repair": 6,
       "certificates": {
         "C1_matching": 1.9135802469135803,
-        "C2_caro_wei": 1.7592592592592593,
+        "C8_caro_wei": 1.7592592592592593,
         "C3_hallelujah": 4.102601462047167,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7592592592592593,
       "in_residue": false,
       "kernel_fraction": 0.917981072555205,
@@ -3456,7 +3560,7 @@
       "degree_auc": 0.8782755874153724,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.09521689999382943
+      "elapsed_seconds": 0.367858099998557
     },
     {
       "family": "kr_fixedweight (k=4, |x|=2, s=16)",
@@ -3482,7 +3586,9 @@
         "c9": 152,
         "c10": 152,
         "c11": 152,
-        "c12": 152
+        "c12": 152,
+        "c13": 152,
+        "c14": 152
       },
       "final": 152,
       "tau": 152,
@@ -3498,13 +3604,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.9078947368421053,
+        "C8_caro_wei": 1.9078947368421053,
         "C3_hallelujah": 4.490146715847779,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.9078947368421053,
       "in_residue": false,
       "kernel_fraction": 0.0,
@@ -3516,7 +3622,7 @@
       "degree_auc": 0.5754229323308271,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.3391300000002957
+      "elapsed_seconds": 0.6386517000064487
     },
     {
       "family": "kr_fixedweight (k=6, |x|=3, s=16)",
@@ -3542,7 +3648,9 @@
         "c9": 134,
         "c10": 134,
         "c11": 134,
-        "c12": 134
+        "c12": 134,
+        "c13": 134,
+        "c14": 134
       },
       "final": 134,
       "tau": 134,
@@ -3558,13 +3666,13 @@
       "ls_repair": 1,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.671641791044776,
+        "C8_caro_wei": 1.671641791044776,
         "C3_hallelujah": 2.567915916116642,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.671641791044776,
       "in_residue": false,
       "kernel_fraction": 0.3092105263157895,
@@ -3576,7 +3684,7 @@
       "degree_auc": 0.7712906057945567,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.23423969999566907
+      "elapsed_seconds": 0.4944063000002643
     },
     {
       "family": "kr_fixedweight (k=5, |x|=2, s=16)",
@@ -3602,7 +3710,9 @@
         "c9": 195,
         "c10": 195,
         "c11": 195,
-        "c12": 195
+        "c12": 195,
+        "c13": 195,
+        "c14": 195
       },
       "final": 195,
       "tau": 192,
@@ -3618,13 +3728,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.6666666666666667,
-        "C2_caro_wei": 1.578125,
+        "C8_caro_wei": 1.578125,
         "C3_hallelujah": 4.872696894621561,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.578125,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -3636,7 +3746,7 @@
       "degree_auc": 0.47271728515625,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.11584039999434026
+      "elapsed_seconds": 0.364310300006764
     },
     {
       "family": "planted_regular (alpha=0.45, d=6)",
@@ -3662,7 +3772,9 @@
         "c9": 176,
         "c10": 176,
         "c11": 176,
-        "c12": 176
+        "c12": 176,
+        "c13": 176,
+        "c14": 176
       },
       "final": 176,
       "tau": 176,
@@ -3678,13 +3790,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.8181818181818181,
-        "C2_caro_wei": 1.5568181818181819,
+        "C8_caro_wei": 1.5568181818181819,
         "C3_hallelujah": 3.1379981056210884,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.5568181818181819,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -3696,7 +3808,7 @@
       "degree_auc": 0.5852272727272727,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.07349879999674158
+      "elapsed_seconds": 0.24349120000260882
     },
     {
       "family": "planted_regular (alpha=0.48, d=10)",
@@ -3722,7 +3834,9 @@
         "c9": 167,
         "c10": 167,
         "c11": 167,
-        "c12": 167
+        "c12": 167,
+        "c13": 167,
+        "c14": 167
       },
       "final": 167,
       "tau": 167,
@@ -3738,13 +3852,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.9161676646706587,
-        "C2_caro_wei": 1.7425149700598803,
+        "C8_caro_wei": 1.7425149700598803,
         "C3_hallelujah": 4.27208009335389,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7425149700598803,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -3756,7 +3870,7 @@
       "degree_auc": 0.6467065868263473,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.0724527999991551
+      "elapsed_seconds": 0.2390253999910783
     },
     {
       "family": "random_regular (d=3)",
@@ -3782,7 +3896,9 @@
         "c9": 178,
         "c10": 178,
         "c11": 178,
-        "c12": 178
+        "c12": 178,
+        "c13": 178,
+        "c14": 178
       },
       "final": 178,
       "tau": 177,
@@ -3798,13 +3914,13 @@
       "ls_repair": 4,
       "certificates": {
         "C1_matching": 1.807909604519774,
-        "C2_caro_wei": 1.3559322033898304,
+        "C8_caro_wei": 1.3559322033898304,
         "C3_hallelujah": 2.214228016075189,
         "C4_mtm_class": null,
         "C5_subcubic": 1.8333333333333333,
         "C6_regular": 1.5
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.3559322033898304,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -3816,7 +3932,7 @@
       "degree_auc": 0.5,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.032892199997149874
+      "elapsed_seconds": 0.16417309999815188
     },
     {
       "family": "random_regular (d=6)",
@@ -3842,30 +3958,32 @@
         "c9": 212,
         "c10": 212,
         "c11": 212,
-        "c12": 212
+        "c12": 212,
+        "c13": 212,
+        "c14": 212
       },
       "final": 212,
       "tau": null,
-      "lower_bound": 190,
+      "lower_bound": 189,
       "lp": 160.0,
       "nu": 160,
       "ke_gap": null,
       "planted_cover": null,
       "ratio": null,
-      "ratio_upper_bound": 1.1157894736842104,
+      "ratio_upper_bound": 1.1216931216931216,
       "excess": null,
       "greedy_excess": null,
       "ls_repair": 1,
       "certificates": {
-        "C1_matching": 1.6842105263157894,
-        "C2_caro_wei": 1.4421052631578948,
-        "C3_hallelujah": 2.9171382022212673,
+        "C1_matching": 1.693121693121693,
+        "C8_caro_wei": 1.4497354497354498,
+        "C3_hallelujah": 2.9325727958838135,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": 1.7142857142857144
       },
-      "best_certificate": "C2_caro_wei",
-      "best_certified_ratio": 1.4421052631578948,
+      "best_certificate": "C8_caro_wei",
+      "best_certified_ratio": 1.4497354497354498,
       "in_residue": false,
       "kernel_fraction": 1.0,
       "nt_V1": 0,
@@ -3876,7 +3994,7 @@
       "degree_auc": 0.5,
       "auc_reference": "returned",
       "has_12_swap": false,
-      "elapsed_seconds": 0.05932310000207508
+      "elapsed_seconds": 0.1723067999992054
     },
     {
       "family": "thinned_grid (70% edges)",
@@ -3902,7 +4020,9 @@
         "c9": 142,
         "c10": 141,
         "c11": 141,
-        "c12": 141
+        "c12": 141,
+        "c13": 141,
+        "c14": 141
       },
       "final": 141,
       "tau": 141,
@@ -3918,13 +4038,13 @@
       "ls_repair": 4,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.4326241134751774,
+        "C8_caro_wei": 1.4326241134751774,
         "C3_hallelujah": 2.1274172438830488,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.4326241134751774,
       "in_residue": false,
       "kernel_fraction": 0.7157894736842105,
@@ -3936,7 +4056,7 @@
       "degree_auc": 0.6442572892040976,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.5483042999985628
+      "elapsed_seconds": 0.9052892000036081
     },
     {
       "family": "kr_sampled (k=4, p=0.45, s=16)",
@@ -3962,7 +4082,9 @@
         "c9": 344,
         "c10": 344,
         "c11": 344,
-        "c12": 344
+        "c12": 344,
+        "c13": 344,
+        "c14": 344
       },
       "final": 344,
       "tau": 342,
@@ -3978,13 +4100,13 @@
       "ls_repair": 3,
       "certificates": {
         "C1_matching": 1.871345029239766,
-        "C2_caro_wei": 1.7660818713450293,
+        "C8_caro_wei": 1.7660818713450293,
         "C3_hallelujah": 5.248760272025614,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7660818713450293,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -3996,7 +4118,7 @@
       "degree_auc": 0.7996291063228541,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.31894190000457456
+      "elapsed_seconds": 1.1330307999887737
     },
     {
       "family": "kr_sampled (k=6, p=0.45, s=16)",
@@ -4022,7 +4144,9 @@
         "c9": 309,
         "c10": 309,
         "c11": 309,
-        "c12": 309
+        "c12": 309,
+        "c13": 309,
+        "c14": 309
       },
       "final": 309,
       "tau": 309,
@@ -4038,13 +4162,13 @@
       "ls_repair": 3,
       "certificates": {
         "C1_matching": 1.993527508090615,
-        "C2_caro_wei": 1.8511326860841424,
+        "C8_caro_wei": 1.8511326860841424,
         "C3_hallelujah": 4.162530628788859,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.8511326860841424,
       "in_residue": false,
       "kernel_fraction": 0.554160125588697,
@@ -4056,7 +4180,7 @@
       "degree_auc": 0.9050092746073092,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.18197560000407975
+      "elapsed_seconds": 0.5215978999913204
     },
     {
       "family": "kr_fixedweight (k=4, |x|=2, s=16)",
@@ -4082,7 +4206,9 @@
         "c9": 323,
         "c10": 323,
         "c11": 323,
-        "c12": 323
+        "c12": 323,
+        "c13": 323,
+        "c14": 323
       },
       "final": 323,
       "tau": 316,
@@ -4098,13 +4224,13 @@
       "ls_repair": 7,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.8386075949367089,
+        "C8_caro_wei": 1.8386075949367089,
         "C3_hallelujah": 4.274916096980961,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.8386075949367089,
       "in_residue": false,
       "kernel_fraction": 0.0,
@@ -4116,7 +4242,7 @@
       "degree_auc": 0.5385118768557586,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.6645497000063187
+      "elapsed_seconds": 1.4237775999936275
     },
     {
       "family": "kr_fixedweight (k=6, |x|=3, s=16)",
@@ -4142,41 +4268,43 @@
         "c9": 261,
         "c10": 261,
         "c11": 261,
-        "c12": 261
+        "c12": 260,
+        "c13": 260,
+        "c14": 260
       },
-      "final": 261,
+      "final": 260,
       "tau": 260,
       "lower_bound": 260,
       "lp": 260.0,
       "nu": 260,
       "ke_gap": 1.0,
       "planted_cover": null,
-      "ratio": 1.0038461538461538,
-      "ratio_upper_bound": 1.0038461538461538,
-      "excess": 1,
+      "ratio": 1.0,
+      "ratio_upper_bound": 1.0,
+      "excess": 0,
       "greedy_excess": 5,
-      "ls_repair": 4,
+      "ls_repair": 5,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.7,
+        "C8_caro_wei": 1.7,
         "C3_hallelujah": 2.558363829882765,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7,
       "in_residue": false,
       "kernel_fraction": 0.24834437086092714,
       "nt_V1": 185,
       "nt_V0": 269,
-      "V1_in_cover": 0.9567567567567568,
-      "V0_outside_cover": 0.966542750929368,
-      "persistency_respected": false,
+      "V1_in_cover": 1.0,
+      "V0_outside_cover": 1.0,
+      "persistency_respected": true,
       "degree_auc": 0.7897025939177102,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.5969490999996196
+      "elapsed_seconds": 1.11932140000863
     },
     {
       "family": "kr_fixedweight (k=5, |x|=2, s=16)",
@@ -4202,7 +4330,9 @@
         "c9": 373,
         "c10": 373,
         "c11": 373,
-        "c12": 373
+        "c12": 373,
+        "c13": 373,
+        "c14": 373
       },
       "final": 373,
       "tau": null,
@@ -4218,13 +4348,13 @@
       "ls_repair": 3,
       "certificates": {
         "C1_matching": 1.7728531855955678,
-        "C2_caro_wei": 1.6786703601108033,
+        "C8_caro_wei": 1.6786703601108033,
         "C3_hallelujah": 5.156354052514045,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.6786703601108033,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -4236,7 +4366,7 @@
       "degree_auc": 0.5507877217820887,
       "auc_reference": "planted",
       "has_12_swap": false,
-      "elapsed_seconds": 0.3058264999999665
+      "elapsed_seconds": 0.6800408999988576
     },
     {
       "family": "planted_regular (alpha=0.45, d=6)",
@@ -4262,7 +4392,9 @@
         "c9": 351,
         "c10": 351,
         "c11": 351,
-        "c12": 351
+        "c12": 351,
+        "c13": 351,
+        "c14": 351
       },
       "final": 351,
       "tau": 351,
@@ -4278,13 +4410,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.8233618233618234,
-        "C2_caro_wei": 1.5698005698005697,
+        "C8_caro_wei": 1.5698005698005697,
         "C3_hallelujah": 3.1545276618946065,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.5698005698005697,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -4296,7 +4428,7 @@
       "degree_auc": 0.6153846153846154,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.10097940000559902
+      "elapsed_seconds": 0.2306968000048073
     },
     {
       "family": "planted_regular (alpha=0.48, d=10)",
@@ -4322,7 +4454,9 @@
         "c9": 333,
         "c10": 333,
         "c11": 333,
-        "c12": 333
+        "c12": 333,
+        "c13": 333,
+        "c14": 333
       },
       "final": 333,
       "tau": 333,
@@ -4338,13 +4472,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.921921921921922,
-        "C2_caro_wei": 1.7507507507507507,
+        "C8_caro_wei": 1.7507507507507507,
         "C3_hallelujah": 4.288431099125016,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7507507507507507,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -4356,7 +4490,7 @@
       "degree_auc": 0.6531531531531531,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.15518070000689477
+      "elapsed_seconds": 0.4032653000031132
     },
     {
       "family": "random_regular (d=3)",
@@ -4382,30 +4516,32 @@
         "c9": 355,
         "c10": 355,
         "c11": 355,
-        "c12": 355
+        "c12": 354,
+        "c13": 354,
+        "c14": 354
       },
-      "final": 355,
+      "final": 354,
       "tau": null,
-      "lower_bound": 341,
+      "lower_bound": 339,
       "lp": 320.0,
       "nu": 320,
       "ke_gap": null,
       "planted_cover": null,
       "ratio": null,
-      "ratio_upper_bound": 1.0410557184750733,
+      "ratio_upper_bound": 1.0442477876106195,
       "excess": null,
       "greedy_excess": null,
-      "ls_repair": 6,
+      "ls_repair": 7,
       "certificates": {
-        "C1_matching": 1.8768328445747802,
-        "C2_caro_wei": 1.4076246334310851,
-        "C3_hallelujah": 2.298641400852249,
+        "C1_matching": 1.887905604719764,
+        "C8_caro_wei": 1.415929203539823,
+        "C3_hallelujah": 2.3122027070519673,
         "C4_mtm_class": null,
         "C5_subcubic": 1.8333333333333333,
         "C6_regular": 1.5
       },
-      "best_certificate": "C2_caro_wei",
-      "best_certified_ratio": 1.4076246334310851,
+      "best_certificate": "C8_caro_wei",
+      "best_certified_ratio": 1.415929203539823,
       "in_residue": false,
       "kernel_fraction": 1.0,
       "nt_V1": 0,
@@ -4416,7 +4552,7 @@
       "degree_auc": 0.5,
       "auc_reference": "returned",
       "has_12_swap": false,
-      "elapsed_seconds": 0.06661139999778243
+      "elapsed_seconds": 0.3748163999989629
     },
     {
       "family": "random_regular (d=6)",
@@ -4442,30 +4578,32 @@
         "c9": 419,
         "c10": 419,
         "c11": 419,
-        "c12": 419
+        "c12": 419,
+        "c13": 419,
+        "c14": 419
       },
       "final": 419,
       "tau": null,
-      "lower_bound": 363,
+      "lower_bound": 360,
       "lp": 320.0,
       "nu": 320,
       "ke_gap": null,
       "planted_cover": null,
       "ratio": null,
-      "ratio_upper_bound": 1.1542699724517906,
+      "ratio_upper_bound": 1.163888888888889,
       "excess": null,
       "greedy_excess": null,
       "ls_repair": 9,
       "certificates": {
-        "C1_matching": 1.7630853994490359,
-        "C2_caro_wei": 1.5096418732782368,
-        "C3_hallelujah": 3.0537534899285994,
+        "C1_matching": 1.7777777777777777,
+        "C8_caro_wei": 1.5222222222222221,
+        "C3_hallelujah": 3.079201435678004,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": 1.7142857142857144
       },
-      "best_certificate": "C2_caro_wei",
-      "best_certified_ratio": 1.5096418732782368,
+      "best_certificate": "C8_caro_wei",
+      "best_certified_ratio": 1.5222222222222221,
       "in_residue": false,
       "kernel_fraction": 1.0,
       "nt_V1": 0,
@@ -4476,7 +4614,7 @@
       "degree_auc": 0.5,
       "auc_reference": "returned",
       "has_12_swap": false,
-      "elapsed_seconds": 0.10616079999454087
+      "elapsed_seconds": 0.223678900001687
     },
     {
       "family": "thinned_grid (70% edges)",
@@ -4501,42 +4639,44 @@
         "c8": 311,
         "c9": 306,
         "c10": 306,
-        "c11": 305,
-        "c12": 305
+        "c11": 302,
+        "c12": 302,
+        "c13": 302,
+        "c14": 302
       },
-      "final": 305,
+      "final": 302,
       "tau": 302,
       "lower_bound": 302,
       "lp": 302.0,
       "nu": 302,
       "ke_gap": 1.0,
       "planted_cover": null,
-      "ratio": 1.009933774834437,
-      "ratio_upper_bound": 1.009933774834437,
-      "excess": 3,
+      "ratio": 1.0,
+      "ratio_upper_bound": 1.0,
+      "excess": 0,
       "greedy_excess": 9,
-      "ls_repair": 6,
+      "ls_repair": 9,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.4569536423841059,
+        "C8_caro_wei": 1.4569536423841059,
         "C3_hallelujah": 2.1792809325778153,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.4569536423841059,
       "in_residue": false,
       "kernel_fraction": 0.1426256077795786,
       "nt_V1": 258,
       "nt_V0": 271,
-      "V1_in_cover": 0.6007751937984496,
-      "V0_outside_cover": 0.6088560885608856,
-      "persistency_respected": false,
+      "V1_in_cover": 1.0,
+      "V0_outside_cover": 1.0,
+      "persistency_respected": true,
       "degree_auc": 0.6343529906443814,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.3825649999998859
+      "elapsed_seconds": 0.7215861000004224
     },
     {
       "family": "kr_sampled (k=4, p=0.45, s=16)",
@@ -4562,7 +4702,9 @@
         "c9": 345,
         "c10": 345,
         "c11": 345,
-        "c12": 345
+        "c12": 345,
+        "c13": 345,
+        "c14": 345
       },
       "final": 345,
       "tau": 344,
@@ -4578,13 +4720,13 @@
       "ls_repair": 3,
       "certificates": {
         "C1_matching": 1.8604651162790697,
-        "C2_caro_wei": 1.755813953488372,
+        "C8_caro_wei": 1.755813953488372,
         "C3_hallelujah": 5.209949750778524,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.755813953488372,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -4596,7 +4738,7 @@
       "degree_auc": 0.8939395427404149,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.32159479999972973
+      "elapsed_seconds": 1.194670999990194
     },
     {
       "family": "kr_sampled (k=6, p=0.45, s=16)",
@@ -4622,7 +4764,9 @@
         "c9": 323,
         "c10": 323,
         "c11": 323,
-        "c12": 323
+        "c12": 323,
+        "c13": 323,
+        "c14": 323
       },
       "final": 323,
       "tau": 323,
@@ -4638,13 +4782,13 @@
       "ls_repair": 6,
       "certificates": {
         "C1_matching": 1.956656346749226,
-        "C2_caro_wei": 1.7956656346749227,
+        "C8_caro_wei": 1.7956656346749227,
         "C3_hallelujah": 4.219554887460079,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7956656346749227,
       "in_residue": false,
       "kernel_fraction": 0.9530516431924883,
@@ -4656,7 +4800,7 @@
       "degree_auc": 0.9082278481012658,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.233731499996793
+      "elapsed_seconds": 0.6961136000027182
     },
     {
       "family": "kr_fixedweight (k=4, |x|=2, s=16)",
@@ -4682,7 +4826,9 @@
         "c9": 317,
         "c10": 317,
         "c11": 317,
-        "c12": 317
+        "c12": 317,
+        "c13": 317,
+        "c14": 317
       },
       "final": 317,
       "tau": 315,
@@ -4698,13 +4844,13 @@
       "ls_repair": 5,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.838095238095238,
+        "C8_caro_wei": 1.838095238095238,
         "C3_hallelujah": 4.1967972349541345,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.838095238095238,
       "in_residue": false,
       "kernel_fraction": 0.040625,
@@ -4716,7 +4862,7 @@
       "degree_auc": 0.6751404151404151,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.6430392999973265
+      "elapsed_seconds": 1.5917119999940041
     },
     {
       "family": "kr_fixedweight (k=6, |x|=3, s=16)",
@@ -4742,7 +4888,9 @@
         "c9": 265,
         "c10": 265,
         "c11": 265,
-        "c12": 265
+        "c12": 265,
+        "c13": 265,
+        "c14": 265
       },
       "final": 265,
       "tau": 265,
@@ -4758,13 +4906,13 @@
       "ls_repair": 3,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.7207547169811321,
+        "C8_caro_wei": 1.7207547169811321,
         "C3_hallelujah": 2.589650696941656,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7207547169811321,
       "in_residue": false,
       "kernel_fraction": 0.24600638977635783,
@@ -4776,7 +4924,7 @@
       "degree_auc": 0.7753776198191606,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.48421320000488777
+      "elapsed_seconds": 0.9913910000032047
     },
     {
       "family": "kr_fixedweight (k=5, |x|=2, s=16)",
@@ -4802,30 +4950,32 @@
         "c9": 398,
         "c10": 398,
         "c11": 398,
-        "c12": 398
+        "c12": 398,
+        "c13": 398,
+        "c14": 398
       },
       "final": 398,
       "tau": null,
-      "lower_bound": 370,
+      "lower_bound": 368,
       "lp": 320.0,
       "nu": 320,
       "ke_gap": null,
       "planted_cover": 398,
       "ratio": null,
-      "ratio_upper_bound": 1.0756756756756756,
+      "ratio_upper_bound": 1.0815217391304348,
       "excess": null,
       "greedy_excess": null,
       "ls_repair": 13,
       "certificates": {
-        "C1_matching": 1.7297297297297298,
-        "C2_caro_wei": 1.6405405405405404,
-        "C3_hallelujah": 5.118987001127973,
+        "C1_matching": 1.7391304347826086,
+        "C8_caro_wei": 1.6494565217391304,
+        "C3_hallelujah": 5.146807582655842,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
-      "best_certified_ratio": 1.6405405405405404,
+      "best_certificate": "C8_caro_wei",
+      "best_certified_ratio": 1.6494565217391304,
       "in_residue": false,
       "kernel_fraction": 1.0,
       "nt_V1": 0,
@@ -4836,7 +4986,7 @@
       "degree_auc": 0.43605942937829645,
       "auc_reference": "planted",
       "has_12_swap": false,
-      "elapsed_seconds": 0.3006262999988394
+      "elapsed_seconds": 0.7767604000109714
     },
     {
       "family": "planted_regular (alpha=0.45, d=6)",
@@ -4862,7 +5012,9 @@
         "c9": 352,
         "c10": 352,
         "c11": 352,
-        "c12": 352
+        "c12": 352,
+        "c13": 352,
+        "c14": 352
       },
       "final": 352,
       "tau": 352,
@@ -4878,13 +5030,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.8181818181818181,
-        "C2_caro_wei": 1.5625,
+        "C8_caro_wei": 1.5625,
         "C3_hallelujah": 3.146968237988603,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.5625,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -4896,7 +5048,7 @@
       "degree_auc": 0.609375,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.11235909999959404
+      "elapsed_seconds": 0.44585420000657905
     },
     {
       "family": "planted_regular (alpha=0.48, d=10)",
@@ -4922,7 +5074,9 @@
         "c9": 333,
         "c10": 333,
         "c11": 333,
-        "c12": 333
+        "c12": 333,
+        "c13": 333,
+        "c14": 333
       },
       "final": 333,
       "tau": 333,
@@ -4938,13 +5092,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.921921921921922,
-        "C2_caro_wei": 1.7507507507507507,
+        "C8_caro_wei": 1.7507507507507507,
         "C3_hallelujah": 4.286950981699028,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7507507507507507,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -4956,7 +5110,7 @@
       "degree_auc": 0.6441441441441442,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.164507000001322
+      "elapsed_seconds": 0.28224210000189487
     },
     {
       "family": "random_regular (d=3)",
@@ -4981,31 +5135,33 @@
         "c8": 367,
         "c9": 356,
         "c10": 356,
-        "c11": 356,
-        "c12": 355
+        "c11": 355,
+        "c12": 353,
+        "c13": 353,
+        "c14": 353
       },
-      "final": 355,
+      "final": 353,
       "tau": null,
-      "lower_bound": 339,
+      "lower_bound": 338,
       "lp": 320.0,
       "nu": 320,
       "ke_gap": null,
       "planted_cover": null,
       "ratio": null,
-      "ratio_upper_bound": 1.047197640117994,
+      "ratio_upper_bound": 1.044378698224852,
       "excess": null,
       "greedy_excess": null,
-      "ls_repair": 11,
+      "ls_repair": 13,
       "certificates": {
-        "C1_matching": 1.887905604719764,
-        "C2_caro_wei": 1.415929203539823,
-        "C3_hallelujah": 2.3122027070519673,
+        "C1_matching": 1.893491124260355,
+        "C8_caro_wei": 1.4201183431952662,
+        "C3_hallelujah": 2.319043543463364,
         "C4_mtm_class": null,
         "C5_subcubic": 1.8333333333333333,
         "C6_regular": 1.5
       },
-      "best_certificate": "C2_caro_wei",
-      "best_certified_ratio": 1.415929203539823,
+      "best_certificate": "C8_caro_wei",
+      "best_certified_ratio": 1.4201183431952662,
       "in_residue": false,
       "kernel_fraction": 1.0,
       "nt_V1": 0,
@@ -5016,7 +5172,7 @@
       "degree_auc": 0.5,
       "auc_reference": "returned",
       "has_12_swap": false,
-      "elapsed_seconds": 0.07265680000273278
+      "elapsed_seconds": 0.16283539999858476
     },
     {
       "family": "random_regular (d=6)",
@@ -5042,9 +5198,11 @@
         "c9": 420,
         "c10": 420,
         "c11": 420,
-        "c12": 420
+        "c12": 417,
+        "c13": 417,
+        "c14": 417
       },
-      "final": 420,
+      "final": 417,
       "tau": null,
       "lower_bound": 364,
       "lp": 320.0,
@@ -5052,19 +5210,19 @@
       "ke_gap": null,
       "planted_cover": null,
       "ratio": null,
-      "ratio_upper_bound": 1.1538461538461537,
+      "ratio_upper_bound": 1.1456043956043955,
       "excess": null,
       "greedy_excess": null,
-      "ls_repair": 13,
+      "ls_repair": 16,
       "certificates": {
         "C1_matching": 1.7582417582417582,
-        "C2_caro_wei": 1.5054945054945055,
+        "C8_caro_wei": 1.5054945054945055,
         "C3_hallelujah": 3.0453640572639604,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": 1.7142857142857144
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.5054945054945055,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -5076,7 +5234,7 @@
       "degree_auc": 0.5,
       "auc_reference": "returned",
       "has_12_swap": false,
-      "elapsed_seconds": 0.11473609999666223
+      "elapsed_seconds": 0.2489520000090124
     },
     {
       "family": "thinned_grid (70% edges)",
@@ -5102,7 +5260,9 @@
         "c9": 305,
         "c10": 305,
         "c11": 303,
-        "c12": 303
+        "c12": 303,
+        "c13": 303,
+        "c14": 303
       },
       "final": 303,
       "tau": 303,
@@ -5118,13 +5278,13 @@
       "ls_repair": 4,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.4455445544554455,
+        "C8_caro_wei": 1.4455445544554455,
         "C3_hallelujah": 2.1500993719436723,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.4455445544554455,
       "in_residue": false,
       "kernel_fraction": 0.38064516129032255,
@@ -5136,7 +5296,7 @@
       "degree_auc": 0.6714453779762835,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.45992259999911766
+      "elapsed_seconds": 0.5440968000038993
     },
     {
       "family": "kr_sampled (k=4, p=0.45, s=16)",
@@ -5162,7 +5322,9 @@
         "c9": 330,
         "c10": 330,
         "c11": 330,
-        "c12": 330
+        "c12": 330,
+        "c13": 330,
+        "c14": 330
       },
       "final": 330,
       "tau": 329,
@@ -5178,13 +5340,13 @@
       "ls_repair": 6,
       "certificates": {
         "C1_matching": 1.939209726443769,
-        "C2_caro_wei": 1.8389057750759878,
+        "C8_caro_wei": 1.8389057750759878,
         "C3_hallelujah": 5.3867632589633985,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.8389057750759878,
       "in_residue": false,
       "kernel_fraction": 0.9953125,
@@ -5196,7 +5358,7 @@
       "degree_auc": 0.8482295565828438,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.32422950000182027
+      "elapsed_seconds": 0.5482072000013432
     },
     {
       "family": "kr_sampled (k=6, p=0.45, s=16)",
@@ -5222,7 +5384,9 @@
         "c9": 313,
         "c10": 313,
         "c11": 313,
-        "c12": 313
+        "c12": 313,
+        "c13": 313,
+        "c14": 313
       },
       "final": 313,
       "tau": 313,
@@ -5238,13 +5402,13 @@
       "ls_repair": 1,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.840255591054313,
+        "C8_caro_wei": 1.840255591054313,
         "C3_hallelujah": 4.282619936976498,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.840255591054313,
       "in_residue": false,
       "kernel_fraction": 0.08818897637795275,
@@ -5256,7 +5420,7 @@
       "degree_auc": 0.8931944912983947,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.20053489999554586
+      "elapsed_seconds": 0.38893990000360645
     },
     {
       "family": "kr_fixedweight (k=4, |x|=2, s=16)",
@@ -5282,7 +5446,9 @@
         "c9": 320,
         "c10": 320,
         "c11": 320,
-        "c12": 320
+        "c12": 320,
+        "c13": 320,
+        "c14": 320
       },
       "final": 320,
       "tau": 320,
@@ -5298,13 +5464,13 @@
       "ls_repair": 25,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.815625,
+        "C8_caro_wei": 1.815625,
         "C3_hallelujah": 4.259562840921403,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.815625,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -5316,7 +5482,7 @@
       "degree_auc": 0.4937939453125,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.6406716999990749
+      "elapsed_seconds": 0.7651550999871688
     },
     {
       "family": "kr_fixedweight (k=6, |x|=3, s=16)",
@@ -5342,7 +5508,9 @@
         "c9": 263,
         "c10": 263,
         "c11": 263,
-        "c12": 263
+        "c12": 263,
+        "c13": 263,
+        "c14": 263
       },
       "final": 263,
       "tau": 263,
@@ -5358,13 +5526,13 @@
       "ls_repair": 4,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.7452471482889733,
+        "C8_caro_wei": 1.7452471482889733,
         "C3_hallelujah": 2.5883517600893065,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7452471482889733,
       "in_residue": false,
       "kernel_fraction": 0.21553090332805072,
@@ -5376,7 +5544,7 @@
       "degree_auc": 0.8353653496445693,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.5790336999998544
+      "elapsed_seconds": 0.7181772000039928
     },
     {
       "family": "kr_fixedweight (k=5, |x|=2, s=16)",
@@ -5402,30 +5570,32 @@
         "c9": 392,
         "c10": 392,
         "c11": 392,
-        "c12": 392
+        "c12": 392,
+        "c13": 392,
+        "c14": 392
       },
       "final": 392,
       "tau": null,
-      "lower_bound": 353,
+      "lower_bound": 351,
       "lp": 320.0,
       "nu": 320,
       "ke_gap": null,
       "planted_cover": 391,
       "ratio": null,
-      "ratio_upper_bound": 1.1104815864022664,
+      "ratio_upper_bound": 1.1168091168091168,
       "excess": null,
       "greedy_excess": null,
       "ls_repair": 16,
       "certificates": {
-        "C1_matching": 1.8130311614730878,
-        "C2_caro_wei": 1.7195467422096318,
-        "C3_hallelujah": 5.29456431668208,
+        "C1_matching": 1.8233618233618234,
+        "C8_caro_wei": 1.7293447293447293,
+        "C3_hallelujah": 5.324732774326992,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
-      "best_certified_ratio": 1.7195467422096318,
+      "best_certificate": "C8_caro_wei",
+      "best_certified_ratio": 1.7293447293447293,
       "in_residue": false,
       "kernel_fraction": 1.0,
       "nt_V1": 0,
@@ -5436,7 +5606,7 @@
       "degree_auc": 0.47795786727472545,
       "auc_reference": "planted",
       "has_12_swap": false,
-      "elapsed_seconds": 0.2965033000000403
+      "elapsed_seconds": 0.48820200000773184
     },
     {
       "family": "planted_regular (alpha=0.45, d=6)",
@@ -5462,7 +5632,9 @@
         "c9": 349,
         "c10": 349,
         "c11": 349,
-        "c12": 349
+        "c12": 349,
+        "c13": 349,
+        "c14": 349
       },
       "final": 349,
       "tau": 349,
@@ -5478,13 +5650,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.833810888252149,
-        "C2_caro_wei": 1.5787965616045845,
+        "C8_caro_wei": 1.5787965616045845,
         "C3_hallelujah": 3.168660628287028,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.5787965616045845,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -5496,7 +5668,7 @@
       "degree_auc": 0.6117478510028653,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.10824770000181161
+      "elapsed_seconds": 0.2745059000008041
     },
     {
       "family": "planted_regular (alpha=0.48, d=10)",
@@ -5522,7 +5694,9 @@
         "c9": 333,
         "c10": 333,
         "c11": 333,
-        "c12": 333
+        "c12": 333,
+        "c13": 333,
+        "c14": 333
       },
       "final": 333,
       "tau": 333,
@@ -5538,13 +5712,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.921921921921922,
-        "C2_caro_wei": 1.7507507507507507,
+        "C8_caro_wei": 1.7507507507507507,
         "C3_hallelujah": 4.287851414617573,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7507507507507507,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -5556,7 +5730,7 @@
       "degree_auc": 0.6561561561561562,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.1762308999968809
+      "elapsed_seconds": 0.30249419999017846
     },
     {
       "family": "random_regular (d=3)",
@@ -5582,7 +5756,9 @@
         "c9": 356,
         "c10": 356,
         "c11": 356,
-        "c12": 356
+        "c12": 356,
+        "c13": 356,
+        "c14": 356
       },
       "final": 356,
       "tau": null,
@@ -5598,13 +5774,13 @@
       "ls_repair": 7,
       "certificates": {
         "C1_matching": 1.887905604719764,
-        "C2_caro_wei": 1.415929203539823,
+        "C8_caro_wei": 1.415929203539823,
         "C3_hallelujah": 2.3122027070519673,
         "C4_mtm_class": null,
         "C5_subcubic": 1.8333333333333333,
         "C6_regular": 1.5
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.415929203539823,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -5616,7 +5792,7 @@
       "degree_auc": 0.5,
       "auc_reference": "returned",
       "has_12_swap": false,
-      "elapsed_seconds": 0.06922119999944698
+      "elapsed_seconds": 0.16809239999565762
     },
     {
       "family": "random_regular (d=6)",
@@ -5642,9 +5818,11 @@
         "c9": 419,
         "c10": 419,
         "c11": 419,
-        "c12": 419
+        "c12": 417,
+        "c13": 417,
+        "c14": 417
       },
-      "final": 419,
+      "final": 417,
       "tau": null,
       "lower_bound": 365,
       "lp": 320.0,
@@ -5652,19 +5830,19 @@
       "ke_gap": null,
       "planted_cover": null,
       "ratio": null,
-      "ratio_upper_bound": 1.1479452054794521,
+      "ratio_upper_bound": 1.1424657534246576,
       "excess": null,
       "greedy_excess": null,
-      "ls_repair": 13,
+      "ls_repair": 15,
       "certificates": {
         "C1_matching": 1.7534246575342465,
-        "C2_caro_wei": 1.5013698630136987,
+        "C8_caro_wei": 1.5013698630136987,
         "C3_hallelujah": 3.037020594093374,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": 1.7142857142857144
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.5013698630136987,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -5676,7 +5854,7 @@
       "degree_auc": 0.5,
       "auc_reference": "returned",
       "has_12_swap": false,
-      "elapsed_seconds": 0.10999050000100397
+      "elapsed_seconds": 0.254808800003957
     },
     {
       "family": "thinned_grid (70% edges)",
@@ -5701,42 +5879,44 @@
         "c8": 321,
         "c9": 309,
         "c10": 309,
-        "c11": 308,
-        "c12": 308
+        "c11": 306,
+        "c12": 306,
+        "c13": 306,
+        "c14": 306
       },
-      "final": 308,
+      "final": 306,
       "tau": 306,
       "lower_bound": 306,
       "lp": 306.0,
       "nu": 306,
       "ke_gap": 1.0,
       "planted_cover": null,
-      "ratio": 1.0065359477124183,
-      "ratio_upper_bound": 1.0065359477124183,
-      "excess": 2,
+      "ratio": 1.0,
+      "ratio_upper_bound": 1.0,
+      "excess": 0,
       "greedy_excess": 15,
-      "ls_repair": 13,
+      "ls_repair": 15,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.4379084967320261,
+        "C8_caro_wei": 1.4379084967320261,
         "C3_hallelujah": 2.1535922917458232,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.4379084967320261,
       "in_residue": false,
       "kernel_fraction": 0.284789644012945,
       "nt_V1": 218,
       "nt_V0": 224,
-      "V1_in_cover": 0.8899082568807339,
-      "V0_outside_cover": 0.8839285714285714,
-      "persistency_respected": false,
+      "V1_in_cover": 1.0,
+      "V0_outside_cover": 1.0,
+      "persistency_respected": true,
       "degree_auc": 0.6196057482822188,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.43082940000022063
+      "elapsed_seconds": 0.49491789999592584
     },
     {
       "family": "kr_sampled (k=4, p=0.45, s=16)",
@@ -5762,30 +5942,32 @@
         "c9": 700,
         "c10": 700,
         "c11": 700,
-        "c12": 700
+        "c12": 700,
+        "c13": 700,
+        "c14": 700
       },
       "final": 700,
       "tau": null,
-      "lower_bound": 670,
+      "lower_bound": 669,
       "lp": 640.0,
       "nu": 640,
       "ke_gap": null,
       "planted_cover": 721,
       "ratio": null,
-      "ratio_upper_bound": 1.044776119402985,
+      "ratio_upper_bound": 1.046337817638266,
       "excess": null,
       "greedy_excess": null,
       "ls_repair": 10,
       "certificates": {
-        "C1_matching": 1.9104477611940298,
-        "C2_caro_wei": 1.8164179104477611,
-        "C3_hallelujah": 5.509395485192869,
+        "C1_matching": 1.913303437967115,
+        "C8_caro_wei": 1.8191330343796712,
+        "C3_hallelujah": 5.517630754976416,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
-      "best_certified_ratio": 1.8164179104477611,
+      "best_certificate": "C8_caro_wei",
+      "best_certified_ratio": 1.8191330343796712,
       "in_residue": false,
       "kernel_fraction": 1.0,
       "nt_V1": 0,
@@ -5796,7 +5978,7 @@
       "degree_auc": 0.7721014591640015,
       "auc_reference": "planted",
       "has_12_swap": false,
-      "elapsed_seconds": 0.7128161000000546
+      "elapsed_seconds": 1.2849022000009427
     },
     {
       "family": "kr_sampled (k=6, p=0.45, s=16)",
@@ -5822,7 +6004,9 @@
         "c9": 620,
         "c10": 620,
         "c11": 620,
-        "c12": 620
+        "c12": 620,
+        "c13": 620,
+        "c14": 620
       },
       "final": 620,
       "tau": 620,
@@ -5838,13 +6022,13 @@
       "ls_repair": 8,
       "certificates": {
         "C1_matching": 1.9935483870967743,
-        "C2_caro_wei": 1.8564516129032258,
+        "C8_caro_wei": 1.8564516129032258,
         "C3_hallelujah": 4.224682470458474,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.8564516129032258,
       "in_residue": false,
       "kernel_fraction": 0.3001567398119122,
@@ -5856,7 +6040,7 @@
       "degree_auc": 0.9258777537372148,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.4250010000032489
+      "elapsed_seconds": 0.8684486000129255
     },
     {
       "family": "kr_fixedweight (k=4, |x|=2, s=16)",
@@ -5882,7 +6066,9 @@
         "c9": 627,
         "c10": 627,
         "c11": 627,
-        "c12": 627
+        "c12": 627,
+        "c13": 627,
+        "c14": 627
       },
       "final": 627,
       "tau": 627,
@@ -5898,13 +6084,13 @@
       "ls_repair": 44,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.8516746411483254,
+        "C8_caro_wei": 1.8516746411483254,
         "C3_hallelujah": 4.32065570324813,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.8516746411483254,
       "in_residue": false,
       "kernel_fraction": 0.0359375,
@@ -5916,7 +6102,7 @@
       "degree_auc": 0.596419176857639,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 1.2649757999970461
+      "elapsed_seconds": 1.6491231999971205
     },
     {
       "family": "kr_fixedweight (k=6, |x|=3, s=16)",
@@ -5941,42 +6127,44 @@
         "c8": 561,
         "c9": 546,
         "c10": 546,
-        "c11": 546,
-        "c12": 546
+        "c11": 545,
+        "c12": 545,
+        "c13": 545,
+        "c14": 545
       },
-      "final": 546,
+      "final": 545,
       "tau": 545,
       "lower_bound": 545,
       "lp": 545.0,
       "nu": 545,
       "ke_gap": 1.0,
       "planted_cover": null,
-      "ratio": 1.001834862385321,
-      "ratio_upper_bound": 1.001834862385321,
-      "excess": 1,
+      "ratio": 1.0,
+      "ratio_upper_bound": 1.0,
+      "excess": 0,
       "greedy_excess": 16,
-      "ls_repair": 15,
+      "ls_repair": 16,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.6752293577981652,
+        "C8_caro_wei": 1.6752293577981652,
         "C3_hallelujah": 2.52467909744426,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.6752293577981652,
       "in_residue": false,
       "kernel_fraction": 0.21595487510072522,
       "nt_V1": 411,
       "nt_V0": 562,
-      "V1_in_cover": 0.9854014598540146,
-      "V0_outside_cover": 0.9875444839857651,
-      "persistency_respected": false,
+      "V1_in_cover": 1.0,
+      "V0_outside_cover": 1.0,
+      "persistency_respected": true,
       "degree_auc": 0.7983259517030475,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 1.0901087000020198
+      "elapsed_seconds": 1.3034962000092492
     },
     {
       "family": "kr_fixedweight (k=5, |x|=2, s=16)",
@@ -6002,7 +6190,9 @@
         "c9": 760,
         "c10": 760,
         "c11": 760,
-        "c12": 760
+        "c12": 760,
+        "c13": 760,
+        "c14": 760
       },
       "final": 760,
       "tau": null,
@@ -6018,13 +6208,13 @@
       "ls_repair": 16,
       "certificates": {
         "C1_matching": 1.855072463768116,
-        "C2_caro_wei": 1.7594202898550724,
+        "C8_caro_wei": 1.7594202898550724,
         "C3_hallelujah": 5.427684380092362,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7594202898550724,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -6036,7 +6226,7 @@
       "degree_auc": 0.4927460625663237,
       "auc_reference": "planted",
       "has_12_swap": false,
-      "elapsed_seconds": 0.5981333999952767
+      "elapsed_seconds": 0.9712414999958128
     },
     {
       "family": "planted_regular (alpha=0.45, d=6)",
@@ -6062,7 +6252,9 @@
         "c9": 700,
         "c10": 700,
         "c11": 700,
-        "c12": 700
+        "c12": 700,
+        "c13": 700,
+        "c14": 700
       },
       "final": 700,
       "tau": null,
@@ -6078,13 +6270,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.8906942392909896,
-        "C2_caro_wei": 1.6262924667651404,
+        "C8_caro_wei": 1.6262924667651404,
         "C3_hallelujah": 3.271205361408568,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.6262924667651404,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -6096,7 +6288,7 @@
       "degree_auc": 0.6186079545454546,
       "auc_reference": "planted",
       "has_12_swap": false,
-      "elapsed_seconds": 0.27585739999631187
+      "elapsed_seconds": 0.4939148999983445
     },
     {
       "family": "planted_regular (alpha=0.48, d=10)",
@@ -6122,7 +6314,9 @@
         "c9": 666,
         "c10": 666,
         "c11": 666,
-        "c12": 666
+        "c12": 666,
+        "c13": 666,
+        "c14": 666
       },
       "final": 666,
       "tau": 666,
@@ -6138,13 +6332,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.921921921921922,
-        "C2_caro_wei": 1.7522522522522523,
+        "C8_caro_wei": 1.7522522522522523,
         "C3_hallelujah": 4.29069218411181,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7522522522522523,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -6156,7 +6350,7 @@
       "degree_auc": 0.6599099099099099,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.3576117999982671
+      "elapsed_seconds": 1.0544181000004755
     },
     {
       "family": "random_regular (d=3)",
@@ -6181,31 +6375,33 @@
         "c8": 731,
         "c9": 713,
         "c10": 713,
-        "c11": 713,
-        "c12": 713
+        "c11": 710,
+        "c12": 708,
+        "c13": 708,
+        "c14": 708
       },
-      "final": 713,
+      "final": 708,
       "tau": null,
-      "lower_bound": 672,
+      "lower_bound": 659,
       "lp": 640.0,
       "nu": 640,
       "ke_gap": null,
       "planted_cover": null,
       "ratio": null,
-      "ratio_upper_bound": 1.0610119047619047,
+      "ratio_upper_bound": 1.0743550834597875,
       "excess": null,
       "greedy_excess": null,
-      "ls_repair": 18,
+      "ls_repair": 23,
       "certificates": {
-        "C1_matching": 1.9047619047619047,
-        "C2_caro_wei": 1.4285714285714286,
-        "C3_hallelujah": 2.332847374079217,
+        "C1_matching": 1.9423368740515934,
+        "C8_caro_wei": 1.456752655538695,
+        "C3_hallelujah": 2.3788671250094597,
         "C4_mtm_class": null,
         "C5_subcubic": 1.8333333333333333,
         "C6_regular": 1.5
       },
-      "best_certificate": "C2_caro_wei",
-      "best_certified_ratio": 1.4285714285714286,
+      "best_certificate": "C8_caro_wei",
+      "best_certified_ratio": 1.456752655538695,
       "in_residue": false,
       "kernel_fraction": 1.0,
       "nt_V1": 0,
@@ -6216,7 +6412,7 @@
       "degree_auc": 0.5,
       "auc_reference": "returned",
       "has_12_swap": false,
-      "elapsed_seconds": 0.13706809999712277
+      "elapsed_seconds": 0.34228680000524037
     },
     {
       "family": "random_regular (d=6)",
@@ -6242,7 +6438,9 @@
         "c9": 841,
         "c10": 841,
         "c11": 841,
-        "c12": 841
+        "c12": 841,
+        "c13": 841,
+        "c14": 841
       },
       "final": 841,
       "tau": null,
@@ -6258,13 +6456,13 @@
       "ls_repair": 21,
       "certificates": {
         "C1_matching": 1.8740849194729137,
-        "C2_caro_wei": 1.6061493411420205,
+        "C8_caro_wei": 1.6061493411420205,
         "C3_hallelujah": 3.246010298225715,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": 1.7142857142857144
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.6061493411420205,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -6276,7 +6474,7 @@
       "degree_auc": 0.5,
       "auc_reference": "returned",
       "has_12_swap": false,
-      "elapsed_seconds": 0.24404859999776818
+      "elapsed_seconds": 0.8967592000117293
     },
     {
       "family": "thinned_grid (70% edges)",
@@ -6301,42 +6499,44 @@
         "c8": 613,
         "c9": 600,
         "c10": 600,
-        "c11": 600,
-        "c12": 600
+        "c11": 597,
+        "c12": 597,
+        "c13": 597,
+        "c14": 597
       },
-      "final": 600,
+      "final": 597,
       "tau": 597,
       "lower_bound": 597,
       "lp": 597.0,
       "nu": 597,
       "ke_gap": 1.0,
       "planted_cover": null,
-      "ratio": 1.0050251256281406,
-      "ratio_upper_bound": 1.0050251256281406,
-      "excess": 3,
+      "ratio": 1.0,
+      "ratio_upper_bound": 1.0,
+      "excess": 0,
       "greedy_excess": 16,
-      "ls_repair": 13,
+      "ls_repair": 16,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.4455611390284757,
+        "C8_caro_wei": 1.4455611390284757,
         "C3_hallelujah": 2.152716546736393,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.4455611390284757,
       "in_residue": false,
       "kernel_fraction": 0.3811881188118812,
       "nt_V1": 366,
       "nt_V0": 384,
-      "V1_in_cover": 0.8633879781420765,
-      "V0_outside_cover": 0.8619791666666666,
-      "persistency_respected": false,
+      "V1_in_cover": 1.0,
+      "V0_outside_cover": 1.0,
+      "persistency_respected": true,
       "degree_auc": 0.6648200351350246,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.6716124999948079
+      "elapsed_seconds": 0.872544600002584
     },
     {
       "family": "kr_sampled (k=4, p=0.45, s=16)",
@@ -6362,30 +6562,32 @@
         "c9": 677,
         "c10": 677,
         "c11": 677,
-        "c12": 677
+        "c12": 677,
+        "c13": 677,
+        "c14": 677
       },
       "final": 677,
-      "tau": 677,
-      "lower_bound": 677,
+      "tau": null,
+      "lower_bound": 672,
       "lp": 640.0,
       "nu": 640,
-      "ke_gap": 1.0578125,
-      "planted_cover": null,
-      "ratio": 1.0,
-      "ratio_upper_bound": 1.0,
-      "excess": 0,
-      "greedy_excess": 9,
+      "ke_gap": null,
+      "planted_cover": 709,
+      "ratio": null,
+      "ratio_upper_bound": 1.0074404761904763,
+      "excess": null,
+      "greedy_excess": null,
       "ls_repair": 9,
       "certificates": {
-        "C1_matching": 1.8906942392909896,
-        "C2_caro_wei": 1.7843426883308715,
-        "C3_hallelujah": 5.175236203360364,
+        "C1_matching": 1.9047619047619047,
+        "C8_caro_wei": 1.7976190476190477,
+        "C3_hallelujah": 5.213742425111557,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
-      "best_certified_ratio": 1.7843426883308715,
+      "best_certificate": "C8_caro_wei",
+      "best_certified_ratio": 1.7976190476190477,
       "in_residue": false,
       "kernel_fraction": 1.0,
       "nt_V1": 0,
@@ -6393,10 +6595,10 @@
       "V1_in_cover": null,
       "V0_outside_cover": null,
       "persistency_respected": true,
-      "degree_auc": 0.9577187915665395,
-      "auc_reference": "optimum",
+      "degree_auc": 0.7503624897798878,
+      "auc_reference": "planted",
       "has_12_swap": false,
-      "elapsed_seconds": 0.660953900005552
+      "elapsed_seconds": 1.1480258999945363
     },
     {
       "family": "kr_sampled (k=6, p=0.45, s=16)",
@@ -6422,7 +6624,9 @@
         "c9": 644,
         "c10": 644,
         "c11": 644,
-        "c12": 644
+        "c12": 644,
+        "c13": 644,
+        "c14": 644
       },
       "final": 644,
       "tau": 644,
@@ -6438,13 +6642,13 @@
       "ls_repair": 4,
       "certificates": {
         "C1_matching": 1.968944099378882,
-        "C2_caro_wei": 1.8027950310559007,
+        "C8_caro_wei": 1.8027950310559007,
         "C3_hallelujah": 4.313225102761813,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.8027950310559007,
       "in_residue": false,
       "kernel_fraction": 0.9702194357366771,
@@ -6456,7 +6660,7 @@
       "degree_auc": 0.9122781370390753,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.4772050000028685
+      "elapsed_seconds": 1.6057414999959292
     },
     {
       "family": "kr_fixedweight (k=4, |x|=2, s=16)",
@@ -6482,7 +6686,9 @@
         "c9": 616,
         "c10": 616,
         "c11": 616,
-        "c12": 616
+        "c12": 616,
+        "c13": 616,
+        "c14": 616
       },
       "final": 616,
       "tau": 616,
@@ -6498,13 +6704,13 @@
       "ls_repair": 63,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.8863636363636365,
+        "C8_caro_wei": 1.8863636363636365,
         "C3_hallelujah": 4.428952363616435,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.8863636363636365,
       "in_residue": false,
       "kernel_fraction": 0.025,
@@ -6516,7 +6722,7 @@
       "degree_auc": 0.6120557717884525,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 1.3405230999997002
+      "elapsed_seconds": 1.636374199995771
     },
     {
       "family": "kr_fixedweight (k=6, |x|=3, s=16)",
@@ -6542,7 +6748,9 @@
         "c9": 522,
         "c10": 522,
         "c11": 522,
-        "c12": 522
+        "c12": 522,
+        "c13": 522,
+        "c14": 522
       },
       "final": 522,
       "tau": 522,
@@ -6558,13 +6766,13 @@
       "ls_repair": 5,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.7164750957854407,
+        "C8_caro_wei": 1.7164750957854407,
         "C3_hallelujah": 2.5471600775522663,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7164750957854407,
       "in_residue": false,
       "kernel_fraction": 0.3133116883116883,
@@ -6576,7 +6784,7 @@
       "degree_auc": 0.8143071070098753,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 1.2637964999958058
+      "elapsed_seconds": 1.4659888000023784
     },
     {
       "family": "kr_fixedweight (k=5, |x|=2, s=16)",
@@ -6602,30 +6810,32 @@
         "c9": 777,
         "c10": 777,
         "c11": 777,
-        "c12": 777
+        "c12": 777,
+        "c13": 777,
+        "c14": 777
       },
       "final": 777,
       "tau": null,
-      "lower_bound": 683,
+      "lower_bound": 679,
       "lp": 640.0,
       "nu": 640,
       "ke_gap": null,
       "planted_cover": 741,
       "ratio": null,
-      "ratio_upper_bound": 1.137628111273792,
+      "ratio_upper_bound": 1.1443298969072164,
       "excess": null,
       "greedy_excess": null,
       "ls_repair": 18,
       "certificates": {
-        "C1_matching": 1.8740849194729137,
-        "C2_caro_wei": 1.7759882869692534,
-        "C3_hallelujah": 5.458330980157482,
+        "C1_matching": 1.8851251840942562,
+        "C8_caro_wei": 1.7864506627393226,
+        "C3_hallelujah": 5.490486096388159,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
-      "best_certified_ratio": 1.7759882869692534,
+      "best_certificate": "C8_caro_wei",
+      "best_certified_ratio": 1.7864506627393226,
       "in_residue": false,
       "kernel_fraction": 1.0,
       "nt_V1": 0,
@@ -6636,7 +6846,7 @@
       "degree_auc": 0.5952681403809224,
       "auc_reference": "planted",
       "has_12_swap": false,
-      "elapsed_seconds": 0.5945735999994213
+      "elapsed_seconds": 0.9730457999976352
     },
     {
       "family": "planted_regular (alpha=0.45, d=6)",
@@ -6662,30 +6872,32 @@
         "c9": 698,
         "c10": 698,
         "c11": 698,
-        "c12": 698
+        "c12": 698,
+        "c13": 698,
+        "c14": 698
       },
       "final": 698,
       "tau": null,
-      "lower_bound": 681,
+      "lower_bound": 674,
       "lp": 640.0,
       "nu": 640,
       "ke_gap": null,
       "planted_cover": 704,
       "ratio": null,
-      "ratio_upper_bound": 1.0249632892804699,
+      "ratio_upper_bound": 1.0356083086053411,
       "excess": null,
       "greedy_excess": null,
       "ls_repair": 2,
       "certificates": {
-        "C1_matching": 1.8795888399412628,
-        "C2_caro_wei": 1.6167400881057268,
-        "C3_hallelujah": 3.250360169163198,
+        "C1_matching": 1.8991097922848665,
+        "C8_caro_wei": 1.6335311572700297,
+        "C3_hallelujah": 3.2841176189913024,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
-      "best_certified_ratio": 1.6167400881057268,
+      "best_certificate": "C8_caro_wei",
+      "best_certified_ratio": 1.6335311572700297,
       "in_residue": false,
       "kernel_fraction": 1.0,
       "nt_V1": 0,
@@ -6696,7 +6908,7 @@
       "degree_auc": 0.6079545454545454,
       "auc_reference": "planted",
       "has_12_swap": false,
-      "elapsed_seconds": 0.24113480000232812
+      "elapsed_seconds": 0.8901691000064602
     },
     {
       "family": "planted_regular (alpha=0.48, d=10)",
@@ -6722,7 +6934,9 @@
         "c9": 666,
         "c10": 666,
         "c11": 666,
-        "c12": 666
+        "c12": 666,
+        "c13": 666,
+        "c14": 666
       },
       "final": 666,
       "tau": null,
@@ -6738,13 +6952,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.9306184012066365,
-        "C2_caro_wei": 1.760180995475113,
+        "C8_caro_wei": 1.760180995475113,
         "C3_hallelujah": 4.309453034388655,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.760180995475113,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -6756,7 +6970,7 @@
       "degree_auc": 0.6531531531531531,
       "auc_reference": "planted",
       "has_12_swap": false,
-      "elapsed_seconds": 0.35314059999655
+      "elapsed_seconds": 1.0192275000008522
     },
     {
       "family": "random_regular (d=3)",
@@ -6781,31 +6995,33 @@
         "c8": 728,
         "c9": 712,
         "c10": 712,
-        "c11": 712,
-        "c12": 712
+        "c11": 711,
+        "c12": 709,
+        "c13": 709,
+        "c14": 709
       },
-      "final": 712,
+      "final": 709,
       "tau": null,
-      "lower_bound": 669,
+      "lower_bound": 655,
       "lp": 640.0,
       "nu": 640,
       "ke_gap": null,
       "planted_cover": null,
       "ratio": null,
-      "ratio_upper_bound": 1.0642750373692078,
+      "ratio_upper_bound": 1.082442748091603,
       "excess": null,
       "greedy_excess": null,
-      "ls_repair": 16,
+      "ls_repair": 19,
       "certificates": {
-        "C1_matching": 1.913303437967115,
-        "C2_caro_wei": 1.4349775784753362,
-        "C3_hallelujah": 2.3433085730661194,
+        "C1_matching": 1.9541984732824427,
+        "C8_caro_wei": 1.465648854961832,
+        "C3_hallelujah": 2.393394557833945,
         "C4_mtm_class": null,
         "C5_subcubic": 1.8333333333333333,
         "C6_regular": 1.5
       },
-      "best_certificate": "C2_caro_wei",
-      "best_certified_ratio": 1.4349775784753362,
+      "best_certificate": "C8_caro_wei",
+      "best_certified_ratio": 1.465648854961832,
       "in_residue": false,
       "kernel_fraction": 1.0,
       "nt_V1": 0,
@@ -6816,7 +7032,7 @@
       "degree_auc": 0.5,
       "auc_reference": "returned",
       "has_12_swap": false,
-      "elapsed_seconds": 0.16161610000563087
+      "elapsed_seconds": 0.4593482999916887
     },
     {
       "family": "random_regular (d=6)",
@@ -6842,30 +7058,32 @@
         "c9": 841,
         "c10": 841,
         "c11": 841,
-        "c12": 841
+        "c12": 841,
+        "c13": 841,
+        "c14": 840
       },
-      "final": 841,
+      "final": 840,
       "tau": null,
-      "lower_bound": 692,
+      "lower_bound": 679,
       "lp": 640.0,
       "nu": 640,
       "ke_gap": null,
       "planted_cover": null,
       "ratio": null,
-      "ratio_upper_bound": 1.2153179190751444,
+      "ratio_upper_bound": 1.2371134020618557,
       "excess": null,
       "greedy_excess": null,
-      "ls_repair": 18,
+      "ls_repair": 19,
       "certificates": {
-        "C1_matching": 1.8497109826589595,
-        "C2_caro_wei": 1.5852601156069364,
-        "C3_hallelujah": 3.203793401283473,
+        "C1_matching": 1.8851251840942562,
+        "C8_caro_wei": 1.6156111929307806,
+        "C3_hallelujah": 3.2651325974788854,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": 1.7142857142857144
       },
-      "best_certificate": "C2_caro_wei",
-      "best_certified_ratio": 1.5852601156069364,
+      "best_certificate": "C8_caro_wei",
+      "best_certified_ratio": 1.6156111929307806,
       "in_residue": false,
       "kernel_fraction": 1.0,
       "nt_V1": 0,
@@ -6876,7 +7094,7 @@
       "degree_auc": 0.5,
       "auc_reference": "returned",
       "has_12_swap": false,
-      "elapsed_seconds": 0.2503860000069835
+      "elapsed_seconds": 0.7970679999998538
     },
     {
       "family": "thinned_grid (70% edges)",
@@ -6901,42 +7119,44 @@
         "c8": 620,
         "c9": 604,
         "c10": 604,
-        "c11": 602,
-        "c12": 602
+        "c11": 599,
+        "c12": 599,
+        "c13": 599,
+        "c14": 599
       },
-      "final": 602,
+      "final": 599,
       "tau": 599,
       "lower_bound": 599,
       "lp": 599.0,
       "nu": 599,
       "ke_gap": 1.0,
       "planted_cover": null,
-      "ratio": 1.005008347245409,
-      "ratio_upper_bound": 1.005008347245409,
-      "excess": 3,
+      "ratio": 1.0,
+      "ratio_upper_bound": 1.0,
+      "excess": 0,
       "greedy_excess": 21,
-      "ls_repair": 18,
+      "ls_repair": 21,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.4490818030050083,
+        "C8_caro_wei": 1.4490818030050083,
         "C3_hallelujah": 2.1776579485865013,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.4490818030050083,
       "in_residue": false,
       "kernel_fraction": 0.6380165289256199,
       "nt_V1": 213,
       "nt_V0": 225,
-      "V1_in_cover": 0.92018779342723,
-      "V0_outside_cover": 0.92,
-      "persistency_respected": false,
+      "V1_in_cover": 1.0,
+      "V0_outside_cover": 1.0,
+      "persistency_respected": true,
       "degree_auc": 0.6245378959476924,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.8485107000014978
+      "elapsed_seconds": 1.738785599998664
     },
     {
       "family": "kr_sampled (k=4, p=0.45, s=16)",
@@ -6962,30 +7182,32 @@
         "c9": 695,
         "c10": 695,
         "c11": 695,
-        "c12": 695
+        "c12": 694,
+        "c13": 694,
+        "c14": 694
       },
-      "final": 695,
+      "final": 694,
       "tau": null,
-      "lower_bound": 662,
+      "lower_bound": 661,
       "lp": 639.0,
       "nu": 639,
       "ke_gap": null,
       "planted_cover": 695,
       "ratio": null,
-      "ratio_upper_bound": 1.0498489425981874,
+      "ratio_upper_bound": 1.0499243570347958,
       "excess": null,
       "greedy_excess": null,
-      "ls_repair": 12,
+      "ls_repair": 13,
       "certificates": {
-        "C1_matching": 1.9305135951661632,
-        "C2_caro_wei": 1.8217522658610272,
-        "C3_hallelujah": 5.314080866695376,
+        "C1_matching": 1.9334341906202723,
+        "C8_caro_wei": 1.8245083207261725,
+        "C3_hallelujah": 5.322120323377215,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
-      "best_certified_ratio": 1.8217522658610272,
+      "best_certificate": "C8_caro_wei",
+      "best_certified_ratio": 1.8245083207261725,
       "in_residue": false,
       "kernel_fraction": 0.99375,
       "nt_V1": 3,
@@ -6996,7 +7218,7 @@
       "degree_auc": 0.7750599520383693,
       "auc_reference": "planted",
       "has_12_swap": false,
-      "elapsed_seconds": 0.6628483000022243
+      "elapsed_seconds": 1.8663666999927955
     },
     {
       "family": "kr_sampled (k=6, p=0.45, s=16)",
@@ -7022,7 +7244,9 @@
         "c9": 625,
         "c10": 625,
         "c11": 625,
-        "c12": 625
+        "c12": 625,
+        "c13": 625,
+        "c14": 625
       },
       "final": 625,
       "tau": 625,
@@ -7038,13 +7262,13 @@
       "ls_repair": 8,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.8416,
+        "C8_caro_wei": 1.8416,
         "C3_hallelujah": 4.240239709481013,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.8416,
       "in_residue": false,
       "kernel_fraction": 0.8109803921568628,
@@ -7056,7 +7280,7 @@
       "degree_auc": 0.9157772307692308,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.44282530000054976
+      "elapsed_seconds": 1.5372912000020733
     },
     {
       "family": "kr_fixedweight (k=4, |x|=2, s=16)",
@@ -7082,7 +7306,9 @@
         "c9": 592,
         "c10": 592,
         "c11": 592,
-        "c12": 592
+        "c12": 592,
+        "c13": 592,
+        "c14": 592
       },
       "final": 592,
       "tau": 592,
@@ -7098,13 +7324,13 @@
       "ls_repair": 13,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.9594594594594594,
+        "C8_caro_wei": 1.9594594594594594,
         "C3_hallelujah": 4.527328079423222,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.9594594594594594,
       "in_residue": false,
       "kernel_fraction": 0.0109375,
@@ -7116,7 +7342,7 @@
       "degree_auc": 0.6584142736486487,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 1.2819708000024548
+      "elapsed_seconds": 2.7093007000075886
     },
     {
       "family": "kr_fixedweight (k=6, |x|=3, s=16)",
@@ -7142,7 +7368,9 @@
         "c9": 519,
         "c10": 519,
         "c11": 519,
-        "c12": 519
+        "c12": 519,
+        "c13": 519,
+        "c14": 519
       },
       "final": 519,
       "tau": 519,
@@ -7158,13 +7386,13 @@
       "ls_repair": 15,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.7283236994219653,
+        "C8_caro_wei": 1.7283236994219653,
         "C3_hallelujah": 2.560458425163904,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7283236994219653,
       "in_residue": false,
       "kernel_fraction": 0.17193836171938362,
@@ -7176,7 +7404,7 @@
       "degree_auc": 0.7969268632308415,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 1.0702692000049865
+      "elapsed_seconds": 2.28249230000074
     },
     {
       "family": "kr_fixedweight (k=5, |x|=2, s=16)",
@@ -7202,30 +7430,32 @@
         "c9": 776,
         "c10": 776,
         "c11": 776,
-        "c12": 776
+        "c12": 776,
+        "c13": 776,
+        "c14": 776
       },
       "final": 776,
       "tau": null,
-      "lower_bound": 683,
+      "lower_bound": 682,
       "lp": 640.0,
       "nu": 640,
       "ke_gap": null,
       "planted_cover": 776,
       "ratio": null,
-      "ratio_upper_bound": 1.136163982430454,
+      "ratio_upper_bound": 1.1378299120234605,
       "excess": null,
       "greedy_excess": null,
       "ls_repair": 15,
       "certificates": {
-        "C1_matching": 1.8740849194729137,
-        "C2_caro_wei": 1.7759882869692534,
-        "C3_hallelujah": 5.4160389441161545,
+        "C1_matching": 1.8768328445747802,
+        "C8_caro_wei": 1.778592375366569,
+        "C3_hallelujah": 5.423980350192571,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
-      "best_certified_ratio": 1.7759882869692534,
+      "best_certificate": "C8_caro_wei",
+      "best_certified_ratio": 1.778592375366569,
       "in_residue": false,
       "kernel_fraction": 1.0,
       "nt_V1": 0,
@@ -7236,7 +7466,7 @@
       "degree_auc": 0.483503109147439,
       "auc_reference": "planted",
       "has_12_swap": false,
-      "elapsed_seconds": 0.5858389000059105
+      "elapsed_seconds": 1.6163639000005787
     },
     {
       "family": "planted_regular (alpha=0.45, d=6)",
@@ -7262,30 +7492,32 @@
         "c9": 700,
         "c10": 700,
         "c11": 700,
-        "c12": 700
+        "c12": 700,
+        "c13": 700,
+        "c14": 700
       },
       "final": 700,
       "tau": null,
-      "lower_bound": 667,
+      "lower_bound": 666,
       "lp": 640.0,
       "nu": 640,
       "ke_gap": null,
       "planted_cover": 704,
       "ratio": null,
-      "ratio_upper_bound": 1.0494752623688155,
+      "ratio_upper_bound": 1.0510510510510511,
       "excess": null,
       "greedy_excess": null,
       "ls_repair": 1,
       "certificates": {
-        "C1_matching": 1.91904047976012,
-        "C2_caro_wei": 1.6506746626686657,
-        "C3_hallelujah": 3.31963996323579,
+        "C1_matching": 1.921921921921922,
+        "C8_caro_wei": 1.6531531531531531,
+        "C3_hallelujah": 3.3246244076250324,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
-      "best_certified_ratio": 1.6506746626686657,
+      "best_certificate": "C8_caro_wei",
+      "best_certified_ratio": 1.6531531531531531,
       "in_residue": false,
       "kernel_fraction": 1.0,
       "nt_V1": 0,
@@ -7296,7 +7528,7 @@
       "degree_auc": 0.6044034090909092,
       "auc_reference": "planted",
       "has_12_swap": false,
-      "elapsed_seconds": 0.24951440000586445
+      "elapsed_seconds": 0.8905304000072647
     },
     {
       "family": "planted_regular (alpha=0.48, d=10)",
@@ -7322,7 +7554,9 @@
         "c9": 666,
         "c10": 666,
         "c11": 666,
-        "c12": 666
+        "c12": 666,
+        "c13": 666,
+        "c14": 666
       },
       "final": 666,
       "tau": 666,
@@ -7338,13 +7572,13 @@
       "ls_repair": 0,
       "certificates": {
         "C1_matching": 1.921921921921922,
-        "C2_caro_wei": 1.7522522522522523,
+        "C8_caro_wei": 1.7522522522522523,
         "C3_hallelujah": 4.292360410243408,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.7522522522522523,
       "in_residue": false,
       "kernel_fraction": 1.0,
@@ -7356,7 +7590,7 @@
       "degree_auc": 0.6516516516516517,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.3758546000026399
+      "elapsed_seconds": 1.2204632999928435
     },
     {
       "family": "random_regular (d=3)",
@@ -7381,31 +7615,33 @@
         "c8": 725,
         "c9": 712,
         "c10": 712,
-        "c11": 712,
-        "c12": 712
+        "c11": 709,
+        "c12": 708,
+        "c13": 708,
+        "c14": 708
       },
-      "final": 712,
+      "final": 708,
       "tau": null,
-      "lower_bound": 659,
+      "lower_bound": 658,
       "lp": 640.0,
       "nu": 640,
       "ke_gap": null,
       "planted_cover": null,
       "ratio": null,
-      "ratio_upper_bound": 1.0804248861911987,
+      "ratio_upper_bound": 1.0759878419452888,
       "excess": null,
       "greedy_excess": null,
-      "ls_repair": 13,
+      "ls_repair": 17,
       "certificates": {
-        "C1_matching": 1.9423368740515934,
-        "C2_caro_wei": 1.456752655538695,
-        "C3_hallelujah": 2.3788671250094597,
+        "C1_matching": 1.9452887537993921,
+        "C8_caro_wei": 1.458966565349544,
+        "C3_hallelujah": 2.382482424591541,
         "C4_mtm_class": null,
         "C5_subcubic": 1.8333333333333333,
         "C6_regular": 1.5
       },
-      "best_certificate": "C2_caro_wei",
-      "best_certified_ratio": 1.456752655538695,
+      "best_certificate": "C8_caro_wei",
+      "best_certified_ratio": 1.458966565349544,
       "in_residue": false,
       "kernel_fraction": 1.0,
       "nt_V1": 0,
@@ -7416,7 +7652,7 @@
       "degree_auc": 0.5,
       "auc_reference": "returned",
       "has_12_swap": false,
-      "elapsed_seconds": 0.13854259999789065
+      "elapsed_seconds": 0.3497351999976672
     },
     {
       "family": "random_regular (d=6)",
@@ -7442,30 +7678,32 @@
         "c9": 842,
         "c10": 842,
         "c11": 842,
-        "c12": 842
+        "c12": 840,
+        "c13": 840,
+        "c14": 840
       },
-      "final": 842,
+      "final": 840,
       "tau": null,
-      "lower_bound": 711,
+      "lower_bound": 680,
       "lp": 640.0,
       "nu": 640,
       "ke_gap": null,
       "planted_cover": null,
       "ratio": null,
-      "ratio_upper_bound": 1.1842475386779183,
+      "ratio_upper_bound": 1.2352941176470589,
       "excess": null,
       "greedy_excess": null,
-      "ls_repair": 16,
+      "ls_repair": 18,
       "certificates": {
-        "C1_matching": 1.80028129395218,
-        "C2_caro_wei": 1.5428973277074542,
-        "C3_hallelujah": 3.118178669041017,
+        "C1_matching": 1.8823529411764706,
+        "C8_caro_wei": 1.613235294117647,
+        "C3_hallelujah": 3.2603309318943574,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": 1.7142857142857144
       },
-      "best_certificate": "C2_caro_wei",
-      "best_certified_ratio": 1.5428973277074542,
+      "best_certificate": "C8_caro_wei",
+      "best_certified_ratio": 1.613235294117647,
       "in_residue": false,
       "kernel_fraction": 1.0,
       "nt_V1": 0,
@@ -7476,7 +7714,7 @@
       "degree_auc": 0.5,
       "auc_reference": "returned",
       "has_12_swap": false,
-      "elapsed_seconds": 0.21059990000503603
+      "elapsed_seconds": 0.4722788000071887
     },
     {
       "family": "thinned_grid (70% edges)",
@@ -7501,43 +7739,45 @@
         "c8": 627,
         "c9": 604,
         "c10": 603,
-        "c11": 602,
-        "c12": 602
+        "c11": 600,
+        "c12": 600,
+        "c13": 600,
+        "c14": 600
       },
-      "final": 602,
+      "final": 600,
       "tau": 600,
       "lower_bound": 600,
       "lp": 600.0,
       "nu": 600,
       "ke_gap": 1.0,
       "planted_cover": null,
-      "ratio": 1.0033333333333334,
-      "ratio_upper_bound": 1.0033333333333334,
-      "excess": 2,
+      "ratio": 1.0,
+      "ratio_upper_bound": 1.0,
+      "excess": 0,
       "greedy_excess": 27,
-      "ls_repair": 25,
+      "ls_repair": 27,
       "certificates": {
         "C1_matching": 2.0,
-        "C2_caro_wei": 1.46,
+        "C8_caro_wei": 1.46,
         "C3_hallelujah": 2.2034732683752813,
         "C4_mtm_class": null,
         "C5_subcubic": null,
         "C6_regular": null
       },
-      "best_certificate": "C2_caro_wei",
+      "best_certificate": "C8_caro_wei",
       "best_certified_ratio": 1.46,
       "in_residue": false,
       "kernel_fraction": 0.36633663366336633,
       "nt_V1": 378,
       "nt_V0": 390,
-      "V1_in_cover": 0.6957671957671958,
-      "V0_outside_cover": 0.7,
-      "persistency_respected": false,
+      "V1_in_cover": 1.0,
+      "V0_outside_cover": 1.0,
+      "persistency_respected": true,
       "degree_auc": 0.6279901960784313,
       "auc_reference": "optimum",
       "has_12_swap": false,
-      "elapsed_seconds": 0.7536794999978156
+      "elapsed_seconds": 1.6056822999962606
     }
   ],
-  "elapsed_seconds": 3261.532350540161
+  "elapsed_seconds": 3509.741744995117
 }

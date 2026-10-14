@@ -3,7 +3,7 @@
   "python": "3.12.3",
   "platform": "Windows-11-10.0.26200-SP0",
   "networkx": "3.6.1",
-  "salvador": "0.1.1"
+  "salvador": "0.1.2"
  },
  "max_bag": 6,
  "order": "min_degree",

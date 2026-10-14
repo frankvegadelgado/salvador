@@ -1,6 +1,6 @@
 # Salvador: Approximate Vertex Cover Solver
 
-**Current version:** v0.1.1
+**Current version:** v0.1.2
 
 ![In Loving Memory of Salvador Vega (The Grandfather I Never Knew)](docs/salvador.jpg)
 
@@ -80,7 +80,7 @@ Vertex Cover Found `1, 3, 4`: Nodes `1`, `3`, and `4` constitute an optimal solu
 ## Installation
 
 ```bash
-pip install salvador==0.1.1
+pip install salvador==0.1.2
 ```
 
 ## Execution

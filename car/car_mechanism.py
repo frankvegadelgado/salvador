@@ -29,7 +29,7 @@ Optimum and certified bounds
 Which proved certificate of the paper already covers the instance
     For R0 = 1.999999999 the script evaluates, with tau or L:
     * C1 matching bound 2 nu / tau                       (Theorem matching);
-    * C2 Caro-Wei / min-degree-greedy bound (n - sum 1/(d+1)) / tau -- the
+    * C8 Caro-Wei / min-degree-greedy bound (n - sum 1/(d+1)) / tau -- the
       potential argument of the regular-graph theorem, which holds for every
       graph (the min-degree greedy independent set has at least
       sum_v 1/(deg v + 1) vertices);
@@ -55,7 +55,7 @@ Mechanism probes (the candidate explanations)
     H3 local optimality: the returned cover is checked for (1,2)-swap
        improvements; the excess |C| - tau is split into what the greedy
        candidates left (best of c1..c8 minus tau) and what local search
-       removed (c9, c12).
+       removed (c9, c14).
     H4 scaling: every family is generated at several sizes, so the excess
        ratio can be fitted against n (does it stay bounded, grow like
        log n, or tend to 0?).
@@ -319,7 +319,7 @@ def certificates(G, nu, ref_tau):
     if nu is not None:
         out["C1_matching"] = 2 * nu / ref_tau
     cw = sum(1.0 / (d + 1) for d in deg.values())
-    out["C2_caro_wei"] = (n - math.ceil(cw - 1e-9)) / ref_tau
+    out["C8_caro_wei"] = (n - math.ceil(cw - 1e-9)) / ref_tau
     W = sum(1.0 / max(deg[u], deg[v]) for u, v in G.edges())
     out["C3_hallelujah"] = math.sqrt(2 * m * W) / ref_tau
     out["C4_mtm_class"] = 1.0 if c4_class(G) else None
@@ -402,7 +402,7 @@ def run_instance(name, family, size, G, planted, args):
     cands = A.final_candidates(G, epsilon=cc.DEFAULT_EPSILON)
     elapsed = time.perf_counter() - t0
     sizes = {k: len(cands[k]) for k in NAMES}
-    C = cands["c12"]
+    C = cands["c14"]
     assert all(u in C or v in C for u, v in G.edges()), name
 
     lp, V0, V1, Vh = nt_decomposition(G)
@@ -522,7 +522,7 @@ def print_report(summary, scal):
           f" persistency respected on {alls['persistency_respected']}/{alls['instances']}")
     print(f"  H1 corr(excess, degree AUC) over all exact instances:      {f(alls['corr_excess_auc'], 3)}")
     print(f"  H3 mean relative excess after greedy (best c1..c8): {f(alls['mean_greedy_excess_rel'])};"
-          f" after local search (c12): {f(alls['mean_excess_rel'])}; (1,2)-swap left: {alls['with_12_swap']}")
+          f" after local search (c14): {f(alls['mean_excess_rel'])}; (1,2)-swap left: {alls['with_12_swap']}")
     print(f"  Residue: {alls['in_residue']}/{alls['instances']} instances have no proved certificate <= R0;"
           f" best certificate counts: {alls['best_certificate_counts']}")
     print("\n  H4 scaling (mean exact ratio, or certified upper bound when tau is unknown)")

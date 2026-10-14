@@ -1,28 +1,28 @@
 """car/ bipartite study: does Salvador need an exact bipartite strategy?
 
-Salvador 0.1.1 no longer has a bipartite-exact strategy (the former c10,
+Salvador 0.1.2 no longer has a bipartite-exact strategy (the former c10,
 Hopcroft-Karp + Koenig, which is O(m sqrt(n)) and therefore not linear). Its
 c10 is now the edge-dominating-set gadget solved by a linear-time treewidth
 DP on the bipartite components (a minimum EDS when the DP core is empty,
 decoded to a cover). This experiment measures, on bipartite graphs only, how
 far the linear-time ensemble is from the optimum, how far c10's own decoded
-cover (``c10_raw``) is from it, and how often c10 and c11 are exact.
+cover (``c10_raw``) is from it, and how often c10 and c13 are exact.
 
 For every instance the minimum vertex cover size tau(G) is computed *for
 reference only* (it is never given to Salvador) by a Hopcroft-Karp maximum
 matching: on a bipartite graph tau(G) = nu(G) by Koenig's theorem, so the
 reported ratio |C| / tau(G) is exact.
 
-The cover evaluated is ``c12``, the final cover of
+The cover evaluated is ``c14``, the final cover of
 ``salvador.algorithm.final_candidates`` (the same cover
 ``find_vertex_cover`` returns).
 
-Per instance the report gives every strategy size c1..c12, tau(G), the c12
-ratio and excess |c12| - tau(G), which strategies already reach tau(G),
+Per instance the report gives every strategy size c1..c14, tau(G), the c14
+ratio and excess |c14| - tau(G), which strategies already reach tau(G),
 c10's decoded cover before the comparison with its reference (``c10_raw``),
-whether c10 (minimum EDS) and c11 (minimum cover) were exact and their core
+whether c10 (minimum EDS) and c13 (minimum cover) were exact and their core
 sizes, and the time.
-Per family it gives how many instances c12 solved exactly, the worst ratio,
+Per family it gives how many instances c14 solved exactly, the worst ratio,
 the total excess, and how many instances each strategy solved exactly.
 
 Families (all bipartite, labels shuffled):
@@ -67,7 +67,7 @@ import car_common as cc
 from salvador.algorithm import CANDIDATE_NAMES, DEFAULT_EDS_BUDGET, DEFAULT_EDS_MAX_WIDTH, final_candidates
 
 SEED = 20261009
-NAMES = list(CANDIDATE_NAMES)  # c1..c12
+NAMES = list(CANDIDATE_NAMES)  # c1..c14
 
 
 # ----------------------------------------------------------------------------
@@ -220,7 +220,7 @@ def run_instance(name: str, group: str, G: nx.Graph, rng: random.Random, args) -
             raise AssertionError(f"{name}: strategy {k} is not a vertex cover")
         if len(C) < tau:
             raise AssertionError(f"{name}: strategy {k} is below tau -- impossible")
-    final = sizes["c12"]
+    final = sizes["c14"]
     row = {
         "group": group, "name": name, "n": G.number_of_nodes(), "m": G.number_of_edges(),
         "tau": tau, "sizes": sizes, "final": final,
@@ -231,14 +231,14 @@ def run_instance(name: str, group: str, G: nx.Graph, rng: random.Random, args) -
         "c10_raw": info.get("c10_raw_size", sizes["c10"]),
         "c10_core_size": info.get("c10_core_size", 0),
         "c10_width": info.get("c10_width", 0),
-        "c11_exact": bool(info.get("c11_exact", True)),
-        "c11_core_size": info.get("c11_core_size", 0),
+        "c13_exact": bool(info.get("c13_exact", True)),
+        "c13_core_size": info.get("c13_core_size", 0),
         "elapsed_seconds": elapsed,
     }
     print(f"  [bipartite] {group[:34]:34} {name:34} n={row['n']:>7,} tau={tau:>7,}"
-          f" c12={sizes['c12']:>7,} ratio={row['ratio']:.6f} excess={row['excess']:<4}"
+          f" c14={sizes['c14']:>7,} ratio={row['ratio']:.6f} excess={row['excess']:<4}"
           f" c10={'exact' if row['c10_exact'] else 'core=' + str(row['c10_core_size'])}"
-          f" c11={'exact' if row['c11_exact'] else 'core=' + str(row['c11_core_size'])} {elapsed:6.2f}s", flush=True)
+          f" c13={'exact' if row['c13_exact'] else 'core=' + str(row['c13_core_size'])} {elapsed:6.2f}s", flush=True)
     return row
 
 
@@ -269,7 +269,7 @@ def summarise(rows: list[dict]) -> dict:
             "c10_raw_optimal": sum(r["c10_raw"] == r["tau"] for r in grows),
             "c10_raw_excess": sum(r["c10_raw"] - r["tau"] for r in grows),
             "c10_mean_core_fraction": sum(r["c10_core_size"] / r["n"] for r in grows) / k if k else 0.0,
-            "c11_exact": sum(r["c11_exact"] for r in grows),
+            "c13_exact": sum(r["c13_exact"] for r in grows),
             "optimal_by_strategy": {s: sum(s in r["optimal_strategies"] for r in grows) for s in NAMES},
             "seconds": sum(r["elapsed_seconds"] for r in grows),
         }
@@ -278,14 +278,14 @@ def summarise(rows: list[dict]) -> dict:
 
 def print_table(summary: dict) -> None:
     header = (f"{'family':42} {'inst':>5} {'opt':>5} {'opt%':>6} {'max ratio':>10} {'excess':>7}"
-              f" {'c10ex':>5} {'raw10':>5} {'c11ex':>5}  optimal by strategy (c1..c12)")
-    print("\nBipartite graphs: final cover c12 against the exact optimum tau = nu (Koenig)")
+              f" {'c10ex':>5} {'raw10':>5} {'c13ex':>5}  optimal by strategy (c1..c14)")
+    print("\nBipartite graphs: final cover c14 against the exact optimum tau = nu (Koenig)")
     print(header)
     print("-" * len(header))
     for g, s in summary.items():
         by = " ".join(f"{s['optimal_by_strategy'][k]:>4}" for k in NAMES)
         print(f"{g[:42]:42} {s['instances']:>5} {s['optimal']:>5} {100 * s['optimal_rate']:5.1f}%"
-              f" {s['max_ratio']:10.6f} {s['total_excess']:>7} {s['c10_exact']:>5} {s['c10_raw_optimal']:>5} {s['c11_exact']:>5}  {by}")
+              f" {s['max_ratio']:10.6f} {s['total_excess']:>7} {s['c10_exact']:>5} {s['c10_raw_optimal']:>5} {s['c13_exact']:>5}  {by}")
     print("\nLegend: " + "; ".join(f"{k} = {v}" for k, v in CANDIDATE_NAMES.items()))
 
 
@@ -317,21 +317,21 @@ def main() -> None:
     out = cc.OUT_DIR
     with (out / "car_bipartite.csv").open("w", encoding="utf-8") as fh:
         fh.write("group,name,n,m,tau," + ",".join(NAMES)
-                 + ",final,ratio,excess,optimal,optimal_strategies,c10_exact,c10_raw,c10_core_size,c11_exact,c11_core_size,elapsed_seconds\n")
+                 + ",final,ratio,excess,optimal,optimal_strategies,c10_exact,c10_raw,c10_core_size,c13_exact,c13_core_size,elapsed_seconds\n")
         for r in rows:
             fh.write(f"\"{r['group']}\",{r['name']},{r['n']},{r['m']},{r['tau']},"
                      + ",".join(str(r["sizes"][k]) for k in NAMES)
                      + f",{r['final']},{r['ratio']:.6f},{r['excess']},{r['optimal']},"
                      + f"{'+'.join(r['optimal_strategies'])},{r['c10_exact']},{r['c10_raw']},{r['c10_core_size']},"
-                     + f"{r['c11_exact']},{r['c11_core_size']},"
+                     + f"{r['c13_exact']},{r['c13_core_size']},"
                      + f"{r['elapsed_seconds']:.3f}\n")
     with (out / "car_bipartite_summary.csv").open("w", encoding="utf-8") as fh:
         fh.write("group,instances,optimal,optimal_rate,max_ratio,mean_ratio,total_excess,total_tau,"
-                 "c10_exact,c10_raw_optimal,c10_raw_excess,c11_exact," + ",".join(f"optimal_{k}" for k in NAMES) + ",seconds\n")
+                 "c10_exact,c10_raw_optimal,c10_raw_excess,c13_exact," + ",".join(f"optimal_{k}" for k in NAMES) + ",seconds\n")
         for g, s in summary.items():
             fh.write(f"\"{g}\",{s['instances']},{s['optimal']},{s['optimal_rate']:.4f},{s['max_ratio']:.6f},"
                      f"{s['mean_ratio']:.6f},{s['total_excess']},{s['total_tau']},{s['c10_exact']},{s['c10_raw_optimal']},{s['c10_raw_excess']},"
-                     f"{s['c11_exact']}," + ",".join(str(s["optimal_by_strategy"][k]) for k in NAMES)
+                     f"{s['c13_exact']}," + ",".join(str(s["optimal_by_strategy"][k]) for k in NAMES)
                      + f",{s['seconds']:.2f}\n")
     (out / "car_bipartite.json").write_text(json.dumps(
         {"salvador_version": cc.__version__, "environment": cc.environment(), "seed": SEED,

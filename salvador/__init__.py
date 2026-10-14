@@ -15,6 +15,9 @@ __all__ = [
     "parser",
     "test",
     "treewidth_dp",
+    "reduce_search",
+    "split_domination",
+    "subdivision_reduction",
     "utils",
     "vc_reduction",
 ]

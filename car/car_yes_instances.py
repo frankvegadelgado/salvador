@@ -1,4 +1,4 @@
-"""car/ YES-type instances of the Khot-Regev reduction (Salvador 0.1.1).
+"""car/ YES-type instances of the Khot-Regev reduction (Salvador 0.1.2).
 
 Khot and Regev reduce Unique Games to Vertex Cover. A Unique Games instance
 is a graph H with a label set [k] and, on every edge (v, w), a permutation
@@ -49,10 +49,10 @@ Families vary the label size k, the bias p, the noise eta, the degree d and
 the number of samples per block s. Every vertex label is shuffled, so the
 block structure is not visible from the labels.
 
-Per instance the report gives n, m, every strategy size c1..c12, the planted
-cover n - |I'|, tau when exact, the final cover c12 (what
+Per instance the report gives n, m, every strategy size c1..c14, the planted
+cover n - |I'|, tau when exact, the final cover c14 (what
 ``find_vertex_cover`` returns), its ratio to the planted cover (a lower
-bound on the true ratio) and to tau when known, and whether c12 found the
+bound on the true ratio) and to tau when known, and whether c14 found the
 planted cover or better. It also gives c10's own decoded cover before the
 comparison with its reference (``c10_raw``).
 
@@ -86,7 +86,7 @@ import car_common as cc
 from salvador.algorithm import CANDIDATE_NAMES, DEFAULT_EDS_BUDGET, DEFAULT_EDS_MAX_WIDTH, final_candidates
 
 SEED = 20261009
-NAMES = list(CANDIDATE_NAMES)  # c1..c12
+NAMES = list(CANDIDATE_NAMES)  # c1..c14
 
 
 # ----------------------------------------------------------------------------
@@ -278,7 +278,7 @@ def run_instance(name: str, group: str, params: dict, rng: random.Random, args) 
             lower = max(lower, math.ceil(dual - 1e-6))
     if tau_exact:
         lower = tau
-    final = sizes["c12"]
+    final = sizes["c14"]
     row = {
         "group": group, "name": name, "params": params, "n": n, "m": m,
         "planted_independent": len(I), "planted_cover": planted,
@@ -292,12 +292,12 @@ def run_instance(name: str, group: str, params: dict, rng: random.Random, args) 
         "beats_or_matches_planted": final <= planted,
         "optimal": bool(tau_exact and final == tau),
         "c10_raw": info.get("c10_raw_size", sizes["c10"]),
-        "c11_exact": bool(info.get("c11_exact", False)),
+        "c13_exact": bool(info.get("c13_exact", False)),
         "elapsed_seconds": elapsed,
     }
     tau_txt = f"tau={tau:>6}" if tau_exact else "tau=     ?"
     print(f"  [yes] {group[:38]:38} {name:24} n={n:>6,} m={m:>8,} planted={planted:>6,} {tau_txt}"
-          f" c12={final:>6,} ratio/planted={row['ratio_vs_planted']:.4f}"
+          f" c14={final:>6,} ratio/planted={row['ratio_vs_planted']:.4f}"
           + (f" ratio/tau={row['ratio_vs_tau']:.4f}" if row["ratio_vs_tau"] else "")
           + f" {elapsed:6.2f}s", flush=True)
     return row
@@ -326,8 +326,8 @@ def summarise(rows: list[dict]) -> dict:
 
 def print_table(summary: dict) -> None:
     header = (f"{'family':42} {'inst':>5} {'<=plant':>7} {'max/plant':>9} {'mean/plant':>10}"
-              f" {'tau':>4} {'opt':>4} {'max/tau':>8}  attains |c12| (c1..c12)")
-    print("\nKhot-Regev YES instances: final cover c12 against the planted cover and tau")
+              f" {'tau':>4} {'opt':>4} {'max/tau':>8}  attains |c14| (c1..c14)")
+    print("\nKhot-Regev YES instances: final cover c14 against the planted cover and tau")
     print(header)
     print("-" * len(header))
     for g, s in summary.items():
@@ -336,7 +336,7 @@ def print_table(summary: dict) -> None:
         print(f"{g[:42]:42} {s['instances']:>5} {s['matches_or_beats_planted']:>7}"
               f" {s['max_ratio_vs_planted']:9.4f} {s['mean_ratio_vs_planted']:10.4f}"
               f" {s['tau_known']:>4} {s['optimal']:>4} {mt:>8}  {by}")
-    print("\nratio/planted = |c12| / |planted cover| is a lower bound on the true ratio |c12| / tau;"
+    print("\nratio/planted = |c14| / |planted cover| is a lower bound on the true ratio |c14| / tau;"
           " it is exact when the planted cover is optimal.")
     print("Legend: " + "; ".join(f"{k} = {v}" for k, v in CANDIDATE_NAMES.items()))
 
@@ -374,7 +374,7 @@ def main() -> None:
     with (out / "car_yes_instances.csv").open("w", encoding="utf-8") as fh:
         fh.write("group,name,N,d,k,p,eta,s,linear,n,m,planted_cover,tau," + ",".join(NAMES)
                  + ",final,ratio_vs_planted,ratio_vs_tau,lower_bound,ratio_upper_bound,beats_or_matches_planted,optimal,c10_raw,"
-                 + "c11_exact,elapsed_seconds\n")
+                 + "c13_exact,elapsed_seconds\n")
         for r in rows:
             q = r["params"]
             fh.write(f"\"{r['group']}\",{r['name']},{q['N']},{q['d']},{q['k']},{q['p']},{q['eta']},{q['s']},"
@@ -384,7 +384,7 @@ def main() -> None:
                      + (f"{r['ratio_vs_tau']:.6f}" if r["ratio_vs_tau"] else "")
                      + f",{r['lower_bound']},{r['ratio_upper_bound']:.6f}"
                      + f",{r['beats_or_matches_planted']},{r['optimal']},{r['c10_raw']},"
-                     + f"{r['c11_exact']},{r['elapsed_seconds']:.3f}\n")
+                     + f"{r['c13_exact']},{r['elapsed_seconds']:.3f}\n")
     with (out / "car_yes_instances_summary.csv").open("w", encoding="utf-8") as fh:
         fh.write("group,instances,matches_or_beats_planted,max_ratio_vs_planted,mean_ratio_vs_planted,"
                  "tau_known,optimal,max_ratio_vs_tau,max_ratio_upper_bound," + ",".join(f"attains_{k}" for k in NAMES) + ",seconds\n")

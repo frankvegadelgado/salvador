@@ -1,11 +1,11 @@
 group,instances,max_ratio_upper_bound,mean_ratio_upper_bound,max_ratio_upper_bound_legacy,all_valid,max_n,max_elapsed_seconds
-Barabasi-Albert scale-free hub graph,3,1.011470708725932,1.0072369279870481,1.3534808121435853,True,200000,78.941614
-Complete bipartite (dense),3,1.0,1.0,1.0,True,1600,105.919091
-Crown graph K_{h,h} minus perfect matching (dense, near-regular),3,1.0,1.0,1.0,True,1600,101.930787
-Double star + bridge (matching-heuristic stress),3,1.0,1.0,1.0,True,200002,55.685130
-Hierarchical star trap (degree-greedy tie-break stress),2,1.0,1.0,1.0,True,152917,43.108477
-Random 12-regular (bounded-degree adversarial),2,1.168312220566319,1.1675412034508614,1.5735134230994396,True,50000,26.220988
-Random 3-regular (bounded-degree adversarial),3,1.0789540147261671,1.07861390886166,1.2476159453661166,True,200000,45.556621
-Random 6-regular (bounded-degree adversarial),3,1.145175928511589,1.1446103667388585,1.4163129529425742,True,200000,85.869189
-Sparse Erdos-Renyi, avg degree 4,2,1.0661430850411093,1.0650518623237528,1.2574295638749518,True,50000,10.956905
-Watts-Strogatz small-world,2,1.0553337306317043,1.0550559692158223,1.417767106842737,True,50000,10.208158
+Barabasi-Albert scale-free hub graph,2,1.011470708725932,1.0083032495106714,1.348621830209482,True,50000,44.098855
+Complete bipartite (dense),2,1.0,1.0,1.0,True,800,43.123124
+Crown graph K_{h,h} minus perfect matching (dense, near-regular),2,1.0,1.0,1.0,True,800,41.860167
+Double star + bridge (matching-heuristic stress),2,1.0,1.0,1.0,True,20002,11.240114
+Hierarchical star trap (degree-greedy tie-break stress),2,1.0,1.0,1.0,True,152917,92.327362
+Random 12-regular (bounded-degree adversarial),2,1.1655799801291604,1.1649328472074374,1.569833570293552,True,50000,75.946933
+Random 3-regular (bounded-degree adversarial),2,1.0734682777108668,1.0720739446806762,1.2398474310074041,True,50000,27.614070
+Random 6-regular (bounded-degree adversarial),2,1.1402541189611841,1.1396392546025433,1.4099620165745856,True,50000,45.349236
+Sparse Erdos-Renyi, avg degree 4,1,1.0602706027060271,1.0602706027060271,1.251088534107402,True,5000,1.599874
+Watts-Strogatz small-world,2,1.0533671036948749,1.0528818251430612,1.4145658263305323,True,50000,18.281707
