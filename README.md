@@ -259,6 +259,7 @@ Each experiment writes its own result files, and `car/run_all_log.txt` records t
 | `car_c11_variants.py` | Compares the variants of strategy `c11`. |
 | `car_c10_bags.py` | Checks the bag sizes of the dynamic program of strategy `c10`. |
 | `car_c0_components.py` | Measures strategy `c0` (component amplification of the split graph before the NetworkX minimum maximal matching): both index rules against `c1`, tau (or a certified lower bound) and the rest of the ensemble. |
+| `car_c0_fix.py` | Tests the bound size(c0) <= 2 tau - r' (r' = number of components of the split graph) for the first `c0`, for all 24 decodings (four selection rules, three residual rules, two repairs) and for the repaired `c0` of version 0.1.3 stage by stage. On graphs with a known optimum it checks the bound exactly; on the others it marks each graph certified, refuted or undecided from a certified lower bound. The paper's `c0` study uses its full run, `python car/car_c0_fix.py`. |
 | `car_regular.py` | Runs regular graphs of increasing degree. |
 | `car_bipartite.py` | Runs bipartite graphs, where the optimum is known exactly. |
 | `car_yes_instances.py` | Runs YES instances of the Khot–Regev reduction from Unique Games. |
@@ -273,6 +274,7 @@ python car/car_ratio.py
 python car/car_bipartite.py
 python car/car_scaling.py --quick
 python car/car_triangle_free.py --quick
+python car/car_c0_fix.py                                # full c0 study (about 35 minutes)
 ```
 
 ---
