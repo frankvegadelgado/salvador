@@ -2,7 +2,7 @@ from pathlib import Path
 
 import setuptools
 
-VERSION = "0.1.2"
+VERSION = "0.1.3"
 NAME = "salvador"
 
 INSTALL_REQUIRES = [

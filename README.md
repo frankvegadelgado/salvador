@@ -1,6 +1,6 @@
 # Salvador: Approximate Vertex Cover Solver
 
-**Current version:** v0.1.2
+**Current version:** v0.1.3
 
 ![In Loving Memory of Salvador Vega (The Grandfather I Never Knew)](docs/salvador.jpg)
 
@@ -80,7 +80,7 @@ Vertex Cover Found `1, 3, 4`: Nodes `1`, `3`, and `4` constitute an optimal solu
 ## Installation
 
 ```bash
-pip install salvador==0.1.2
+pip install salvador==0.1.3
 ```
 
 ## Execution
@@ -230,7 +230,7 @@ python run_all.py --quick
 Install the package and its dependencies, then run a script from the repository root:
 
 ```bash
-pip install salvador==0.1.2
+pip install salvador==0.1.3
 python car/car_strategies.py
 ```
 
@@ -258,6 +258,7 @@ Each experiment writes its own result files, and `car/run_all_log.txt` records t
 | `car_strategies.py` | Reports which of the strategies `c1`...`c15` finds the smallest cover, and how often. |
 | `car_c11_variants.py` | Compares the variants of strategy `c11`. |
 | `car_c10_bags.py` | Checks the bag sizes of the dynamic program of strategy `c10`. |
+| `car_c0_components.py` | Measures strategy `c0` (component amplification of the split graph before the NetworkX minimum maximal matching): both index rules against `c1`, tau (or a certified lower bound) and the rest of the ensemble. |
 | `car_regular.py` | Runs regular graphs of increasing degree. |
 | `car_bipartite.py` | Runs bipartite graphs, where the optimum is known exactly. |
 | `car_yes_instances.py` | Runs YES instances of the Khot–Regev reduction from Unique Games. |

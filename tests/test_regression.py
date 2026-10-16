@@ -1,4 +1,4 @@
-"""Regression smoke tests for Salvador v0.1.2."""
+"""Regression smoke tests for Salvador v0.1.3."""
 
 from __future__ import annotations
 
@@ -10,8 +10,8 @@ from salvador.parser import read
 from salvador.utils import is_vertex_cover
 
 
-def test_version_is_012() -> None:
-    assert __version__ == "0.1.2"
+def test_version_is_013() -> None:
+    assert __version__ == "0.1.3"
 
 
 def test_small_benchmark_cover_is_valid() -> None:
@@ -111,7 +111,7 @@ def test_local_search_candidate_never_worse_and_valid() -> None:
         cands = ensemble_candidates(graph)
         for cover in cands.values():
             assert is_vertex_cover(graph, cover)
-        best_other = min(len(c) for k, c in cands.items() if k != "c9")
+        best_other = min(len(c) for k, c in cands.items() if k not in ("c0", "c9"))
         assert len(cands["c9"]) <= best_other
 
 
@@ -155,7 +155,7 @@ def test_subdivision_c11_valid_and_exact_when_unpeeled() -> None:
                 if vi["exact"] and n <= 14:
                     assert len(c) == len(find_vertex_cover_brute_force(graph))
         cands = ensemble_candidates(graph)
-        assert set(cands) == {f"c{i}" for i in range(1, 15)}
+        assert set(cands) == {f"c{i}" for i in range(0, 15)}
         assert is_vertex_cover(graph, cands["c11"])
 
 
@@ -234,3 +234,36 @@ def test_consensus_c14_valid_and_never_breaks_the_ensemble() -> None:
         assert is_vertex_cover(graph, cands["c14"])
         assert cands["c14"] == ensemble_candidates(graph)["c14"]
         assert len(final_candidates(graph)["c15"]) <= min(len(cands[f"c{i}"]) for i in range(1, 15))
+
+
+def test_component_split_c0_valid_and_reaches_target() -> None:
+    """c0: the split graph has at least |M| components (M = NetworkX min maximal matching, as in c1), its
+    edges are those of G relabelled by copy index, both rules decode to sets that repair to valid covers,
+    and the result is reproducible."""
+    from salvador import component_split as cs
+    from salvador.algorithm import ensemble_candidates
+
+    graphs = [nx.path_graph(9), nx.cycle_graph(10), nx.star_graph(7), nx.complete_graph(6), nx.petersen_graph(),
+              nx.barbell_graph(5, 3), nx.balanced_tree(3, 3), nx.complete_bipartite_graph(4, 6),
+              nx.relabel_nodes(nx.cycle_graph(6), {0: "a", 1: (1, 2)})]
+    graphs += [nx.gnp_random_graph(30, p, seed=s) for s in range(6) for p in (0.08, 0.2)]
+    for graph in graphs:
+        graph = graph.copy()
+        graph.remove_nodes_from(list(nx.isolates(graph)))
+        if graph.number_of_edges() == 0:
+            continue
+        info: dict = {}
+        H = cs.build_split_graph(graph, info)
+        assert info["r_prime"] == nx.number_connected_components(H) >= info["target"]
+        assert info["target"] == len(nx.approximation.min_maximal_matching(graph))
+        from collections import Counter
+        assert Counter(frozenset((a, b)) for (a, _), (b, _) in H.edges()) == \
+            Counter(frozenset(e) for e in graph.edges())
+        for rule in cs.RULES:
+            raw = cs.decode(graph, H, rule)
+            assert raw <= set(graph)
+        info = {}
+        cands = ensemble_candidates(graph, info=info)
+        assert is_vertex_cover(graph, cands["c0"])
+        assert len(cands["c0"]) == min(info["c0_low_size"], info["c0_high_size"])
+        assert cands["c0"] == ensemble_candidates(graph)["c0"]

@@ -1,15 +1,16 @@
 {
-  "salvador_version": "0.1.2",
+  "salvador_version": "0.1.3",
   "environment": {
     "python": "3.12.3",
     "platform": "Windows-11-10.0.26200-SP0",
     "networkx": "3.6.1",
-    "salvador": "0.1.2",
+    "salvador": "0.1.3",
     "salvador_source": "repository",
     "salvador_path": "D:\\Work\\NP\\salvador\\salvador"
   },
   "seed": 20261009,
   "candidates": {
+    "c0": "component-amplified split graph + NetworkX min maximal matching",
     "c1": "maximal matching",
     "c2": "max-degree greedy",
     "c3": "Hallelujah reduction",
@@ -41,8 +42,9 @@
       "tau_known": 0,
       "optimal": 0,
       "max_ratio_vs_tau": null,
-      "max_ratio_upper_bound": 1.17593984962406,
+      "max_ratio_upper_bound": 1.1689088191330343,
       "best_by_strategy": {
+        "c0": 0,
         "c1": 0,
         "c2": 0,
         "c3": 0,
@@ -59,7 +61,7 @@
         "c14": 4,
         "c15": 4
       },
-      "seconds": 6.941134600026999
+      "seconds": 9.288608000001659
     },
     "KR bias p=0.49": {
       "instances": 4,
@@ -71,6 +73,7 @@
       "max_ratio_vs_tau": 1.0,
       "max_ratio_upper_bound": 1.0,
       "best_by_strategy": {
+        "c0": 0,
         "c1": 0,
         "c2": 0,
         "c3": 0,
@@ -87,7 +90,7 @@
         "c14": 4,
         "c15": 4
       },
-      "seconds": 3.822721599979559
+      "seconds": 5.472165100001803
     },
     "KR constraint degree d=8": {
       "instances": 4,
@@ -97,8 +100,9 @@
       "tau_known": 2,
       "optimal": 2,
       "max_ratio_vs_tau": 1.0,
-      "max_ratio_upper_bound": 1.0841799709724238,
+      "max_ratio_upper_bound": 1.0826086956521739,
       "best_by_strategy": {
+        "c0": 0,
         "c1": 0,
         "c2": 0,
         "c3": 0,
@@ -115,7 +119,7 @@
         "c14": 4,
         "c15": 4
       },
-      "seconds": 5.917307800002163
+      "seconds": 14.144126300001517
     },
     "KR label size k=3": {
       "instances": 4,
@@ -125,8 +129,9 @@
       "tau_known": 1,
       "optimal": 1,
       "max_ratio_vs_tau": 1.0,
-      "max_ratio_upper_bound": 1.0730593607305936,
+      "max_ratio_upper_bound": 1.0428994082840237,
       "best_by_strategy": {
+        "c0": 0,
         "c1": 0,
         "c2": 0,
         "c3": 0,
@@ -143,7 +148,7 @@
         "c14": 4,
         "c15": 4
       },
-      "seconds": 4.640503499977058
+      "seconds": 8.682765100000324
     },
     "KR label size k=6": {
       "instances": 4,
@@ -155,6 +160,7 @@
       "max_ratio_vs_tau": 1.0,
       "max_ratio_upper_bound": 1.0,
       "best_by_strategy": {
+        "c0": 0,
         "c1": 0,
         "c2": 0,
         "c3": 0,
@@ -171,7 +177,7 @@
         "c14": 4,
         "c15": 4
       },
-      "seconds": 3.5264424000051804
+      "seconds": 4.288088499999503
     },
     "KR linear UG Max-2-Lin(Z_k)": {
       "instances": 4,
@@ -183,6 +189,7 @@
       "max_ratio_vs_tau": 1.0148367952522255,
       "max_ratio_upper_bound": 1.0456553755522828,
       "best_by_strategy": {
+        "c0": 0,
         "c1": 0,
         "c2": 0,
         "c3": 0,
@@ -199,7 +206,7 @@
         "c14": 3,
         "c15": 4
       },
-      "seconds": 4.457065499969758
+      "seconds": 7.070804799999678
     },
     "KR noise eta=0.02": {
       "instances": 4,
@@ -209,8 +216,9 @@
       "tau_known": 2,
       "optimal": 1,
       "max_ratio_vs_tau": 1.0088757396449703,
-      "max_ratio_upper_bound": 1.0607407407407408,
+      "max_ratio_upper_bound": 1.0498533724340176,
       "best_by_strategy": {
+        "c0": 0,
         "c1": 0,
         "c2": 0,
         "c3": 0,
@@ -227,7 +235,7 @@
         "c14": 4,
         "c15": 4
       },
-      "seconds": 4.443619700032286
+      "seconds": 7.081362099997932
     },
     "KR noise eta=0.1": {
       "instances": 4,
@@ -239,6 +247,7 @@
       "max_ratio_vs_tau": 1.0,
       "max_ratio_upper_bound": 1.0381231671554252,
       "best_by_strategy": {
+        "c0": 0,
         "c1": 0,
         "c2": 0,
         "c3": 0,
@@ -255,7 +264,7 @@
         "c14": 4,
         "c15": 4
       },
-      "seconds": 4.646003600006225
+      "seconds": 7.497910499998397
     },
     "KR permutation UG (k=4, p=0.45, eta=0)": {
       "instances": 4,
@@ -267,6 +276,7 @@
       "max_ratio_vs_tau": 1.0,
       "max_ratio_upper_bound": 1.048744460856721,
       "best_by_strategy": {
+        "c0": 0,
         "c1": 0,
         "c2": 0,
         "c3": 0,
@@ -283,7 +293,7 @@
         "c14": 4,
         "c15": 4
       },
-      "seconds": 3.781338200031314
+      "seconds": 7.584037000000535
     },
     "KR samples per block s=32": {
       "instances": 2,
@@ -295,6 +305,7 @@
       "max_ratio_vs_tau": null,
       "max_ratio_upper_bound": 1.0987841945288754,
       "best_by_strategy": {
+        "c0": 0,
         "c1": 0,
         "c2": 0,
         "c3": 0,
@@ -311,7 +322,7 @@
         "c14": 2,
         "c15": 2
       },
-      "seconds": 3.610939200007124
+      "seconds": 10.139580500001102
     },
     "ALL": {
       "instances": 38,
@@ -321,8 +332,9 @@
       "tau_known": 18,
       "optimal": 16,
       "max_ratio_vs_tau": 1.0148367952522255,
-      "max_ratio_upper_bound": 1.17593984962406,
+      "max_ratio_upper_bound": 1.1689088191330343,
       "best_by_strategy": {
+        "c0": 0,
         "c1": 0,
         "c2": 0,
         "c3": 0,
@@ -339,7 +351,7 @@
         "c14": 37,
         "c15": 38
       },
-      "seconds": 45.787076100037666
+      "seconds": 81.24944790000245
     }
   },
   "rows": [
@@ -362,6 +374,7 @@
       "tau": 354,
       "tau_upper": 354,
       "sizes": {
+        "c0": 394,
         "c1": 384,
         "c2": 361,
         "c3": 375,
@@ -387,7 +400,7 @@
       "optimal": true,
       "c10_raw": 356,
       "c13_exact": false,
-      "elapsed_seconds": 0.6299967000086326
+      "elapsed_seconds": 1.1125981000004685
     },
     {
       "group": "KR label size k=3",
@@ -408,6 +421,7 @@
       "tau": 354,
       "tau_upper": 354,
       "sizes": {
+        "c0": 412,
         "c1": 414,
         "c2": 372,
         "c3": 370,
@@ -433,7 +447,7 @@
       "optimal": true,
       "c10_raw": 354,
       "c13_exact": false,
-      "elapsed_seconds": 0.6096569999936037
+      "elapsed_seconds": 1.2372199000001274
     },
     {
       "group": "KR label size k=6",
@@ -454,6 +468,7 @@
       "tau": 302,
       "tau_upper": 302,
       "sizes": {
+        "c0": 341,
         "c1": 312,
         "c2": 306,
         "c3": 314,
@@ -479,7 +494,7 @@
       "optimal": true,
       "c10_raw": 302,
       "c13_exact": false,
-      "elapsed_seconds": 0.3671903999929782
+      "elapsed_seconds": 0.6482078999997611
     },
     {
       "group": "KR bias p=0.35",
@@ -500,6 +515,7 @@
       "tau": null,
       "tau_upper": 411,
       "sizes": {
+        "c0": 450,
         "c1": 446,
         "c2": 416,
         "c3": 435,
@@ -525,7 +541,7 @@
       "optimal": false,
       "c10_raw": 400,
       "c13_exact": false,
-      "elapsed_seconds": 0.7726769000000786
+      "elapsed_seconds": 1.4112787000003664
     },
     {
       "group": "KR bias p=0.49",
@@ -546,6 +562,7 @@
       "tau": 305,
       "tau_upper": 305,
       "sizes": {
+        "c0": 342,
         "c1": 319,
         "c2": 310,
         "c3": 318,
@@ -571,7 +588,7 @@
       "optimal": true,
       "c10_raw": 305,
       "c13_exact": false,
-      "elapsed_seconds": 0.4862021000008099
+      "elapsed_seconds": 0.8698645000004035
     },
     {
       "group": "KR noise eta=0.02",
@@ -592,6 +609,7 @@
       "tau": 338,
       "tau_upper": 338,
       "sizes": {
+        "c0": 383,
         "c1": 378,
         "c2": 344,
         "c3": 364,
@@ -617,7 +635,7 @@
       "optimal": false,
       "c10_raw": 341,
       "c13_exact": false,
-      "elapsed_seconds": 0.6307948000030592
+      "elapsed_seconds": 1.1379460999996809
     },
     {
       "group": "KR noise eta=0.1",
@@ -638,6 +656,7 @@
       "tau": 348,
       "tau_upper": 348,
       "sizes": {
+        "c0": 399,
         "c1": 385,
         "c2": 355,
         "c3": 376,
@@ -663,7 +682,7 @@
       "optimal": true,
       "c10_raw": 348,
       "c13_exact": false,
-      "elapsed_seconds": 0.5831655999936629
+      "elapsed_seconds": 1.7191604999989067
     },
     {
       "group": "KR constraint degree d=8",
@@ -684,6 +703,7 @@
       "tau": 365,
       "tau_upper": 365,
       "sizes": {
+        "c0": 440,
         "c1": 412,
         "c2": 388,
         "c3": 394,
@@ -709,7 +729,7 @@
       "optimal": true,
       "c10_raw": 365,
       "c13_exact": false,
-      "elapsed_seconds": 0.8939373999892268
+      "elapsed_seconds": 3.5577210999999807
     },
     {
       "group": "KR samples per block s=32",
@@ -730,6 +750,7 @@
       "tau": null,
       "tau_upper": 690,
       "sizes": {
+        "c0": 853,
         "c1": 786,
         "c2": 718,
         "c3": 750,
@@ -749,13 +770,13 @@
       "final": 705,
       "ratio_vs_planted": 1.0217391304347827,
       "ratio_vs_tau": null,
-      "lower_bound": 678,
-      "ratio_upper_bound": 1.0398230088495575,
+      "lower_bound": 661,
+      "ratio_upper_bound": 1.0665658093797277,
       "beats_or_matches_planted": false,
       "optimal": false,
       "c10_raw": 705,
       "c13_exact": false,
-      "elapsed_seconds": 1.703864999988582
+      "elapsed_seconds": 6.237527100000079
     },
     {
       "group": "KR linear UG Max-2-Lin(Z_k)",
@@ -776,6 +797,7 @@
       "tau": 337,
       "tau_upper": 337,
       "sizes": {
+        "c0": 387,
         "c1": 377,
         "c2": 349,
         "c3": 366,
@@ -801,7 +823,7 @@
       "optimal": false,
       "c10_raw": 343,
       "c13_exact": false,
-      "elapsed_seconds": 0.5761000000056811
+      "elapsed_seconds": 1.466113899999982
     },
     {
       "group": "KR permutation UG (k=4, p=0.45, eta=0)",
@@ -822,6 +844,7 @@
       "tau": 337,
       "tau_upper": 337,
       "sizes": {
+        "c0": 386,
         "c1": 380,
         "c2": 341,
         "c3": 358,
@@ -847,7 +870,7 @@
       "optimal": true,
       "c10_raw": 337,
       "c13_exact": false,
-      "elapsed_seconds": 0.587518500018632
+      "elapsed_seconds": 1.6532738000005338
     },
     {
       "group": "KR label size k=3",
@@ -868,6 +891,7 @@
       "tau": null,
       "tau_upper": 377,
       "sizes": {
+        "c0": 418,
         "c1": 396,
         "c2": 363,
         "c3": 370,
@@ -893,7 +917,7 @@
       "optimal": false,
       "c10_raw": 354,
       "c13_exact": false,
-      "elapsed_seconds": 0.6504458999843337
+      "elapsed_seconds": 2.1663272000005236
     },
     {
       "group": "KR label size k=6",
@@ -914,6 +938,7 @@
       "tau": 311,
       "tau_upper": 311,
       "sizes": {
+        "c0": 343,
         "c1": 332,
         "c2": 318,
         "c3": 328,
@@ -939,7 +964,7 @@
       "optimal": true,
       "c10_raw": 311,
       "c13_exact": false,
-      "elapsed_seconds": 0.42116600001463667
+      "elapsed_seconds": 0.6762796999992133
     },
     {
       "group": "KR bias p=0.35",
@@ -960,6 +985,7 @@
       "tau": null,
       "tau_upper": 416,
       "sizes": {
+        "c0": 457,
         "c1": 455,
         "c2": 429,
         "c3": 454,
@@ -985,7 +1011,7 @@
       "optimal": false,
       "c10_raw": 399,
       "c13_exact": false,
-      "elapsed_seconds": 0.8077826000226196
+      "elapsed_seconds": 1.4882691000002524
     },
     {
       "group": "KR bias p=0.49",
@@ -1006,6 +1032,7 @@
       "tau": 304,
       "tau_upper": 304,
       "sizes": {
+        "c0": 347,
         "c1": 337,
         "c2": 307,
         "c3": 326,
@@ -1031,7 +1058,7 @@
       "optimal": true,
       "c10_raw": 304,
       "c13_exact": false,
-      "elapsed_seconds": 0.5092824999883305
+      "elapsed_seconds": 0.8583570000009786
     },
     {
       "group": "KR noise eta=0.02",
@@ -1052,6 +1079,7 @@
       "tau": 339,
       "tau_upper": 339,
       "sizes": {
+        "c0": 408,
         "c1": 400,
         "c2": 354,
         "c3": 379,
@@ -1077,7 +1105,7 @@
       "optimal": true,
       "c10_raw": 339,
       "c13_exact": false,
-      "elapsed_seconds": 0.6328690999944229
+      "elapsed_seconds": 1.1146973999984766
     },
     {
       "group": "KR noise eta=0.1",
@@ -1098,6 +1126,7 @@
       "tau": null,
       "tau_upper": 365,
       "sizes": {
+        "c0": 407,
         "c1": 383,
         "c2": 360,
         "c3": 379,
@@ -1123,7 +1152,7 @@
       "optimal": false,
       "c10_raw": 354,
       "c13_exact": false,
-      "elapsed_seconds": 0.6498753000050783
+      "elapsed_seconds": 1.198336899999049
     },
     {
       "group": "KR constraint degree d=8",
@@ -1144,6 +1173,7 @@
       "tau": 352,
       "tau_upper": 352,
       "sizes": {
+        "c0": 468,
         "c1": 405,
         "c2": 383,
         "c3": 404,
@@ -1169,7 +1199,7 @@
       "optimal": true,
       "c10_raw": 352,
       "c13_exact": false,
-      "elapsed_seconds": 0.8474546000070404
+      "elapsed_seconds": 1.6930534000002808
     },
     {
       "group": "KR samples per block s=32",
@@ -1190,6 +1220,7 @@
       "tau": null,
       "tau_upper": 743,
       "sizes": {
+        "c0": 827,
         "c1": 780,
         "c2": 737,
         "c3": 783,
@@ -1215,7 +1246,7 @@
       "optimal": false,
       "c10_raw": 723,
       "c13_exact": false,
-      "elapsed_seconds": 1.9070742000185419
+      "elapsed_seconds": 3.902053400001023
     },
     {
       "group": "KR linear UG Max-2-Lin(Z_k)",
@@ -1236,6 +1267,7 @@
       "tau": 337,
       "tau_upper": 337,
       "sizes": {
+        "c0": 392,
         "c1": 388,
         "c2": 364,
         "c3": 382,
@@ -1261,7 +1293,7 @@
       "optimal": true,
       "c10_raw": 337,
       "c13_exact": false,
-      "elapsed_seconds": 0.5564251999894623
+      "elapsed_seconds": 1.059963499999867
     },
     {
       "group": "KR permutation UG (k=4, p=0.45, eta=0)",
@@ -1282,6 +1314,7 @@
       "tau": null,
       "tau_upper": 719,
       "sizes": {
+        "c0": 822,
         "c1": 794,
         "c2": 717,
         "c3": 769,
@@ -1307,7 +1340,7 @@
       "optimal": false,
       "c10_raw": 711,
       "c13_exact": false,
-      "elapsed_seconds": 1.2723265000095125
+      "elapsed_seconds": 2.3978903999995964
     },
     {
       "group": "KR label size k=3",
@@ -1328,6 +1361,7 @@
       "tau": null,
       "tau_upper": 670,
       "sizes": {
+        "c0": 817,
         "c1": 809,
         "c2": 689,
         "c3": 758,
@@ -1353,7 +1387,7 @@
       "optimal": false,
       "c10_raw": 670,
       "c13_exact": false,
-      "elapsed_seconds": 1.202335200010566
+      "elapsed_seconds": 2.5627067999994324
     },
     {
       "group": "KR label size k=6",
@@ -1374,6 +1408,7 @@
       "tau": 597,
       "tau_upper": 597,
       "sizes": {
+        "c0": 677,
         "c1": 639,
         "c2": 603,
         "c3": 628,
@@ -1399,7 +1434,7 @@
       "optimal": true,
       "c10_raw": 597,
       "c13_exact": false,
-      "elapsed_seconds": 1.4786873999983072
+      "elapsed_seconds": 1.403079700001399
     },
     {
       "group": "KR bias p=0.35",
@@ -1420,6 +1455,7 @@
       "tau": null,
       "tau_upper": 846,
       "sizes": {
+        "c0": 891,
         "c1": 892,
         "c2": 854,
         "c3": 936,
@@ -1439,13 +1475,13 @@
       "final": 782,
       "ratio_vs_planted": 0.9243498817966903,
       "ratio_vs_tau": null,
-      "lower_bound": 665,
-      "ratio_upper_bound": 1.17593984962406,
+      "lower_bound": 669,
+      "ratio_upper_bound": 1.1689088191330343,
       "beats_or_matches_planted": true,
       "optimal": false,
       "c10_raw": 799,
       "c13_exact": false,
-      "elapsed_seconds": 2.918306000006851
+      "elapsed_seconds": 3.2114504000001034
     },
     {
       "group": "KR bias p=0.49",
@@ -1466,6 +1502,7 @@
       "tau": 631,
       "tau_upper": 631,
       "sizes": {
+        "c0": 702,
         "c1": 669,
         "c2": 637,
         "c3": 673,
@@ -1491,7 +1528,7 @@
       "optimal": true,
       "c10_raw": 631,
       "c13_exact": false,
-      "elapsed_seconds": 1.2025540999893565
+      "elapsed_seconds": 1.8777264000000287
     },
     {
       "group": "KR noise eta=0.02",
@@ -1512,6 +1549,7 @@
       "tau": null,
       "tau_upper": 727,
       "sizes": {
+        "c0": 770,
         "c1": 768,
         "c2": 715,
         "c3": 754,
@@ -1537,7 +1575,7 @@
       "optimal": false,
       "c10_raw": 707,
       "c13_exact": false,
-      "elapsed_seconds": 1.1540007000148762
+      "elapsed_seconds": 2.3097029000000475
     },
     {
       "group": "KR noise eta=0.1",
@@ -1558,6 +1596,7 @@
       "tau": null,
       "tau_upper": 738,
       "sizes": {
+        "c0": 804,
         "c1": 762,
         "c2": 694,
         "c3": 744,
@@ -1583,7 +1622,7 @@
       "optimal": false,
       "c10_raw": 691,
       "c13_exact": false,
-      "elapsed_seconds": 1.2591735000023618
+      "elapsed_seconds": 2.288756800000556
     },
     {
       "group": "KR constraint degree d=8",
@@ -1604,6 +1643,7 @@
       "tau": null,
       "tau_upper": 742,
       "sizes": {
+        "c0": 870,
         "c1": 850,
         "c2": 798,
         "c3": 838,
@@ -1623,13 +1663,13 @@
       "final": 747,
       "ratio_vs_planted": 1.0067385444743935,
       "ratio_vs_tau": null,
-      "lower_bound": 689,
-      "ratio_upper_bound": 1.0841799709724238,
+      "lower_bound": 690,
+      "ratio_upper_bound": 1.0826086956521739,
       "beats_or_matches_planted": false,
       "optimal": false,
       "c10_raw": 747,
       "c13_exact": false,
-      "elapsed_seconds": 1.7271963999955915
+      "elapsed_seconds": 3.661237500000425
     },
     {
       "group": "KR linear UG Max-2-Lin(Z_k)",
@@ -1650,6 +1690,7 @@
       "tau": null,
       "tau_upper": 726,
       "sizes": {
+        "c0": 809,
         "c1": 767,
         "c2": 724,
         "c3": 755,
@@ -1675,7 +1716,7 @@
       "optimal": false,
       "c10_raw": 711,
       "c13_exact": false,
-      "elapsed_seconds": 1.1944437999918591
+      "elapsed_seconds": 2.349073800000042
     },
     {
       "group": "KR permutation UG (k=4, p=0.45, eta=0)",
@@ -1696,6 +1737,7 @@
       "tau": null,
       "tau_upper": 685,
       "sizes": {
+        "c0": 762,
         "c1": 746,
         "c2": 699,
         "c3": 727,
@@ -1715,13 +1757,13 @@
       "final": 690,
       "ratio_vs_planted": 1.0072992700729928,
       "ratio_vs_tau": null,
-      "lower_bound": 672,
-      "ratio_upper_bound": 1.0267857142857142,
+      "lower_bound": 673,
+      "ratio_upper_bound": 1.025260029717682,
       "beats_or_matches_planted": false,
       "optimal": false,
       "c10_raw": 690,
       "c13_exact": false,
-      "elapsed_seconds": 1.2914964999945369
+      "elapsed_seconds": 2.4202746999999363
     },
     {
       "group": "KR label size k=3",
@@ -1742,6 +1784,7 @@
       "tau": null,
       "tau_upper": 705,
       "sizes": {
+        "c0": 843,
         "c1": 830,
         "c2": 750,
         "c3": 763,
@@ -1761,13 +1804,13 @@
       "final": 705,
       "ratio_vs_planted": 1.0,
       "ratio_vs_tau": null,
-      "lower_bound": 657,
-      "ratio_upper_bound": 1.0730593607305936,
+      "lower_bound": 676,
+      "ratio_upper_bound": 1.0428994082840237,
       "beats_or_matches_planted": true,
       "optimal": false,
       "c10_raw": 705,
       "c13_exact": false,
-      "elapsed_seconds": 2.1780653999885544
+      "elapsed_seconds": 2.716511200000241
     },
     {
       "group": "KR label size k=6",
@@ -1788,6 +1831,7 @@
       "tau": 633,
       "tau_upper": 633,
       "sizes": {
+        "c0": 683,
         "c1": 669,
         "c2": 643,
         "c3": 662,
@@ -1813,7 +1857,7 @@
       "optimal": true,
       "c10_raw": 633,
       "c13_exact": false,
-      "elapsed_seconds": 1.2593985999992583
+      "elapsed_seconds": 1.5605211999991297
     },
     {
       "group": "KR bias p=0.35",
@@ -1834,6 +1878,7 @@
       "tau": null,
       "tau_upper": 833,
       "sizes": {
+        "c0": 895,
         "c1": 923,
         "c2": 863,
         "c3": 918,
@@ -1853,13 +1898,13 @@
       "final": 773,
       "ratio_vs_planted": 0.9279711884753902,
       "ratio_vs_tau": null,
-      "lower_bound": 660,
-      "ratio_upper_bound": 1.1712121212121211,
+      "lower_bound": 674,
+      "ratio_upper_bound": 1.1468842729970326,
       "beats_or_matches_planted": true,
       "optimal": false,
       "c10_raw": 774,
       "c13_exact": false,
-      "elapsed_seconds": 2.4423690999974497
+      "elapsed_seconds": 3.177609800000937
     },
     {
       "group": "KR bias p=0.49",
@@ -1880,6 +1925,7 @@
       "tau": 625,
       "tau_upper": 625,
       "sizes": {
+        "c0": 697,
         "c1": 667,
         "c2": 645,
         "c3": 688,
@@ -1905,7 +1951,7 @@
       "optimal": true,
       "c10_raw": 635,
       "c13_exact": false,
-      "elapsed_seconds": 1.624682900001062
+      "elapsed_seconds": 1.866217200000392
     },
     {
       "group": "KR noise eta=0.02",
@@ -1926,6 +1972,7 @@
       "tau": null,
       "tau_upper": 735,
       "sizes": {
+        "c0": 830,
         "c1": 787,
         "c2": 733,
         "c3": 775,
@@ -1945,13 +1992,13 @@
       "final": 716,
       "ratio_vs_planted": 0.9741496598639455,
       "ratio_vs_tau": null,
-      "lower_bound": 675,
-      "ratio_upper_bound": 1.0607407407407408,
+      "lower_bound": 682,
+      "ratio_upper_bound": 1.0498533724340176,
       "beats_or_matches_planted": true,
       "optimal": false,
       "c10_raw": 727,
       "c13_exact": false,
-      "elapsed_seconds": 2.025955100019928
+      "elapsed_seconds": 2.519015699999727
     },
     {
       "group": "KR noise eta=0.1",
@@ -1972,6 +2019,7 @@
       "tau": null,
       "tau_upper": 731,
       "sizes": {
+        "c0": 786,
         "c1": 770,
         "c2": 693,
         "c3": 745,
@@ -1997,7 +2045,7 @@
       "optimal": false,
       "c10_raw": 686,
       "c13_exact": false,
-      "elapsed_seconds": 2.1537892000051215
+      "elapsed_seconds": 2.291656299999886
     },
     {
       "group": "KR constraint degree d=8",
@@ -2018,6 +2066,7 @@
       "tau": null,
       "tau_upper": 718,
       "sizes": {
+        "c0": 892,
         "c1": 893,
         "c2": 778,
         "c3": 816,
@@ -2043,7 +2092,7 @@
       "optimal": false,
       "c10_raw": 718,
       "c13_exact": false,
-      "elapsed_seconds": 2.4487194000103045
+      "elapsed_seconds": 5.2321143000008306
     },
     {
       "group": "KR linear UG Max-2-Lin(Z_k)",
@@ -2064,6 +2113,7 @@
       "tau": null,
       "tau_upper": 673,
       "sizes": {
+        "c0": 780,
         "c1": 767,
         "c2": 691,
         "c3": 734,
@@ -2089,8 +2139,8 @@
       "optimal": false,
       "c10_raw": 686,
       "c13_exact": false,
-      "elapsed_seconds": 2.1300964999827556
+      "elapsed_seconds": 2.195653599999787
     }
   ],
-  "elapsed_seconds": 566.0581865310669
+  "elapsed_seconds": 622.1380863189697
 }

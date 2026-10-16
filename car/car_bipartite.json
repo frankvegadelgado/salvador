@@ -1,15 +1,16 @@
 {
-  "salvador_version": "0.1.2",
+  "salvador_version": "0.1.3",
   "environment": {
     "python": "3.12.3",
     "platform": "Windows-11-10.0.26200-SP0",
     "networkx": "3.6.1",
-    "salvador": "0.1.2",
+    "salvador": "0.1.3",
     "salvador_source": "repository",
     "salvador_path": "D:\\Work\\NP\\salvador\\salvador"
   },
   "seed": 20261009,
   "candidates": {
+    "c0": "component-amplified split graph + NetworkX min maximal matching",
     "c1": "maximal matching",
     "c2": "max-degree greedy",
     "c3": "Hallelujah reduction",
@@ -45,6 +46,7 @@
       "c10_mean_core_fraction": 0.5074037460978148,
       "c13_exact": 0,
       "optimal_by_strategy": {
+        "c0": 0,
         "c1": 0,
         "c2": 1,
         "c3": 1,
@@ -61,7 +63,7 @@
         "c14": 2,
         "c15": 2
       },
-      "seconds": 0.7280304000014439
+      "seconds": 0.9756716000001688
     },
     "2D grid, 70% edges kept": {
       "instances": 6,
@@ -77,6 +79,7 @@
       "c10_mean_core_fraction": 0.09040409295872355,
       "c13_exact": 3,
       "optimal_by_strategy": {
+        "c0": 0,
         "c1": 0,
         "c2": 0,
         "c3": 0,
@@ -93,7 +96,7 @@
         "c14": 6,
         "c15": 6
       },
-      "seconds": 4.670576200005598
+      "seconds": 3.703486500001418
     },
     "3D grid": {
       "instances": 2,
@@ -109,6 +112,7 @@
       "c10_mean_core_fraction": 1.006,
       "c13_exact": 0,
       "optimal_by_strategy": {
+        "c0": 0,
         "c1": 0,
         "c2": 2,
         "c3": 1,
@@ -125,7 +129,7 @@
         "c14": 2,
         "c15": 2
       },
-      "seconds": 0.8632723999908194
+      "seconds": 1.1879400999996506
     },
     "complete bipartite": {
       "instances": 2,
@@ -141,6 +145,7 @@
       "c10_mean_core_fraction": 51.628499999999995,
       "c13_exact": 0,
       "optimal_by_strategy": {
+        "c0": 0,
         "c1": 2,
         "c2": 2,
         "c3": 2,
@@ -157,7 +162,7 @@
         "c14": 2,
         "c15": 2
       },
-      "seconds": 34.568075899995165
+      "seconds": 43.04737440000008
     },
     "crown graph": {
       "instances": 2,
@@ -173,6 +178,7 @@
       "c10_mean_core_fraction": 75.0355,
       "c13_exact": 0,
       "optimal_by_strategy": {
+        "c0": 2,
         "c1": 2,
         "c2": 2,
         "c3": 2,
@@ -189,7 +195,7 @@
         "c14": 2,
         "c15": 2
       },
-      "seconds": 46.30699509999249
+      "seconds": 57.34325179999905
     },
     "double cover G x K2 of random regular": {
       "instances": 12,
@@ -205,6 +211,7 @@
       "c10_mean_core_fraction": 0.6735833333333333,
       "c13_exact": 0,
       "optimal_by_strategy": {
+        "c0": 0,
         "c1": 0,
         "c2": 0,
         "c3": 0,
@@ -221,7 +228,7 @@
         "c14": 12,
         "c15": 12
       },
-      "seconds": 5.6941185999894515
+      "seconds": 5.693922299998121
     },
     "even cycle": {
       "instances": 2,
@@ -237,6 +244,7 @@
       "c10_mean_core_fraction": 0.0,
       "c13_exact": 2,
       "optimal_by_strategy": {
+        "c0": 0,
         "c1": 0,
         "c2": 2,
         "c3": 2,
@@ -253,7 +261,7 @@
         "c14": 2,
         "c15": 2
       },
-      "seconds": 0.6032516999985091
+      "seconds": 2.8081750000001193
     },
     "hidden perfect matching + random edges": {
       "instances": 12,
@@ -269,6 +277,7 @@
       "c10_mean_core_fraction": 0.5703333333333334,
       "c13_exact": 3,
       "optimal_by_strategy": {
+        "c0": 0,
         "c1": 0,
         "c2": 4,
         "c3": 0,
@@ -285,7 +294,7 @@
         "c14": 12,
         "c15": 12
       },
-      "seconds": 5.951557500025956
+      "seconds": 5.645128000000113
     },
     "hypercube": {
       "instances": 1,
@@ -301,6 +310,7 @@
       "c10_mean_core_fraction": 1.95703125,
       "c13_exact": 0,
       "optimal_by_strategy": {
+        "c0": 0,
         "c1": 0,
         "c2": 1,
         "c3": 1,
@@ -317,7 +327,7 @@
         "c14": 1,
         "c15": 1
       },
-      "seconds": 0.1788552000070922
+      "seconds": 0.2511928000003536
     },
     "hypercube, 50% edges kept": {
       "instances": 1,
@@ -333,6 +343,7 @@
       "c10_mean_core_fraction": 0.74609375,
       "c13_exact": 0,
       "optimal_by_strategy": {
+        "c0": 0,
         "c1": 0,
         "c2": 0,
         "c3": 0,
@@ -349,7 +360,7 @@
         "c14": 1,
         "c15": 1
       },
-      "seconds": 0.1392956000054255
+      "seconds": 0.19085269999959564
     },
     "power-law bipartite": {
       "instances": 6,
@@ -365,6 +376,7 @@
       "c10_mean_core_fraction": 0.2165,
       "c13_exact": 3,
       "optimal_by_strategy": {
+        "c0": 0,
         "c1": 2,
         "c2": 1,
         "c3": 1,
@@ -381,7 +393,7 @@
         "c14": 6,
         "c15": 6
       },
-      "seconds": 2.1305881000007503
+      "seconds": 1.8206956999993054
     },
     "random bipartite (1:2)": {
       "instances": 18,
@@ -397,6 +409,7 @@
       "c10_mean_core_fraction": 2.4944444444444445,
       "c13_exact": 0,
       "optimal_by_strategy": {
+        "c0": 2,
         "c1": 10,
         "c2": 17,
         "c3": 9,
@@ -413,7 +426,7 @@
         "c14": 18,
         "c15": 18
       },
-      "seconds": 14.092991399986204
+      "seconds": 12.714620400001877
     },
     "random bipartite (balanced)": {
       "instances": 18,
@@ -429,6 +442,7 @@
       "c10_mean_core_fraction": 2.464277777777778,
       "c13_exact": 0,
       "optimal_by_strategy": {
+        "c0": 6,
         "c1": 1,
         "c2": 7,
         "c3": 0,
@@ -445,7 +459,7 @@
         "c14": 15,
         "c15": 15
       },
-      "seconds": 15.69316329996218
+      "seconds": 15.164446099999623
     },
     "random d-regular bipartite": {
       "instances": 18,
@@ -461,6 +475,7 @@
       "c10_mean_core_fraction": 0.951,
       "c13_exact": 0,
       "optimal_by_strategy": {
+        "c0": 4,
         "c1": 0,
         "c2": 18,
         "c3": 14,
@@ -477,7 +492,7 @@
         "c14": 18,
         "c15": 18
       },
-      "seconds": 9.467011600121623
+      "seconds": 12.405641000003016
     },
     "random tree": {
       "instances": 6,
@@ -493,6 +508,7 @@
       "c10_mean_core_fraction": 0.0,
       "c13_exact": 6,
       "optimal_by_strategy": {
+        "c0": 1,
         "c1": 1,
         "c2": 2,
         "c3": 1,
@@ -509,7 +525,7 @@
         "c14": 6,
         "c15": 6
       },
-      "seconds": 1.886193199956324
+      "seconds": 1.5189804000019649
     },
     "ALL": {
       "instances": 108,
@@ -525,6 +541,7 @@
       "c10_mean_core_fraction": 3.5389014541661847,
       "c13_exact": 17,
       "optimal_by_strategy": {
+        "c0": 15,
         "c1": 18,
         "c2": 59,
         "c3": 34,
@@ -541,7 +558,7 @@
         "c14": 105,
         "c15": 105
       },
-      "seconds": 142.97397620003903
+      "seconds": 164.47137880000446
     }
   },
   "rows": [
@@ -552,6 +569,7 @@
       "m": 136,
       "tau": 44,
       "sizes": {
+        "c0": 48,
         "c1": 50,
         "c2": 48,
         "c3": 48,
@@ -585,7 +603,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 13,
-      "elapsed_seconds": 0.053963600017596036
+      "elapsed_seconds": 0.06317390000003797
     },
     {
       "group": "random bipartite (1:2)",
@@ -594,6 +612,7 @@
       "m": 168,
       "tau": 33,
       "sizes": {
+        "c0": 46,
         "c1": 33,
         "c2": 33,
         "c3": 36,
@@ -635,7 +654,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 19,
-      "elapsed_seconds": 0.043607200001133606
+      "elapsed_seconds": 0.054829200000312994
     },
     {
       "group": "random bipartite (balanced)",
@@ -644,6 +663,7 @@
       "m": 303,
       "tau": 50,
       "sizes": {
+        "c0": 55,
         "c1": 67,
         "c2": 60,
         "c3": 66,
@@ -679,7 +699,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 52,
-      "elapsed_seconds": 0.06537180001032539
+      "elapsed_seconds": 0.0967793999998321
     },
     {
       "group": "random bipartite (1:2)",
@@ -688,6 +708,7 @@
       "m": 314,
       "tau": 33,
       "sizes": {
+        "c0": 42,
         "c1": 33,
         "c2": 33,
         "c3": 33,
@@ -731,7 +752,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 33,
-      "elapsed_seconds": 0.07240239999373443
+      "elapsed_seconds": 0.0692629000004672
     },
     {
       "group": "random bipartite (balanced)",
@@ -740,6 +761,7 @@
       "m": 1033,
       "tau": 50,
       "sizes": {
+        "c0": 50,
         "c1": 81,
         "c2": 50,
         "c3": 85,
@@ -761,6 +783,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c4",
         "c7",
@@ -779,7 +802,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 100,
-      "elapsed_seconds": 0.16384220001054928
+      "elapsed_seconds": 0.21224609999990207
     },
     {
       "group": "random bipartite (1:2)",
@@ -788,6 +811,7 @@
       "m": 1000,
       "tau": 33,
       "sizes": {
+        "c0": 61,
         "c1": 33,
         "c2": 33,
         "c3": 33,
@@ -831,7 +855,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 96,
-      "elapsed_seconds": 0.14294950000476092
+      "elapsed_seconds": 0.18728250000003754
     },
     {
       "group": "random d-regular bipartite",
@@ -840,6 +864,7 @@
       "m": 147,
       "tau": 50,
       "sizes": {
+        "c0": 56,
         "c1": 60,
         "c2": 50,
         "c3": 50,
@@ -880,7 +905,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 28,
-      "elapsed_seconds": 0.040367100009461865
+      "elapsed_seconds": 0.05542779999996128
     },
     {
       "group": "random d-regular bipartite",
@@ -889,6 +914,7 @@
       "m": 191,
       "tau": 50,
       "sizes": {
+        "c0": 52,
         "c1": 64,
         "c2": 50,
         "c3": 50,
@@ -929,7 +955,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 42,
-      "elapsed_seconds": 0.0531702000007499
+      "elapsed_seconds": 0.07260620000033668
     },
     {
       "group": "random d-regular bipartite",
@@ -938,6 +964,7 @@
       "m": 366,
       "tau": 50,
       "sizes": {
+        "c0": 50,
         "c1": 65,
         "c2": 50,
         "c3": 63,
@@ -959,6 +986,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c9",
         "c10",
@@ -974,7 +1002,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 58,
-      "elapsed_seconds": 0.06884130000253208
+      "elapsed_seconds": 0.13173330000063288
     },
     {
       "group": "power-law bipartite",
@@ -983,6 +1011,7 @@
       "m": 115,
       "tau": 34,
       "sizes": {
+        "c0": 36,
         "c1": 34,
         "c2": 34,
         "c3": 34,
@@ -1025,7 +1054,7 @@
       "c10_width": 5,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.04177979999803938
+      "elapsed_seconds": 0.049207499999283755
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -1034,6 +1063,7 @@
       "m": 150,
       "tau": 50,
       "sizes": {
+        "c0": 56,
         "c1": 67,
         "c2": 60,
         "c3": 62,
@@ -1071,7 +1101,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 27,
-      "elapsed_seconds": 0.0600607999949716
+      "elapsed_seconds": 0.06420780000007653
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -1080,6 +1110,7 @@
       "m": 250,
       "tau": 50,
       "sizes": {
+        "c0": 57,
         "c1": 70,
         "c2": 68,
         "c3": 70,
@@ -1117,7 +1148,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 62,
-      "elapsed_seconds": 0.050799099990399554
+      "elapsed_seconds": 0.09740599999986443
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -1126,6 +1157,7 @@
       "m": 127,
       "tau": 50,
       "sizes": {
+        "c0": 57,
         "c1": 57,
         "c2": 52,
         "c3": 53,
@@ -1161,7 +1193,7 @@
       "c10_width": 5,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.0737784999946598
+      "elapsed_seconds": 0.08699329999944894
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -1170,6 +1202,7 @@
       "m": 247,
       "tau": 50,
       "sizes": {
+        "c0": 58,
         "c1": 66,
         "c2": 50,
         "c3": 62,
@@ -1208,7 +1241,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 49,
-      "elapsed_seconds": 0.05035120001411997
+      "elapsed_seconds": 0.10053480000078707
     },
     {
       "group": "random tree",
@@ -1217,6 +1250,7 @@
       "m": 99,
       "tau": 41,
       "sizes": {
+        "c0": 48,
         "c1": 41,
         "c2": 43,
         "c3": 41,
@@ -1259,7 +1293,7 @@
       "c10_width": 1,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.02975779998814687
+      "elapsed_seconds": 0.036390100000062375
     },
     {
       "group": "2D grid, 70% edges kept",
@@ -1268,6 +1302,7 @@
       "m": 123,
       "tau": 48,
       "sizes": {
+        "c0": 54,
         "c1": 56,
         "c2": 51,
         "c3": 52,
@@ -1302,7 +1337,7 @@
       "c10_width": 5,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.533932399994228
+      "elapsed_seconds": 0.5836556000003839
     },
     {
       "group": "random bipartite (balanced)",
@@ -1311,6 +1346,7 @@
       "m": 167,
       "tau": 46,
       "sizes": {
+        "c0": 51,
         "c1": 52,
         "c2": 49,
         "c3": 51,
@@ -1338,7 +1374,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 25,
-      "elapsed_seconds": 0.044413199997507036
+      "elapsed_seconds": 0.057347699999809265
     },
     {
       "group": "random bipartite (1:2)",
@@ -1347,6 +1383,7 @@
       "m": 142,
       "tau": 33,
       "sizes": {
+        "c0": 43,
         "c1": 35,
         "c2": 33,
         "c3": 40,
@@ -1385,7 +1422,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 16,
-      "elapsed_seconds": 0.0400828999991063
+      "elapsed_seconds": 0.05359099999986938
     },
     {
       "group": "random bipartite (balanced)",
@@ -1394,6 +1431,7 @@
       "m": 307,
       "tau": 50,
       "sizes": {
+        "c0": 59,
         "c1": 67,
         "c2": 50,
         "c3": 64,
@@ -1430,7 +1468,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 53,
-      "elapsed_seconds": 0.07109310000669211
+      "elapsed_seconds": 0.09304960000008577
     },
     {
       "group": "random bipartite (1:2)",
@@ -1439,6 +1477,7 @@
       "m": 299,
       "tau": 33,
       "sizes": {
+        "c0": 46,
         "c1": 33,
         "c2": 33,
         "c3": 33,
@@ -1482,7 +1521,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 36,
-      "elapsed_seconds": 0.05338999998639338
+      "elapsed_seconds": 0.0716987000005247
     },
     {
       "group": "random bipartite (balanced)",
@@ -1491,6 +1530,7 @@
       "m": 1001,
       "tau": 50,
       "sizes": {
+        "c0": 50,
         "c1": 67,
         "c2": 50,
         "c3": 73,
@@ -1512,6 +1552,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c4",
         "c8",
@@ -1529,7 +1570,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 99,
-      "elapsed_seconds": 0.1404335999977775
+      "elapsed_seconds": 0.232916999999361
     },
     {
       "group": "random bipartite (1:2)",
@@ -1538,6 +1579,7 @@
       "m": 996,
       "tau": 33,
       "sizes": {
+        "c0": 59,
         "c1": 33,
         "c2": 33,
         "c3": 33,
@@ -1581,7 +1623,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 94,
-      "elapsed_seconds": 0.14890070000546984
+      "elapsed_seconds": 0.20386520000010933
     },
     {
       "group": "random d-regular bipartite",
@@ -1590,6 +1632,7 @@
       "m": 150,
       "tau": 50,
       "sizes": {
+        "c0": 50,
         "c1": 64,
         "c2": 50,
         "c3": 50,
@@ -1611,6 +1654,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c3",
         "c4",
@@ -1630,7 +1674,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 29,
-      "elapsed_seconds": 0.04579530001501553
+      "elapsed_seconds": 0.07173510000029637
     },
     {
       "group": "random d-regular bipartite",
@@ -1639,6 +1683,7 @@
       "m": 197,
       "tau": 50,
       "sizes": {
+        "c0": 59,
         "c1": 67,
         "c2": 50,
         "c3": 50,
@@ -1679,7 +1724,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 46,
-      "elapsed_seconds": 0.04458320001140237
+      "elapsed_seconds": 0.08473899999989953
     },
     {
       "group": "random d-regular bipartite",
@@ -1688,6 +1733,7 @@
       "m": 371,
       "tau": 50,
       "sizes": {
+        "c0": 50,
         "c1": 76,
         "c2": 50,
         "c3": 55,
@@ -1709,6 +1755,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c4",
         "c8",
@@ -1726,7 +1773,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 60,
-      "elapsed_seconds": 0.08116049997624941
+      "elapsed_seconds": 0.13328879999971832
     },
     {
       "group": "power-law bipartite",
@@ -1735,6 +1782,7 @@
       "m": 145,
       "tau": 40,
       "sizes": {
+        "c0": 42,
         "c1": 42,
         "c2": 43,
         "c3": 41,
@@ -1772,7 +1820,7 @@
       "c10_width": 5,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.05408010000246577
+      "elapsed_seconds": 0.05617270000038843
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -1781,6 +1829,7 @@
       "m": 150,
       "tau": 50,
       "sizes": {
+        "c0": 59,
         "c1": 65,
         "c2": 62,
         "c3": 60,
@@ -1818,7 +1867,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 30,
-      "elapsed_seconds": 0.10787800000980496
+      "elapsed_seconds": 0.08154089999970893
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -1827,6 +1876,7 @@
       "m": 250,
       "tau": 50,
       "sizes": {
+        "c0": 67,
         "c1": 70,
         "c2": 68,
         "c3": 72,
@@ -1864,7 +1914,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 57,
-      "elapsed_seconds": 0.10651899999356829
+      "elapsed_seconds": 0.0817018999996435
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -1873,6 +1923,7 @@
       "m": 120,
       "tau": 50,
       "sizes": {
+        "c0": 53,
         "c1": 58,
         "c2": 54,
         "c3": 53,
@@ -1910,7 +1961,7 @@
       "c10_width": 5,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.10450159999891184
+      "elapsed_seconds": 0.06150720000005094
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -1919,6 +1970,7 @@
       "m": 248,
       "tau": 50,
       "sizes": {
+        "c0": 59,
         "c1": 66,
         "c2": 50,
         "c3": 56,
@@ -1957,7 +2009,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 49,
-      "elapsed_seconds": 0.06673819999559782
+      "elapsed_seconds": 0.09053020000010292
     },
     {
       "group": "random tree",
@@ -1966,6 +2018,7 @@
       "m": 99,
       "tau": 43,
       "sizes": {
+        "c0": 49,
         "c1": 46,
         "c2": 43,
         "c3": 44,
@@ -2004,7 +2057,7 @@
       "c10_width": 1,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.07840369999757968
+      "elapsed_seconds": 0.039332199999989825
     },
     {
       "group": "2D grid, 70% edges kept",
@@ -2013,6 +2066,7 @@
       "m": 118,
       "tau": 46,
       "sizes": {
+        "c0": 52,
         "c1": 51,
         "c2": 49,
         "c3": 52,
@@ -2048,7 +2102,7 @@
       "c10_width": 4,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.3719046000041999
+      "elapsed_seconds": 0.1659615999997186
     },
     {
       "group": "random bipartite (balanced)",
@@ -2057,6 +2111,7 @@
       "m": 157,
       "tau": 48,
       "sizes": {
+        "c0": 56,
         "c1": 58,
         "c2": 51,
         "c3": 55,
@@ -2090,7 +2145,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 20,
-      "elapsed_seconds": 0.07255149999400601
+      "elapsed_seconds": 0.06776429999990796
     },
     {
       "group": "random bipartite (1:2)",
@@ -2099,6 +2154,7 @@
       "m": 174,
       "tau": 33,
       "sizes": {
+        "c0": 44,
         "c1": 38,
         "c2": 33,
         "c3": 39,
@@ -2138,7 +2194,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 22,
-      "elapsed_seconds": 0.06687499998952262
+      "elapsed_seconds": 0.04978449999998702
     },
     {
       "group": "random bipartite (balanced)",
@@ -2147,6 +2203,7 @@
       "m": 305,
       "tau": 50,
       "sizes": {
+        "c0": 53,
         "c1": 68,
         "c2": 54,
         "c3": 68,
@@ -2182,7 +2239,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 54,
-      "elapsed_seconds": 0.15026480000233278
+      "elapsed_seconds": 0.08623650000026828
     },
     {
       "group": "random bipartite (1:2)",
@@ -2191,6 +2248,7 @@
       "m": 298,
       "tau": 33,
       "sizes": {
+        "c0": 40,
         "c1": 33,
         "c2": 33,
         "c3": 33,
@@ -2234,7 +2292,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 33,
-      "elapsed_seconds": 0.11271439999109134
+      "elapsed_seconds": 0.08521790000031615
     },
     {
       "group": "random bipartite (balanced)",
@@ -2243,6 +2301,7 @@
       "m": 931,
       "tau": 50,
       "sizes": {
+        "c0": 50,
         "c1": 50,
         "c2": 50,
         "c3": 81,
@@ -2264,6 +2323,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c1",
         "c2",
         "c5",
@@ -2283,7 +2343,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 97,
-      "elapsed_seconds": 0.31649269998888485
+      "elapsed_seconds": 0.2205519999997705
     },
     {
       "group": "random bipartite (1:2)",
@@ -2292,6 +2352,7 @@
       "m": 1029,
       "tau": 33,
       "sizes": {
+        "c0": 63,
         "c1": 33,
         "c2": 33,
         "c3": 33,
@@ -2335,7 +2396,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 97,
-      "elapsed_seconds": 0.3146918000129517
+      "elapsed_seconds": 0.1866080999998303
     },
     {
       "group": "random d-regular bipartite",
@@ -2344,6 +2405,7 @@
       "m": 149,
       "tau": 50,
       "sizes": {
+        "c0": 59,
         "c1": 62,
         "c2": 50,
         "c3": 50,
@@ -2384,7 +2446,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 29,
-      "elapsed_seconds": 0.05248610000126064
+      "elapsed_seconds": 0.08528459999979532
     },
     {
       "group": "random d-regular bipartite",
@@ -2393,6 +2455,7 @@
       "m": 193,
       "tau": 50,
       "sizes": {
+        "c0": 62,
         "c1": 64,
         "c2": 50,
         "c3": 50,
@@ -2433,7 +2496,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 43,
-      "elapsed_seconds": 0.11011060001328588
+      "elapsed_seconds": 0.0790950000000521
     },
     {
       "group": "random d-regular bipartite",
@@ -2442,6 +2505,7 @@
       "m": 380,
       "tau": 50,
       "sizes": {
+        "c0": 69,
         "c1": 71,
         "c2": 50,
         "c3": 72,
@@ -2480,7 +2544,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 65,
-      "elapsed_seconds": 0.18834490000153892
+      "elapsed_seconds": 0.11492249999992055
     },
     {
       "group": "power-law bipartite",
@@ -2489,6 +2553,7 @@
       "m": 143,
       "tau": 44,
       "sizes": {
+        "c0": 46,
         "c1": 44,
         "c2": 45,
         "c3": 46,
@@ -2529,7 +2594,7 @@
       "c10_width": 5,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.07601509999949485
+      "elapsed_seconds": 0.05319069999950443
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -2538,6 +2603,7 @@
       "m": 150,
       "tau": 50,
       "sizes": {
+        "c0": 57,
         "c1": 64,
         "c2": 58,
         "c3": 60,
@@ -2575,7 +2641,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 28,
-      "elapsed_seconds": 0.07950479999999516
+      "elapsed_seconds": 0.05984179999995831
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -2584,6 +2650,7 @@
       "m": 250,
       "tau": 50,
       "sizes": {
+        "c0": 69,
         "c1": 68,
         "c2": 72,
         "c3": 72,
@@ -2621,7 +2688,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 58,
-      "elapsed_seconds": 0.11858710000524297
+      "elapsed_seconds": 0.09437660000003234
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -2630,6 +2697,7 @@
       "m": 123,
       "tau": 50,
       "sizes": {
+        "c0": 55,
         "c1": 56,
         "c2": 55,
         "c3": 53,
@@ -2665,7 +2733,7 @@
       "c10_width": 5,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.14426430000457913
+      "elapsed_seconds": 0.058010799999465235
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -2674,6 +2742,7 @@
       "m": 244,
       "tau": 50,
       "sizes": {
+        "c0": 66,
         "c1": 71,
         "c2": 50,
         "c3": 66,
@@ -2712,7 +2781,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 46,
-      "elapsed_seconds": 0.09308739998959936
+      "elapsed_seconds": 0.08184819999951287
     },
     {
       "group": "random tree",
@@ -2721,6 +2790,7 @@
       "m": 99,
       "tau": 44,
       "sizes": {
+        "c0": 44,
         "c1": 45,
         "c2": 44,
         "c3": 45,
@@ -2742,6 +2812,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c4",
         "c8",
@@ -2759,7 +2830,7 @@
       "c10_width": 1,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.07957820000592619
+      "elapsed_seconds": 0.04310260000056587
     },
     {
       "group": "2D grid, 70% edges kept",
@@ -2768,6 +2839,7 @@
       "m": 132,
       "tau": 48,
       "sizes": {
+        "c0": 54,
         "c1": 55,
         "c2": 54,
         "c3": 53,
@@ -2803,7 +2875,7 @@
       "c10_width": 5,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.24529550000443123
+      "elapsed_seconds": 0.1356632000006357
     },
     {
       "group": "2D grid",
@@ -2812,6 +2884,7 @@
       "m": 180,
       "tau": 50,
       "sizes": {
+        "c0": 58,
         "c1": 65,
         "c2": 50,
         "c3": 58,
@@ -2848,7 +2921,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 23,
-      "elapsed_seconds": 0.12211570001090877
+      "elapsed_seconds": 0.08183490000010352
     },
     {
       "group": "3D grid",
@@ -2857,6 +2930,7 @@
       "m": 300,
       "tau": 62,
       "sizes": {
+        "c0": 82,
         "c1": 82,
         "c2": 62,
         "c3": 62,
@@ -2896,7 +2970,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 50,
-      "elapsed_seconds": 0.1781120999949053
+      "elapsed_seconds": 0.11097299999983079
     },
     {
       "group": "even cycle",
@@ -2905,6 +2979,7 @@
       "m": 100,
       "tau": 50,
       "sizes": {
+        "c0": 53,
         "c1": 56,
         "c2": 50,
         "c3": 50,
@@ -2944,7 +3019,7 @@
       "c10_width": 2,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.11557140000513755
+      "elapsed_seconds": 0.06579160000001139
     },
     {
       "group": "complete bipartite",
@@ -2953,6 +3028,7 @@
       "m": 1875,
       "tau": 25,
       "sizes": {
+        "c0": 75,
         "c1": 25,
         "c2": 25,
         "c3": 25,
@@ -2996,7 +3072,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 100,
-      "elapsed_seconds": 0.413566000002902
+      "elapsed_seconds": 0.36600109999926644
     },
     {
       "group": "crown graph",
@@ -3005,6 +3081,7 @@
       "m": 2450,
       "tau": 50,
       "sizes": {
+        "c0": 50,
         "c1": 50,
         "c2": 50,
         "c3": 50,
@@ -3026,6 +3103,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c1",
         "c2",
         "c3",
@@ -3048,7 +3126,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 100,
-      "elapsed_seconds": 0.6127828000171576
+      "elapsed_seconds": 0.47140979999949195
     },
     {
       "group": "random bipartite (balanced)",
@@ -3057,6 +3135,7 @@
       "m": 1549,
       "tau": 463,
       "sizes": {
+        "c0": 491,
         "c1": 522,
         "c2": 506,
         "c3": 494,
@@ -3094,7 +3173,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 229,
-      "elapsed_seconds": 0.8568066000007093
+      "elapsed_seconds": 0.6969465000001946
     },
     {
       "group": "random bipartite (1:2)",
@@ -3103,6 +3182,7 @@
       "m": 1513,
       "tau": 330,
       "sizes": {
+        "c0": 461,
         "c1": 364,
         "c2": 337,
         "c3": 380,
@@ -3140,7 +3220,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 199,
-      "elapsed_seconds": 0.8480908999918029
+      "elapsed_seconds": 0.6096495000001596
     },
     {
       "group": "random bipartite (balanced)",
@@ -3149,6 +3229,7 @@
       "m": 2972,
       "tau": 497,
       "sizes": {
+        "c0": 548,
         "c1": 653,
         "c2": 583,
         "c3": 621,
@@ -3184,7 +3265,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 500,
-      "elapsed_seconds": 1.3304477000201587
+      "elapsed_seconds": 1.2005002000005334
     },
     {
       "group": "random bipartite (1:2)",
@@ -3193,6 +3274,7 @@
       "m": 2949,
       "tau": 333,
       "sizes": {
+        "c0": 414,
         "c1": 343,
         "c2": 333,
         "c3": 379,
@@ -3231,7 +3313,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 344,
-      "elapsed_seconds": 1.1651878999837209
+      "elapsed_seconds": 0.9804134000005433
     },
     {
       "group": "random bipartite (balanced)",
@@ -3240,6 +3322,7 @@
       "m": 9932,
       "tau": 500,
       "sizes": {
+        "c0": 500,
         "c1": 839,
         "c2": 500,
         "c3": 801,
@@ -3261,6 +3344,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c9",
         "c10",
@@ -3276,7 +3360,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 992,
-      "elapsed_seconds": 3.0872351999860257
+      "elapsed_seconds": 2.823520400000234
     },
     {
       "group": "random bipartite (1:2)",
@@ -3285,6 +3369,7 @@
       "m": 9985,
       "tau": 333,
       "sizes": {
+        "c0": 333,
         "c1": 333,
         "c2": 333,
         "c3": 333,
@@ -3306,6 +3391,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c1",
         "c2",
         "c3",
@@ -3328,7 +3414,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 936,
-      "elapsed_seconds": 2.7847404000058305
+      "elapsed_seconds": 2.2780483000005916
     },
     {
       "group": "random d-regular bipartite",
@@ -3337,6 +3423,7 @@
       "m": 1497,
       "tau": 500,
       "sizes": {
+        "c0": 591,
         "c1": 631,
         "c2": 500,
         "c3": 500,
@@ -3377,7 +3464,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 331,
-      "elapsed_seconds": 0.9251501000253484
+      "elapsed_seconds": 0.9152955999998085
     },
     {
       "group": "random d-regular bipartite",
@@ -3386,6 +3473,7 @@
       "m": 1994,
       "tau": 500,
       "sizes": {
+        "c0": 594,
         "c1": 663,
         "c2": 500,
         "c3": 500,
@@ -3426,7 +3514,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 493,
-      "elapsed_seconds": 0.9414667000237387
+      "elapsed_seconds": 1.070678200000657
     },
     {
       "group": "random d-regular bipartite",
@@ -3435,6 +3523,7 @@
       "m": 3965,
       "tau": 500,
       "sizes": {
+        "c0": 500,
         "c1": 748,
         "c2": 500,
         "c3": 505,
@@ -3456,6 +3545,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c4",
         "c6",
@@ -3474,7 +3564,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 500,
-      "elapsed_seconds": 1.4861588000203483
+      "elapsed_seconds": 1.6600025999996433
     },
     {
       "group": "power-law bipartite",
@@ -3483,6 +3573,7 @@
       "m": 1128,
       "tau": 355,
       "sizes": {
+        "c0": 424,
         "c1": 360,
         "c2": 362,
         "c3": 360,
@@ -3520,7 +3611,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 41,
-      "elapsed_seconds": 0.7280278000107501
+      "elapsed_seconds": 0.5759057000004759
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -3529,6 +3620,7 @@
       "m": 1500,
       "tau": 500,
       "sizes": {
+        "c0": 612,
         "c1": 620,
         "c2": 596,
         "c3": 622,
@@ -3566,7 +3658,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 321,
-      "elapsed_seconds": 0.8734305999823846
+      "elapsed_seconds": 0.7109618999993472
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -3575,6 +3667,7 @@
       "m": 2500,
       "tau": 500,
       "sizes": {
+        "c0": 690,
         "c1": 703,
         "c2": 668,
         "c3": 700,
@@ -3612,7 +3705,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 598,
-      "elapsed_seconds": 1.1171191000030376
+      "elapsed_seconds": 1.013247599999886
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -3621,6 +3714,7 @@
       "m": 1261,
       "tau": 500,
       "sizes": {
+        "c0": 548,
         "c1": 570,
         "c2": 519,
         "c3": 524,
@@ -3656,7 +3750,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 125,
-      "elapsed_seconds": 0.8613864000071771
+      "elapsed_seconds": 0.6519167999995261
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -3665,6 +3759,7 @@
       "m": 2498,
       "tau": 500,
       "sizes": {
+        "c0": 645,
         "c1": 662,
         "c2": 500,
         "c3": 631,
@@ -3703,7 +3798,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 506,
-      "elapsed_seconds": 1.1730478000245057
+      "elapsed_seconds": 1.1097336000002542
     },
     {
       "group": "random tree",
@@ -3712,6 +3807,7 @@
       "m": 999,
       "tau": 436,
       "sizes": {
+        "c0": 474,
         "c1": 459,
         "c2": 447,
         "c3": 441,
@@ -3749,7 +3845,7 @@
       "c10_width": 1,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.663300199987134
+      "elapsed_seconds": 0.4598171000006914
     },
     {
       "group": "2D grid, 70% edges kept",
@@ -3758,6 +3854,7 @@
       "m": 1314,
       "tau": 468,
       "sizes": {
+        "c0": 531,
         "c1": 530,
         "c2": 502,
         "c3": 515,
@@ -3791,7 +3888,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 34,
-      "elapsed_seconds": 1.3153606000123546
+      "elapsed_seconds": 0.9368426000000909
     },
     {
       "group": "random bipartite (balanced)",
@@ -3800,6 +3897,7 @@
       "m": 1504,
       "tau": 458,
       "sizes": {
+        "c0": 493,
         "c1": 509,
         "c2": 479,
         "c3": 485,
@@ -3833,7 +3931,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 208,
-      "elapsed_seconds": 0.8271432999754325
+      "elapsed_seconds": 0.6624689999998736
     },
     {
       "group": "random bipartite (1:2)",
@@ -3842,6 +3940,7 @@
       "m": 1568,
       "tau": 331,
       "sizes": {
+        "c0": 468,
         "c1": 377,
         "c2": 331,
         "c3": 379,
@@ -3880,7 +3979,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 204,
-      "elapsed_seconds": 0.946687399991788
+      "elapsed_seconds": 0.6112131999998383
     },
     {
       "group": "random bipartite (balanced)",
@@ -3889,6 +3988,7 @@
       "m": 3031,
       "tau": 497,
       "sizes": {
+        "c0": 530,
         "c1": 668,
         "c2": 622,
         "c3": 619,
@@ -3916,7 +4016,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 523,
-      "elapsed_seconds": 1.5305409999855328
+      "elapsed_seconds": 1.1531712000005427
     },
     {
       "group": "random bipartite (1:2)",
@@ -3925,6 +4025,7 @@
       "m": 2996,
       "tau": 333,
       "sizes": {
+        "c0": 449,
         "c1": 338,
         "c2": 333,
         "c3": 362,
@@ -3961,7 +4062,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 342,
-      "elapsed_seconds": 1.2623837999999523
+      "elapsed_seconds": 1.0415430000002743
     },
     {
       "group": "random bipartite (balanced)",
@@ -3970,6 +4071,7 @@
       "m": 10048,
       "tau": 500,
       "sizes": {
+        "c0": 500,
         "c1": 849,
         "c2": 500,
         "c3": 808,
@@ -3991,6 +4093,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c9",
         "c10",
@@ -4006,7 +4109,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 992,
-      "elapsed_seconds": 2.987682599981781
+      "elapsed_seconds": 2.877064999999675
     },
     {
       "group": "random bipartite (1:2)",
@@ -4015,6 +4118,7 @@
       "m": 9984,
       "tau": 333,
       "sizes": {
+        "c0": 371,
         "c1": 333,
         "c2": 333,
         "c3": 333,
@@ -4058,7 +4162,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 916,
-      "elapsed_seconds": 2.6461579000169877
+      "elapsed_seconds": 2.3225778999994873
     },
     {
       "group": "random d-regular bipartite",
@@ -4067,6 +4171,7 @@
       "m": 1498,
       "tau": 500,
       "sizes": {
+        "c0": 603,
         "c1": 624,
         "c2": 500,
         "c3": 500,
@@ -4107,7 +4212,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 330,
-      "elapsed_seconds": 0.8091117999865673
+      "elapsed_seconds": 0.9432006000006368
     },
     {
       "group": "random d-regular bipartite",
@@ -4116,6 +4221,7 @@
       "m": 1993,
       "tau": 500,
       "sizes": {
+        "c0": 640,
         "c1": 665,
         "c2": 500,
         "c3": 500,
@@ -4156,7 +4262,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 491,
-      "elapsed_seconds": 0.9489449000102468
+      "elapsed_seconds": 1.0930594999999812
     },
     {
       "group": "random d-regular bipartite",
@@ -4165,6 +4271,7 @@
       "m": 3971,
       "tau": 500,
       "sizes": {
+        "c0": 560,
         "c1": 765,
         "c2": 500,
         "c3": 500,
@@ -4205,7 +4312,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 500,
-      "elapsed_seconds": 1.7608742000011262
+      "elapsed_seconds": 1.7153204000005644
     },
     {
       "group": "power-law bipartite",
@@ -4214,6 +4321,7 @@
       "m": 1164,
       "tau": 350,
       "sizes": {
+        "c0": 400,
         "c1": 354,
         "c2": 355,
         "c3": 355,
@@ -4251,7 +4359,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 45,
-      "elapsed_seconds": 0.801235999999335
+      "elapsed_seconds": 0.5629127000001972
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -4260,6 +4368,7 @@
       "m": 1500,
       "tau": 500,
       "sizes": {
+        "c0": 624,
         "c1": 630,
         "c2": 604,
         "c3": 620,
@@ -4297,7 +4406,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 325,
-      "elapsed_seconds": 0.8664429000054952
+      "elapsed_seconds": 0.6985248000000865
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -4306,6 +4415,7 @@
       "m": 2500,
       "tau": 500,
       "sizes": {
+        "c0": 695,
         "c1": 694,
         "c2": 674,
         "c3": 706,
@@ -4343,7 +4453,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 594,
-      "elapsed_seconds": 1.114428200002294
+      "elapsed_seconds": 0.9939120999997613
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -4352,6 +4462,7 @@
       "m": 1256,
       "tau": 500,
       "sizes": {
+        "c0": 539,
         "c1": 569,
         "c2": 521,
         "c3": 518,
@@ -4387,7 +4498,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 121,
-      "elapsed_seconds": 0.9396501000155695
+      "elapsed_seconds": 0.6195848999996088
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -4396,6 +4507,7 @@
       "m": 2498,
       "tau": 500,
       "sizes": {
+        "c0": 671,
         "c1": 677,
         "c2": 502,
         "c3": 624,
@@ -4433,7 +4545,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 500,
-      "elapsed_seconds": 1.262192900001537
+      "elapsed_seconds": 1.076628100000562
     },
     {
       "group": "random tree",
@@ -4442,6 +4554,7 @@
       "m": 999,
       "tau": 435,
       "sizes": {
+        "c0": 473,
         "c1": 451,
         "c2": 456,
         "c3": 446,
@@ -4479,7 +4592,7 @@
       "c10_width": 1,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.6646267999894917
+      "elapsed_seconds": 0.46708050000052026
     },
     {
       "group": "2D grid, 70% edges kept",
@@ -4488,6 +4601,7 @@
       "m": 1291,
       "tau": 464,
       "sizes": {
+        "c0": 513,
         "c1": 522,
         "c2": 496,
         "c3": 513,
@@ -4521,7 +4635,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 46,
-      "elapsed_seconds": 1.5470497999922372
+      "elapsed_seconds": 1.0914540000003399
     },
     {
       "group": "random bipartite (balanced)",
@@ -4530,6 +4644,7 @@
       "m": 1505,
       "tau": 461,
       "sizes": {
+        "c0": 485,
         "c1": 503,
         "c2": 478,
         "c3": 481,
@@ -4563,7 +4678,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 199,
-      "elapsed_seconds": 1.021897699974943
+      "elapsed_seconds": 0.6789566999996168
     },
     {
       "group": "random bipartite (1:2)",
@@ -4572,6 +4687,7 @@
       "m": 1573,
       "tau": 329,
       "sizes": {
+        "c0": 460,
         "c1": 357,
         "c2": 329,
         "c3": 378,
@@ -4610,7 +4726,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 195,
-      "elapsed_seconds": 0.9944758999918122
+      "elapsed_seconds": 0.6391610000000583
     },
     {
       "group": "random bipartite (balanced)",
@@ -4619,6 +4735,7 @@
       "m": 2870,
       "tau": 496,
       "sizes": {
+        "c0": 560,
         "c1": 644,
         "c2": 584,
         "c3": 616,
@@ -4646,7 +4763,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 494,
-      "elapsed_seconds": 1.0496130000101402
+      "elapsed_seconds": 1.0915125000001353
     },
     {
       "group": "random bipartite (1:2)",
@@ -4655,6 +4772,7 @@
       "m": 3017,
       "tau": 333,
       "sizes": {
+        "c0": 399,
         "c1": 346,
         "c2": 333,
         "c3": 386,
@@ -4691,7 +4809,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 341,
-      "elapsed_seconds": 0.7606701000186149
+      "elapsed_seconds": 1.0026696999993874
     },
     {
       "group": "random bipartite (balanced)",
@@ -4700,6 +4818,7 @@
       "m": 9888,
       "tau": 500,
       "sizes": {
+        "c0": 500,
         "c1": 847,
         "c2": 500,
         "c3": 808,
@@ -4721,6 +4840,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c9",
         "c10",
@@ -4736,7 +4856,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 985,
-      "elapsed_seconds": 1.9233697000017855
+      "elapsed_seconds": 2.8502380999998422
     },
     {
       "group": "random bipartite (1:2)",
@@ -4745,6 +4865,7 @@
       "m": 9999,
       "tau": 333,
       "sizes": {
+        "c0": 333,
         "c1": 333,
         "c2": 333,
         "c3": 333,
@@ -4766,6 +4887,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c1",
         "c2",
         "c3",
@@ -4788,7 +4910,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 932,
-      "elapsed_seconds": 1.6889832000015303
+      "elapsed_seconds": 2.2672044000000824
     },
     {
       "group": "random d-regular bipartite",
@@ -4797,6 +4919,7 @@
       "m": 1496,
       "tau": 500,
       "sizes": {
+        "c0": 577,
         "c1": 624,
         "c2": 500,
         "c3": 500,
@@ -4837,7 +4960,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 331,
-      "elapsed_seconds": 0.4754240000038408
+      "elapsed_seconds": 0.9154158999999709
     },
     {
       "group": "random d-regular bipartite",
@@ -4846,6 +4969,7 @@
       "m": 1995,
       "tau": 500,
       "sizes": {
+        "c0": 624,
         "c1": 669,
         "c2": 500,
         "c3": 500,
@@ -4886,7 +5010,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 495,
-      "elapsed_seconds": 0.543771900003776
+      "elapsed_seconds": 1.0290656000006493
     },
     {
       "group": "random d-regular bipartite",
@@ -4895,6 +5019,7 @@
       "m": 3972,
       "tau": 500,
       "sizes": {
+        "c0": 601,
         "c1": 720,
         "c2": 500,
         "c3": 500,
@@ -4934,7 +5059,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 505,
-      "elapsed_seconds": 0.891250000015134
+      "elapsed_seconds": 2.2347703000004913
     },
     {
       "group": "power-law bipartite",
@@ -4943,6 +5068,7 @@
       "m": 1110,
       "tau": 365,
       "sizes": {
+        "c0": 431,
         "c1": 370,
         "c2": 370,
         "c3": 370,
@@ -4980,7 +5106,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 34,
-      "elapsed_seconds": 0.42944929999066517
+      "elapsed_seconds": 0.5233063999994556
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -4989,6 +5115,7 @@
       "m": 1500,
       "tau": 500,
       "sizes": {
+        "c0": 613,
         "c1": 633,
         "c2": 600,
         "c3": 630,
@@ -5026,7 +5153,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 329,
-      "elapsed_seconds": 0.5307084000087343
+      "elapsed_seconds": 0.7279610999994475
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -5035,6 +5162,7 @@
       "m": 2500,
       "tau": 500,
       "sizes": {
+        "c0": 680,
         "c1": 692,
         "c2": 676,
         "c3": 710,
@@ -5072,7 +5200,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 609,
-      "elapsed_seconds": 0.6686405999935232
+      "elapsed_seconds": 1.0702398000003086
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -5081,6 +5209,7 @@
       "m": 1243,
       "tau": 500,
       "sizes": {
+        "c0": 542,
         "c1": 573,
         "c2": 526,
         "c3": 535,
@@ -5116,7 +5245,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 107,
-      "elapsed_seconds": 0.4993668999813963
+      "elapsed_seconds": 0.6676759000001766
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -5125,6 +5254,7 @@
       "m": 2493,
       "tau": 500,
       "sizes": {
+        "c0": 656,
         "c1": 664,
         "c2": 501,
         "c3": 626,
@@ -5162,7 +5292,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 491,
-      "elapsed_seconds": 0.6831921999983024
+      "elapsed_seconds": 1.0401642000006177
     },
     {
       "group": "random tree",
@@ -5171,6 +5301,7 @@
       "m": 999,
       "tau": 425,
       "sizes": {
+        "c0": 466,
         "c1": 448,
         "c2": 446,
         "c3": 441,
@@ -5208,7 +5339,7 @@
       "c10_width": 1,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.37052649998804554
+      "elapsed_seconds": 0.4732579000001351
     },
     {
       "group": "2D grid, 70% edges kept",
@@ -5217,6 +5348,7 @@
       "m": 1314,
       "tau": 471,
       "sizes": {
+        "c0": 526,
         "c1": 532,
         "c2": 507,
         "c3": 506,
@@ -5250,7 +5382,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 58,
-      "elapsed_seconds": 0.6570332999981474
+      "elapsed_seconds": 0.789909500000249
     },
     {
       "group": "2D grid",
@@ -5259,6 +5391,7 @@
       "m": 1860,
       "tau": 480,
       "sizes": {
+        "c0": 604,
         "c1": 609,
         "c2": 481,
         "c3": 480,
@@ -5297,7 +5430,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 335,
-      "elapsed_seconds": 0.6059146999905352
+      "elapsed_seconds": 0.8938367000000653
     },
     {
       "group": "3D grid",
@@ -5306,6 +5439,7 @@
       "m": 2700,
       "tau": 500,
       "sizes": {
+        "c0": 649,
         "c1": 687,
         "c2": 500,
         "c3": 620,
@@ -5342,7 +5476,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 509,
-      "elapsed_seconds": 0.6851602999959141
+      "elapsed_seconds": 1.0769670999998198
     },
     {
       "group": "even cycle",
@@ -5351,6 +5485,7 @@
       "m": 1000,
       "tau": 500,
       "sizes": {
+        "c0": 533,
         "c1": 568,
         "c2": 500,
         "c3": 500,
@@ -5390,7 +5525,7 @@
       "c10_width": 2,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.4876802999933716
+      "elapsed_seconds": 2.742383400000108
     },
     {
       "group": "complete bipartite",
@@ -5399,6 +5534,7 @@
       "m": 187500,
       "tau": 250,
       "sizes": {
+        "c0": 750,
         "c1": 250,
         "c2": 250,
         "c3": 250,
@@ -5442,7 +5578,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 1000,
-      "elapsed_seconds": 34.15450989999226
+      "elapsed_seconds": 42.681373300000814
     },
     {
       "group": "crown graph",
@@ -5451,6 +5587,7 @@
       "m": 249500,
       "tau": 500,
       "sizes": {
+        "c0": 500,
         "c1": 500,
         "c2": 500,
         "c3": 500,
@@ -5472,6 +5609,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c1",
         "c2",
         "c3",
@@ -5494,7 +5632,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 1000,
-      "elapsed_seconds": 45.694212299975334
+      "elapsed_seconds": 56.87184199999956
     },
     {
       "group": "hypercube",
@@ -5503,6 +5641,7 @@
       "m": 1024,
       "tau": 128,
       "sizes": {
+        "c0": 154,
         "c1": 188,
         "c2": 128,
         "c3": 128,
@@ -5542,7 +5681,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 128,
-      "elapsed_seconds": 0.1788552000070922
+      "elapsed_seconds": 0.2511928000003536
     },
     {
       "group": "hypercube, 50% edges kept",
@@ -5551,6 +5690,7 @@
       "m": 536,
       "tau": 126,
       "sizes": {
+        "c0": 156,
         "c1": 152,
         "c2": 148,
         "c3": 153,
@@ -5584,8 +5724,8 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 101,
-      "elapsed_seconds": 0.1392956000054255
+      "elapsed_seconds": 0.19085269999959564
     }
   ],
-  "elapsed_seconds": 151.50219798088074
+  "elapsed_seconds": 171.47940111160278
 }

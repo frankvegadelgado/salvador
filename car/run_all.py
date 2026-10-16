@@ -33,6 +33,7 @@ SCRIPTS: dict[str, tuple[str, list[str]]] = {
     "strategies":     ("car_strategies.py",     ["--quick", "--max-n", "5000"]),
     "c11_variants":   ("car_c11_variants.py",   ["--quick", "--max-n", "5000"]),
     "c10_bags":       ("car_c10_bags.py",       ["--quick"]),
+    "c0_components":  ("car_c0_components.py",  ["--quick", "--max-n", "5000"]),
     "regular":        ("car_regular.py",        ["--quick"]),
     "bipartite":      ("car_bipartite.py",      ["--quick", "--max-n", "1000"]),
     "yes_instances":  ("car_yes_instances.py",  ["--quick", "--max-n", "1280", "--exact-time", "20"]),

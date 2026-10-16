@@ -1,6 +1,6 @@
 """car/ bipartite study: does Salvador need an exact bipartite strategy?
 
-Salvador 0.1.2 no longer has a bipartite-exact strategy (the former c10,
+Salvador 0.1.3 no longer has a bipartite-exact strategy (the former c10,
 Hopcroft-Karp + Koenig, which is O(m sqrt(n)) and therefore not linear). Its
 c10 is now the edge-dominating-set gadget solved by a linear-time treewidth
 DP on the bipartite components (a minimum EDS when the DP core is empty,

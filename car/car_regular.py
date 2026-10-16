@@ -1,4 +1,4 @@
-"""car/ regular graphs with progressively higher degree (Salvador 0.1.2, default call).
+"""car/ regular graphs with progressively higher degree (Salvador 0.1.3, default call).
 
 For every degree d of a progressive sequence (default 3, 4, 5, 6, 8, 10, 12,
 16, 20, 24, 32, 48, 64) and every size n, Salvador's ensemble is run on

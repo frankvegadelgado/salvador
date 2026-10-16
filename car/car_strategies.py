@@ -1,4 +1,4 @@
-"""car/ strategy-winner report: which strategy wins, and how often (Salvador 0.1.2).
+"""car/ strategy-winner report: which strategy wins, and how often (Salvador 0.1.3).
 
 ``salvador.algorithm.final_candidates`` exposes all fourteen strategies (every
 one a valid cover); ``salvador.algorithm.find_vertex_cover`` returns ``c15``:
@@ -109,11 +109,11 @@ from salvador.algorithm import (BASE_NAMES, C9_INPUT_NAMES, C10_INPUT_NAMES, CAN
 from salvador.treewidth_dp import DEFAULT_DP_BUDGET, DEFAULT_MAX_WIDTH
 
 BASE = list(BASE_NAMES)                                      # c1..c8, c10, c11, c13
-C12_INPUT = [k for k in CANDIDATE_NAMES if k not in ("c12", "c13", "c14", "c15")]  # c1..c11 (reference of c12)
+C12_INPUT = [k for k in CANDIDATE_NAMES if k not in ("c0", "c12", "c13", "c14", "c15")]  # c1..c11 (reference of c12)
 C14_INPUT = [f"c{i}" for i in range(1, 14)]                  # c1..c13 (votes of c14)
 C9_INPUT = list(C9_INPUT_NAMES)                              # c1..c8 (input of c9)
 C10_INPUT = list(C10_INPUT_NAMES)                            # c1..c9 (reference of c10)
-PRE_FINAL = [k for k in CANDIDATE_NAMES if k != "c15"]       # c1..c14 (input of c15)
+PRE_FINAL = [k for k in CANDIDATE_NAMES if k != "c15"]       # c0..c14 (input of c15)
 
 # Set from the command line in main().
 REFINE_BUDGET: float | None = DEFAULT_REFINE_BUDGET

@@ -1,6 +1,6 @@
-"""Public vertex-cover solvers exposed by Salvador (version 0.1.2).
+"""Public vertex-cover solvers exposed by Salvador (version 0.1.3).
 
-Version 0.1.2 keeps the linear-time ensemble c1..c9 described below, adds c10,
+Version 0.1.3 keeps the linear-time ensemble c1..c9 described below, adds c10,
 the labelled, weighted edge-dominating-set reduction solved by a treewidth DP
 with bags of at most 6 nodes on the bipartite components
 (:mod:`salvador.eds_treewidth`), c11, the weighted subdivision reduction to
@@ -15,6 +15,12 @@ bounded-treewidth exact dynamic program
 (:mod:`salvador.treewidth_dp`), c14, consensus forcing
 (:mod:`salvador.consensus_force`: the vertices that all, then most, of
 c1..c13 contain are forced into the cover and the rest is solved again), and
+c0, component amplification (:mod:`salvador.component_split`: bridges, then
+matching edges, of the split graph with vertices ``(u, i)`` are split off as
+isolated edges until it has at least as many components as the NetworkX
+minimum maximal matching of c1 has edges, and the NetworkX minimum maximal
+matching of the split graph is decoded by copy index; computed after c14 so
+that c1..c14 are unchanged), and
 a final strategy, c15: every candidate is
 refined by a budgeted swap-maximize pass (:func:`refine_cover`) and the
 smallest refined cover is returned. With the default budgets c1..c15 run in
@@ -64,7 +70,7 @@ import itertools
 from typing import Any
 import networkx as nx
 
-from . import (bipartite_reduction, consensus_force, eds_treewidth, local_search, reduce_search, subdivision_reduction,
+from . import (bipartite_reduction, component_split, consensus_force, eds_treewidth, local_search, reduce_search, subdivision_reduction,
                treewidth_dp, utils, vc_reduction)
 from collections import deque
 
@@ -487,6 +493,7 @@ def prune_redundant_vertices(adj, C):
 
 #: Human-readable names of the strategies, in evaluation order.
 CANDIDATE_NAMES: dict[str, str] = {
+    "c0": "component-amplified split graph + NetworkX min maximal matching",
     "c1": "maximal matching",
     "c2": "max-degree greedy",
     "c3": "Hallelujah reduction",
@@ -517,6 +524,9 @@ C9_INPUT_NAMES: tuple[str, ...] = ("c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8
 
 #: The candidates whose best cover is c10's reference (core and non-bipartite parts).
 C10_INPUT_NAMES: tuple[str, ...] = C9_INPUT_NAMES + ("c9",)
+
+#: Selection rules of c0 for a matched edge ((a, i), (b, j)) with i != j (smaller / larger index).
+C0_RULES: tuple[str, ...] = component_split.RULES
 
 #: Default work budget of the c15 refinement, in units of (n + m) per cover.
 DEFAULT_REFINE_BUDGET: float | None = 100
@@ -577,8 +587,25 @@ def ensemble_candidates(
     search_rounds: int = DEFAULT_SEARCH_ROUNDS,
     search_budget: float = DEFAULT_SEARCH_BUDGET,
     consensus_rounds: int = DEFAULT_CONSENSUS_ROUNDS,
+    c0_rule: str | None = None,
 ) -> dict[str, set[Any]]:
-    """Return every pruned linear-time candidate ``c1``...``c14`` by name.
+    """Return every pruned candidate ``c0``...``c14`` by name.
+
+    ``c0`` is the component-amplification strategy of
+    :mod:`salvador.component_split`: every vertex ``u`` becomes ``(u, 0)``,
+    bridges (and, when none is left, matching edges) of the split graph are
+    split off as isolated edges, moving the other edges of an endpoint to a new
+    copy ``(u, i + 1)``, until the split graph has at least ``|M|`` components
+    (``M`` the NetworkX minimum maximal matching of c1); the NetworkX minimum
+    maximal matching of the split graph is then decoded, an edge
+    ``((a, i), (b, j))`` costing nothing when ``a`` or ``b`` is already
+    selected, selecting the smaller-index endpoint (rule ``"low"``) or the
+    larger-index one (``"high"``) when ``i != j``, and going to a residual
+    graph (covered by Koenig when bipartite, otherwise by occurrences) when
+    ``i == j``. The decoded set is repaired and pruned. ``c0_rule=None`` (the
+    default) keeps the smaller of the two rules. ``c0`` is computed last and
+    does not feed c7, c9, ..., c14, which are therefore unchanged; ``c15``
+    refines it like every other candidate.
 
     Each value is a valid vertex cover of ``graph``. ``c1``...``c6`` and
     ``c8`` are independent linear-time heuristics; ``c7`` re-prunes their
@@ -648,6 +675,7 @@ def ensemble_candidates(
         return {name: set() for name in CANDIDATE_NAMES if name != "c15"}
 
     adj = {v: set(G[v]) for v in G}
+    c0_rule = c0_rule if c0_rule in C0_RULES else None
 
     # 1-6: linear-time heuristics producing valid covers
     c1 = maximal_matching_vertex_cover(G) # min-maximal-matching
@@ -720,7 +748,19 @@ def ensemble_candidates(
     cands["c14"] = consensus_force.consensus_force_cover(
         adj, [cands[f"c{i}"] for i in range(1, 14)], _consensus_inner, prune_redundant_vertices,
         rounds=consensus_rounds, info=cons_info)
+    # 0: component amplification of the split graph + NetworkX min maximal matching.
+    c0_info: dict = {}
+    c0_variants = {rule: prune_redundant_vertices(adj, raw)
+                   for rule, raw in component_split.component_split_covers(G, c0_info).items()}
+    c0_key = c0_rule or min(C0_RULES, key=lambda k: len(c0_variants[k]))
+    cands = {"c0": c0_variants[c0_key], **cands}
     if info is not None:
+        info.update({"c0_rule": c0_key, **{f"c0_{k}_size": len(v) for k, v in c0_variants.items()},
+                     **{f"c0_{k}": c0_info[k] for k in
+                        ("target", "r", "r_prime", "bridge_splits", "matching_splits", "rounds", "max_index",
+                         "h_nodes", "h_edges")},
+                     **{f"c0_{rule}_{k}": c0_info[rule][k] for rule in C0_RULES for k in
+                        ("matching_h", "ties", "residual_open", "residual_exact", "reused", "raw_size")}})
         info.update({"c10_exact": eds_info["exact"], "c10_raw_size": len(c10),
                      "c10_core_size": eds_info["core_size"],
                      "c10_width": eds_info["width"],
@@ -922,16 +962,17 @@ def final_candidates(
     search_rounds: int = DEFAULT_SEARCH_ROUNDS,
     search_budget: float = DEFAULT_SEARCH_BUDGET,
     consensus_rounds: int = DEFAULT_CONSENSUS_ROUNDS,
+    c0_rule: str | None = None,
 ):
-    """Every strategy of Salvador 0.1.2 (``c1``...``c15``) by name.
+    """Every strategy of Salvador 0.1.3 (``c0``...``c15``) by name.
 
-    ``c1``...``c14`` are the candidates of :func:`ensemble_candidates`. ``c15``
+    ``c0``...``c14`` are the candidates of :func:`ensemble_candidates`. ``c15``
     is the final swap-maximize refinement: :func:`refine_cover` is applied to
-    every candidate ``c1``...``c14`` (with the same maximum-degree vertex
+    every candidate ``c0``...``c14`` (with the same maximum-degree vertex
     ``v_max`` for all of them, and a work budget of ``refine_budget * (n + m)``
     per distinct cover) and the smallest refined cover is kept. A refined
     cover is never larger than its input, so
-    ``|c15| <= min(|c1|, ..., |c14|)``. Identical candidate covers are refined
+    ``|c15| <= min(|c0|, ..., |c14|)``. Identical candidate covers are refined
     only once.
 
     With ``return_refined=True`` the result is ``(candidates, refined)``, where
@@ -946,7 +987,7 @@ def final_candidates(
     cands = ensemble_candidates(G, epsilon, local_search_budget, tw_max_width, tw_budget, info=info,
                                 eds_max_width=eds_max_width, eds_budget=eds_budget,
                                 search_rounds=search_rounds, search_budget=search_budget,
-                                consensus_rounds=consensus_rounds)
+                                consensus_rounds=consensus_rounds, c0_rule=c0_rule)
     if G.number_of_edges() == 0:
         cands["c15"] = set()
         return (cands, {k: set() for k in cands}) if return_refined else cands
@@ -969,7 +1010,7 @@ def find_vertex_cover(
     eds_max_width: int = DEFAULT_EDS_MAX_WIDTH,
     eds_budget: float = DEFAULT_EDS_BUDGET,
 ) -> set[Any]:
-    """Return the final cover of Salvador 0.1.2.
+    """Return the final cover of Salvador 0.1.3.
     """
     return final_candidates(graph, epsilon, refine_budget=refine_budget,
                                      eds_max_width=eds_max_width, eds_budget=eds_budget)["c15"]
