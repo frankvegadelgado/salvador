@@ -46,7 +46,7 @@
       "c10_mean_core_fraction": 0.5074037460978148,
       "c13_exact": 0,
       "optimal_by_strategy": {
-        "c0": 0,
+        "c0": 2,
         "c1": 0,
         "c2": 1,
         "c3": 1,
@@ -63,7 +63,7 @@
         "c14": 2,
         "c15": 2
       },
-      "seconds": 0.9756716000001688
+      "seconds": 0.876454700002796
     },
     "2D grid, 70% edges kept": {
       "instances": 6,
@@ -79,7 +79,7 @@
       "c10_mean_core_fraction": 0.09040409295872355,
       "c13_exact": 3,
       "optimal_by_strategy": {
-        "c0": 0,
+        "c0": 2,
         "c1": 0,
         "c2": 0,
         "c3": 0,
@@ -96,7 +96,7 @@
         "c14": 6,
         "c15": 6
       },
-      "seconds": 3.703486500001418
+      "seconds": 3.482659999994212
     },
     "3D grid": {
       "instances": 2,
@@ -112,7 +112,7 @@
       "c10_mean_core_fraction": 1.006,
       "c13_exact": 0,
       "optimal_by_strategy": {
-        "c0": 0,
+        "c0": 1,
         "c1": 0,
         "c2": 2,
         "c3": 1,
@@ -129,7 +129,7 @@
         "c14": 2,
         "c15": 2
       },
-      "seconds": 1.1879400999996506
+      "seconds": 1.120699799990689
     },
     "complete bipartite": {
       "instances": 2,
@@ -145,7 +145,7 @@
       "c10_mean_core_fraction": 51.628499999999995,
       "c13_exact": 0,
       "optimal_by_strategy": {
-        "c0": 0,
+        "c0": 2,
         "c1": 2,
         "c2": 2,
         "c3": 2,
@@ -162,7 +162,7 @@
         "c14": 2,
         "c15": 2
       },
-      "seconds": 43.04737440000008
+      "seconds": 42.18844409999292
     },
     "crown graph": {
       "instances": 2,
@@ -195,7 +195,7 @@
         "c14": 2,
         "c15": 2
       },
-      "seconds": 57.34325179999905
+      "seconds": 57.47380669999984
     },
     "double cover G x K2 of random regular": {
       "instances": 12,
@@ -211,7 +211,7 @@
       "c10_mean_core_fraction": 0.6735833333333333,
       "c13_exact": 0,
       "optimal_by_strategy": {
-        "c0": 0,
+        "c0": 12,
         "c1": 0,
         "c2": 0,
         "c3": 0,
@@ -228,7 +228,7 @@
         "c14": 12,
         "c15": 12
       },
-      "seconds": 5.693922299998121
+      "seconds": 5.365735299994412
     },
     "even cycle": {
       "instances": 2,
@@ -244,7 +244,7 @@
       "c10_mean_core_fraction": 0.0,
       "c13_exact": 2,
       "optimal_by_strategy": {
-        "c0": 0,
+        "c0": 2,
         "c1": 0,
         "c2": 2,
         "c3": 2,
@@ -261,7 +261,7 @@
         "c14": 2,
         "c15": 2
       },
-      "seconds": 2.8081750000001193
+      "seconds": 0.6138814000005368
     },
     "hidden perfect matching + random edges": {
       "instances": 12,
@@ -277,7 +277,7 @@
       "c10_mean_core_fraction": 0.5703333333333334,
       "c13_exact": 3,
       "optimal_by_strategy": {
-        "c0": 0,
+        "c0": 12,
         "c1": 0,
         "c2": 4,
         "c3": 0,
@@ -294,7 +294,7 @@
         "c14": 12,
         "c15": 12
       },
-      "seconds": 5.645128000000113
+      "seconds": 5.19542159998673
     },
     "hypercube": {
       "instances": 1,
@@ -310,7 +310,7 @@
       "c10_mean_core_fraction": 1.95703125,
       "c13_exact": 0,
       "optimal_by_strategy": {
-        "c0": 0,
+        "c0": 1,
         "c1": 0,
         "c2": 1,
         "c3": 1,
@@ -327,7 +327,7 @@
         "c14": 1,
         "c15": 1
       },
-      "seconds": 0.2511928000003536
+      "seconds": 0.27069760000449605
     },
     "hypercube, 50% edges kept": {
       "instances": 1,
@@ -360,7 +360,7 @@
         "c14": 1,
         "c15": 1
       },
-      "seconds": 0.19085269999959564
+      "seconds": 0.18599420000100508
     },
     "power-law bipartite": {
       "instances": 6,
@@ -376,7 +376,7 @@
       "c10_mean_core_fraction": 0.2165,
       "c13_exact": 3,
       "optimal_by_strategy": {
-        "c0": 0,
+        "c0": 6,
         "c1": 2,
         "c2": 1,
         "c3": 1,
@@ -393,7 +393,7 @@
         "c14": 6,
         "c15": 6
       },
-      "seconds": 1.8206956999993054
+      "seconds": 1.7703163000114728
     },
     "random bipartite (1:2)": {
       "instances": 18,
@@ -409,7 +409,7 @@
       "c10_mean_core_fraction": 2.4944444444444445,
       "c13_exact": 0,
       "optimal_by_strategy": {
-        "c0": 2,
+        "c0": 18,
         "c1": 10,
         "c2": 17,
         "c3": 9,
@@ -426,15 +426,15 @@
         "c14": 18,
         "c15": 18
       },
-      "seconds": 12.714620400001877
+      "seconds": 12.700771999989229
     },
     "random bipartite (balanced)": {
       "instances": 18,
-      "optimal": 15,
-      "optimal_rate": 0.8333333333333334,
-      "max_ratio": 1.0217391304347827,
-      "mean_ratio": 1.0018790963797433,
-      "total_excess": 7,
+      "optimal": 17,
+      "optimal_rate": 0.9444444444444444,
+      "max_ratio": 1.0060362173038229,
+      "mean_ratio": 1.000335345405768,
+      "total_excess": 3,
       "total_tau": 4810,
       "c10_exact": 0,
       "c10_raw_optimal": 11,
@@ -442,7 +442,7 @@
       "c10_mean_core_fraction": 2.464277777777778,
       "c13_exact": 0,
       "optimal_by_strategy": {
-        "c0": 6,
+        "c0": 12,
         "c1": 1,
         "c2": 7,
         "c3": 0,
@@ -457,9 +457,9 @@
         "c12": 15,
         "c13": 15,
         "c14": 15,
-        "c15": 15
+        "c15": 17
       },
-      "seconds": 15.164446099999623
+      "seconds": 14.1986035000009
     },
     "random d-regular bipartite": {
       "instances": 18,
@@ -475,7 +475,7 @@
       "c10_mean_core_fraction": 0.951,
       "c13_exact": 0,
       "optimal_by_strategy": {
-        "c0": 4,
+        "c0": 18,
         "c1": 0,
         "c2": 18,
         "c3": 14,
@@ -492,7 +492,7 @@
         "c14": 18,
         "c15": 18
       },
-      "seconds": 12.405641000003016
+      "seconds": 9.051880899991374
     },
     "random tree": {
       "instances": 6,
@@ -508,7 +508,7 @@
       "c10_mean_core_fraction": 0.0,
       "c13_exact": 6,
       "optimal_by_strategy": {
-        "c0": 1,
+        "c0": 6,
         "c1": 1,
         "c2": 2,
         "c3": 1,
@@ -525,15 +525,15 @@
         "c14": 6,
         "c15": 6
       },
-      "seconds": 1.5189804000019649
+      "seconds": 1.4628892999971868
     },
     "ALL": {
       "instances": 108,
-      "optimal": 105,
-      "optimal_rate": 0.9722222222222222,
-      "max_ratio": 1.0217391304347827,
-      "mean_ratio": 1.0003131827299572,
-      "total_excess": 7,
+      "optimal": 107,
+      "optimal_rate": 0.9907407407407407,
+      "max_ratio": 1.0060362173038229,
+      "mean_ratio": 1.0000558909009614,
+      "total_excess": 3,
       "total_tau": 26523,
       "c10_exact": 10,
       "c10_raw_optimal": 97,
@@ -541,7 +541,7 @@
       "c10_mean_core_fraction": 3.5389014541661847,
       "c13_exact": 17,
       "optimal_by_strategy": {
-        "c0": 15,
+        "c0": 96,
         "c1": 18,
         "c2": 59,
         "c3": 34,
@@ -556,9 +556,9 @@
         "c12": 105,
         "c13": 105,
         "c14": 105,
-        "c15": 105
+        "c15": 107
       },
-      "seconds": 164.47137880000446
+      "seconds": 155.9582573999578
     }
   },
   "rows": [
@@ -569,7 +569,7 @@
       "m": 136,
       "tau": 44,
       "sizes": {
-        "c0": 48,
+        "c0": 44,
         "c1": 50,
         "c2": 48,
         "c3": 48,
@@ -591,6 +591,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c11",
         "c12",
         "c13",
@@ -603,7 +604,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 13,
-      "elapsed_seconds": 0.06317390000003797
+      "elapsed_seconds": 0.12064789999567438
     },
     {
       "group": "random bipartite (1:2)",
@@ -612,7 +613,7 @@
       "m": 168,
       "tau": 33,
       "sizes": {
-        "c0": 46,
+        "c0": 33,
         "c1": 33,
         "c2": 33,
         "c3": 36,
@@ -634,6 +635,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c1",
         "c2",
         "c4",
@@ -654,7 +656,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 19,
-      "elapsed_seconds": 0.054829200000312994
+      "elapsed_seconds": 0.05876330000319285
     },
     {
       "group": "random bipartite (balanced)",
@@ -663,7 +665,7 @@
       "m": 303,
       "tau": 50,
       "sizes": {
-        "c0": 55,
+        "c0": 50,
         "c1": 67,
         "c2": 60,
         "c3": 66,
@@ -685,6 +687,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c9",
         "c10",
         "c11",
@@ -699,7 +702,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 52,
-      "elapsed_seconds": 0.0967793999998321
+      "elapsed_seconds": 0.11157929999899352
     },
     {
       "group": "random bipartite (1:2)",
@@ -708,7 +711,7 @@
       "m": 314,
       "tau": 33,
       "sizes": {
-        "c0": 42,
+        "c0": 33,
         "c1": 33,
         "c2": 33,
         "c3": 33,
@@ -730,6 +733,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c1",
         "c2",
         "c3",
@@ -752,7 +756,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 33,
-      "elapsed_seconds": 0.0692629000004672
+      "elapsed_seconds": 0.07940999999846099
     },
     {
       "group": "random bipartite (balanced)",
@@ -802,7 +806,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 100,
-      "elapsed_seconds": 0.21224609999990207
+      "elapsed_seconds": 0.21115180000197142
     },
     {
       "group": "random bipartite (1:2)",
@@ -811,7 +815,7 @@
       "m": 1000,
       "tau": 33,
       "sizes": {
-        "c0": 61,
+        "c0": 33,
         "c1": 33,
         "c2": 33,
         "c3": 33,
@@ -833,6 +837,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c1",
         "c2",
         "c3",
@@ -855,7 +860,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 96,
-      "elapsed_seconds": 0.18728250000003754
+      "elapsed_seconds": 0.17713850000291131
     },
     {
       "group": "random d-regular bipartite",
@@ -864,7 +869,7 @@
       "m": 147,
       "tau": 50,
       "sizes": {
-        "c0": 56,
+        "c0": 50,
         "c1": 60,
         "c2": 50,
         "c3": 50,
@@ -886,6 +891,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c3",
         "c4",
@@ -905,7 +911,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 28,
-      "elapsed_seconds": 0.05542779999996128
+      "elapsed_seconds": 0.054730099996959325
     },
     {
       "group": "random d-regular bipartite",
@@ -914,7 +920,7 @@
       "m": 191,
       "tau": 50,
       "sizes": {
-        "c0": 52,
+        "c0": 50,
         "c1": 64,
         "c2": 50,
         "c3": 50,
@@ -936,6 +942,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c3",
         "c4",
@@ -955,7 +962,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 42,
-      "elapsed_seconds": 0.07260620000033668
+      "elapsed_seconds": 0.06131450000248151
     },
     {
       "group": "random d-regular bipartite",
@@ -1002,7 +1009,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 58,
-      "elapsed_seconds": 0.13173330000063288
+      "elapsed_seconds": 0.08999839999887627
     },
     {
       "group": "power-law bipartite",
@@ -1011,7 +1018,7 @@
       "m": 115,
       "tau": 34,
       "sizes": {
-        "c0": 36,
+        "c0": 34,
         "c1": 34,
         "c2": 34,
         "c3": 34,
@@ -1033,6 +1040,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c1",
         "c2",
         "c3",
@@ -1054,7 +1062,7 @@
       "c10_width": 5,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.049207499999283755
+      "elapsed_seconds": 0.04833350000262726
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -1063,7 +1071,7 @@
       "m": 150,
       "tau": 50,
       "sizes": {
-        "c0": 56,
+        "c0": 50,
         "c1": 67,
         "c2": 60,
         "c3": 62,
@@ -1085,6 +1093,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c4",
         "c8",
         "c9",
@@ -1101,7 +1110,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 27,
-      "elapsed_seconds": 0.06420780000007653
+      "elapsed_seconds": 0.07185079999908339
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -1110,7 +1119,7 @@
       "m": 250,
       "tau": 50,
       "sizes": {
-        "c0": 57,
+        "c0": 50,
         "c1": 70,
         "c2": 68,
         "c3": 70,
@@ -1132,6 +1141,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c4",
         "c8",
         "c9",
@@ -1148,7 +1158,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 62,
-      "elapsed_seconds": 0.09740599999986443
+      "elapsed_seconds": 0.0681512000010116
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -1157,7 +1167,7 @@
       "m": 127,
       "tau": 50,
       "sizes": {
-        "c0": 57,
+        "c0": 50,
         "c1": 57,
         "c2": 52,
         "c3": 53,
@@ -1179,6 +1189,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c9",
         "c10",
         "c11",
@@ -1193,7 +1204,7 @@
       "c10_width": 5,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.08699329999944894
+      "elapsed_seconds": 0.0931503999963752
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -1202,7 +1213,7 @@
       "m": 247,
       "tau": 50,
       "sizes": {
-        "c0": 58,
+        "c0": 50,
         "c1": 66,
         "c2": 50,
         "c3": 62,
@@ -1224,6 +1235,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c4",
         "c8",
@@ -1241,7 +1253,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 49,
-      "elapsed_seconds": 0.10053480000078707
+      "elapsed_seconds": 0.07208689999970375
     },
     {
       "group": "random tree",
@@ -1250,7 +1262,7 @@
       "m": 99,
       "tau": 41,
       "sizes": {
-        "c0": 48,
+        "c0": 41,
         "c1": 41,
         "c2": 43,
         "c3": 41,
@@ -1272,6 +1284,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c1",
         "c3",
         "c4",
@@ -1293,7 +1306,7 @@
       "c10_width": 1,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.036390100000062375
+      "elapsed_seconds": 0.037496099997952115
     },
     {
       "group": "2D grid, 70% edges kept",
@@ -1302,7 +1315,7 @@
       "m": 123,
       "tau": 48,
       "sizes": {
-        "c0": 54,
+        "c0": 49,
         "c1": 56,
         "c2": 51,
         "c3": 52,
@@ -1337,7 +1350,7 @@
       "c10_width": 5,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.5836556000003839
+      "elapsed_seconds": 0.5555273999998462
     },
     {
       "group": "random bipartite (balanced)",
@@ -1346,7 +1359,7 @@
       "m": 167,
       "tau": 46,
       "sizes": {
-        "c0": 51,
+        "c0": 46,
         "c1": 52,
         "c2": 49,
         "c3": 51,
@@ -1361,20 +1374,23 @@
         "c12": 47,
         "c13": 47,
         "c14": 47,
-        "c15": 47
+        "c15": 46
       },
-      "final": 47,
-      "ratio": 1.0217391304347827,
-      "excess": 1,
-      "optimal": false,
-      "optimal_strategies": [],
+      "final": 46,
+      "ratio": 1.0,
+      "excess": 0,
+      "optimal": true,
+      "optimal_strategies": [
+        "c0",
+        "c15"
+      ],
       "c10_exact": false,
       "c10_raw": 47,
       "c10_core_size": 50,
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 25,
-      "elapsed_seconds": 0.057347699999809265
+      "elapsed_seconds": 0.0619555000012042
     },
     {
       "group": "random bipartite (1:2)",
@@ -1383,7 +1399,7 @@
       "m": 142,
       "tau": 33,
       "sizes": {
-        "c0": 43,
+        "c0": 33,
         "c1": 35,
         "c2": 33,
         "c3": 40,
@@ -1405,6 +1421,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c4",
         "c8",
@@ -1422,7 +1439,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 16,
-      "elapsed_seconds": 0.05359099999986938
+      "elapsed_seconds": 0.05051300000195624
     },
     {
       "group": "random bipartite (balanced)",
@@ -1431,7 +1448,7 @@
       "m": 307,
       "tau": 50,
       "sizes": {
-        "c0": 59,
+        "c0": 50,
         "c1": 67,
         "c2": 50,
         "c3": 64,
@@ -1453,6 +1470,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c9",
         "c10",
@@ -1468,7 +1486,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 53,
-      "elapsed_seconds": 0.09304960000008577
+      "elapsed_seconds": 0.08889389999967534
     },
     {
       "group": "random bipartite (1:2)",
@@ -1477,7 +1495,7 @@
       "m": 299,
       "tau": 33,
       "sizes": {
-        "c0": 46,
+        "c0": 33,
         "c1": 33,
         "c2": 33,
         "c3": 33,
@@ -1499,6 +1517,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c1",
         "c2",
         "c3",
@@ -1521,7 +1540,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 36,
-      "elapsed_seconds": 0.0716987000005247
+      "elapsed_seconds": 0.06956269999500364
     },
     {
       "group": "random bipartite (balanced)",
@@ -1570,7 +1589,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 99,
-      "elapsed_seconds": 0.232916999999361
+      "elapsed_seconds": 0.2217361000002711
     },
     {
       "group": "random bipartite (1:2)",
@@ -1579,7 +1598,7 @@
       "m": 996,
       "tau": 33,
       "sizes": {
-        "c0": 59,
+        "c0": 33,
         "c1": 33,
         "c2": 33,
         "c3": 33,
@@ -1601,6 +1620,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c1",
         "c2",
         "c3",
@@ -1623,7 +1643,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 94,
-      "elapsed_seconds": 0.20386520000010933
+      "elapsed_seconds": 0.17675439999584341
     },
     {
       "group": "random d-regular bipartite",
@@ -1674,7 +1694,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 29,
-      "elapsed_seconds": 0.07173510000029637
+      "elapsed_seconds": 0.06625979999807896
     },
     {
       "group": "random d-regular bipartite",
@@ -1683,7 +1703,7 @@
       "m": 197,
       "tau": 50,
       "sizes": {
-        "c0": 59,
+        "c0": 50,
         "c1": 67,
         "c2": 50,
         "c3": 50,
@@ -1705,6 +1725,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c3",
         "c4",
@@ -1724,7 +1745,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 46,
-      "elapsed_seconds": 0.08473899999989953
+      "elapsed_seconds": 0.06282600000122329
     },
     {
       "group": "random d-regular bipartite",
@@ -1773,7 +1794,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 60,
-      "elapsed_seconds": 0.13328879999971832
+      "elapsed_seconds": 0.09325430000171764
     },
     {
       "group": "power-law bipartite",
@@ -1782,7 +1803,7 @@
       "m": 145,
       "tau": 40,
       "sizes": {
-        "c0": 42,
+        "c0": 40,
         "c1": 42,
         "c2": 43,
         "c3": 41,
@@ -1804,6 +1825,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c4",
         "c8",
         "c9",
@@ -1820,7 +1842,7 @@
       "c10_width": 5,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.05617270000038843
+      "elapsed_seconds": 0.06528280000202358
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -1829,7 +1851,7 @@
       "m": 150,
       "tau": 50,
       "sizes": {
-        "c0": 59,
+        "c0": 50,
         "c1": 65,
         "c2": 62,
         "c3": 60,
@@ -1851,6 +1873,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c4",
         "c8",
         "c9",
@@ -1867,7 +1890,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 30,
-      "elapsed_seconds": 0.08154089999970893
+      "elapsed_seconds": 0.06253670000296552
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -1876,7 +1899,7 @@
       "m": 250,
       "tau": 50,
       "sizes": {
-        "c0": 67,
+        "c0": 50,
         "c1": 70,
         "c2": 68,
         "c3": 72,
@@ -1898,6 +1921,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c4",
         "c8",
         "c9",
@@ -1914,7 +1938,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 57,
-      "elapsed_seconds": 0.0817018999996435
+      "elapsed_seconds": 0.07022960000176681
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -1923,7 +1947,7 @@
       "m": 120,
       "tau": 50,
       "sizes": {
-        "c0": 53,
+        "c0": 50,
         "c1": 58,
         "c2": 54,
         "c3": 53,
@@ -1945,6 +1969,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c4",
         "c8",
         "c9",
@@ -1961,7 +1986,7 @@
       "c10_width": 5,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.06150720000005094
+      "elapsed_seconds": 0.07214119999844115
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -1970,7 +1995,7 @@
       "m": 248,
       "tau": 50,
       "sizes": {
-        "c0": 59,
+        "c0": 50,
         "c1": 66,
         "c2": 50,
         "c3": 56,
@@ -1992,6 +2017,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c4",
         "c8",
@@ -2009,7 +2035,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 49,
-      "elapsed_seconds": 0.09053020000010292
+      "elapsed_seconds": 0.07373820000066189
     },
     {
       "group": "random tree",
@@ -2018,7 +2044,7 @@
       "m": 99,
       "tau": 43,
       "sizes": {
-        "c0": 49,
+        "c0": 43,
         "c1": 46,
         "c2": 43,
         "c3": 44,
@@ -2040,6 +2066,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c4",
         "c8",
@@ -2057,7 +2084,7 @@
       "c10_width": 1,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.039332199999989825
+      "elapsed_seconds": 0.037297700000635814
     },
     {
       "group": "2D grid, 70% edges kept",
@@ -2066,7 +2093,7 @@
       "m": 118,
       "tau": 46,
       "sizes": {
-        "c0": 52,
+        "c0": 46,
         "c1": 51,
         "c2": 49,
         "c3": 52,
@@ -2088,6 +2115,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c9",
         "c10",
         "c11",
@@ -2102,7 +2130,7 @@
       "c10_width": 4,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.1659615999997186
+      "elapsed_seconds": 0.17531189999863273
     },
     {
       "group": "random bipartite (balanced)",
@@ -2111,7 +2139,7 @@
       "m": 157,
       "tau": 48,
       "sizes": {
-        "c0": 56,
+        "c0": 50,
         "c1": 58,
         "c2": 51,
         "c3": 55,
@@ -2145,7 +2173,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 20,
-      "elapsed_seconds": 0.06776429999990796
+      "elapsed_seconds": 0.05579240000224672
     },
     {
       "group": "random bipartite (1:2)",
@@ -2154,7 +2182,7 @@
       "m": 174,
       "tau": 33,
       "sizes": {
-        "c0": 44,
+        "c0": 33,
         "c1": 38,
         "c2": 33,
         "c3": 39,
@@ -2176,6 +2204,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c4",
         "c7",
@@ -2194,7 +2223,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 22,
-      "elapsed_seconds": 0.04978449999998702
+      "elapsed_seconds": 0.049002799998561386
     },
     {
       "group": "random bipartite (balanced)",
@@ -2203,7 +2232,7 @@
       "m": 305,
       "tau": 50,
       "sizes": {
-        "c0": 53,
+        "c0": 50,
         "c1": 68,
         "c2": 54,
         "c3": 68,
@@ -2225,6 +2254,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c9",
         "c10",
         "c11",
@@ -2239,7 +2269,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 54,
-      "elapsed_seconds": 0.08623650000026828
+      "elapsed_seconds": 0.09339449999970384
     },
     {
       "group": "random bipartite (1:2)",
@@ -2248,7 +2278,7 @@
       "m": 298,
       "tau": 33,
       "sizes": {
-        "c0": 40,
+        "c0": 33,
         "c1": 33,
         "c2": 33,
         "c3": 33,
@@ -2270,6 +2300,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c1",
         "c2",
         "c3",
@@ -2292,7 +2323,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 33,
-      "elapsed_seconds": 0.08521790000031615
+      "elapsed_seconds": 0.07642769999802113
     },
     {
       "group": "random bipartite (balanced)",
@@ -2343,7 +2374,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 97,
-      "elapsed_seconds": 0.2205519999997705
+      "elapsed_seconds": 0.19642100000055507
     },
     {
       "group": "random bipartite (1:2)",
@@ -2352,7 +2383,7 @@
       "m": 1029,
       "tau": 33,
       "sizes": {
-        "c0": 63,
+        "c0": 33,
         "c1": 33,
         "c2": 33,
         "c3": 33,
@@ -2374,6 +2405,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c1",
         "c2",
         "c3",
@@ -2396,7 +2428,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 97,
-      "elapsed_seconds": 0.1866080999998303
+      "elapsed_seconds": 0.18816549999610288
     },
     {
       "group": "random d-regular bipartite",
@@ -2405,7 +2437,7 @@
       "m": 149,
       "tau": 50,
       "sizes": {
-        "c0": 59,
+        "c0": 50,
         "c1": 62,
         "c2": 50,
         "c3": 50,
@@ -2427,6 +2459,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c3",
         "c4",
@@ -2446,7 +2479,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 29,
-      "elapsed_seconds": 0.08528459999979532
+      "elapsed_seconds": 0.059855099993001204
     },
     {
       "group": "random d-regular bipartite",
@@ -2455,7 +2488,7 @@
       "m": 193,
       "tau": 50,
       "sizes": {
-        "c0": 62,
+        "c0": 50,
         "c1": 64,
         "c2": 50,
         "c3": 50,
@@ -2477,6 +2510,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c3",
         "c4",
@@ -2496,7 +2530,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 43,
-      "elapsed_seconds": 0.0790950000000521
+      "elapsed_seconds": 0.07569220000004862
     },
     {
       "group": "random d-regular bipartite",
@@ -2505,7 +2539,7 @@
       "m": 380,
       "tau": 50,
       "sizes": {
-        "c0": 69,
+        "c0": 50,
         "c1": 71,
         "c2": 50,
         "c3": 72,
@@ -2527,6 +2561,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c4",
         "c8",
@@ -2544,7 +2579,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 65,
-      "elapsed_seconds": 0.11492249999992055
+      "elapsed_seconds": 0.09386390000145184
     },
     {
       "group": "power-law bipartite",
@@ -2553,7 +2588,7 @@
       "m": 143,
       "tau": 44,
       "sizes": {
-        "c0": 46,
+        "c0": 44,
         "c1": 44,
         "c2": 45,
         "c3": 46,
@@ -2575,6 +2610,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c1",
         "c4",
         "c5",
@@ -2594,7 +2630,7 @@
       "c10_width": 5,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.05319069999950443
+      "elapsed_seconds": 0.06530070000007981
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -2603,7 +2639,7 @@
       "m": 150,
       "tau": 50,
       "sizes": {
-        "c0": 57,
+        "c0": 50,
         "c1": 64,
         "c2": 58,
         "c3": 60,
@@ -2625,6 +2661,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c4",
         "c8",
         "c9",
@@ -2641,7 +2678,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 28,
-      "elapsed_seconds": 0.05984179999995831
+      "elapsed_seconds": 0.057756899994274136
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -2650,7 +2687,7 @@
       "m": 250,
       "tau": 50,
       "sizes": {
-        "c0": 69,
+        "c0": 50,
         "c1": 68,
         "c2": 72,
         "c3": 72,
@@ -2672,6 +2709,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c4",
         "c8",
         "c9",
@@ -2688,7 +2726,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 58,
-      "elapsed_seconds": 0.09437660000003234
+      "elapsed_seconds": 0.07850289999623783
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -2697,7 +2735,7 @@
       "m": 123,
       "tau": 50,
       "sizes": {
-        "c0": 55,
+        "c0": 50,
         "c1": 56,
         "c2": 55,
         "c3": 53,
@@ -2719,6 +2757,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c9",
         "c10",
         "c11",
@@ -2733,7 +2772,7 @@
       "c10_width": 5,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.058010799999465235
+      "elapsed_seconds": 0.06802539999625878
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -2742,7 +2781,7 @@
       "m": 244,
       "tau": 50,
       "sizes": {
-        "c0": 66,
+        "c0": 50,
         "c1": 71,
         "c2": 50,
         "c3": 66,
@@ -2764,6 +2803,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c4",
         "c8",
@@ -2781,7 +2821,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 46,
-      "elapsed_seconds": 0.08184819999951287
+      "elapsed_seconds": 0.07090839999727905
     },
     {
       "group": "random tree",
@@ -2830,7 +2870,7 @@
       "c10_width": 1,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.04310260000056587
+      "elapsed_seconds": 0.038858199994137976
     },
     {
       "group": "2D grid, 70% edges kept",
@@ -2839,7 +2879,7 @@
       "m": 132,
       "tau": 48,
       "sizes": {
-        "c0": 54,
+        "c0": 48,
         "c1": 55,
         "c2": 54,
         "c3": 53,
@@ -2861,6 +2901,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c9",
         "c10",
         "c11",
@@ -2875,7 +2916,7 @@
       "c10_width": 5,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.1356632000006357
+      "elapsed_seconds": 0.13537400000495836
     },
     {
       "group": "2D grid",
@@ -2884,7 +2925,7 @@
       "m": 180,
       "tau": 50,
       "sizes": {
-        "c0": 58,
+        "c0": 50,
         "c1": 65,
         "c2": 50,
         "c3": 58,
@@ -2906,6 +2947,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c9",
         "c10",
@@ -2921,7 +2963,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 23,
-      "elapsed_seconds": 0.08183490000010352
+      "elapsed_seconds": 0.07160640000074636
     },
     {
       "group": "3D grid",
@@ -2930,7 +2972,7 @@
       "m": 300,
       "tau": 62,
       "sizes": {
-        "c0": 82,
+        "c0": 72,
         "c1": 82,
         "c2": 62,
         "c3": 62,
@@ -2970,7 +3012,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 50,
-      "elapsed_seconds": 0.11097299999983079
+      "elapsed_seconds": 0.10606149999512127
     },
     {
       "group": "even cycle",
@@ -2979,7 +3021,7 @@
       "m": 100,
       "tau": 50,
       "sizes": {
-        "c0": 53,
+        "c0": 50,
         "c1": 56,
         "c2": 50,
         "c3": 50,
@@ -3001,6 +3043,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c3",
         "c4",
@@ -3019,7 +3062,7 @@
       "c10_width": 2,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.06579160000001139
+      "elapsed_seconds": 0.05147700000088662
     },
     {
       "group": "complete bipartite",
@@ -3028,7 +3071,7 @@
       "m": 1875,
       "tau": 25,
       "sizes": {
-        "c0": 75,
+        "c0": 25,
         "c1": 25,
         "c2": 25,
         "c3": 25,
@@ -3050,6 +3093,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c1",
         "c2",
         "c3",
@@ -3072,7 +3116,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 100,
-      "elapsed_seconds": 0.36600109999926644
+      "elapsed_seconds": 0.3548998999976902
     },
     {
       "group": "crown graph",
@@ -3126,7 +3170,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 100,
-      "elapsed_seconds": 0.47140979999949195
+      "elapsed_seconds": 0.4769799999994575
     },
     {
       "group": "random bipartite (balanced)",
@@ -3135,7 +3179,7 @@
       "m": 1549,
       "tau": 463,
       "sizes": {
-        "c0": 491,
+        "c0": 477,
         "c1": 522,
         "c2": 506,
         "c3": 494,
@@ -3173,7 +3217,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 229,
-      "elapsed_seconds": 0.6969465000001946
+      "elapsed_seconds": 0.6685670000006212
     },
     {
       "group": "random bipartite (1:2)",
@@ -3182,7 +3226,7 @@
       "m": 1513,
       "tau": 330,
       "sizes": {
-        "c0": 461,
+        "c0": 330,
         "c1": 364,
         "c2": 337,
         "c3": 380,
@@ -3204,6 +3248,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c4",
         "c8",
         "c9",
@@ -3220,7 +3265,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 199,
-      "elapsed_seconds": 0.6096495000001596
+      "elapsed_seconds": 0.6277072000011685
     },
     {
       "group": "random bipartite (balanced)",
@@ -3229,7 +3274,7 @@
       "m": 2972,
       "tau": 497,
       "sizes": {
-        "c0": 548,
+        "c0": 500,
         "c1": 653,
         "c2": 583,
         "c3": 621,
@@ -3265,7 +3310,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 500,
-      "elapsed_seconds": 1.2005002000005334
+      "elapsed_seconds": 1.045552100003988
     },
     {
       "group": "random bipartite (1:2)",
@@ -3274,7 +3319,7 @@
       "m": 2949,
       "tau": 333,
       "sizes": {
-        "c0": 414,
+        "c0": 333,
         "c1": 343,
         "c2": 333,
         "c3": 379,
@@ -3296,6 +3341,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c4",
         "c8",
@@ -3313,7 +3359,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 344,
-      "elapsed_seconds": 0.9804134000005433
+      "elapsed_seconds": 0.9600617999967653
     },
     {
       "group": "random bipartite (balanced)",
@@ -3360,7 +3406,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 992,
-      "elapsed_seconds": 2.823520400000234
+      "elapsed_seconds": 2.5644313000011607
     },
     {
       "group": "random bipartite (1:2)",
@@ -3414,7 +3460,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 936,
-      "elapsed_seconds": 2.2780483000005916
+      "elapsed_seconds": 2.3019118000011076
     },
     {
       "group": "random d-regular bipartite",
@@ -3423,7 +3469,7 @@
       "m": 1497,
       "tau": 500,
       "sizes": {
-        "c0": 591,
+        "c0": 500,
         "c1": 631,
         "c2": 500,
         "c3": 500,
@@ -3445,6 +3491,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c3",
         "c4",
@@ -3464,7 +3511,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 331,
-      "elapsed_seconds": 0.9152955999998085
+      "elapsed_seconds": 0.7312707999954
     },
     {
       "group": "random d-regular bipartite",
@@ -3473,7 +3520,7 @@
       "m": 1994,
       "tau": 500,
       "sizes": {
-        "c0": 594,
+        "c0": 500,
         "c1": 663,
         "c2": 500,
         "c3": 500,
@@ -3495,6 +3542,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c3",
         "c4",
@@ -3514,7 +3562,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 493,
-      "elapsed_seconds": 1.070678200000657
+      "elapsed_seconds": 0.8326556000029086
     },
     {
       "group": "random d-regular bipartite",
@@ -3564,7 +3612,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 500,
-      "elapsed_seconds": 1.6600025999996433
+      "elapsed_seconds": 1.2636944000041694
     },
     {
       "group": "power-law bipartite",
@@ -3573,7 +3621,7 @@
       "m": 1128,
       "tau": 355,
       "sizes": {
-        "c0": 424,
+        "c0": 355,
         "c1": 360,
         "c2": 362,
         "c3": 360,
@@ -3595,6 +3643,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c4",
         "c8",
         "c9",
@@ -3611,7 +3660,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 41,
-      "elapsed_seconds": 0.5759057000004759
+      "elapsed_seconds": 0.514278499998909
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -3620,7 +3669,7 @@
       "m": 1500,
       "tau": 500,
       "sizes": {
-        "c0": 612,
+        "c0": 500,
         "c1": 620,
         "c2": 596,
         "c3": 622,
@@ -3642,6 +3691,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c4",
         "c8",
         "c9",
@@ -3658,7 +3708,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 321,
-      "elapsed_seconds": 0.7109618999993472
+      "elapsed_seconds": 0.6457589999990887
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -3667,7 +3717,7 @@
       "m": 2500,
       "tau": 500,
       "sizes": {
-        "c0": 690,
+        "c0": 500,
         "c1": 703,
         "c2": 668,
         "c3": 700,
@@ -3689,6 +3739,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c4",
         "c8",
         "c9",
@@ -3705,7 +3756,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 598,
-      "elapsed_seconds": 1.013247599999886
+      "elapsed_seconds": 0.9957436000040616
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -3714,7 +3765,7 @@
       "m": 1261,
       "tau": 500,
       "sizes": {
-        "c0": 548,
+        "c0": 500,
         "c1": 570,
         "c2": 519,
         "c3": 524,
@@ -3736,6 +3787,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c9",
         "c10",
         "c11",
@@ -3750,7 +3802,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 125,
-      "elapsed_seconds": 0.6519167999995261
+      "elapsed_seconds": 0.6222999000019627
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -3759,7 +3811,7 @@
       "m": 2498,
       "tau": 500,
       "sizes": {
-        "c0": 645,
+        "c0": 500,
         "c1": 662,
         "c2": 500,
         "c3": 631,
@@ -3781,6 +3833,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c4",
         "c8",
@@ -3798,7 +3851,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 506,
-      "elapsed_seconds": 1.1097336000002542
+      "elapsed_seconds": 0.9753654000014649
     },
     {
       "group": "random tree",
@@ -3807,7 +3860,7 @@
       "m": 999,
       "tau": 436,
       "sizes": {
-        "c0": 474,
+        "c0": 436,
         "c1": 459,
         "c2": 447,
         "c3": 441,
@@ -3829,6 +3882,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c4",
         "c8",
         "c9",
@@ -3845,7 +3899,7 @@
       "c10_width": 1,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.4598171000006914
+      "elapsed_seconds": 0.4443038000026718
     },
     {
       "group": "2D grid, 70% edges kept",
@@ -3854,7 +3908,7 @@
       "m": 1314,
       "tau": 468,
       "sizes": {
-        "c0": 531,
+        "c0": 471,
         "c1": 530,
         "c2": 502,
         "c3": 515,
@@ -3888,7 +3942,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 34,
-      "elapsed_seconds": 0.9368426000000909
+      "elapsed_seconds": 0.8923669999931008
     },
     {
       "group": "random bipartite (balanced)",
@@ -3897,7 +3951,7 @@
       "m": 1504,
       "tau": 458,
       "sizes": {
-        "c0": 493,
+        "c0": 459,
         "c1": 509,
         "c2": 479,
         "c3": 485,
@@ -3931,7 +3985,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 208,
-      "elapsed_seconds": 0.6624689999998736
+      "elapsed_seconds": 0.672372400003951
     },
     {
       "group": "random bipartite (1:2)",
@@ -3940,7 +3994,7 @@
       "m": 1568,
       "tau": 331,
       "sizes": {
-        "c0": 468,
+        "c0": 331,
         "c1": 377,
         "c2": 331,
         "c3": 379,
@@ -3962,6 +4016,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c4",
         "c8",
@@ -3979,7 +4034,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 204,
-      "elapsed_seconds": 0.6112131999998383
+      "elapsed_seconds": 0.5999191000009887
     },
     {
       "group": "random bipartite (balanced)",
@@ -3988,7 +4043,7 @@
       "m": 3031,
       "tau": 497,
       "sizes": {
-        "c0": 530,
+        "c0": 500,
         "c1": 668,
         "c2": 622,
         "c3": 619,
@@ -4016,7 +4071,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 523,
-      "elapsed_seconds": 1.1531712000005427
+      "elapsed_seconds": 1.0981389000007766
     },
     {
       "group": "random bipartite (1:2)",
@@ -4025,7 +4080,7 @@
       "m": 2996,
       "tau": 333,
       "sizes": {
-        "c0": 449,
+        "c0": 333,
         "c1": 338,
         "c2": 333,
         "c3": 362,
@@ -4047,6 +4102,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c9",
         "c10",
@@ -4062,7 +4118,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 342,
-      "elapsed_seconds": 1.0415430000002743
+      "elapsed_seconds": 0.9676405999998678
     },
     {
       "group": "random bipartite (balanced)",
@@ -4109,7 +4165,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 992,
-      "elapsed_seconds": 2.877064999999675
+      "elapsed_seconds": 2.5963048999983585
     },
     {
       "group": "random bipartite (1:2)",
@@ -4118,7 +4174,7 @@
       "m": 9984,
       "tau": 333,
       "sizes": {
-        "c0": 371,
+        "c0": 333,
         "c1": 333,
         "c2": 333,
         "c3": 333,
@@ -4140,6 +4196,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c1",
         "c2",
         "c3",
@@ -4162,7 +4219,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 916,
-      "elapsed_seconds": 2.3225778999994873
+      "elapsed_seconds": 2.3303041999970446
     },
     {
       "group": "random d-regular bipartite",
@@ -4171,7 +4228,7 @@
       "m": 1498,
       "tau": 500,
       "sizes": {
-        "c0": 603,
+        "c0": 500,
         "c1": 624,
         "c2": 500,
         "c3": 500,
@@ -4193,6 +4250,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c3",
         "c4",
@@ -4212,7 +4270,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 330,
-      "elapsed_seconds": 0.9432006000006368
+      "elapsed_seconds": 0.7386445000011008
     },
     {
       "group": "random d-regular bipartite",
@@ -4221,7 +4279,7 @@
       "m": 1993,
       "tau": 500,
       "sizes": {
-        "c0": 640,
+        "c0": 500,
         "c1": 665,
         "c2": 500,
         "c3": 500,
@@ -4243,6 +4301,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c3",
         "c4",
@@ -4262,7 +4321,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 491,
-      "elapsed_seconds": 1.0930594999999812
+      "elapsed_seconds": 0.8313163999991957
     },
     {
       "group": "random d-regular bipartite",
@@ -4271,7 +4330,7 @@
       "m": 3971,
       "tau": 500,
       "sizes": {
-        "c0": 560,
+        "c0": 500,
         "c1": 765,
         "c2": 500,
         "c3": 500,
@@ -4293,6 +4352,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c3",
         "c4",
@@ -4312,7 +4372,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 500,
-      "elapsed_seconds": 1.7153204000005644
+      "elapsed_seconds": 1.2177426999987802
     },
     {
       "group": "power-law bipartite",
@@ -4321,7 +4381,7 @@
       "m": 1164,
       "tau": 350,
       "sizes": {
-        "c0": 400,
+        "c0": 350,
         "c1": 354,
         "c2": 355,
         "c3": 355,
@@ -4343,6 +4403,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c4",
         "c8",
         "c9",
@@ -4359,7 +4420,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 45,
-      "elapsed_seconds": 0.5629127000001972
+      "elapsed_seconds": 0.5590547000028891
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -4368,7 +4429,7 @@
       "m": 1500,
       "tau": 500,
       "sizes": {
-        "c0": 624,
+        "c0": 500,
         "c1": 630,
         "c2": 604,
         "c3": 620,
@@ -4390,6 +4451,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c4",
         "c8",
         "c9",
@@ -4406,7 +4468,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 325,
-      "elapsed_seconds": 0.6985248000000865
+      "elapsed_seconds": 0.7109589999963646
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -4415,7 +4477,7 @@
       "m": 2500,
       "tau": 500,
       "sizes": {
-        "c0": 695,
+        "c0": 500,
         "c1": 694,
         "c2": 674,
         "c3": 706,
@@ -4437,6 +4499,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c4",
         "c8",
         "c9",
@@ -4453,7 +4516,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 594,
-      "elapsed_seconds": 0.9939120999997613
+      "elapsed_seconds": 0.9509803000037209
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -4462,7 +4525,7 @@
       "m": 1256,
       "tau": 500,
       "sizes": {
-        "c0": 539,
+        "c0": 500,
         "c1": 569,
         "c2": 521,
         "c3": 518,
@@ -4484,6 +4547,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c9",
         "c10",
         "c11",
@@ -4498,7 +4562,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 121,
-      "elapsed_seconds": 0.6195848999996088
+      "elapsed_seconds": 0.6067798000003677
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -4507,7 +4571,7 @@
       "m": 2498,
       "tau": 500,
       "sizes": {
-        "c0": 671,
+        "c0": 500,
         "c1": 677,
         "c2": 502,
         "c3": 624,
@@ -4529,6 +4593,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c4",
         "c8",
         "c9",
@@ -4545,7 +4610,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 500,
-      "elapsed_seconds": 1.076628100000562
+      "elapsed_seconds": 0.9688613999969675
     },
     {
       "group": "random tree",
@@ -4554,7 +4619,7 @@
       "m": 999,
       "tau": 435,
       "sizes": {
-        "c0": 473,
+        "c0": 435,
         "c1": 451,
         "c2": 456,
         "c3": 446,
@@ -4576,6 +4641,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c4",
         "c8",
         "c9",
@@ -4592,7 +4658,7 @@
       "c10_width": 1,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.46708050000052026
+      "elapsed_seconds": 0.4630008000021917
     },
     {
       "group": "2D grid, 70% edges kept",
@@ -4601,7 +4667,7 @@
       "m": 1291,
       "tau": 464,
       "sizes": {
-        "c0": 513,
+        "c0": 467,
         "c1": 522,
         "c2": 496,
         "c3": 513,
@@ -4635,7 +4701,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 46,
-      "elapsed_seconds": 1.0914540000003399
+      "elapsed_seconds": 0.9597695999982534
     },
     {
       "group": "random bipartite (balanced)",
@@ -4644,7 +4710,7 @@
       "m": 1505,
       "tau": 461,
       "sizes": {
-        "c0": 485,
+        "c0": 462,
         "c1": 503,
         "c2": 478,
         "c3": 481,
@@ -4678,7 +4744,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 199,
-      "elapsed_seconds": 0.6789566999996168
+      "elapsed_seconds": 0.6366557999936049
     },
     {
       "group": "random bipartite (1:2)",
@@ -4687,7 +4753,7 @@
       "m": 1573,
       "tau": 329,
       "sizes": {
-        "c0": 460,
+        "c0": 329,
         "c1": 357,
         "c2": 329,
         "c3": 378,
@@ -4709,6 +4775,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c4",
         "c8",
@@ -4726,7 +4793,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 195,
-      "elapsed_seconds": 0.6391610000000583
+      "elapsed_seconds": 0.6500839000000269
     },
     {
       "group": "random bipartite (balanced)",
@@ -4735,7 +4802,7 @@
       "m": 2870,
       "tau": 496,
       "sizes": {
-        "c0": 560,
+        "c0": 496,
         "c1": 644,
         "c2": 584,
         "c3": 616,
@@ -4750,20 +4817,23 @@
         "c12": 499,
         "c13": 499,
         "c14": 499,
-        "c15": 499
+        "c15": 496
       },
-      "final": 499,
-      "ratio": 1.0060483870967742,
-      "excess": 3,
-      "optimal": false,
-      "optimal_strategies": [],
+      "final": 496,
+      "ratio": 1.0,
+      "excess": 0,
+      "optimal": true,
+      "optimal_strategies": [
+        "c0",
+        "c15"
+      ],
       "c10_exact": false,
       "c10_raw": 499,
       "c10_core_size": 1227,
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 494,
-      "elapsed_seconds": 1.0915125000001353
+      "elapsed_seconds": 1.0656569999991916
     },
     {
       "group": "random bipartite (1:2)",
@@ -4772,7 +4842,7 @@
       "m": 3017,
       "tau": 333,
       "sizes": {
-        "c0": 399,
+        "c0": 333,
         "c1": 346,
         "c2": 333,
         "c3": 386,
@@ -4794,6 +4864,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c9",
         "c10",
@@ -4809,7 +4880,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 341,
-      "elapsed_seconds": 1.0026696999993874
+      "elapsed_seconds": 1.027157399999851
     },
     {
       "group": "random bipartite (balanced)",
@@ -4856,7 +4927,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 985,
-      "elapsed_seconds": 2.8502380999998422
+      "elapsed_seconds": 2.6893516999989515
     },
     {
       "group": "random bipartite (1:2)",
@@ -4910,7 +4981,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 932,
-      "elapsed_seconds": 2.2672044000000824
+      "elapsed_seconds": 2.3102481000023545
     },
     {
       "group": "random d-regular bipartite",
@@ -4919,7 +4990,7 @@
       "m": 1496,
       "tau": 500,
       "sizes": {
-        "c0": 577,
+        "c0": 500,
         "c1": 624,
         "c2": 500,
         "c3": 500,
@@ -4941,6 +5012,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c3",
         "c4",
@@ -4960,7 +5032,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 331,
-      "elapsed_seconds": 0.9154158999999709
+      "elapsed_seconds": 0.725260300001537
     },
     {
       "group": "random d-regular bipartite",
@@ -4969,7 +5041,7 @@
       "m": 1995,
       "tau": 500,
       "sizes": {
-        "c0": 624,
+        "c0": 500,
         "c1": 669,
         "c2": 500,
         "c3": 500,
@@ -4991,6 +5063,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c3",
         "c4",
@@ -5010,7 +5083,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 495,
-      "elapsed_seconds": 1.0290656000006493
+      "elapsed_seconds": 0.820980899996357
     },
     {
       "group": "random d-regular bipartite",
@@ -5019,7 +5092,7 @@
       "m": 3972,
       "tau": 500,
       "sizes": {
-        "c0": 601,
+        "c0": 500,
         "c1": 720,
         "c2": 500,
         "c3": 500,
@@ -5041,6 +5114,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c3",
         "c4",
@@ -5059,7 +5133,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 505,
-      "elapsed_seconds": 2.2347703000004913
+      "elapsed_seconds": 1.232520999998087
     },
     {
       "group": "power-law bipartite",
@@ -5068,7 +5142,7 @@
       "m": 1110,
       "tau": 365,
       "sizes": {
-        "c0": 431,
+        "c0": 365,
         "c1": 370,
         "c2": 370,
         "c3": 370,
@@ -5090,6 +5164,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c4",
         "c8",
         "c9",
@@ -5106,7 +5181,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 34,
-      "elapsed_seconds": 0.5233063999994556
+      "elapsed_seconds": 0.518066100004944
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -5115,7 +5190,7 @@
       "m": 1500,
       "tau": 500,
       "sizes": {
-        "c0": 613,
+        "c0": 500,
         "c1": 633,
         "c2": 600,
         "c3": 630,
@@ -5137,6 +5212,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c4",
         "c8",
         "c9",
@@ -5153,7 +5229,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 329,
-      "elapsed_seconds": 0.7279610999994475
+      "elapsed_seconds": 0.6919347000002745
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -5162,7 +5238,7 @@
       "m": 2500,
       "tau": 500,
       "sizes": {
-        "c0": 680,
+        "c0": 500,
         "c1": 692,
         "c2": 676,
         "c3": 710,
@@ -5184,6 +5260,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c4",
         "c8",
         "c9",
@@ -5200,7 +5277,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 609,
-      "elapsed_seconds": 1.0702398000003086
+      "elapsed_seconds": 0.9613305999955628
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -5209,7 +5286,7 @@
       "m": 1243,
       "tau": 500,
       "sizes": {
-        "c0": 542,
+        "c0": 500,
         "c1": 573,
         "c2": 526,
         "c3": 535,
@@ -5231,6 +5308,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c9",
         "c10",
         "c11",
@@ -5245,7 +5323,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 107,
-      "elapsed_seconds": 0.6676759000001766
+      "elapsed_seconds": 0.611829100002069
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -5254,7 +5332,7 @@
       "m": 2493,
       "tau": 500,
       "sizes": {
-        "c0": 656,
+        "c0": 500,
         "c1": 664,
         "c2": 501,
         "c3": 626,
@@ -5276,6 +5354,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c4",
         "c8",
         "c9",
@@ -5292,7 +5371,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 491,
-      "elapsed_seconds": 1.0401642000006177
+      "elapsed_seconds": 0.9602354999951785
     },
     {
       "group": "random tree",
@@ -5301,7 +5380,7 @@
       "m": 999,
       "tau": 425,
       "sizes": {
-        "c0": 466,
+        "c0": 425,
         "c1": 448,
         "c2": 446,
         "c3": 441,
@@ -5323,6 +5402,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c4",
         "c8",
         "c9",
@@ -5339,7 +5419,7 @@
       "c10_width": 1,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 0.4732579000001351
+      "elapsed_seconds": 0.4419326999995974
     },
     {
       "group": "2D grid, 70% edges kept",
@@ -5348,7 +5428,7 @@
       "m": 1314,
       "tau": 471,
       "sizes": {
-        "c0": 526,
+        "c0": 473,
         "c1": 532,
         "c2": 507,
         "c3": 506,
@@ -5382,7 +5462,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 58,
-      "elapsed_seconds": 0.789909500000249
+      "elapsed_seconds": 0.7643100999994203
     },
     {
       "group": "2D grid",
@@ -5391,7 +5471,7 @@
       "m": 1860,
       "tau": 480,
       "sizes": {
-        "c0": 604,
+        "c0": 480,
         "c1": 609,
         "c2": 481,
         "c3": 480,
@@ -5413,6 +5493,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c3",
         "c4",
         "c8",
@@ -5430,7 +5511,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 335,
-      "elapsed_seconds": 0.8938367000000653
+      "elapsed_seconds": 0.8048483000020497
     },
     {
       "group": "3D grid",
@@ -5439,7 +5520,7 @@
       "m": 2700,
       "tau": 500,
       "sizes": {
-        "c0": 649,
+        "c0": 500,
         "c1": 687,
         "c2": 500,
         "c3": 620,
@@ -5461,6 +5542,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c9",
         "c10",
@@ -5476,7 +5558,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 509,
-      "elapsed_seconds": 1.0769670999998198
+      "elapsed_seconds": 1.0146382999955676
     },
     {
       "group": "even cycle",
@@ -5485,7 +5567,7 @@
       "m": 1000,
       "tau": 500,
       "sizes": {
-        "c0": 533,
+        "c0": 500,
         "c1": 568,
         "c2": 500,
         "c3": 500,
@@ -5507,6 +5589,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c3",
         "c4",
@@ -5525,7 +5608,7 @@
       "c10_width": 2,
       "c13_exact": true,
       "c13_core_size": 0,
-      "elapsed_seconds": 2.742383400000108
+      "elapsed_seconds": 0.5624043999996502
     },
     {
       "group": "complete bipartite",
@@ -5534,7 +5617,7 @@
       "m": 187500,
       "tau": 250,
       "sizes": {
-        "c0": 750,
+        "c0": 250,
         "c1": 250,
         "c2": 250,
         "c3": 250,
@@ -5556,6 +5639,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c1",
         "c2",
         "c3",
@@ -5578,7 +5662,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 1000,
-      "elapsed_seconds": 42.681373300000814
+      "elapsed_seconds": 41.83354419999523
     },
     {
       "group": "crown graph",
@@ -5632,7 +5716,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 1000,
-      "elapsed_seconds": 56.87184199999956
+      "elapsed_seconds": 56.99682670000038
     },
     {
       "group": "hypercube",
@@ -5641,7 +5725,7 @@
       "m": 1024,
       "tau": 128,
       "sizes": {
-        "c0": 154,
+        "c0": 128,
         "c1": 188,
         "c2": 128,
         "c3": 128,
@@ -5663,6 +5747,7 @@
       "excess": 0,
       "optimal": true,
       "optimal_strategies": [
+        "c0",
         "c2",
         "c3",
         "c4",
@@ -5681,7 +5766,7 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 128,
-      "elapsed_seconds": 0.2511928000003536
+      "elapsed_seconds": 0.27069760000449605
     },
     {
       "group": "hypercube, 50% edges kept",
@@ -5690,7 +5775,7 @@
       "m": 536,
       "tau": 126,
       "sizes": {
-        "c0": 156,
+        "c0": 128,
         "c1": 152,
         "c2": 148,
         "c3": 153,
@@ -5724,8 +5809,8 @@
       "c10_width": 5,
       "c13_exact": false,
       "c13_core_size": 101,
-      "elapsed_seconds": 0.19085269999959564
+      "elapsed_seconds": 0.18599420000100508
     }
   ],
-  "elapsed_seconds": 171.47940111160278
+  "elapsed_seconds": 163.0858805179596
 }

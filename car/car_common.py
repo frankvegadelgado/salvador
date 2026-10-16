@@ -168,8 +168,8 @@ def exact_vertex_cover_size(G: nx.Graph) -> tuple[int, str]:
 # Certified lower bounds on tau(G) for large graphs.
 # ----------------------------------------------------------------------------
 def greedy_maximal_matching_bound(G: nx.Graph) -> int:
-    """|M| for NetworkX's greedy maximal matching (the legacy car/ bound)."""
-    return len(nx.algorithms.matching.maximal_matching(G))
+    """|M| for NetworkX's minimum maximal matching approximation (the matching of c1)."""
+    return len(nx.approximation.min_maximal_matching(G))
 
 
 def karp_sipser_matching_bound(G: nx.Graph) -> int:
@@ -312,7 +312,7 @@ def best_lower_bound(G: nx.Graph, *, spectral: bool = True) -> tuple[int, str, d
     """Best certified lower bound on tau(G) and the method that achieved it.
 
     Bipartite graphs get an exact Hopcroft-Karp maximum matching (exact tau by
-    Koenig). Otherwise the maximum of the greedy maximal matching, the
+    Koenig). Otherwise the maximum of the NetworkX minimum maximal matching, the
     Karp-Sipser matching, the greedy clique packing and (optionally) the
     spectral bound is used. The
     returned dict lists every bound that was computed.

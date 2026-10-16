@@ -552,21 +552,14 @@ def _clean(graph: nx.Graph) -> nx.Graph:
 
 
 def _matching_cover(adj: dict[Any, set[Any]]) -> set[Any]:
-    """Both endpoints of a greedy maximal matching, in O(n + m)."""
-    matched: set[Any] = set()
-    for u, nb in adj.items():
-        if u in matched:
-            continue
-        for v in nb:
-            if v != u and v not in matched:
-                matched.add(u)
-                matched.add(v)
-                break
-    return matched
+    """Both endpoints of the NetworkX minimum maximal matching approximation (as c1), in O(n + m)."""
+    G = nx.Graph()
+    G.add_edges_from((u, v) for u, nb in adj.items() for v in nb if v != u)
+    return {x for e in nx.approximation.min_maximal_matching(G) for x in e}
 
 
 def _consensus_inner(adj: dict[Any, set[Any]]) -> set[Any]:
-    """Residual solver of c14: best of pruned matching, Min-to-Min and c11 (max+fold), all O(n + m)."""
+    """Residual solver of c14: best of pruned NetworkX min maximal matching, Min-to-Min and c11 (max+fold), all O(n + m)."""
     if not adj:
         return set()
     covers = [prune_redundant_vertices(adj, _matching_cover(adj)),

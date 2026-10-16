@@ -7,7 +7,7 @@ them (or most of them) put into their covers is likely to belong to a minimum
 cover. Candidate c14 *forces* such vertices into the cover -- equivalently, it
 puts a self-loop on each of them, which no cover can leave uncovered -- deletes
 them from the graph, solves the residual graph again with linear-time solvers
-(pruned maximal matching, Min-to-Min and the subdivision reduction c11 with
+(pruned NetworkX minimum maximal matching, Min-to-Min and the subdivision reduction c11 with
 ``max+fold``), and returns the forced vertices together with the residual
 cover, pruned on the whole graph.
 
@@ -18,7 +18,8 @@ least a fraction ``q_k`` of the covers in the pool, with ``q = 1, 0.9, 0.75``:
 first the vertices on which *all* covers agree, then the ones on which most
 agree. Every new cover joins the pool. Before every round the best cover is
 checked against a certified lower bound ``L <= tau(G)``, computed in linear
-time as the larger of a greedy maximal matching and a Karp-Sipser matching
+time as the larger of the NetworkX minimum maximal matching approximation
+(the matching of c1) and a Karp-Sipser matching
 (any matching is a lower bound on tau). The rounds stop as soon as
 ``|best| <= target * L``, which proves the ratio ``|best| / tau <= target`` on
 this graph; they also stop when a round would force the same set again.
@@ -52,6 +53,8 @@ from collections import deque
 from math import ceil
 from typing import Any, Callable, Iterable, Mapping
 
+import networkx as nx
+
 R0 = 1.999999999
 DEFAULT_ROUNDS = 3
 DEFAULT_QUOTAS = (1.0, 0.9, 0.75)
@@ -60,18 +63,10 @@ Adj = dict[Any, set[Any]]
 
 
 def greedy_matching_size(adj: Mapping[Any, Iterable[Any]]) -> int:
-    matched: set[Any] = set()
-    size = 0
-    for u in adj:
-        if u in matched:
-            continue
-        for v in adj[u]:
-            if v != u and v not in matched:
-                matched.add(u)
-                matched.add(v)
-                size += 1
-                break
-    return size
+    """Size of the NetworkX minimum maximal matching approximation of ``adj`` (the matching of c1)."""
+    G = nx.Graph()
+    G.add_edges_from((u, v) for u, nb in adj.items() for v in nb if v != u)
+    return len(nx.approximation.min_maximal_matching(G))
 
 
 def karp_sipser_matching_size(adj: Mapping[Any, Iterable[Any]]) -> int:

@@ -14,7 +14,7 @@
       "count_above_7_4": 0,
       "max_ratio": 1.0
     },
-    "elapsed_seconds": 2.518455743789673,
+    "elapsed_seconds": 2.1068856716156006,
     "experiment": "car/ Part A: default-call (epsilon=1) exact-ratio test",
     "overall_summary": {
       "all_valid": true,
@@ -14733,7 +14733,7 @@
     }
   },
   "part_b": {
-    "elapsed_seconds": 168.2391655445099,
+    "elapsed_seconds": 154.45520734786987,
     "experiment": "car/ Part B: large adversarial graphs (epsilon=1)",
     "family_rows": [
       {
@@ -14741,7 +14741,7 @@
           "hopcroft_karp": 200
         },
         "cover": 200,
-        "elapsed_seconds": 8.632985300000655,
+        "elapsed_seconds": 8.28352889999951,
         "exact": true,
         "group": "Crown graph K_{h,h} minus perfect matching (dense, near-regular)",
         "lower_bound": 200,
@@ -14758,7 +14758,7 @@
           "hopcroft_karp": 200
         },
         "cover": 200,
-        "elapsed_seconds": 8.771351300000788,
+        "elapsed_seconds": 12.796005800002604,
         "exact": true,
         "group": "Complete bipartite (dense)",
         "lower_bound": 200,
@@ -14775,7 +14775,7 @@
           "hopcroft_karp": 400
         },
         "cover": 400,
-        "elapsed_seconds": 37.99839560000055,
+        "elapsed_seconds": 66.75715510000009,
         "exact": true,
         "group": "Crown graph K_{h,h} minus perfect matching (dense, near-regular)",
         "lower_bound": 400,
@@ -14792,7 +14792,7 @@
           "hopcroft_karp": 400
         },
         "cover": 400,
-        "elapsed_seconds": 45.10655390000011,
+        "elapsed_seconds": 35.59134890000132,
         "exact": true,
         "group": "Complete bipartite (dense)",
         "lower_bound": 400,
@@ -14809,7 +14809,7 @@
           "hopcroft_karp": 2
         },
         "cover": 2,
-        "elapsed_seconds": 1.151339399999415,
+        "elapsed_seconds": 0.8099761999983457,
         "exact": true,
         "group": "Double star + bridge (matching-heuristic stress)",
         "lower_bound": 2,
@@ -14829,7 +14829,7 @@
           "spectral_laplacian_hoffman": 2575
         },
         "cover": 2757,
-        "elapsed_seconds": 4.073334400000022,
+        "elapsed_seconds": 2.534001600004558,
         "exact": false,
         "group": "Random 3-regular (bounded-degree adversarial)",
         "lower_bound": 2575,
@@ -14849,7 +14849,7 @@
           "spectral_laplacian_hoffman": 2870
         },
         "cover": 3269,
-        "elapsed_seconds": 7.961762900000394,
+        "elapsed_seconds": 4.413149199994223,
         "exact": false,
         "group": "Random 6-regular (bounded-degree adversarial)",
         "lower_bound": 2870,
@@ -14869,7 +14869,7 @@
           "spectral_laplacian_hoffman": 3220
         },
         "cover": 3749,
-        "elapsed_seconds": 13.206334399999832,
+        "elapsed_seconds": 6.784921200000099,
         "exact": false,
         "group": "Random 12-regular (bounded-degree adversarial)",
         "lower_bound": 3220,
@@ -14889,7 +14889,7 @@
           "spectral_laplacian_hoffman": 83
         },
         "cover": 2465,
-        "elapsed_seconds": 5.691540499999974,
+        "elapsed_seconds": 4.21142079999845,
         "exact": false,
         "group": "Barabasi-Albert scale-free hub graph",
         "lower_bound": 2446,
@@ -14909,7 +14909,7 @@
           "spectral_laplacian_hoffman": 339
         },
         "cover": 2597,
-        "elapsed_seconds": 4.212568100000681,
+        "elapsed_seconds": 2.939879999998084,
         "exact": false,
         "group": "Sparse Erdos-Renyi, avg degree 4",
         "lower_bound": 2442,
@@ -14929,7 +14929,7 @@
           "spectral_laplacian_hoffman": 1280
         },
         "cover": 3538,
-        "elapsed_seconds": 23.613253099999383,
+        "elapsed_seconds": 3.937418499997875,
         "exact": false,
         "group": "Watts-Strogatz small-world",
         "lower_bound": 3359,
@@ -14954,7 +14954,7 @@
       "Barabasi-Albert scale-free hub graph": {
         "all_valid": true,
         "instances": 1,
-        "max_elapsed_seconds": 5.691540499999974,
+        "max_elapsed_seconds": 4.21142079999845,
         "max_n": 5000,
         "max_ratio_upper_bound": 1.0077677841373671,
         "max_ratio_upper_bound_legacy": 1.3536518396485449,
@@ -14963,7 +14963,7 @@
       "Complete bipartite (dense)": {
         "all_valid": true,
         "instances": 2,
-        "max_elapsed_seconds": 45.10655390000011,
+        "max_elapsed_seconds": 35.59134890000132,
         "max_n": 800,
         "max_ratio_upper_bound": 1.0,
         "max_ratio_upper_bound_legacy": 1.0,
@@ -14972,7 +14972,7 @@
       "Crown graph K_{h,h} minus perfect matching (dense, near-regular)": {
         "all_valid": true,
         "instances": 2,
-        "max_elapsed_seconds": 37.99839560000055,
+        "max_elapsed_seconds": 66.75715510000009,
         "max_n": 800,
         "max_ratio_upper_bound": 1.0,
         "max_ratio_upper_bound_legacy": 1.0,
@@ -14981,7 +14981,7 @@
       "Double star + bridge (matching-heuristic stress)": {
         "all_valid": true,
         "instances": 1,
-        "max_elapsed_seconds": 1.151339399999415,
+        "max_elapsed_seconds": 0.8099761999983457,
         "max_n": 2002,
         "max_ratio_upper_bound": 1.0,
         "max_ratio_upper_bound_legacy": 1.0,
@@ -14990,7 +14990,7 @@
       "Random 12-regular (bounded-degree adversarial)": {
         "all_valid": true,
         "instances": 1,
-        "max_elapsed_seconds": 13.206334399999832,
+        "max_elapsed_seconds": 6.784921200000099,
         "max_n": 5000,
         "max_ratio_upper_bound": 1.1642857142857144,
         "max_ratio_upper_bound_legacy": 1.562734472696957,
@@ -14999,7 +14999,7 @@
       "Random 3-regular (bounded-degree adversarial)": {
         "all_valid": true,
         "instances": 1,
-        "max_elapsed_seconds": 4.073334400000022,
+        "max_elapsed_seconds": 2.534001600004558,
         "max_n": 5000,
         "max_ratio_upper_bound": 1.0706796116504855,
         "max_ratio_upper_bound_legacy": 1.231353282715498,
@@ -15008,7 +15008,7 @@
       "Random 6-regular (bounded-degree adversarial)": {
         "all_valid": true,
         "instances": 1,
-        "max_elapsed_seconds": 7.961762900000394,
+        "max_elapsed_seconds": 4.413149199994223,
         "max_n": 5000,
         "max_ratio_upper_bound": 1.1390243902439023,
         "max_ratio_upper_bound_legacy": 1.397008547008547,
@@ -15017,7 +15017,7 @@
       "Sparse Erdos-Renyi, avg degree 4": {
         "all_valid": true,
         "instances": 1,
-        "max_elapsed_seconds": 4.212568100000681,
+        "max_elapsed_seconds": 2.939879999998084,
         "max_n": 5000,
         "max_ratio_upper_bound": 1.0634725634725635,
         "max_ratio_upper_bound_legacy": 1.2533783783783783,
@@ -15026,7 +15026,7 @@
       "Watts-Strogatz small-world": {
         "all_valid": true,
         "instances": 1,
-        "max_elapsed_seconds": 23.613253099999383,
+        "max_elapsed_seconds": 3.937418499997875,
         "max_n": 5000,
         "max_ratio_upper_bound": 1.0532896695445073,
         "max_ratio_upper_bound_legacy": 1.4163330664531626,

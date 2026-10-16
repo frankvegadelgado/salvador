@@ -38,158 +38,13 @@
       "instances": 4,
       "matches_or_beats_planted": 4,
       "max_ratio_vs_planted": 0.9591346153846154,
-      "mean_ratio_vs_planted": 0.941915016304685,
+      "mean_ratio_vs_planted": 0.9407329832077582,
       "tau_known": 0,
       "optimal": 0,
       "max_ratio_vs_tau": null,
-      "max_ratio_upper_bound": 1.1689088191330343,
+      "max_ratio_upper_bound": 1.1629297458893872,
       "best_by_strategy": {
-        "c0": 0,
-        "c1": 0,
-        "c2": 0,
-        "c3": 0,
-        "c4": 0,
-        "c5": 0,
-        "c6": 0,
-        "c7": 0,
-        "c8": 0,
-        "c9": 1,
-        "c10": 1,
-        "c11": 1,
-        "c12": 4,
-        "c13": 4,
-        "c14": 4,
-        "c15": 4
-      },
-      "seconds": 9.288608000001659
-    },
-    "KR bias p=0.49": {
-      "instances": 4,
-      "matches_or_beats_planted": 4,
-      "max_ratio_vs_planted": 0.9750390015600624,
-      "mean_ratio_vs_planted": 0.9375288716541271,
-      "tau_known": 4,
-      "optimal": 4,
-      "max_ratio_vs_tau": 1.0,
-      "max_ratio_upper_bound": 1.0,
-      "best_by_strategy": {
-        "c0": 0,
-        "c1": 0,
-        "c2": 0,
-        "c3": 0,
-        "c4": 0,
-        "c5": 0,
-        "c6": 0,
-        "c7": 0,
-        "c8": 0,
-        "c9": 3,
-        "c10": 3,
-        "c11": 3,
-        "c12": 4,
-        "c13": 4,
-        "c14": 4,
-        "c15": 4
-      },
-      "seconds": 5.472165100001803
-    },
-    "KR constraint degree d=8": {
-      "instances": 4,
-      "matches_or_beats_planted": 3,
-      "max_ratio_vs_planted": 1.0067385444743935,
-      "mean_ratio_vs_planted": 0.9963227058236922,
-      "tau_known": 2,
-      "optimal": 2,
-      "max_ratio_vs_tau": 1.0,
-      "max_ratio_upper_bound": 1.0826086956521739,
-      "best_by_strategy": {
-        "c0": 0,
-        "c1": 0,
-        "c2": 0,
-        "c3": 0,
-        "c4": 2,
-        "c5": 0,
-        "c6": 0,
-        "c7": 0,
-        "c8": 2,
-        "c9": 4,
-        "c10": 4,
-        "c11": 4,
-        "c12": 4,
-        "c13": 4,
-        "c14": 4,
-        "c15": 4
-      },
-      "seconds": 14.144126300001517
-    },
-    "KR label size k=3": {
-      "instances": 4,
-      "matches_or_beats_planted": 4,
-      "max_ratio_vs_planted": 1.0,
-      "mean_ratio_vs_planted": 0.9840437852579669,
-      "tau_known": 1,
-      "optimal": 1,
-      "max_ratio_vs_tau": 1.0,
-      "max_ratio_upper_bound": 1.0428994082840237,
-      "best_by_strategy": {
-        "c0": 0,
-        "c1": 0,
-        "c2": 0,
-        "c3": 0,
-        "c4": 0,
-        "c5": 0,
-        "c6": 0,
-        "c7": 0,
-        "c8": 0,
-        "c9": 4,
-        "c10": 4,
-        "c11": 4,
-        "c12": 4,
-        "c13": 4,
-        "c14": 4,
-        "c15": 4
-      },
-      "seconds": 8.682765100000324
-    },
-    "KR label size k=6": {
-      "instances": 4,
-      "matches_or_beats_planted": 4,
-      "max_ratio_vs_planted": 0.8991477272727273,
-      "mean_ratio_vs_planted": 0.8662880132647581,
-      "tau_known": 4,
-      "optimal": 4,
-      "max_ratio_vs_tau": 1.0,
-      "max_ratio_upper_bound": 1.0,
-      "best_by_strategy": {
-        "c0": 0,
-        "c1": 0,
-        "c2": 0,
-        "c3": 0,
-        "c4": 0,
-        "c5": 0,
-        "c6": 0,
-        "c7": 0,
-        "c8": 0,
-        "c9": 4,
-        "c10": 4,
-        "c11": 4,
-        "c12": 4,
-        "c13": 4,
-        "c14": 4,
-        "c15": 4
-      },
-      "seconds": 4.288088499999503
-    },
-    "KR linear UG Max-2-Lin(Z_k)": {
-      "instances": 4,
-      "matches_or_beats_planted": 4,
-      "max_ratio_vs_planted": 0.9985141158989599,
-      "mean_ratio_vs_planted": 0.9791851368667506,
-      "tau_known": 2,
-      "optimal": 1,
-      "max_ratio_vs_tau": 1.0148367952522255,
-      "max_ratio_upper_bound": 1.0456553755522828,
-      "best_by_strategy": {
-        "c0": 0,
+        "c0": 1,
         "c1": 0,
         "c2": 0,
         "c3": 0,
@@ -206,19 +61,19 @@
         "c14": 3,
         "c15": 4
       },
-      "seconds": 7.070804799999678
+      "seconds": 9.755610500003968
     },
-    "KR noise eta=0.02": {
+    "KR bias p=0.49": {
       "instances": 4,
-      "matches_or_beats_planted": 3,
-      "max_ratio_vs_planted": 1.0088757396449703,
-      "mean_ratio_vs_planted": 0.9888787707850695,
-      "tau_known": 2,
-      "optimal": 1,
-      "max_ratio_vs_tau": 1.0088757396449703,
-      "max_ratio_upper_bound": 1.0498533724340176,
+      "matches_or_beats_planted": 4,
+      "max_ratio_vs_planted": 0.9750390015600624,
+      "mean_ratio_vs_planted": 0.9375288716541271,
+      "tau_known": 4,
+      "optimal": 4,
+      "max_ratio_vs_tau": 1.0,
+      "max_ratio_upper_bound": 1.0,
       "best_by_strategy": {
-        "c0": 0,
+        "c0": 2,
         "c1": 0,
         "c2": 0,
         "c3": 0,
@@ -235,7 +90,152 @@
         "c14": 4,
         "c15": 4
       },
-      "seconds": 7.081362099997932
+      "seconds": 5.937463599999319
+    },
+    "KR constraint degree d=8": {
+      "instances": 4,
+      "matches_or_beats_planted": 3,
+      "max_ratio_vs_planted": 1.0067385444743935,
+      "mean_ratio_vs_planted": 0.9963227058236922,
+      "tau_known": 2,
+      "optimal": 2,
+      "max_ratio_vs_tau": 1.0,
+      "max_ratio_upper_bound": 1.113263785394933,
+      "best_by_strategy": {
+        "c0": 2,
+        "c1": 0,
+        "c2": 0,
+        "c3": 0,
+        "c4": 2,
+        "c5": 0,
+        "c6": 0,
+        "c7": 0,
+        "c8": 2,
+        "c9": 4,
+        "c10": 4,
+        "c11": 4,
+        "c12": 4,
+        "c13": 4,
+        "c14": 4,
+        "c15": 4
+      },
+      "seconds": 12.295466799994756
+    },
+    "KR label size k=3": {
+      "instances": 4,
+      "matches_or_beats_planted": 4,
+      "max_ratio_vs_planted": 1.0,
+      "mean_ratio_vs_planted": 0.9840437852579669,
+      "tau_known": 1,
+      "optimal": 1,
+      "max_ratio_vs_tau": 1.0,
+      "max_ratio_upper_bound": 1.0413589364844904,
+      "best_by_strategy": {
+        "c0": 3,
+        "c1": 0,
+        "c2": 0,
+        "c3": 0,
+        "c4": 0,
+        "c5": 0,
+        "c6": 0,
+        "c7": 0,
+        "c8": 0,
+        "c9": 4,
+        "c10": 4,
+        "c11": 4,
+        "c12": 4,
+        "c13": 4,
+        "c14": 4,
+        "c15": 4
+      },
+      "seconds": 7.927051499995287
+    },
+    "KR label size k=6": {
+      "instances": 4,
+      "matches_or_beats_planted": 4,
+      "max_ratio_vs_planted": 0.8991477272727273,
+      "mean_ratio_vs_planted": 0.8662880132647581,
+      "tau_known": 4,
+      "optimal": 4,
+      "max_ratio_vs_tau": 1.0,
+      "max_ratio_upper_bound": 1.0,
+      "best_by_strategy": {
+        "c0": 3,
+        "c1": 0,
+        "c2": 0,
+        "c3": 0,
+        "c4": 0,
+        "c5": 0,
+        "c6": 0,
+        "c7": 0,
+        "c8": 0,
+        "c9": 4,
+        "c10": 4,
+        "c11": 4,
+        "c12": 4,
+        "c13": 4,
+        "c14": 4,
+        "c15": 4
+      },
+      "seconds": 4.555702700003167
+    },
+    "KR linear UG Max-2-Lin(Z_k)": {
+      "instances": 4,
+      "matches_or_beats_planted": 4,
+      "max_ratio_vs_planted": 0.9985141158989599,
+      "mean_ratio_vs_planted": 0.9784964316325908,
+      "tau_known": 2,
+      "optimal": 1,
+      "max_ratio_vs_tau": 1.0148367952522255,
+      "max_ratio_upper_bound": 1.047337278106509,
+      "best_by_strategy": {
+        "c0": 1,
+        "c1": 0,
+        "c2": 0,
+        "c3": 0,
+        "c4": 0,
+        "c5": 0,
+        "c6": 0,
+        "c7": 0,
+        "c8": 0,
+        "c9": 1,
+        "c10": 1,
+        "c11": 1,
+        "c12": 2,
+        "c13": 2,
+        "c14": 2,
+        "c15": 4
+      },
+      "seconds": 9.66029489999346
+    },
+    "KR noise eta=0.02": {
+      "instances": 4,
+      "matches_or_beats_planted": 3,
+      "max_ratio_vs_planted": 1.0088757396449703,
+      "mean_ratio_vs_planted": 0.9881984986762259,
+      "tau_known": 2,
+      "optimal": 1,
+      "max_ratio_vs_tau": 1.0088757396449703,
+      "max_ratio_upper_bound": 1.0453879941434847,
+      "best_by_strategy": {
+        "c0": 3,
+        "c1": 0,
+        "c2": 0,
+        "c3": 0,
+        "c4": 0,
+        "c5": 0,
+        "c6": 0,
+        "c7": 0,
+        "c8": 0,
+        "c9": 3,
+        "c10": 3,
+        "c11": 3,
+        "c12": 3,
+        "c13": 3,
+        "c14": 3,
+        "c15": 4
+      },
+      "seconds": 7.1938289000027
     },
     "KR noise eta=0.1": {
       "instances": 4,
@@ -247,7 +247,7 @@
       "max_ratio_vs_tau": 1.0,
       "max_ratio_upper_bound": 1.0381231671554252,
       "best_by_strategy": {
-        "c0": 0,
+        "c0": 3,
         "c1": 0,
         "c2": 0,
         "c3": 0,
@@ -264,7 +264,7 @@
         "c14": 4,
         "c15": 4
       },
-      "seconds": 7.497910499998397
+      "seconds": 7.02247490001173
     },
     "KR permutation UG (k=4, p=0.45, eta=0)": {
       "instances": 4,
@@ -274,9 +274,9 @@
       "tau_known": 2,
       "optimal": 2,
       "max_ratio_vs_tau": 1.0,
-      "max_ratio_upper_bound": 1.048744460856721,
+      "max_ratio_upper_bound": 1.047197640117994,
       "best_by_strategy": {
-        "c0": 0,
+        "c0": 3,
         "c1": 0,
         "c2": 0,
         "c3": 0,
@@ -293,19 +293,19 @@
         "c14": 4,
         "c15": 4
       },
-      "seconds": 7.584037000000535
+      "seconds": 7.4143436000013025
     },
     "KR samples per block s=32": {
       "instances": 2,
       "matches_or_beats_planted": 1,
       "max_ratio_vs_planted": 1.0217391304347827,
-      "mean_ratio_vs_planted": 0.9974106150155071,
+      "mean_ratio_vs_planted": 0.9960647199953186,
       "tau_known": 0,
       "optimal": 0,
       "max_ratio_vs_tau": null,
-      "max_ratio_upper_bound": 1.0987841945288754,
+      "max_ratio_upper_bound": 1.0957446808510638,
       "best_by_strategy": {
-        "c0": 0,
+        "c0": 2,
         "c1": 0,
         "c2": 0,
         "c3": 0,
@@ -314,27 +314,27 @@
         "c6": 0,
         "c7": 0,
         "c8": 0,
-        "c9": 2,
-        "c10": 2,
-        "c11": 2,
-        "c12": 2,
-        "c13": 2,
-        "c14": 2,
+        "c9": 1,
+        "c10": 1,
+        "c11": 1,
+        "c12": 1,
+        "c13": 1,
+        "c14": 1,
         "c15": 2
       },
-      "seconds": 10.139580500001102
+      "seconds": 7.802309200000309
     },
     "ALL": {
       "instances": 38,
       "matches_or_beats_planted": 34,
       "max_ratio_vs_planted": 1.0217391304347827,
-      "mean_ratio_vs_planted": 0.9604100331741782,
+      "mean_ratio_vs_planted": 0.9600706691794386,
       "tau_known": 18,
       "optimal": 16,
       "max_ratio_vs_tau": 1.0148367952522255,
-      "max_ratio_upper_bound": 1.1689088191330343,
+      "max_ratio_upper_bound": 1.1629297458893872,
       "best_by_strategy": {
-        "c0": 0,
+        "c0": 23,
         "c1": 0,
         "c2": 0,
         "c3": 0,
@@ -343,15 +343,15 @@
         "c6": 0,
         "c7": 0,
         "c8": 2,
-        "c9": 27,
-        "c10": 27,
-        "c11": 28,
-        "c12": 37,
-        "c13": 37,
-        "c14": 37,
+        "c9": 26,
+        "c10": 26,
+        "c11": 27,
+        "c12": 33,
+        "c13": 33,
+        "c14": 33,
         "c15": 38
       },
-      "seconds": 81.24944790000245
+      "seconds": 79.564546600006
     }
   },
   "rows": [
@@ -374,7 +374,7 @@
       "tau": 354,
       "tau_upper": 354,
       "sizes": {
-        "c0": 394,
+        "c0": 354,
         "c1": 384,
         "c2": 361,
         "c3": 375,
@@ -400,7 +400,7 @@
       "optimal": true,
       "c10_raw": 356,
       "c13_exact": false,
-      "elapsed_seconds": 1.1125981000004685
+      "elapsed_seconds": 1.215338400004839
     },
     {
       "group": "KR label size k=3",
@@ -421,7 +421,7 @@
       "tau": 354,
       "tau_upper": 354,
       "sizes": {
-        "c0": 412,
+        "c0": 368,
         "c1": 414,
         "c2": 372,
         "c3": 370,
@@ -447,7 +447,7 @@
       "optimal": true,
       "c10_raw": 354,
       "c13_exact": false,
-      "elapsed_seconds": 1.2372199000001274
+      "elapsed_seconds": 1.2975019000004977
     },
     {
       "group": "KR label size k=6",
@@ -468,7 +468,7 @@
       "tau": 302,
       "tau_upper": 302,
       "sizes": {
-        "c0": 341,
+        "c0": 302,
         "c1": 312,
         "c2": 306,
         "c3": 314,
@@ -494,7 +494,7 @@
       "optimal": true,
       "c10_raw": 302,
       "c13_exact": false,
-      "elapsed_seconds": 0.6482078999997611
+      "elapsed_seconds": 0.6907031000009738
     },
     {
       "group": "KR bias p=0.35",
@@ -515,7 +515,7 @@
       "tau": null,
       "tau_upper": 411,
       "sizes": {
-        "c0": 450,
+        "c0": 402,
         "c1": 446,
         "c2": 416,
         "c3": 435,
@@ -541,7 +541,7 @@
       "optimal": false,
       "c10_raw": 400,
       "c13_exact": false,
-      "elapsed_seconds": 1.4112787000003664
+      "elapsed_seconds": 1.4888011000002734
     },
     {
       "group": "KR bias p=0.49",
@@ -562,7 +562,7 @@
       "tau": 305,
       "tau_upper": 305,
       "sizes": {
-        "c0": 342,
+        "c0": 305,
         "c1": 319,
         "c2": 310,
         "c3": 318,
@@ -588,7 +588,7 @@
       "optimal": true,
       "c10_raw": 305,
       "c13_exact": false,
-      "elapsed_seconds": 0.8698645000004035
+      "elapsed_seconds": 0.9252309000003152
     },
     {
       "group": "KR noise eta=0.02",
@@ -609,7 +609,7 @@
       "tau": 338,
       "tau_upper": 338,
       "sizes": {
-        "c0": 383,
+        "c0": 341,
         "c1": 378,
         "c2": 344,
         "c3": 364,
@@ -635,7 +635,7 @@
       "optimal": false,
       "c10_raw": 341,
       "c13_exact": false,
-      "elapsed_seconds": 1.1379460999996809
+      "elapsed_seconds": 1.1087198000022909
     },
     {
       "group": "KR noise eta=0.1",
@@ -656,7 +656,7 @@
       "tau": 348,
       "tau_upper": 348,
       "sizes": {
-        "c0": 399,
+        "c0": 351,
         "c1": 385,
         "c2": 355,
         "c3": 376,
@@ -682,7 +682,7 @@
       "optimal": true,
       "c10_raw": 348,
       "c13_exact": false,
-      "elapsed_seconds": 1.7191604999989067
+      "elapsed_seconds": 1.116630600001372
     },
     {
       "group": "KR constraint degree d=8",
@@ -703,7 +703,7 @@
       "tau": 365,
       "tau_upper": 365,
       "sizes": {
-        "c0": 440,
+        "c0": 365,
         "c1": 412,
         "c2": 388,
         "c3": 394,
@@ -729,7 +729,7 @@
       "optimal": true,
       "c10_raw": 365,
       "c13_exact": false,
-      "elapsed_seconds": 3.5577210999999807
+      "elapsed_seconds": 1.8429106999974465
     },
     {
       "group": "KR samples per block s=32",
@@ -750,7 +750,7 @@
       "tau": null,
       "tau_upper": 690,
       "sizes": {
-        "c0": 853,
+        "c0": 705,
         "c1": 786,
         "c2": 718,
         "c3": 750,
@@ -770,13 +770,13 @@
       "final": 705,
       "ratio_vs_planted": 1.0217391304347827,
       "ratio_vs_tau": null,
-      "lower_bound": 661,
-      "ratio_upper_bound": 1.0665658093797277,
+      "lower_bound": 678,
+      "ratio_upper_bound": 1.0398230088495575,
       "beats_or_matches_planted": false,
       "optimal": false,
       "c10_raw": 705,
       "c13_exact": false,
-      "elapsed_seconds": 6.237527100000079
+      "elapsed_seconds": 3.7005930000013905
     },
     {
       "group": "KR linear UG Max-2-Lin(Z_k)",
@@ -797,7 +797,7 @@
       "tau": 337,
       "tau_upper": 337,
       "sizes": {
-        "c0": 387,
+        "c0": 343,
         "c1": 377,
         "c2": 349,
         "c3": 366,
@@ -823,7 +823,7 @@
       "optimal": false,
       "c10_raw": 343,
       "c13_exact": false,
-      "elapsed_seconds": 1.466113899999982
+      "elapsed_seconds": 1.0847156999952858
     },
     {
       "group": "KR permutation UG (k=4, p=0.45, eta=0)",
@@ -844,7 +844,7 @@
       "tau": 337,
       "tau_upper": 337,
       "sizes": {
-        "c0": 386,
+        "c0": 337,
         "c1": 380,
         "c2": 341,
         "c3": 358,
@@ -870,7 +870,7 @@
       "optimal": true,
       "c10_raw": 337,
       "c13_exact": false,
-      "elapsed_seconds": 1.6532738000005338
+      "elapsed_seconds": 1.0706808000031742
     },
     {
       "group": "KR label size k=3",
@@ -891,7 +891,7 @@
       "tau": null,
       "tau_upper": 377,
       "sizes": {
-        "c0": 418,
+        "c0": 354,
         "c1": 396,
         "c2": 363,
         "c3": 370,
@@ -911,13 +911,13 @@
       "final": 354,
       "ratio_vs_planted": 0.9389920424403183,
       "ratio_vs_tau": null,
-      "lower_bound": 344,
-      "ratio_upper_bound": 1.0290697674418605,
+      "lower_bound": 345,
+      "ratio_upper_bound": 1.0260869565217392,
       "beats_or_matches_planted": true,
       "optimal": false,
       "c10_raw": 354,
       "c13_exact": false,
-      "elapsed_seconds": 2.1663272000005236
+      "elapsed_seconds": 1.2775838999950793
     },
     {
       "group": "KR label size k=6",
@@ -938,7 +938,7 @@
       "tau": 311,
       "tau_upper": 311,
       "sizes": {
-        "c0": 343,
+        "c0": 311,
         "c1": 332,
         "c2": 318,
         "c3": 328,
@@ -964,7 +964,7 @@
       "optimal": true,
       "c10_raw": 311,
       "c13_exact": false,
-      "elapsed_seconds": 0.6762796999992133
+      "elapsed_seconds": 0.7512511000022641
     },
     {
       "group": "KR bias p=0.35",
@@ -985,7 +985,7 @@
       "tau": null,
       "tau_upper": 416,
       "sizes": {
-        "c0": 457,
+        "c0": 400,
         "c1": 455,
         "c2": 429,
         "c3": 454,
@@ -1011,7 +1011,7 @@
       "optimal": false,
       "c10_raw": 399,
       "c13_exact": false,
-      "elapsed_seconds": 1.4882691000002524
+      "elapsed_seconds": 1.6000943999970332
     },
     {
       "group": "KR bias p=0.49",
@@ -1032,7 +1032,7 @@
       "tau": 304,
       "tau_upper": 304,
       "sizes": {
-        "c0": 347,
+        "c0": 304,
         "c1": 337,
         "c2": 307,
         "c3": 326,
@@ -1058,7 +1058,7 @@
       "optimal": true,
       "c10_raw": 304,
       "c13_exact": false,
-      "elapsed_seconds": 0.8583570000009786
+      "elapsed_seconds": 0.930681599995296
     },
     {
       "group": "KR noise eta=0.02",
@@ -1079,7 +1079,7 @@
       "tau": 339,
       "tau_upper": 339,
       "sizes": {
-        "c0": 408,
+        "c0": 339,
         "c1": 400,
         "c2": 354,
         "c3": 379,
@@ -1105,7 +1105,7 @@
       "optimal": true,
       "c10_raw": 339,
       "c13_exact": false,
-      "elapsed_seconds": 1.1146973999984766
+      "elapsed_seconds": 1.1845433999988018
     },
     {
       "group": "KR noise eta=0.1",
@@ -1126,7 +1126,7 @@
       "tau": null,
       "tau_upper": 365,
       "sizes": {
-        "c0": 407,
+        "c0": 354,
         "c1": 383,
         "c2": 360,
         "c3": 379,
@@ -1152,7 +1152,7 @@
       "optimal": false,
       "c10_raw": 354,
       "c13_exact": false,
-      "elapsed_seconds": 1.198336899999049
+      "elapsed_seconds": 1.1694277000060538
     },
     {
       "group": "KR constraint degree d=8",
@@ -1173,7 +1173,7 @@
       "tau": 352,
       "tau_upper": 352,
       "sizes": {
-        "c0": 468,
+        "c0": 369,
         "c1": 405,
         "c2": 383,
         "c3": 404,
@@ -1199,7 +1199,7 @@
       "optimal": true,
       "c10_raw": 352,
       "c13_exact": false,
-      "elapsed_seconds": 1.6930534000002808
+      "elapsed_seconds": 1.851584099997126
     },
     {
       "group": "KR samples per block s=32",
@@ -1220,7 +1220,7 @@
       "tau": null,
       "tau_upper": 743,
       "sizes": {
-        "c0": 827,
+        "c0": 721,
         "c1": 780,
         "c2": 737,
         "c3": 783,
@@ -1235,18 +1235,18 @@
         "c12": 723,
         "c13": 723,
         "c14": 723,
-        "c15": 723
+        "c15": 721
       },
-      "final": 723,
-      "ratio_vs_planted": 0.9730820995962315,
+      "final": 721,
+      "ratio_vs_planted": 0.9703903095558546,
       "ratio_vs_tau": null,
       "lower_bound": 658,
-      "ratio_upper_bound": 1.0987841945288754,
+      "ratio_upper_bound": 1.0957446808510638,
       "beats_or_matches_planted": true,
       "optimal": false,
       "c10_raw": 723,
       "c13_exact": false,
-      "elapsed_seconds": 3.902053400001023
+      "elapsed_seconds": 4.1017161999989185
     },
     {
       "group": "KR linear UG Max-2-Lin(Z_k)",
@@ -1267,7 +1267,7 @@
       "tau": 337,
       "tau_upper": 337,
       "sizes": {
-        "c0": 392,
+        "c0": 359,
         "c1": 388,
         "c2": 364,
         "c3": 382,
@@ -1293,7 +1293,7 @@
       "optimal": true,
       "c10_raw": 337,
       "c13_exact": false,
-      "elapsed_seconds": 1.059963499999867
+      "elapsed_seconds": 1.0923141999955988
     },
     {
       "group": "KR permutation UG (k=4, p=0.45, eta=0)",
@@ -1314,7 +1314,7 @@
       "tau": null,
       "tau_upper": 719,
       "sizes": {
-        "c0": 822,
+        "c0": 710,
         "c1": 794,
         "c2": 717,
         "c3": 769,
@@ -1334,13 +1334,13 @@
       "final": 710,
       "ratio_vs_planted": 0.9874826147426982,
       "ratio_vs_tau": null,
-      "lower_bound": 677,
-      "ratio_upper_bound": 1.048744460856721,
+      "lower_bound": 678,
+      "ratio_upper_bound": 1.047197640117994,
       "beats_or_matches_planted": true,
       "optimal": false,
       "c10_raw": 711,
       "c13_exact": false,
-      "elapsed_seconds": 2.3978903999995964
+      "elapsed_seconds": 2.5280041999940295
     },
     {
       "group": "KR label size k=3",
@@ -1361,7 +1361,7 @@
       "tau": null,
       "tau_upper": 670,
       "sizes": {
-        "c0": 817,
+        "c0": 670,
         "c1": 809,
         "c2": 689,
         "c3": 758,
@@ -1387,7 +1387,7 @@
       "optimal": false,
       "c10_raw": 670,
       "c13_exact": false,
-      "elapsed_seconds": 2.5627067999994324
+      "elapsed_seconds": 2.631184199999552
     },
     {
       "group": "KR label size k=6",
@@ -1408,7 +1408,7 @@
       "tau": 597,
       "tau_upper": 597,
       "sizes": {
-        "c0": 677,
+        "c0": 597,
         "c1": 639,
         "c2": 603,
         "c3": 628,
@@ -1434,7 +1434,7 @@
       "optimal": true,
       "c10_raw": 597,
       "c13_exact": false,
-      "elapsed_seconds": 1.403079700001399
+      "elapsed_seconds": 1.499338900001021
     },
     {
       "group": "KR bias p=0.35",
@@ -1455,7 +1455,7 @@
       "tau": null,
       "tau_upper": 846,
       "sizes": {
-        "c0": 891,
+        "c0": 779,
         "c1": 892,
         "c2": 854,
         "c3": 936,
@@ -1470,18 +1470,18 @@
         "c12": 782,
         "c13": 782,
         "c14": 782,
-        "c15": 782
+        "c15": 778
       },
-      "final": 782,
-      "ratio_vs_planted": 0.9243498817966903,
+      "final": 778,
+      "ratio_vs_planted": 0.9196217494089834,
       "ratio_vs_tau": null,
       "lower_bound": 669,
-      "ratio_upper_bound": 1.1689088191330343,
+      "ratio_upper_bound": 1.1629297458893872,
       "beats_or_matches_planted": true,
       "optimal": false,
       "c10_raw": 799,
       "c13_exact": false,
-      "elapsed_seconds": 3.2114504000001034
+      "elapsed_seconds": 3.4464819000058924
     },
     {
       "group": "KR bias p=0.49",
@@ -1502,7 +1502,7 @@
       "tau": 631,
       "tau_upper": 631,
       "sizes": {
-        "c0": 702,
+        "c0": 632,
         "c1": 669,
         "c2": 637,
         "c3": 673,
@@ -1528,7 +1528,7 @@
       "optimal": true,
       "c10_raw": 631,
       "c13_exact": false,
-      "elapsed_seconds": 1.8777264000000287
+      "elapsed_seconds": 2.0908837000024505
     },
     {
       "group": "KR noise eta=0.02",
@@ -1549,7 +1549,7 @@
       "tau": null,
       "tau_upper": 727,
       "sizes": {
-        "c0": 770,
+        "c0": 710,
         "c1": 768,
         "c2": 715,
         "c3": 754,
@@ -1575,7 +1575,7 @@
       "optimal": false,
       "c10_raw": 707,
       "c13_exact": false,
-      "elapsed_seconds": 2.3097029000000475
+      "elapsed_seconds": 2.3743599000008544
     },
     {
       "group": "KR noise eta=0.1",
@@ -1596,7 +1596,7 @@
       "tau": null,
       "tau_upper": 738,
       "sizes": {
-        "c0": 804,
+        "c0": 690,
         "c1": 762,
         "c2": 694,
         "c3": 744,
@@ -1622,7 +1622,7 @@
       "optimal": false,
       "c10_raw": 691,
       "c13_exact": false,
-      "elapsed_seconds": 2.288756800000556
+      "elapsed_seconds": 2.3886382000055164
     },
     {
       "group": "KR constraint degree d=8",
@@ -1643,7 +1643,7 @@
       "tau": null,
       "tau_upper": 742,
       "sizes": {
-        "c0": 870,
+        "c0": 747,
         "c1": 850,
         "c2": 798,
         "c3": 838,
@@ -1663,13 +1663,13 @@
       "final": 747,
       "ratio_vs_planted": 1.0067385444743935,
       "ratio_vs_tau": null,
-      "lower_bound": 690,
-      "ratio_upper_bound": 1.0826086956521739,
+      "lower_bound": 671,
+      "ratio_upper_bound": 1.113263785394933,
       "beats_or_matches_planted": false,
       "optimal": false,
       "c10_raw": 747,
       "c13_exact": false,
-      "elapsed_seconds": 3.661237500000425
+      "elapsed_seconds": 4.6062242000043625
     },
     {
       "group": "KR linear UG Max-2-Lin(Z_k)",
@@ -1690,7 +1690,7 @@
       "tau": null,
       "tau_upper": 726,
       "sizes": {
-        "c0": 809,
+        "c0": 708,
         "c1": 767,
         "c2": 724,
         "c3": 755,
@@ -1705,18 +1705,18 @@
         "c12": 710,
         "c13": 710,
         "c14": 710,
-        "c15": 710
+        "c15": 708
       },
-      "final": 710,
-      "ratio_vs_planted": 0.977961432506887,
+      "final": 708,
+      "ratio_vs_planted": 0.9752066115702479,
       "ratio_vs_tau": null,
-      "lower_bound": 679,
-      "ratio_upper_bound": 1.0456553755522828,
+      "lower_bound": 676,
+      "ratio_upper_bound": 1.047337278106509,
       "beats_or_matches_planted": true,
       "optimal": false,
       "c10_raw": 711,
       "c13_exact": false,
-      "elapsed_seconds": 2.349073800000042
+      "elapsed_seconds": 5.095799900002021
     },
     {
       "group": "KR permutation UG (k=4, p=0.45, eta=0)",
@@ -1737,7 +1737,7 @@
       "tau": null,
       "tau_upper": 685,
       "sizes": {
-        "c0": 762,
+        "c0": 695,
         "c1": 746,
         "c2": 699,
         "c3": 727,
@@ -1763,7 +1763,7 @@
       "optimal": false,
       "c10_raw": 690,
       "c13_exact": false,
-      "elapsed_seconds": 2.4202746999999363
+      "elapsed_seconds": 2.60032019999926
     },
     {
       "group": "KR label size k=3",
@@ -1784,7 +1784,7 @@
       "tau": null,
       "tau_upper": 705,
       "sizes": {
-        "c0": 843,
+        "c0": 705,
         "c1": 830,
         "c2": 750,
         "c3": 763,
@@ -1804,13 +1804,13 @@
       "final": 705,
       "ratio_vs_planted": 1.0,
       "ratio_vs_tau": null,
-      "lower_bound": 676,
-      "ratio_upper_bound": 1.0428994082840237,
+      "lower_bound": 677,
+      "ratio_upper_bound": 1.0413589364844904,
       "beats_or_matches_planted": true,
       "optimal": false,
       "c10_raw": 705,
       "c13_exact": false,
-      "elapsed_seconds": 2.716511200000241
+      "elapsed_seconds": 2.7207815000001574
     },
     {
       "group": "KR label size k=6",
@@ -1831,7 +1831,7 @@
       "tau": 633,
       "tau_upper": 633,
       "sizes": {
-        "c0": 683,
+        "c0": 634,
         "c1": 669,
         "c2": 643,
         "c3": 662,
@@ -1857,7 +1857,7 @@
       "optimal": true,
       "c10_raw": 633,
       "c13_exact": false,
-      "elapsed_seconds": 1.5605211999991297
+      "elapsed_seconds": 1.6144095999989077
     },
     {
       "group": "KR bias p=0.35",
@@ -1878,7 +1878,7 @@
       "tau": null,
       "tau_upper": 833,
       "sizes": {
-        "c0": 895,
+        "c0": 773,
         "c1": 923,
         "c2": 863,
         "c3": 918,
@@ -1904,7 +1904,7 @@
       "optimal": false,
       "c10_raw": 774,
       "c13_exact": false,
-      "elapsed_seconds": 3.177609800000937
+      "elapsed_seconds": 3.220233100000769
     },
     {
       "group": "KR bias p=0.49",
@@ -1925,7 +1925,7 @@
       "tau": 625,
       "tau_upper": 625,
       "sizes": {
-        "c0": 697,
+        "c0": 631,
         "c1": 667,
         "c2": 645,
         "c3": 688,
@@ -1951,7 +1951,7 @@
       "optimal": true,
       "c10_raw": 635,
       "c13_exact": false,
-      "elapsed_seconds": 1.866217200000392
+      "elapsed_seconds": 1.9906674000012572
     },
     {
       "group": "KR noise eta=0.02",
@@ -1972,7 +1972,7 @@
       "tau": null,
       "tau_upper": 735,
       "sizes": {
-        "c0": 830,
+        "c0": 714,
         "c1": 787,
         "c2": 733,
         "c3": 775,
@@ -1987,18 +1987,18 @@
         "c12": 716,
         "c13": 716,
         "c14": 716,
-        "c15": 716
+        "c15": 714
       },
-      "final": 716,
-      "ratio_vs_planted": 0.9741496598639455,
+      "final": 714,
+      "ratio_vs_planted": 0.9714285714285714,
       "ratio_vs_tau": null,
-      "lower_bound": 682,
-      "ratio_upper_bound": 1.0498533724340176,
+      "lower_bound": 683,
+      "ratio_upper_bound": 1.0453879941434847,
       "beats_or_matches_planted": true,
       "optimal": false,
       "c10_raw": 727,
       "c13_exact": false,
-      "elapsed_seconds": 2.519015699999727
+      "elapsed_seconds": 2.526205800000753
     },
     {
       "group": "KR noise eta=0.1",
@@ -2019,7 +2019,7 @@
       "tau": null,
       "tau_upper": 731,
       "sizes": {
-        "c0": 786,
+        "c0": 686,
         "c1": 770,
         "c2": 693,
         "c3": 745,
@@ -2045,7 +2045,7 @@
       "optimal": false,
       "c10_raw": 686,
       "c13_exact": false,
-      "elapsed_seconds": 2.291656299999886
+      "elapsed_seconds": 2.347778399998788
     },
     {
       "group": "KR constraint degree d=8",
@@ -2066,7 +2066,7 @@
       "tau": null,
       "tau_upper": 718,
       "sizes": {
-        "c0": 892,
+        "c0": 744,
         "c1": 893,
         "c2": 778,
         "c3": 816,
@@ -2092,7 +2092,7 @@
       "optimal": false,
       "c10_raw": 718,
       "c13_exact": false,
-      "elapsed_seconds": 5.2321143000008306
+      "elapsed_seconds": 3.994747799995821
     },
     {
       "group": "KR linear UG Max-2-Lin(Z_k)",
@@ -2113,7 +2113,7 @@
       "tau": null,
       "tau_upper": 673,
       "sizes": {
-        "c0": 780,
+        "c0": 686,
         "c1": 767,
         "c2": 691,
         "c3": 734,
@@ -2139,8 +2139,8 @@
       "optimal": false,
       "c10_raw": 686,
       "c13_exact": false,
-      "elapsed_seconds": 2.195653599999787
+      "elapsed_seconds": 2.3874651000005542
     }
   ],
-  "elapsed_seconds": 622.1380863189697
+  "elapsed_seconds": 583.5713484287262
 }

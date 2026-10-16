@@ -1,10 +1,10 @@
 group,instances,max_ratio_upper_bound,mean_ratio_upper_bound,max_ratio_upper_bound_legacy,all_valid,max_n,max_elapsed_seconds
-Barabasi-Albert scale-free hub graph,1,1.0077677841373671,1.0077677841373671,1.3536518396485449,True,5000,5.691540
-Complete bipartite (dense),2,1.0,1.0,1.0,True,800,45.106554
-Crown graph K_{h,h} minus perfect matching (dense, near-regular),2,1.0,1.0,1.0,True,800,37.998396
-Double star + bridge (matching-heuristic stress),1,1.0,1.0,1.0,True,2002,1.151339
-Random 12-regular (bounded-degree adversarial),1,1.1642857142857144,1.1642857142857144,1.562734472696957,True,5000,13.206334
-Random 3-regular (bounded-degree adversarial),1,1.0706796116504855,1.0706796116504855,1.231353282715498,True,5000,4.073334
-Random 6-regular (bounded-degree adversarial),1,1.1390243902439023,1.1390243902439023,1.397008547008547,True,5000,7.961763
-Sparse Erdos-Renyi, avg degree 4,1,1.0634725634725635,1.0634725634725635,1.2533783783783783,True,5000,4.212568
-Watts-Strogatz small-world,1,1.0532896695445073,1.0532896695445073,1.4163330664531626,True,5000,23.613253
+Barabasi-Albert scale-free hub graph,1,1.0077677841373671,1.0077677841373671,1.3536518396485449,True,5000,4.211421
+Complete bipartite (dense),2,1.0,1.0,1.0,True,800,35.591349
+Crown graph K_{h,h} minus perfect matching (dense, near-regular),2,1.0,1.0,1.0,True,800,66.757155
+Double star + bridge (matching-heuristic stress),1,1.0,1.0,1.0,True,2002,0.809976
+Random 12-regular (bounded-degree adversarial),1,1.1642857142857144,1.1642857142857144,1.562734472696957,True,5000,6.784921
+Random 3-regular (bounded-degree adversarial),1,1.0706796116504855,1.0706796116504855,1.231353282715498,True,5000,2.534002
+Random 6-regular (bounded-degree adversarial),1,1.1390243902439023,1.1390243902439023,1.397008547008547,True,5000,4.413149
+Sparse Erdos-Renyi, avg degree 4,1,1.0634725634725635,1.0634725634725635,1.2533783783783783,True,5000,2.939880
+Watts-Strogatz small-world,1,1.0532896695445073,1.0532896695445073,1.4163330664531626,True,5000,3.937418
