@@ -525,8 +525,8 @@ C9_INPUT_NAMES: tuple[str, ...] = ("c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8
 #: The candidates whose best cover is c10's reference (core and non-bipartite parts).
 C10_INPUT_NAMES: tuple[str, ...] = C9_INPUT_NAMES + ("c9",)
 
-#: Selection rules of c0 for a matched edge ((a, i), (b, j)) with i != j (smaller / larger index).
-C0_RULES: tuple[str, ...] = component_split.RULES
+#: Decoding variants of c0 (select/residual), see component_split.DEFAULT_VARIANTS.
+C0_RULES: tuple[str, ...] = tuple(component_split.DEFAULT_VARIANTS)
 
 #: Default work budget of the c15 refinement, in units of (n + m) per cover.
 DEFAULT_REFINE_BUDGET: float | None = 100
@@ -575,6 +575,47 @@ def _consensus_inner(adj: dict[Any, set[Any]]) -> set[Any]:
     return min(covers, key=len)
 
 
+def c0_cover(
+    G: nx.Graph,
+    adj: dict[Any, set[Any]],
+    c1: set[Any],
+    local_search_budget: float = local_search.DEFAULT_BUDGET,
+    c0_rule: str | None = None,
+    info: dict | None = None,
+) -> set[Any]:
+    """Strategy c0 (0.1.3) on a clean graph ``G`` (no self-loops or isolated vertices).
+
+    Exact-stop splitting (``r' = |M|``), degree-aware decoding of every variant of
+    :data:`C0_RULES` with greedy completion, pruning, the smallest variant (or
+    ``c0_rule``), the budgeted (1,2)-swap local search, and finally ``c1`` when
+    ``c1`` is smaller. ``|c0| <= |c1| <= 2 tau - r`` therefore holds on every
+    graph (``r`` = components of ``G``). ``info`` receives ``rule``,
+    ``<variant>_size`` (pruned decoded size per variant), ``decoded_size``,
+    ``ls_gain``, ``fallback_c1``, the split statistics (``target``, ``r``,
+    ``r_prime``, ...) and the decoding statistics ``<variant>_<key>``.
+    """
+    split_info: dict = {}
+    variants = {name: prune_redundant_vertices(adj, cover)
+                for name, cover in component_split.component_split_covers(G, split_info).items()}
+    key = c0_rule if c0_rule in C0_RULES else min(C0_RULES, key=lambda k: len(variants[k]))
+    decoded = variants[key]
+    improved = prune_redundant_vertices(adj, local_search.improve_vertex_cover(adj, decoded, budget=local_search_budget))
+    cover = improved if len(improved) <= len(decoded) else set(decoded)
+    fallback = len(c1) < len(cover)
+    if fallback:
+        cover = set(c1)
+    if info is not None:
+        tag = {k: k.replace("/", "_") for k in C0_RULES}
+        info.update({"rule": key, **{f"{tag[k]}_size": len(v) for k, v in variants.items()},
+                     "decoded_size": len(decoded), "ls_gain": max(0, len(decoded) - len(improved)),
+                     "fallback_c1": fallback,
+                     **{k: split_info[k] for k in ("target", "r", "r_prime", "bridge_splits", "matching_splits",
+                                                   "rounds", "max_index", "h_nodes", "h_edges")},
+                     **{f"{tag[k]}_{s}": split_info[k][s] for k in C0_RULES for s in
+                        ("matching_h", "ties", "residual_open", "residual_exact", "reused", "raw_size")}})
+    return cover
+
+
 def ensemble_candidates(
     graph: nx.Graph,
     epsilon: float = 1,
@@ -601,9 +642,12 @@ def ensemble_candidates(
     ``((a, i), (b, j))`` costing nothing when ``a`` or ``b`` is already
     selected, selecting the smaller-index endpoint (rule ``"low"``) or the
     larger-index one (``"high"``) when ``i != j``, and going to a residual
-    graph (covered by Koenig when bipartite, otherwise by occurrences) when
-    ``i == j``. The decoded set is repaired and pruned. ``c0_rule=None`` (the
-    default) keeps the smaller of the two rules. ``c0`` is computed last and
+    graph when ``i == j``. Since 0.1.3 splitting stops exactly at ``r' = |M|``,
+    the endpoint of larger degree in ``G`` is selected (ties by index) for both
+    kinds of edges, the decoded set is completed greedily, pruned, improved by
+    the budgeted (1,2)-swap local search, and replaced by c1 when c1 is
+    smaller, so ``|c0| <= |c1| <= 2 tau - r``. ``c0_rule=None`` (the default)
+    keeps the smallest of :data:`C0_RULES`. ``c0`` is computed last and
     does not feed c7, c9, ..., c14, which are therefore unchanged; ``c15``
     refines it like every other candidate.
 
@@ -675,7 +719,6 @@ def ensemble_candidates(
         return {name: set() for name in CANDIDATE_NAMES if name != "c15"}
 
     adj = {v: set(G[v]) for v in G}
-    c0_rule = c0_rule if c0_rule in C0_RULES else None
 
     # 1-6: linear-time heuristics producing valid covers
     c1 = maximal_matching_vertex_cover(G) # min-maximal-matching
@@ -750,17 +793,12 @@ def ensemble_candidates(
         rounds=consensus_rounds, info=cons_info)
     # 0: component amplification of the split graph + NetworkX min maximal matching.
     c0_info: dict = {}
-    c0_variants = {rule: prune_redundant_vertices(adj, raw)
-                   for rule, raw in component_split.component_split_covers(G, c0_info).items()}
-    c0_key = c0_rule or min(C0_RULES, key=lambda k: len(c0_variants[k]))
-    cands = {"c0": c0_variants[c0_key], **cands}
+    # Exact-stop splitting (r' = |M|), degree-aware decoding, greedy completion and
+    # pruning (component_split), then the budgeted (1,2)-swap local search, and c1
+    # when c1 is smaller, so that |c0| <= |c1| <= 2 tau - r on every graph.
+    cands = {"c0": c0_cover(G, adj, cands["c1"], local_search_budget, c0_rule, c0_info), **cands}
     if info is not None:
-        info.update({"c0_rule": c0_key, **{f"c0_{k}_size": len(v) for k, v in c0_variants.items()},
-                     **{f"c0_{k}": c0_info[k] for k in
-                        ("target", "r", "r_prime", "bridge_splits", "matching_splits", "rounds", "max_index",
-                         "h_nodes", "h_edges")},
-                     **{f"c0_{rule}_{k}": c0_info[rule][k] for rule in C0_RULES for k in
-                        ("matching_h", "ties", "residual_open", "residual_exact", "reused", "raw_size")}})
+        info.update({f"c0_{k}": v for k, v in c0_info.items()})
         info.update({"c10_exact": eds_info["exact"], "c10_raw_size": len(c10),
                      "c10_core_size": eds_info["core_size"],
                      "c10_width": eds_info["width"],

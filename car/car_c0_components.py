@@ -1,5 +1,10 @@
 """car/ c0 study: does amplifying the connected components before the matching help?
 
+This script measures the FIRST c0 (0.1.3 pre-release: overshooting splits, index rules
+"low"/"high", Koenig residual, repair by pruning); car_c0_fix.py measures the repaired c0
+that salvador now uses. The ensemble columns (c0 vs c1..c14, source of c15) use the
+current c0.
+
 Strategy c0 (salvador/component_split.py) relabels every vertex u as (u, 0),
 splits bridges (and, when no bridge is left, edges of the NetworkX minimum
 maximal matching) of the split graph H off as isolated edges -- the other
@@ -58,7 +63,7 @@ from salvador import component_split
 from salvador.algorithm import (CANDIDATE_NAMES, final_candidates, maximal_matching_vertex_cover,
                                 prune_redundant_vertices)
 
-RULES = list(component_split.RULES)
+RULES = list(component_split.LEGACY_VARIANTS)  # the first c0: index rules, Koenig residual
 PRE_C0 = [k for k in CANDIDATE_NAMES if k not in ("c0", "c15")]  # c1..c14
 
 
@@ -74,7 +79,8 @@ def run_instance(name: str, group: str, G: nx.Graph, exact: bool, ensemble: bool
 
     t0 = time.perf_counter()
     info: dict = {}
-    raw = component_split.component_split_covers(G, info)
+    raw = component_split.component_split_covers(G, info, variants=component_split.LEGACY_VARIANTS,
+                                                 exact_stop=False, complete=False)
     c0 = {rule: prune_redundant_vertices(adj, raw[rule]) for rule in RULES}
     t_c0 = time.perf_counter() - t0
 

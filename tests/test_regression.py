@@ -237,9 +237,9 @@ def test_consensus_c14_valid_and_never_breaks_the_ensemble() -> None:
 
 
 def test_component_split_c0_valid_and_reaches_target() -> None:
-    """c0: the split graph has at least |M| components (M = NetworkX min maximal matching, as in c1), its
-    edges are those of G relabelled by copy index, both rules decode to sets that repair to valid covers,
-    and the result is reproducible."""
+    """c0: the split graph has exactly |M| components (M = NetworkX min maximal matching, as in c1), its
+    edges are those of G relabelled by copy index, every decoding completes to a valid cover, c0 is never
+    larger than c1, and the result is reproducible."""
     from salvador import component_split as cs
     from salvador.algorithm import ensemble_candidates
 
@@ -259,11 +259,17 @@ def test_component_split_c0_valid_and_reaches_target() -> None:
         from collections import Counter
         assert Counter(frozenset((a, b)) for (a, _), (b, _) in H.edges()) == \
             Counter(frozenset(e) for e in graph.edges())
+        # exact stop: r' is exactly max(r, |M|) = |M|, never more
+        assert info["r_prime"] == info["target"]
+        legacy = cs.build_split_graph(graph, exact_stop=False)
+        assert nx.number_connected_components(legacy) >= info["target"]
         for rule in cs.RULES:
-            raw = cs.decode(graph, H, rule)
-            assert raw <= set(graph)
+            for residual in cs.RESIDUALS:
+                raw = cs.decode(graph, H, rule, residual=residual)
+                assert raw <= set(graph)
+                assert is_vertex_cover(graph, cs.complete_cover(graph, raw))
         info = {}
         cands = ensemble_candidates(graph, info=info)
         assert is_vertex_cover(graph, cands["c0"])
-        assert len(cands["c0"]) == min(info["c0_low_size"], info["c0_high_size"])
+        assert len(cands["c0"]) <= len(cands["c1"])  # fallback to c1: |c0| <= |c1| <= 2 tau - r
         assert cands["c0"] == ensemble_candidates(graph)["c0"]
