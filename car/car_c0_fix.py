@@ -39,8 +39,19 @@ and records, for every variant and instance with a known optimum tau, whether
 of G; the proven bound, expected 0 for c0_new and c1), whether |cover| > 1.5 tau,
 and the ratio.
 The smallest counterexample of every variant is stored with its edge list, so a
-violation can be checked by hand. On the large families (tau unknown) the ratio
-against the certified lower bound L <= tau is reported instead.
+violation can be checked by hand.
+
+Large graphs. Bipartite graphs (the crown and complete bipartite families and
+car_bipartite.py's families up to --bip-max-n) have tau exact by Koenig and are
+checked like the small graphs. Without exact tau, the bound is decided from a
+certified lower bound L <= tau (car_common.best_lower_bound) and an upper bound
+U >= tau (the smallest cover found by any variant or pipeline):
+
+  certified   |cover| <= 2L - r'   proves |cover| <= 2 tau - r'
+  refuted     |cover| >  2U - r'   proves |cover| >  2 tau - r'
+  undecided   otherwise (L too weak to decide)
+
+The ratio against L is reported as before.
 
 Instances: car_common's small exact graphs (graph atlas, random bipartite and
 general graphs, grids), hand-made stress graphs (paths, stars, double stars,
@@ -52,6 +63,7 @@ Run from the repository root:
     python car/car_c0_fix.py --quick                 # small exact graphs + stress graphs only
     python car/car_c0_fix.py                         # also 2000 random small graphs and large families
     python car/car_c0_fix.py --trials 20000 --skip-large
+    python car/car_c0_fix.py --trials 0 --bip-max-n 50000   # large graphs only (plus the small exact sets)
 
 Outputs (in car/): car_c0_fix.json (summary, worst/smallest counterexample per
 variant), car_c0_fix.csv (one row per instance x variant) and
@@ -294,8 +306,11 @@ def evaluate(name: str, group: str, G: nx.Graph, exact: bool, spectral: bool = T
         lb, method, _ = cc.best_lower_bound(G, spectral=spectral)
         tau = lb if method.startswith("bipartite") else None
     sizes = {v: len(c) for v, c in covers.items()}
+    upper = min(sizes.values())  # a vertex cover of G, so tau <= upper
     row = {"group": group, "name": name, "n": G.number_of_nodes(), "m": G.number_of_edges(),
-           "tau": tau, "lower_bound": lb, "r_prime": info["r_prime"], "target": info["target"],
+           "tau": tau, "lower_bound": lb, "upper_bound": upper, "exact_flag": tau is not None,
+           "lower_bound_method": "exact" if exact else method,
+           "r_prime": info["r_prime"], "target": info["target"],
            "r_prime_legacy": info["r_prime_legacy"], "r": nx.number_connected_components(G),
            "c0_new_fallback_c1": info["c0_new_fallback_c1"], "c0_new_ls_gain": info["c0_new_ls_gain"],
            "sizes": sizes, "seconds": round(seconds, 4),
@@ -305,8 +320,38 @@ def evaluate(name: str, group: str, G: nx.Graph, exact: bool, spectral: bool = T
           f"{('tau=' + str(tau)) if tau is not None else ('L=' + str(lb)):>9} r'={info['r_prime']:<6} "
           f"c0 old={sizes['c0_old']} new={sizes['c0_new']} (decoded {sizes['c0_new/decoded']}, ls {sizes['c0_new/ls']})"
           f" c1={sizes['c1']}  best={best}"
-          + (f"  2tau-r'={2 * tau - info['r_prime']}" if tau is not None and exact else ""), flush=True)
+          + (f"  2tau-r'={2 * tau - info['r_prime']}" if tau is not None else
+             f"  2L-r'={2 * lb - info['r_prime']} 2U-r'={2 * upper - info['r_prime']} c0_new "
+             + verdict(sizes["c0_new"], lb, upper, info["r_prime"])), flush=True)
     return row
+
+
+def verdict(size: int, lower: int, upper: int, r_prime: int) -> str:
+    """Bound |cover| <= 2 tau - r' without tau, from L <= tau <= U.
+
+    certified  size <= 2L - r'  (then size <= 2 tau - r': the bound holds, proven)
+    refuted    size >  2U - r'  (then size >  2 tau - r': the bound fails, proven)
+    undecided  otherwise
+    """
+    if size <= 2 * lower - r_prime:
+        return "certified"
+    if size > 2 * upper - r_prime:
+        return "refuted"
+    return "undecided"
+
+
+def _bipartite_job(name: str, max_n: int, quick: bool, seed: int, spectral: bool) -> dict | None:
+    """car_bipartite.py's family ``name`` (same construction as car_c10_bags.py); tau exact by Koenig."""
+    from car_bipartite import instances as bip_instances, shuffle_labels
+
+    rng = random.Random(seed)
+    for nm, group, make in bip_instances(max_n, quick, rng):
+        if nm != name:
+            continue
+        rng.seed(f"{seed}:{name}")
+        G = shuffle_labels(nx.convert_node_labels_to_integers(make()), rng)
+        return evaluate(name, f"Bipartite: {group}", G, exact=False, spectral=spectral)
+    raise KeyError(name)
 
 
 def _large_job(name: str, max_n: int, spectral: bool) -> dict | None:
@@ -332,10 +377,19 @@ def summarise(rows: list[dict]) -> list[dict]:
         smallest = min(viol, key=lambda r: (r["n"], r["m"]), default=None)
         smallest15 = min(above, key=lambda r: (r["n"], r["m"]), default=None)
         worst = max(rows, key=lambda r: (r["sizes"][v] / r["lower_bound"]) if r["lower_bound"] else 1.0, default=None)
+        inexact = [r for r in rows if not r.get("exact_flag")]
+        verdicts = [verdict(r["sizes"][v], r["lower_bound"], r["upper_bound"], rp(r, v)) for r in inexact]
+        large_exact = [r for r in exact_rows if r["n"] > 14]
         out.append({
             "variant": v, "is_c0": v in C0_VARIANTS, "instances": len(rows), "exact_instances": len(exact_rows),
             "bound_violations": len(viol), "above_1_5": len(above), "proven_bound_violations": len(proven),
             "fallback_c1": sum(r["c0_new_fallback_c1"] for r in rows) if v == "c0_new" else None,
+            "large_exact_instances": len(large_exact),
+            "large_exact_violations": sum(r["sizes"][v] > 2 * r["tau"] - rp(r, v) for r in large_exact),
+            "inexact_instances": len(inexact), "certified": verdicts.count("certified"),
+            "refuted": verdicts.count("refuted"), "undecided": verdicts.count("undecided"),
+            "refuted_instances": [r["name"] for r, x in zip(inexact, verdicts) if x == "refuted"],
+            "undecided_instances": [r["name"] for r, x in zip(inexact, verdicts) if x == "undecided"],
             "optimal": sum(r["sizes"][v] == r["tau"] for r in exact_rows),
             "max_ratio": max(ratios, default=1.0), "mean_ratio": sum(ratios) / len(ratios) if ratios else 1.0,
             "worst_instance": worst["name"] if worst else None,
@@ -357,6 +411,10 @@ def main() -> None:
     ap.add_argument("--skip-large", action="store_true", help="skip the large families")
     ap.add_argument("--max-n", type=int, default=50_000, help="largest large instance (default 50000)")
     ap.add_argument("--no-spectral", action="store_true", help="skip the spectral lower bound on large graphs")
+    ap.add_argument("--skip-bipartite", action="store_true",
+                    help="skip car_bipartite.py's large bipartite families (tau exact by Koenig)")
+    ap.add_argument("--bip-max-n", type=int, default=10_000,
+                    help="largest bipartite instance (default 10000; car_bipartite sizes 100, 1000, 10000, 50000)")
     ap.add_argument("--seed", type=int, default=SEED)
     cc.add_timeout_argument(ap)
     args = ap.parse_args()
@@ -365,9 +423,8 @@ def main() -> None:
     started = time.time()
     rows: list[dict] = []
 
-    def add(row, exact):
+    def add(row, exact):  # noqa: ARG001  (row["exact_flag"] is set from tau in evaluate)
         if row is not None:
-            row["exact_flag"] = exact
             rows.append(row)
 
     for name, group, G in stress_instances():
@@ -388,22 +445,43 @@ def main() -> None:
                 else:
                     add(row, False)
                 gc.collect()
+    if not args.quick and not args.skip_bipartite:
+        from car_bipartite import instances as bip_instances
+
+        with cc.InstanceRunner(args.timeout) as runner:
+            for name, _, _ in bip_instances(args.bip_max_n, False, random.Random(args.seed)):
+                row = runner.run(_bipartite_job, name, args.bip_max_n, False, args.seed, spectral)
+                if row is None:
+                    print(f"  [c0fix] {name}: skipped (more than {args.timeout:g} s)", flush=True)
+                    skipped.append(name)
+                else:
+                    add(row, False)
+                gc.collect()
 
     summary = summarise(rows)
     print("\nVariants (select/residual/repair on the exact-stop split graph) and pipelines, best first;"
           " * = c0_old (first c0) and c0_new (salvador's c0)")
     head = (f"{'variant':26} {'exact':>6} {'>2tau-r_':>9} {'>2tau-r':>8} {'>1.5tau':>8} {'optimal':>8}"
-            f" {'max ratio':>10} {'mean':>7}  worst")
+            f" {'max ratio':>10} {'mean':>7} {'lg exact':>8} {'lg viol':>7} {'no tau':>6} {'cert':>5} {'refut':>5}"
+            f" {'undec':>5}  worst")
     print(head)
     print("-" * len(head))
     for s in summary:
         print(f"{s['variant'] + (' *' if s['is_c0'] else ''):26} {s['exact_instances']:>6} {s['bound_violations']:>9}"
-              f" {s['proven_bound_violations']:>8} {s['above_1_5']:>8} {s['optimal']:>8} {s['max_ratio']:>10.4f} {s['mean_ratio']:>7.4f}  {s['worst_instance']}")
+              f" {s['proven_bound_violations']:>8} {s['above_1_5']:>8} {s['optimal']:>8} {s['max_ratio']:>10.4f} {s['mean_ratio']:>7.4f}"
+              f" {s['large_exact_instances']:>8} {s['large_exact_violations']:>7} {s['inexact_instances']:>6}"
+              f" {s['certified']:>5} {s['refuted']:>5} {s['undecided']:>5}  {s['worst_instance']}")
     for name in ("c0_old", "c0_new"):
         s_ = next(x for x in summary if x["variant"] == name)
         print(f"{name}: violations of 2 tau - r' {s_['bound_violations']}, of 2 tau - r {s_['proven_bound_violations']}"
               f", above 1.5 tau {s_['above_1_5']}, max ratio {s_['max_ratio']:.4f}"
               + (f", fallback to c1 on {s_['fallback_c1']} instances" if name == "c0_new" else ""))
+        print(f"  large graphs with exact tau (n > 14): {s_['large_exact_instances']}, violations "
+              f"{s_['large_exact_violations']}; without exact tau: {s_['inexact_instances']} -> certified "
+              f"{s_['certified']} (|c| <= 2L - r'), refuted {s_['refuted']} (|c| > 2U - r'), undecided {s_['undecided']}")
+        for key in ("refuted_instances", "undecided_instances"):
+            if s_[key]:
+                print(f"  {key}: {', '.join(s_[key])}")
         for key in ("smallest_violation", "smallest_above_1_5"):
             if s_[key]:
                 print(f"  {key}: {s_[key]}")
@@ -427,7 +505,7 @@ def main() -> None:
     with open(out / f"{stem}.csv", "w", newline="", encoding="utf-8") as fh:
         w = csv.writer(fh)
         w.writerow(["group", "name", "n", "m", "tau", "lower_bound", "exact", "r_prime", "variant", "size", "ratio",
-                    "bound_2tau_minus_rprime", "bound_holds", "above_1_5"])
+                    "bound_2tau_minus_rprime", "bound_holds", "above_1_5", "upper_bound", "verdict_without_tau"])
         for r in rows:
             for v in VARIANTS:
                 size = r["sizes"][v]
@@ -435,11 +513,14 @@ def main() -> None:
                 b = 2 * r["tau"] - rp(r, v) if ex else None
                 w.writerow([r["group"], r["name"], r["n"], r["m"], r["tau"], r["lower_bound"], ex, r["r_prime"], v,
                             size, round(size / r["lower_bound"], 6) if r["lower_bound"] else 1.0,
-                            b, (size <= b) if ex else "", (size > 1.5 * r["tau"]) if ex else ""])
+                            b, (size <= b) if ex else "", (size > 1.5 * r["tau"]) if ex else "",
+                            r["upper_bound"],
+                            "" if ex else verdict(size, r["lower_bound"], r["upper_bound"], rp(r, v))])
     with open(out / f"{stem}_summary.csv", "w", newline="", encoding="utf-8") as fh:
         fields = ["variant", "is_c0", "instances", "exact_instances", "bound_violations", "proven_bound_violations",
                   "above_1_5", "fallback_c1", "optimal",
-                  "max_ratio", "mean_ratio", "worst_instance"]
+                  "max_ratio", "mean_ratio", "large_exact_instances", "large_exact_violations",
+                  "inexact_instances", "certified", "refuted", "undecided", "worst_instance"]
         w = csv.DictWriter(fh, fieldnames=fields, extrasaction="ignore")
         w.writeheader()
         w.writerows(summary)
