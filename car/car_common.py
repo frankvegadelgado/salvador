@@ -26,20 +26,20 @@ import networkx as nx
 # ----------------------------------------------------------------------------
 # Which salvador is used: the repository copy or a pip installation.
 # ----------------------------------------------------------------------------
-# The car/ scripts use the full v0.1.3 API (c0..c15, BASE_NAMES, reduce_search,
+# The car/ scripts use the full v0.1.4 API (c1..c17, BASE_NAMES, reduce_search,
 # subdivision_reduction, ...). Two layouts are supported:
 #
 # * car/ inside a clone of the repository: the repository copy of the package
 #   (../salvador) is used, even when an older salvador is pip-installed, so the
 #   scripts always match the code next to them;
-# * car/ copied anywhere with ``pip install salvador==0.1.3``: the installed
+# * car/ copied anywhere with ``pip install salvador==0.1.4``: the installed
 #   package is used.
 #
 # Set the environment variable SALVADOR_CAR_USE_INSTALLED=1 to force the
 # installed package inside a clone. An installed package older than
 # REQUIRED_VERSION stops the script with an explicit message instead of an
 # obscure ImportError.
-REQUIRED_VERSION = "0.1.3"
+REQUIRED_VERSION = "0.1.4"
 _REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -69,16 +69,16 @@ def _select_salvador() -> None:
         found = "0"
     if _version_tuple(found) < _version_tuple(REQUIRED_VERSION):
         sys.exit(f"car/: salvador {found} was imported from {Path(salvador.__file__).parent}, "
-                 f"but these scripts need salvador >= {REQUIRED_VERSION} (strategies c0..c15).\n"
+                 f"but these scripts need salvador >= {REQUIRED_VERSION} (strategies c1..c17).\n"
                  f"    pip install --upgrade salvador=={REQUIRED_VERSION}\n"
                  "or run the scripts from a clone of the repository (the repository copy is then used).")
     try:
         from salvador.algorithm import CANDIDATE_NAMES
     except ImportError:  # pragma: no cover
         CANDIDATE_NAMES = {}
-    if "c0" not in CANDIDATE_NAMES or "c15" not in CANDIDATE_NAMES:
-        sys.exit(f"car/: the salvador imported from {Path(salvador.__file__).parent} has no strategies c0 and c14..c15 "
-                 "(component amplification, consensus forcing); update it, or run the scripts from a clone of the repository.")
+    if any(k not in CANDIDATE_NAMES for k in ("c1", "c9", "c17")) or "c0" in CANDIDATE_NAMES:
+        sys.exit(f"car/: the salvador imported from {Path(salvador.__file__).parent} does not use the 0.1.4 numbering c1..c17 "
+                 "(c1 component amplification, c9 bipartite layers, c17 refinement); update it, or run the scripts from a clone of the repository.")
 
 
 _select_salvador()
@@ -168,7 +168,7 @@ def exact_vertex_cover_size(G: nx.Graph) -> tuple[int, str]:
 # Certified lower bounds on tau(G) for large graphs.
 # ----------------------------------------------------------------------------
 def greedy_maximal_matching_bound(G: nx.Graph) -> int:
-    """|M| for NetworkX's minimum maximal matching approximation (the matching of c1)."""
+    """|M| for NetworkX's minimum maximal matching approximation (the matching of c2)."""
     return len(nx.approximation.min_maximal_matching(G))
 
 

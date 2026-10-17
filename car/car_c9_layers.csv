@@ -1,0 +1,326 @@
+group,name,n,m,r,bipartite,tau,lower_bound,lower_bound_method,c9,c1,c2,best_others,c17,c9_vs_best,c17_from_c9,c9_ratio,c9_optimal,c9_exact,c9_above_1_5,c9_above_2tau_minus_r,layers,layers_total,orders,bipartite_components,nonbipartite_components,seconds
+Hand-made non-bipartite (exact),cycle_3,3,3,1,False,2,2,exact-branch,2,2,2,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0018
+Hand-made non-bipartite (exact),cycle_5,5,5,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0018
+Hand-made non-bipartite (exact),cycle_7,7,7,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0022
+Hand-made non-bipartite (exact),cycle_9,9,9,1,False,5,5,exact-branch,5,5,5,5,5,0,True,1.0,True,True,False,False,2,2,2,0,1,0.003
+Hand-made non-bipartite (exact),cycle_15,15,15,1,False,8,8,exact-branch,8,8,8,8,8,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0046
+Hand-made non-bipartite (exact),wheel_4,5,8,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0017
+Hand-made non-bipartite (exact),wheel_5,6,10,1,False,4,4,exact-branch,4,4,5,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0022
+Hand-made non-bipartite (exact),wheel_6,7,12,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0024
+Hand-made non-bipartite (exact),wheel_8,9,16,1,False,5,5,exact-branch,5,6,5,5,5,0,True,1.0,True,True,False,False,2,2,2,0,1,0.004
+Hand-made non-bipartite (exact),wheel_12,13,24,1,False,7,7,exact-branch,7,8,7,7,7,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0167
+Hand-made non-bipartite (exact),complete_3,3,3,1,False,2,2,exact-branch,2,2,2,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0012
+Hand-made non-bipartite (exact),complete_4,4,6,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0015
+Hand-made non-bipartite (exact),complete_5,5,10,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,3,3,6,0,1,0.0027
+Hand-made non-bipartite (exact),complete_6,6,15,1,False,5,5,exact-branch,5,5,5,5,5,0,True,1.0,True,True,False,False,3,3,6,0,1,0.0027
+Hand-made non-bipartite (exact),complete_8,8,28,1,False,7,7,exact-branch,7,7,7,7,7,0,True,1.0,True,True,False,False,3,3,6,0,1,0.0043
+Hand-made non-bipartite (exact),petersen,10,15,1,False,6,6,exact-branch,6,7,7,6,6,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0033
+Hand-made non-bipartite (exact),dodecahedral,20,30,1,False,12,12,exact-branch,12,13,13,12,12,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0055
+Hand-made non-bipartite (exact),circulant_11_1_2,11,22,1,False,8,8,exact-branch,8,8,8,8,8,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0052
+Hand-made non-bipartite (exact),circulant_13_1_3,13,26,1,False,8,8,exact-branch,8,8,8,8,8,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0044
+Hand-made non-bipartite (exact),circulant_15_1_4,15,30,1,False,9,9,exact-branch,9,9,9,9,9,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0051
+Hand-made non-bipartite (exact),circulant_16_1_3_5,16,48,1,True,8,8,bipartite-matching,8,8,8,8,8,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0154
+Hand-made non-bipartite (exact),circulant_17_2_3,17,34,1,False,11,11,exact-branch,11,11,11,11,11,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0082
+Hand-made non-bipartite (exact),mycielski_C5_1,11,20,1,False,6,6,exact-branch,7,6,6,6,6,1,True,1.1666666666666667,False,True,False,False,2,2,2,0,1,0.0033
+Hand-made non-bipartite (exact),mycielski_C5_2,23,71,1,False,12,12,exact-branch,15,12,14,12,12,3,True,1.25,False,True,False,False,3,3,6,0,1,0.0105
+Hand-made non-bipartite (exact),triangular_grid_3x3,10,18,1,False,6,6,exact-branch,6,6,6,6,6,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0041
+Hand-made non-bipartite (exact),kings_grid_3x3,9,20,1,False,5,5,exact-branch,6,5,5,5,5,1,True,1.2,False,True,False,False,3,3,6,0,1,0.0031
+Hand-made non-bipartite (exact),triangular_grid_3x4,12,23,1,False,8,8,exact-branch,8,8,8,8,8,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0035
+Hand-made non-bipartite (exact),kings_grid_3x4,12,29,1,False,8,8,exact-branch,8,8,8,8,8,0,True,1.0,True,True,False,False,3,3,6,0,1,0.0056
+Hand-made non-bipartite (exact),triangular_grid_4x4,15,30,1,False,9,9,exact-branch,9,10,9,9,9,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0043
+Hand-made non-bipartite (exact),kings_grid_4x4,16,42,1,False,12,12,exact-branch,12,12,12,12,12,0,True,1.0,True,True,False,False,3,3,6,0,1,0.007
+Hand-made non-bipartite (exact),odd_cycle_chain_3x3,9,11,1,False,6,6,exact-branch,6,6,6,6,6,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0032
+Hand-made non-bipartite (exact),odd_cycle_chain_4x5,20,23,1,False,12,12,exact-branch,12,12,12,12,12,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0056
+Hand-made non-bipartite (exact),odd_cycle_chain_5x3,15,19,1,False,10,10,exact-branch,10,10,10,10,10,0,True,1.0,True,True,False,False,2,2,2,0,1,0.004
+Hand-made non-bipartite (exact),bipartite_plus_1_odd_5x5,10,11,1,True,4,4,bipartite-matching,4,4,4,4,4,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0081
+Hand-made non-bipartite (exact),bipartite_plus_2_odd_6x6,12,18,1,False,6,6,exact-branch,6,6,8,6,6,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0039
+Hand-made non-bipartite (exact),bipartite_plus_3_odd_7x5,12,15,1,False,6,6,exact-branch,7,6,6,6,6,1,True,1.1666666666666667,False,True,False,False,2,2,2,0,1,0.0038
+Hand-made non-bipartite (exact),bipartite_plus_4_odd_8x8,16,31,1,False,8,8,exact-branch,9,9,10,8,8,1,False,1.125,False,True,False,False,2,2,2,0,1,0.0055
+Hand-made mixtures (exact),mixed_grid_C5_K4,21,28,3,False,12,12,exact-branch,12,13,12,12,12,0,True,1.0,True,True,False,False,2,5,5,1,2,0.0224
+Hand-made mixtures (exact),mixed_grid_C7_K4,23,30,3,False,13,13,exact-branch,13,14,13,13,13,0,True,1.0,True,True,False,False,2,5,5,1,2,0.0232
+Bipartite obstruction (exact),bipartite_obstruction,7,11,1,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0107
+Relabel / order stress (exact),relabel_0,7,11,1,True,3,3,bipartite-matching,3,5,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0101
+Relabel / order stress (exact),relabel_1,7,11,1,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.012
+Relabel / order stress (exact),relabel_2,7,11,1,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0113
+Relabel / order stress (exact),relabel_3,7,11,1,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0089
+Relabel / order stress (exact),relabel_4,7,11,1,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0094
+Relabel / order stress (exact),relabel_5,7,11,1,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0112
+Relabel / order stress (exact),relabel_6,7,11,1,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0153
+Relabel / order stress (exact),relabel_7,7,11,1,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0106
+Relabel / order stress (exact),relabel_8,7,11,1,True,3,3,bipartite-matching,3,5,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0102
+Relabel / order stress (exact),relabel_9,7,11,1,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0112
+Relabel / order stress (exact),relabel_10,7,11,1,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0095
+Relabel / order stress (exact),relabel_11,7,11,1,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0115
+Random bipartite (exact),randbip_4_3,7,9,1,True,3,3,bipartite-matching,3,5,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0056
+Random bipartite (exact),randbip_4_5,9,12,1,True,4,4,bipartite-matching,4,4,6,4,4,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0079
+Random bipartite (exact),randbip_3_2,5,3,2,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,2,2,2,0,0.0018
+Random bipartite (exact),randbip_7_6,13,28,1,True,6,6,bipartite-matching,6,9,6,6,6,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0093
+Random bipartite (exact),randbip_2_7,8,9,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0058
+Random bipartite (exact),randbip_4_2,4,2,2,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,2,2,2,0,0.0015
+Random bipartite (exact),randbip_2_2,2,1,1,True,1,1,bipartite-matching,1,1,1,1,1,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0011
+Random bipartite (exact),randbip_7_2,7,8,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0044
+Random bipartite (exact),randbip_6_3,9,11,1,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0075
+Random bipartite (exact),randbip_6_6,12,12,2,True,5,5,bipartite-matching,5,5,5,5,5,0,True,1.0,True,True,False,False,1,2,2,2,0,0.0052
+Random bipartite (exact),randbip_3_4,7,7,1,True,3,3,bipartite-matching,3,3,4,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0037
+Random bipartite (exact),randbip_4_6,10,17,1,True,4,4,bipartite-matching,4,4,6,4,4,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0231
+Random bipartite (exact),randbip_6_6,12,26,1,True,6,6,bipartite-matching,6,7,6,6,6,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0093
+Random bipartite (exact),randbip_2_3,5,5,1,True,2,2,bipartite-matching,2,2,3,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0041
+Random bipartite (exact),randbip_3_5,8,11,1,True,3,3,bipartite-matching,3,3,5,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0067
+Random bipartite (exact),randbip_5_3,8,9,1,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0048
+Random bipartite (exact),randbip_5_7,9,7,2,True,4,4,bipartite-matching,4,5,4,4,4,0,True,1.0,True,True,False,False,1,2,2,2,0,0.0033
+Random bipartite (exact),randbip_2_4,6,5,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0023
+Random bipartite (exact),randbip_2_7,4,2,2,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,2,2,2,0,0.0018
+Random bipartite (exact),randbip_7_6,10,9,1,True,4,4,bipartite-matching,4,4,4,4,4,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0039
+Random bipartite (exact),randbip_4_3,7,5,2,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,2,2,2,0,0.0024
+Random bipartite (exact),randbip_2_6,7,9,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0047
+Random bipartite (exact),randbip_7_6,12,16,1,True,6,6,bipartite-matching,6,6,7,6,6,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0154
+Random bipartite (exact),randbip_3_5,8,9,1,True,3,3,bipartite-matching,3,3,4,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0044
+Random bipartite (exact),randbip_5_2,5,4,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0024
+"Grids, bipartite (exact)",grid_2x2,4,4,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0025
+"Grids, bipartite (exact)",grid_2x3,6,7,1,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0036
+"Grids, bipartite (exact)",grid_2x4,8,10,1,True,4,4,bipartite-matching,4,5,4,4,4,0,True,1.0,True,True,False,False,1,1,1,1,0,0.005
+"Grids, bipartite (exact)",grid_2x5,10,13,1,True,5,5,bipartite-matching,5,5,5,5,5,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0078
+"Grids, bipartite (exact)",grid_3x2,6,7,1,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0029
+"Grids, bipartite (exact)",grid_3x3,9,12,1,True,4,4,bipartite-matching,4,4,4,4,4,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0073
+"Grids, bipartite (exact)",grid_3x4,12,17,1,True,6,6,bipartite-matching,6,7,6,6,6,0,True,1.0,True,True,False,False,1,1,1,1,0,0.022
+"Grids, bipartite (exact)",grid_3x5,15,22,1,True,7,7,bipartite-matching,7,7,7,7,7,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0267
+"Grids, bipartite (exact)",grid_4x2,8,10,1,True,4,4,bipartite-matching,4,5,4,4,4,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0073
+"Grids, bipartite (exact)",grid_4x3,12,17,1,True,6,6,bipartite-matching,6,6,6,6,6,0,True,1.0,True,True,False,False,1,1,1,1,0,0.032
+"Grids, bipartite (exact)",grid_4x4,16,24,1,True,8,8,bipartite-matching,8,9,8,8,8,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0614
+"Grids, bipartite (exact)",grid_4x5,20,31,1,True,10,10,bipartite-matching,10,11,10,10,10,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0758
+"Grids, bipartite (exact)",grid_5x2,10,13,1,True,5,5,bipartite-matching,5,5,5,5,5,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0065
+"Grids, bipartite (exact)",grid_5x3,15,22,1,True,7,7,bipartite-matching,7,7,7,7,7,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0226
+"Grids, bipartite (exact)",grid_5x4,20,31,1,True,10,10,bipartite-matching,10,12,10,10,10,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0971
+"Grids, bipartite (exact)",grid_5x5,25,40,1,True,12,12,bipartite-matching,12,12,12,12,12,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0386
+Graph atlas n<=7,atlas_3,2,1,1,True,1,1,bipartite-matching,1,1,1,1,1,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0013
+Graph atlas n<=7,atlas_5,2,1,1,True,1,1,bipartite-matching,1,1,1,1,1,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0019
+Graph atlas n<=7,atlas_6,3,2,1,True,1,1,bipartite-matching,1,1,1,1,1,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0018
+Graph atlas n<=7,atlas_7,3,3,1,False,2,2,exact-branch,2,2,2,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0014
+Graph atlas n<=7,atlas_9,2,1,1,True,1,1,bipartite-matching,1,1,1,1,1,0,True,1.0,True,True,False,False,1,1,1,1,0,0.001
+Graph atlas n<=7,atlas_10,3,2,1,True,1,1,bipartite-matching,1,1,1,1,1,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0013
+Graph atlas n<=7,atlas_11,4,2,2,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,2,2,2,0,0.0015
+Graph atlas n<=7,atlas_12,3,3,1,False,2,2,exact-branch,2,2,2,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0015
+Graph atlas n<=7,atlas_13,4,3,1,True,1,1,bipartite-matching,1,1,1,1,1,0,True,1.0,True,True,False,False,1,1,1,1,0,0.002
+Graph atlas n<=7,atlas_14,4,3,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0023
+Graph atlas n<=7,atlas_15,4,4,1,False,2,2,exact-branch,2,2,2,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0013
+Graph atlas n<=7,atlas_16,4,4,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0021
+Graph atlas n<=7,atlas_17,4,5,1,False,2,2,exact-branch,2,2,3,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0013
+Graph atlas n<=7,atlas_18,4,6,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0013
+Graph atlas n<=7,atlas_20,2,1,1,True,1,1,bipartite-matching,1,1,1,1,1,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0009
+Graph atlas n<=7,atlas_21,3,2,1,True,1,1,bipartite-matching,1,1,1,1,1,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0013
+Graph atlas n<=7,atlas_22,4,2,2,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,2,2,2,0,0.0015
+Graph atlas n<=7,atlas_23,3,3,1,False,2,2,exact-branch,2,2,2,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0011
+Graph atlas n<=7,atlas_24,4,3,1,True,1,1,bipartite-matching,1,1,1,1,1,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0027
+Graph atlas n<=7,atlas_25,4,3,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0023
+Graph atlas n<=7,atlas_26,5,3,2,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,2,2,2,0,0.0025
+Graph atlas n<=7,atlas_27,4,4,1,False,2,2,exact-branch,2,2,2,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0014
+Graph atlas n<=7,atlas_28,4,4,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0021
+Graph atlas n<=7,atlas_29,5,4,1,True,1,1,bipartite-matching,1,1,1,1,1,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0019
+Graph atlas n<=7,atlas_30,5,4,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0026
+Graph atlas n<=7,atlas_31,5,4,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.002
+Graph atlas n<=7,atlas_32,5,4,2,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,3,3,1,1,0.0017
+Graph atlas n<=7,atlas_33,4,5,1,False,2,2,exact-branch,2,2,3,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0013
+Graph atlas n<=7,atlas_34,5,5,1,False,2,2,exact-branch,2,2,2,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0016
+Graph atlas n<=7,atlas_35,5,5,1,False,2,2,exact-branch,3,2,2,2,2,1,True,1.5,False,True,False,False,2,2,2,0,1,0.0016
+Graph atlas n<=7,atlas_36,5,5,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0017
+Graph atlas n<=7,atlas_37,5,5,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0024
+Graph atlas n<=7,atlas_38,5,5,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.002
+Graph atlas n<=7,atlas_39,4,6,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0018
+Graph atlas n<=7,atlas_40,5,6,1,False,2,2,exact-branch,2,2,2,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0018
+Graph atlas n<=7,atlas_41,5,6,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0017
+Graph atlas n<=7,atlas_42,5,6,1,False,3,3,exact-branch,3,3,4,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0022
+Graph atlas n<=7,atlas_43,5,6,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0023
+Graph atlas n<=7,atlas_44,5,6,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0036
+Graph atlas n<=7,atlas_45,5,7,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0024
+Graph atlas n<=7,atlas_46,5,7,1,False,2,2,exact-branch,2,2,2,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0018
+Graph atlas n<=7,atlas_47,5,7,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0018
+Graph atlas n<=7,atlas_48,5,7,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0018
+Graph atlas n<=7,atlas_49,5,8,1,False,3,3,exact-branch,3,3,4,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0017
+Graph atlas n<=7,atlas_50,5,8,1,False,3,3,exact-branch,3,3,4,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0022
+Graph atlas n<=7,atlas_51,5,9,1,False,3,3,exact-branch,3,3,4,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0017
+Graph atlas n<=7,atlas_52,5,10,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,3,3,6,0,1,0.0022
+Graph atlas n<=7,atlas_54,2,1,1,True,1,1,bipartite-matching,1,1,1,1,1,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0022
+Graph atlas n<=7,atlas_55,4,2,2,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,2,2,2,0,0.0015
+Graph atlas n<=7,atlas_56,3,2,1,True,1,1,bipartite-matching,1,1,1,1,1,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0012
+Graph atlas n<=7,atlas_57,3,3,1,False,2,2,exact-branch,2,2,2,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0012
+Graph atlas n<=7,atlas_58,4,3,1,True,1,1,bipartite-matching,1,1,1,1,1,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0018
+Graph atlas n<=7,atlas_59,4,3,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0017
+Graph atlas n<=7,atlas_60,5,3,2,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,2,2,2,0,0.0017
+Graph atlas n<=7,atlas_61,6,3,3,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,3,3,3,0,0.0039
+Graph atlas n<=7,atlas_62,4,4,1,False,2,2,exact-branch,2,2,3,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0021
+Graph atlas n<=7,atlas_63,4,4,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0022
+Graph atlas n<=7,atlas_64,5,4,1,True,1,1,bipartite-matching,1,1,1,1,1,0,True,1.0,True,True,False,False,1,1,1,1,0,0.002
+Graph atlas n<=7,atlas_65,5,4,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0021
+Graph atlas n<=7,atlas_66,5,4,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0017
+Graph atlas n<=7,atlas_67,5,4,2,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,3,3,1,1,0.0028
+Graph atlas n<=7,atlas_68,6,4,2,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,2,2,2,0,0.0029
+Graph atlas n<=7,atlas_69,6,4,2,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,2,2,2,0,0.0033
+Graph atlas n<=7,atlas_70,6,4,2,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,2,2,2,0,0.0023
+Graph atlas n<=7,atlas_71,4,5,1,False,2,2,exact-branch,2,2,3,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0013
+Graph atlas n<=7,atlas_72,5,5,1,False,2,2,exact-branch,2,2,2,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0015
+Graph atlas n<=7,atlas_73,5,5,1,False,2,2,exact-branch,2,2,2,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0016
+Graph atlas n<=7,atlas_74,5,5,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0024
+Graph atlas n<=7,atlas_75,5,5,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0029
+Graph atlas n<=7,atlas_76,5,5,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0018
+Graph atlas n<=7,atlas_77,6,5,1,True,1,1,bipartite-matching,1,1,1,1,1,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0031
+Graph atlas n<=7,atlas_78,6,5,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0023
+Graph atlas n<=7,atlas_79,6,5,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0021
+Graph atlas n<=7,atlas_80,6,5,1,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0028
+Graph atlas n<=7,atlas_81,6,5,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0023
+Graph atlas n<=7,atlas_82,6,5,2,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,3,3,1,1,0.0021
+Graph atlas n<=7,atlas_83,6,5,1,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0021
+Graph atlas n<=7,atlas_84,6,5,2,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,3,3,1,1,0.0018
+Graph atlas n<=7,atlas_85,6,5,2,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,2,2,2,0,0.0027
+Graph atlas n<=7,atlas_86,4,6,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0019
+Graph atlas n<=7,atlas_87,5,6,1,False,2,2,exact-branch,2,2,2,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0021
+Graph atlas n<=7,atlas_88,5,6,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0018
+Graph atlas n<=7,atlas_89,5,6,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0016
+Graph atlas n<=7,atlas_90,5,6,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0017
+Graph atlas n<=7,atlas_91,5,6,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.004
+Graph atlas n<=7,atlas_92,6,6,1,False,2,2,exact-branch,2,2,2,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0025
+Graph atlas n<=7,atlas_93,6,6,1,False,2,2,exact-branch,2,2,2,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0017
+Graph atlas n<=7,atlas_94,6,6,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0018
+Graph atlas n<=7,atlas_95,6,6,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0017
+Graph atlas n<=7,atlas_96,6,6,1,True,2,2,bipartite-matching,2,2,3,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0027
+Graph atlas n<=7,atlas_97,6,6,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.002
+Graph atlas n<=7,atlas_98,6,6,1,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0033
+Graph atlas n<=7,atlas_99,6,6,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0044
+Graph atlas n<=7,atlas_100,6,6,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.002
+Graph atlas n<=7,atlas_101,6,6,2,False,3,3,exact-branch,3,3,4,3,3,0,True,1.0,True,True,False,False,2,3,3,1,1,0.002
+Graph atlas n<=7,atlas_102,6,6,1,False,3,3,exact-branch,3,3,4,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0024
+Graph atlas n<=7,atlas_103,6,6,1,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0028
+Graph atlas n<=7,atlas_104,6,6,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.002
+Graph atlas n<=7,atlas_105,6,6,1,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0041
+Graph atlas n<=7,atlas_106,6,6,2,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,4,4,0,2,0.0025
+Graph atlas n<=7,atlas_107,5,7,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0018
+Graph atlas n<=7,atlas_108,5,7,1,False,2,2,exact-branch,2,2,2,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0016
+Graph atlas n<=7,atlas_109,5,7,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.002
+Graph atlas n<=7,atlas_110,5,7,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0027
+Graph atlas n<=7,atlas_111,6,7,1,False,2,2,exact-branch,2,2,2,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0029
+Graph atlas n<=7,atlas_112,6,7,1,False,2,2,exact-branch,2,2,2,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.002
+Graph atlas n<=7,atlas_113,6,7,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.002
+Graph atlas n<=7,atlas_114,6,7,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0018
+Graph atlas n<=7,atlas_115,6,7,1,False,3,3,exact-branch,3,3,4,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0019
+Graph atlas n<=7,atlas_116,6,7,2,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,3,3,1,1,0.0022
+Graph atlas n<=7,atlas_117,6,7,1,False,3,3,exact-branch,3,3,5,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0026
+Graph atlas n<=7,atlas_118,6,7,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0023
+Graph atlas n<=7,atlas_119,6,7,1,False,3,3,exact-branch,4,3,3,3,3,1,True,1.3333333333333333,False,True,False,False,2,2,2,0,1,0.0023
+Graph atlas n<=7,atlas_120,6,7,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0023
+Graph atlas n<=7,atlas_121,6,7,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0044
+Graph atlas n<=7,atlas_122,6,7,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0025
+Graph atlas n<=7,atlas_123,6,7,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.002
+Graph atlas n<=7,atlas_124,6,7,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0017
+Graph atlas n<=7,atlas_125,6,7,1,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0036
+Graph atlas n<=7,atlas_126,6,7,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0018
+Graph atlas n<=7,atlas_127,6,7,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0017
+Graph atlas n<=7,atlas_128,6,7,1,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0048
+Graph atlas n<=7,atlas_129,6,7,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0021
+Graph atlas n<=7,atlas_130,6,7,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.002
+Graph atlas n<=7,atlas_131,5,8,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0017
+Graph atlas n<=7,atlas_132,5,8,1,False,3,3,exact-branch,3,3,4,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0017
+Graph atlas n<=7,atlas_133,6,8,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0018
+Graph atlas n<=7,atlas_134,6,8,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0026
+Graph atlas n<=7,atlas_135,6,8,1,False,2,2,exact-branch,2,2,2,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0023
+Graph atlas n<=7,atlas_136,6,8,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0022
+Graph atlas n<=7,atlas_137,6,8,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0017
+Graph atlas n<=7,atlas_138,6,8,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0019
+Graph atlas n<=7,atlas_139,6,8,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0016
+Graph atlas n<=7,atlas_140,6,8,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0021
+Graph atlas n<=7,atlas_141,6,8,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0018
+Graph atlas n<=7,atlas_142,6,8,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0024
+Graph atlas n<=7,atlas_143,6,8,1,False,3,3,exact-branch,3,3,4,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0019
+Graph atlas n<=7,atlas_144,6,8,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.002
+Graph atlas n<=7,atlas_145,6,8,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0021
+Graph atlas n<=7,atlas_146,6,8,1,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0047
+Graph atlas n<=7,atlas_147,6,8,1,False,3,3,exact-branch,3,3,4,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0019
+Graph atlas n<=7,atlas_148,6,8,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0031
+Graph atlas n<=7,atlas_149,6,8,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0021
+Graph atlas n<=7,atlas_150,6,8,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0029
+Graph atlas n<=7,atlas_151,6,8,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0033
+Graph atlas n<=7,atlas_152,6,8,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0026
+Graph atlas n<=7,atlas_153,6,8,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0032
+Graph atlas n<=7,atlas_154,6,8,1,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0059
+Graph atlas n<=7,atlas_155,5,9,1,False,3,3,exact-branch,3,3,4,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0017
+Graph atlas n<=7,atlas_156,6,9,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.002
+Graph atlas n<=7,atlas_157,6,9,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0017
+Graph atlas n<=7,atlas_158,6,9,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0027
+Graph atlas n<=7,atlas_159,6,9,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0035
+Graph atlas n<=7,atlas_160,6,9,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.003
+Graph atlas n<=7,atlas_161,6,9,1,False,2,2,exact-branch,2,2,2,2,2,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0021
+Graph atlas n<=7,atlas_162,6,9,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0019
+Graph atlas n<=7,atlas_163,6,9,1,False,3,3,exact-branch,4,3,3,3,3,1,True,1.3333333333333333,False,True,False,False,2,2,2,0,1,0.002
+Graph atlas n<=7,atlas_164,6,9,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0025
+Graph atlas n<=7,atlas_165,6,9,1,False,4,4,exact-branch,4,4,5,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0025
+Graph atlas n<=7,atlas_166,6,9,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0018
+Graph atlas n<=7,atlas_167,6,9,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.003
+Graph atlas n<=7,atlas_168,6,9,1,False,3,3,exact-branch,3,4,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0019
+Graph atlas n<=7,atlas_169,6,9,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.002
+Graph atlas n<=7,atlas_170,6,9,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0024
+Graph atlas n<=7,atlas_171,6,9,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0027
+Graph atlas n<=7,atlas_172,6,9,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0022
+Graph atlas n<=7,atlas_173,6,9,1,False,3,3,exact-branch,3,3,4,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0019
+Graph atlas n<=7,atlas_174,6,9,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.002
+Graph atlas n<=7,atlas_175,6,9,1,True,3,3,bipartite-matching,3,3,3,3,3,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0095
+Graph atlas n<=7,atlas_176,5,10,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,3,3,6,0,1,0.0027
+Graph atlas n<=7,atlas_177,6,10,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.002
+Graph atlas n<=7,atlas_178,6,10,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0022
+Graph atlas n<=7,atlas_179,6,10,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0021
+Graph atlas n<=7,atlas_180,6,10,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0023
+Graph atlas n<=7,atlas_181,6,10,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0022
+Graph atlas n<=7,atlas_182,6,10,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0019
+Graph atlas n<=7,atlas_183,6,10,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0019
+Graph atlas n<=7,atlas_184,6,10,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0021
+Graph atlas n<=7,atlas_185,6,10,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0021
+Graph atlas n<=7,atlas_186,6,10,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0022
+Graph atlas n<=7,atlas_187,6,10,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0025
+Graph atlas n<=7,atlas_188,6,10,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0023
+Graph atlas n<=7,atlas_189,6,10,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0019
+Graph atlas n<=7,atlas_190,6,10,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.003
+Graph atlas n<=7,atlas_191,6,11,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,3,3,6,0,1,0.0023
+Graph atlas n<=7,atlas_192,6,11,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0025
+Graph atlas n<=7,atlas_193,6,11,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0021
+Graph atlas n<=7,atlas_194,6,11,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0026
+Graph atlas n<=7,atlas_195,6,11,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0021
+Graph atlas n<=7,atlas_196,6,11,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0021
+Graph atlas n<=7,atlas_197,6,11,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0018
+Graph atlas n<=7,atlas_198,6,11,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.002
+Graph atlas n<=7,atlas_199,6,11,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0026
+Graph atlas n<=7,atlas_200,6,12,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,3,3,6,0,1,0.0032
+Graph atlas n<=7,atlas_201,6,12,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0022
+Graph atlas n<=7,atlas_202,6,12,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0019
+Graph atlas n<=7,atlas_203,6,12,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0022
+Graph atlas n<=7,atlas_204,6,12,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0021
+Graph atlas n<=7,atlas_205,6,13,1,False,4,4,exact-branch,4,4,5,4,4,0,True,1.0,True,True,False,False,3,3,6,0,1,0.0022
+Graph atlas n<=7,atlas_206,6,13,1,False,4,4,exact-branch,4,4,5,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.002
+Graph atlas n<=7,atlas_207,6,14,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,3,3,6,0,1,0.0039
+Graph atlas n<=7,atlas_208,6,15,1,False,5,5,exact-branch,5,5,5,5,5,0,True,1.0,True,True,False,False,3,3,6,0,1,0.0025
+"Random general (exact, n<=12)",randgen_11,11,36,1,False,8,8,exact-branch,8,8,9,8,8,0,True,1.0,True,True,False,False,3,3,6,0,1,0.0058
+"Random general (exact, n<=12)",randgen_12,12,37,1,False,8,8,exact-branch,8,9,9,8,8,0,True,1.0,True,True,False,False,3,3,6,0,1,0.0062
+"Random general (exact, n<=12)",randgen_10,9,10,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0026
+"Random general (exact, n<=12)",randgen_8,8,16,1,False,5,5,exact-branch,5,5,6,5,5,0,True,1.0,True,True,False,False,2,2,2,0,1,0.003
+"Random general (exact, n<=12)",randgen_8,6,7,1,False,3,3,exact-branch,3,3,4,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0019
+"Random general (exact, n<=12)",randgen_12,12,44,1,False,8,8,exact-branch,8,8,8,8,8,0,True,1.0,True,True,False,False,3,3,6,0,1,0.0065
+"Random general (exact, n<=12)",randgen_9,8,18,1,False,5,5,exact-branch,5,5,6,5,5,0,True,1.0,True,True,False,False,3,3,6,0,1,0.0046
+"Random general (exact, n<=12)",randgen_12,12,28,1,False,7,7,exact-branch,7,8,8,7,7,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0047
+"Random general (exact, n<=12)",randgen_9,8,10,1,False,4,4,exact-branch,4,4,4,4,4,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0047
+"Random general (exact, n<=12)",randgen_10,10,24,1,False,7,7,exact-branch,7,7,7,7,7,0,True,1.0,True,True,False,False,3,3,6,0,1,0.0043
+"Random general (exact, n<=12)",randgen_7,7,9,1,False,3,3,exact-branch,3,3,3,3,3,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0024
+"Random general (exact, n<=12)",randgen_12,12,43,1,False,8,8,exact-branch,8,8,8,8,8,0,True,1.0,True,True,False,False,3,3,6,0,1,0.0069
+"Random general (exact, n<=12)",randgen_7,7,5,2,True,2,2,bipartite-matching,2,2,2,2,2,0,True,1.0,True,True,False,False,1,2,2,2,0,0.0035
+"Random general (exact, n<=12)",randgen_9,9,20,1,False,6,6,exact-branch,6,6,6,6,6,0,True,1.0,True,True,False,False,3,3,6,0,1,0.003
+"Random general (exact, n<=12)",randgen_12,12,26,1,False,8,8,exact-branch,8,8,8,8,8,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0051
+"Random general (exact, n<=12)",randgen_12,12,26,1,False,7,7,exact-branch,7,8,7,7,7,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0046
+"Random general (exact, n<=12)",randgen_11,11,38,1,False,8,8,exact-branch,8,8,9,8,8,0,True,1.0,True,True,False,False,3,3,6,0,1,0.0045
+"Random general (exact, n<=12)",randgen_10,10,20,1,False,6,6,exact-branch,6,6,7,6,6,0,True,1.0,True,True,False,False,2,2,2,0,1,0.003
+"Random general (exact, n<=12)",randgen_11,11,21,1,False,7,7,exact-branch,7,7,7,7,7,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0052
+"Random general (exact, n<=12)",randgen_11,11,13,1,False,5,5,exact-branch,5,5,5,5,5,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0036
+"Random general (exact, n<=12)",randgen_9,9,20,1,False,6,6,exact-branch,6,6,6,6,6,0,True,1.0,True,True,False,False,2,2,2,0,1,0.003
+"Random general (exact, n<=12)",randgen_8,8,14,1,False,5,5,exact-branch,5,5,5,5,5,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0029
+"Random general (exact, n<=12)",randgen_9,9,22,1,False,6,6,exact-branch,6,6,7,6,6,0,True,1.0,True,True,False,False,2,2,2,0,1,0.004
+"Random general (exact, n<=12)",randgen_9,8,14,1,False,5,5,exact-branch,5,5,5,5,5,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0043
+"Random general (exact, n<=12)",randgen_8,8,12,1,False,5,5,exact-branch,5,5,5,5,5,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0034
+"Random general (exact, n<=12)",randgen_9,9,10,1,True,4,4,bipartite-matching,4,4,4,4,4,0,True,1.0,True,True,False,False,1,1,1,1,0,0.0058
+"Random general (exact, n<=12)",randgen_12,12,37,1,False,8,8,exact-branch,9,8,9,8,8,1,True,1.125,False,True,False,False,3,3,6,0,1,0.0053
+"Random general (exact, n<=12)",randgen_12,12,42,1,False,8,8,exact-branch,8,8,9,8,8,0,True,1.0,True,True,False,False,3,3,6,0,1,0.0049
+"Random general (exact, n<=12)",randgen_10,10,18,1,False,6,6,exact-branch,6,6,7,6,6,0,True,1.0,True,True,False,False,2,2,2,0,1,0.0033
+"Random general (exact, n<=12)",randgen_10,10,28,1,False,7,7,exact-branch,7,7,7,7,7,0,True,1.0,True,True,False,False,3,3,6,0,1,0.0049

@@ -1,393 +1,241 @@
-"""Strategy c0: amplify the number of connected components before the maximal matching.
+"""Strategy c1: amplify the number of connected components before the maximal matching (linear time).
 
-Every vertex ``u`` of ``G`` starts as the copy ``(u, 0)`` of the split graph
-``H`` and every edge ``(u, v)`` as ``((u, 0), (v, 0))``. *Splitting* an edge
-``((u, i), (v, j))`` of ``H`` keeps that edge and moves all the other edges of
-``(u, i)`` to a fresh copy ``(u, i')`` (``i'`` = next unused index of ``u``),
-and those of ``(v, j)`` to a fresh copy ``(v, j')``; the kept edge becomes an
-isolated ``K2`` of ``H``. When the split edge is a bridge of ``H`` the
-component falls into the ``K2`` and the two sides, so the number of connected
-components grows by up to 2, and the chain continues on the new copies, e.g.
-``((u, 1), (w, 0))`` may be another bridge, which is then kept and the other
-neighbours go to ``(u, 2)`` and ``(w, 1)``.
+Every vertex ``u`` of ``G`` has at most two copies in the split graph ``H``:
+``(u, 0)`` and ``(u, 1)``. At the start every edge ``(u, v)`` is
+``((u, 0), (v, 0))``. *Splitting* an edge whose two endpoints both have index
+0 keeps that edge as an isolated ``K2`` of ``H`` and moves all the other edges
+of ``u`` to ``(u, 1)`` and those of ``v`` to ``(v, 1)``. Only edges with index
+0 at both endpoints are split, and an edge is split at most once, so no copy
+index larger than 1 is ever needed. No bridge has to be found: any edge with
+both endpoints still at index 0 can be split.
 
-Splitting goes on until ``H`` has ``r' >= target`` connected components, where
-``target = ceil(|C1| / 2) = |M|``, ``M`` the NetworkX minimum maximal matching
-of ``G`` (strategy c1) and ``C1`` its endpoints. Each round splits the bridges
-of ``H`` first (a bridge stays a bridge after other bridges are split, so one
-bridge pass per round finds all of them); when no bridge is left and
-``r' < target``, half of the deficit is closed by splitting non-``K2`` edges of
-the NetworkX minimum maximal matching of ``H`` (each such split adds at least
-one component and may create new bridges for the next round). The target is
-always reached: while ``r' < |M| <= m`` some component is not a ``K2``.
+The edges split are those of ``M``, the NetworkX minimum maximal matching of
+``G`` (the matching of c2), in NetworkX's order. They are vertex-disjoint, so
+when an edge of ``M`` comes up both of its endpoints are still at index 0.
+Splitting the first ``k`` edges ``F_k`` of ``M`` leaves ``H`` with
 
-Then the NetworkX minimum maximal matching ``M_H`` of ``H`` is taken (every
-isolated ``K2`` is forced into it) and decoded to vertices of ``G``. The
-matched edges ``((a, i), (b, j))`` are processed in increasing order of
-``(min(i, j), max(i, j))``:
+    count(k) = k + c(G - F_k)
 
-* if ``a`` (or ``b``) was already selected through some copy, the edge is
-  covered and nothing is added;
-* otherwise, if ``i != j``, the endpoint with the smaller index is selected
-  (rule ``"low"``) or the endpoint with the larger index (rule ``"high"``);
-* if ``i == j`` the edge is saved in a residual graph ``R`` (in ``H`` these
-  edges form a perfect matching of their endpoints).
+components with an edge, where ``c`` counts the components of a graph that
+have at least one edge (the split edges are ``k`` isolated ``K2``; all other
+edges of ``G`` stay together through the copies ``(u, 1)``). ``count`` never
+decreases with ``k`` and grows by at most 2 per split; ``count(0) = r``, the
+number of components of ``G`` with an edge, and ``r <= |M|`` since every such
+component contains an edge of ``M``. Splitting stops at the first ``k`` where
+``count(k)`` reaches the largest value that does not exceed the target
+``|M|``, so ``r' = count(k) <= |M| <= tau(G)`` and ``r' >= |M| - 1``. All the
+values ``count(0..|M|)`` are computed in one pass, backwards, with a
+union-find structure: ``G - F_{|M|}`` first, then the edges of ``M`` are added
+back one by one. This costs ``O((n + m) alpha(n))``.
 
-The residual edges still uncovered by the selected vertices are covered
-optimally when ``R`` is bipartite (Koenig: a maximum matching gives a minimum
-vertex cover), and otherwise greedily by number of occurrences (the vertex in
-most uncovered residual edges first). The decoded set is not a cover of ``G``
-in general: :mod:`salvador.algorithm` repairs and prunes it with
-``prune_redundant_vertices``.
+The NetworkX minimum maximal matching ``M_H`` of ``H`` is then decoded to
+vertices of ``G``, the matched edges ``((a, i), (b, j))`` in increasing order
+of ``(min(i, j), max(i, j))``:
+
+* if ``a`` or ``b`` is already selected (through either copy), nothing is added;
+* if ``i != j``, the endpoint is chosen by the rule: ``low`` (index 0),
+  ``high`` (index 1), ``deg_low`` / ``deg_high`` (larger degree in ``G``, ties
+  by index 0 / index 1);
+* if ``i == j``, the endpoint of larger degree in ``G`` is selected (ties by
+  position). With only the indices 0 and 1 no residual graph is needed.
+
+The decoded set is completed to a vertex cover of ``G`` by a bucket-queue
+greedy on the edges it leaves uncovered (largest uncovered degree first, in
+linear time), and :mod:`salvador.algorithm` prunes it. Every step is linear,
+so c1 runs in ``O((n + m) alpha(n))`` time.
 
 Only NetworkX's ``nx.approximation.min_maximal_matching`` is used as the
-maximal-matching subroutine, the same one as strategy c1.
-
-Repairs after car_c0_fix.py (default since 0.1.3). The first c0 violated
-``|c0| <= 2 tau - r'`` on 47 of 286 exact instances and had ratio 50.5 on the
-double star, for three reasons, each fixed here:
-
-* overshoot -- a bridge split adds two components, so ``r'`` could exceed
-  ``tau`` (path on five vertices: ``r' = 3 > tau = 2``) and the bound became
-  infeasible even for an optimal cover; splitting now stops exactly at
-  ``r' = |M| <= tau`` (``exact_stop``);
-* leaf-for-hub choices -- the index rules can select a leaf instead of its
-  hub; the default variants select the endpoint of larger degree in ``G``
-  (``deg_high``, ties by larger index) and resolve the tied residual edges the
-  same way (``gdeg``);
-* repair -- the decoded set is now completed greedily by largest uncovered
-  degree (:func:`complete_cover`) instead of adding one neighbour per uncovered
-  edge.
-
-:mod:`salvador.algorithm` then prunes the cover, improves it with the budgeted
-(1,2)-swap local search and keeps c1 when c1 is smaller, so ``|c0| <= |c1| <=
-2 tau - r`` (``r`` = components of ``G``) holds on every graph. The bound
-``2 tau - r'`` itself is not guaranteed: it cannot be checked while running
-(``tau`` is unknown) and it would imply a ratio of at most 1.5, so it is
-measured, not assumed, by car/car_c0_fix.py.
+maximal-matching subroutine, for ``M`` and for ``M_H``.
 """
 
 from __future__ import annotations
 
-from collections import deque
 from typing import Any
 
 import networkx as nx
 
-#: Selection rules for a matched edge ((a, i), (b, j)) with i != j and a, b both unselected:
-#: smaller index, larger index, or larger degree in G with ties by smaller/larger index.
+#: Selection rules for a matched edge ((a, i), (b, j)) with i != j and a, b both unselected.
 RULES: tuple[str, ...] = ("low", "high", "deg_low", "deg_high")
 
-#: Residual rules for the matched edges with i == j: Koenig (optimal when the residual graph is
-#: bipartite, else by occurrences), greedy by occurrences, or the endpoint of larger degree in G.
-RESIDUALS: tuple[str, ...] = ("konig", "occ", "gdeg")
-
-#: Variants of c0 since 0.1.3, (select, residual) by name, best first in car_c0_fix.py (21,479 exact
-#: instances: fewest violations of 2 tau - r', most optimal covers, lowest mean ratio). Each decoded
-#: set is completed greedily (:func:`complete_cover`) before pruning.
-DEFAULT_VARIANTS: dict[str, tuple[str, str]] = {
-    "deg_high/gdeg": ("deg_high", "gdeg"),
-    "high/gdeg": ("high", "gdeg"),
-    "deg_low/gdeg": ("deg_low", "gdeg"),
-}
-
-#: The two variants of the first c0 (index rule, Koenig residual, no greedy completion).
-LEGACY_VARIANTS: dict[str, tuple[str, str]] = {"low": ("low", "konig"), "high": ("high", "konig")}
+#: The rules c1 runs; the smallest pruned cover is kept.
+DEFAULT_VARIANTS: tuple[str, ...] = ("deg_high", "high", "deg_low")
 
 
-def _matching(H: nx.Graph) -> set[tuple[Any, Any]]:
-    """NetworkX minimum maximal matching (the subroutine of strategy c1)."""
-    return nx.approximation.min_maximal_matching(H)
+def _matching(H: nx.Graph) -> list[tuple[Any, Any]]:
+    """NetworkX minimum maximal matching (the subroutine of strategy c2), as a list."""
+    return list(nx.approximation.min_maximal_matching(H))
 
 
-def build_split_graph(G: nx.Graph, info: dict | None = None, exact_stop: bool = True) -> nx.Graph:
-    """Split graph ``H`` of ``G`` (nodes ``(u, i)``) with at least ``ceil(|C1| / 2)`` components.
+class _UnionFind:
+    def __init__(self, items) -> None:
+        self.parent = {x: x for x in items}
+        self.size = dict.fromkeys(self.parent, 1)
+        self.has_edge = dict.fromkeys(self.parent, False)
 
-    With ``exact_stop`` (the default) splitting never overshoots: a split adds
-    at most two components (the isolated ``K2`` and the two sides of a bridge),
-    so a bridge whose endpoints both keep other edges is split only while the
-    deficit is at least 2, matching edges are split at most ``deficit // 2`` per
-    round, and a deficit of 1 is closed by a split that adds exactly one
-    component (a pendant edge or an edge on a cycle). Since every component
-    with an edge contains an edge of ``M``, ``r <= |M|``, so splitting ends with
-    ``r' = |M| <= tau(G)``: ``2 tau - r' >= tau`` and the bound ``2 tau - r'`` is
-    never infeasible (with overshoot, e.g. on the path on five vertices, ``r' = 3 >
-    tau = 2``). ``exact_stop=False`` keeps the original behaviour.
+    def find(self, x):
+        root = x
+        while self.parent[root] != root:
+            root = self.parent[root]
+        while self.parent[x] != root:
+            self.parent[x], x = root, self.parent[x]
+        return root
 
-    ``G`` must have no self-loops. ``info`` receives ``target``, ``r`` (components
-    of ``G`` with an edge), ``r_prime`` (components of ``H``), ``bridge_splits``,
-    ``matching_splits``, ``rounds`` and ``max_index`` (largest copy index).
+    def union(self, x, y) -> int:
+        """Join the trees of ``x`` and ``y`` with the edge ``(x, y)``; return the change in the number
+        of trees that contain an edge."""
+        a, b = self.find(x), self.find(y)
+        if a == b:
+            return 0  # a tree with two or more vertices already has an edge
+        before = self.has_edge[a] + self.has_edge[b]
+        if self.size[a] < self.size[b]:
+            a, b = b, a
+        self.parent[b] = a
+        self.size[a] += self.size[b]
+        self.has_edge[a] = True
+        return 1 - before
+
+
+def split_counts(G: nx.Graph, M: list[tuple[Any, Any]]) -> list[int]:
+    """``count(k) = k + c(G - F_k)`` for ``k = 0..|M|`` (``F_k`` = first ``k`` edges of ``M``), by one
+    backward union-find pass."""
+    in_m = {frozenset(e) for e in M}
+    uf = _UnionFind(G.nodes())
+    components = 0
+    for u, v in G.edges():
+        if frozenset((u, v)) not in in_m:
+            components += uf.union(u, v)
+    counts = [0] * (len(M) + 1)
+    counts[len(M)] = len(M) + components
+    for k in range(len(M) - 1, -1, -1):
+        u, v = M[k]
+        components += uf.union(u, v)
+        counts[k] = k + components
+    return counts
+
+
+def build_split_graph(G: nx.Graph, info: dict | None = None) -> nx.Graph:
+    """Split graph ``H`` of ``G`` (nodes ``(u, 0)`` and ``(u, 1)``) with ``r' <= |M|`` components.
+
+    ``G`` must have no self-loops. ``info`` receives ``target`` (``|M|``), ``r``
+    (components of ``G`` with an edge), ``r_prime`` (components of ``H`` with an
+    edge), ``splits`` (edges of ``M`` split), ``exact`` (``r' == |M|``),
+    ``h_nodes`` and ``h_edges``.
     """
     pos = {u: k for k, u in enumerate(G)}
-    m1 = _matching(G)
-    target = len(m1)  # = |C1| / 2, C1 the endpoints of the c1 matching
+    # each edge with its earlier endpoint first, the edges by that endpoint (a counting sort: the
+    # edges of M are vertex-disjoint, so the positions are distinct)
+    slots: list = [None] * len(pos)
+    for a, b in _matching(G):
+        if pos[b] < pos[a]:
+            a, b = b, a
+        slots[pos[a]] = (a, b)
+    M = [e for e in slots if e is not None]
+    target = len(M)
+    counts = split_counts(G, M)
+    best = max(c for c in counts if c <= target)  # counts[0] = r <= |M|, so this exists
+    k = counts.index(best)  # first k reaching it (counts never decrease)
+    split_edges = {frozenset(e) for e in M[:k]}
+    split_vertices = {x for e in M[:k] for x in e}
     H = nx.Graph()
-    H.add_nodes_from((u, 0) for u in G)
-    H.add_edges_from(((u, 0), (v, 0)) for u, v in G.edges())
-    H.remove_nodes_from([x for x in list(H) if H.degree(x) == 0])
-    next_index = {u: 1 for u in G}
-    r = nx.number_connected_components(H)
-    r0 = r
-    stats = {"bridge_splits": 0, "matching_splits": 0, "rounds": 0}
-
-    def key(x: tuple[Any, int]) -> tuple[int, int]:
-        return (x[1], pos[x[0]])
-
-    moved: dict[tuple[Any, int], tuple[Any, int]] = {}  # copy -> the copy its other edges went to
-
-    def chain(x: tuple[Any, int]):
-        while True:
-            yield x
-            if x not in moved:
-                return
-            x = moved[x]
-
-    def resolve(x: tuple[Any, int], y: tuple[Any, int]):
-        """Current copies holding the edge listed as ``(x, y)`` before some splits of this pass."""
-        if H.has_edge(x, y):
-            return x, y
-        for cx in chain(x):
-            for cy in chain(y):
-                if H.has_edge(cx, cy):
-                    return cx, cy
-        raise AssertionError("edge lost while splitting")  # pragma: no cover
-
-    def move_rest(x: tuple[Any, int], y: tuple[Any, int]) -> bool:
-        """Move every edge of ``x`` except ``xy`` to a fresh copy of ``x``; True if one was moved."""
-        others = [z for z in H[x] if z != y]
-        if not others:
-            return False
-        u = x[0]
-        x2 = (u, next_index[u])
-        next_index[u] += 1
-        H.remove_edges_from((x, z) for z in others)
-        H.add_edges_from((x2, z) for z in others)
-        moved[x] = x2
-        return True
-
-    def interior(x: tuple[Any, int], y: tuple[Any, int]) -> bool:
-        return H.degree(x) > 1 and H.degree(y) > 1
-
-    def split_plus_one() -> bool:
-        """Split one edge that adds exactly one component (pendant bridge or cycle edge)."""
-        bridge_set = {frozenset(e) for e in nx.bridges(H)}
-        pendant = None
-        for x, y in sorted(H.edges(), key=lambda e: (key(e[0]), key(e[1]))):
-            if H.degree(x) == 1 and H.degree(y) == 1:
-                continue  # isolated K2
-            if frozenset((x, y)) not in bridge_set or not interior(x, y):
-                pendant = (x, y)
-                break
-        if pendant is None:  # pragma: no cover - every non-K2 component has such an edge
-            return False
-        move_rest(*pendant)
-        move_rest(pendant[1], pendant[0])
-        return True
-
-    while r < target:
-        stats["rounds"] += 1
-        # Bridges first: an exact +1 per endpoint that still has other edges.
-        for x, y in list(nx.bridges(H)):
-            if r >= target:
-                break
-            x, y = resolve(x, y)
-            if H.degree(x) == 1 and H.degree(y) == 1:
-                continue  # already an isolated K2
-            if exact_stop and target - r == 1 and interior(x, y):
-                continue  # would add 2 components and overshoot
-            r += int(move_rest(x, y)) + int(move_rest(y, x))
-            stats["bridge_splits"] += 1
-        if r >= target:
-            break
-        if exact_stop and target - r == 1:
-            if split_plus_one():
-                r += 1
-                stats["matching_splits"] += 1
-            continue
-        # No bridge left: split non-K2 matching edges; each split adds 1 or 2 components.
-        quota = max(1, (target - r) // 2) if exact_stop else max(1, (target - r + 1) // 2)
-        edges = sorted((tuple(sorted(e, key=key)) for e in _matching(H)), key=lambda e: (key(e[0]), key(e[1])))
-        done = 0
-        for x, y in edges:
-            if done >= quota:
-                break
-            x, y = resolve(x, y)
-            if H.degree(x) == 1 and H.degree(y) == 1:
-                continue
-            move_rest(x, y)
-            move_rest(y, x)
-            done += 1
-        stats["matching_splits"] += done
-        r = nx.number_connected_components(H)
-
+    for u, v in G.edges():
+        if frozenset((u, v)) in split_edges:
+            H.add_edge((u, 0), (v, 0))
+        else:
+            H.add_edge((u, 1 if u in split_vertices else 0), (v, 1 if v in split_vertices else 0))
     if info is not None:
-        info.update({"target": target, "r": r0, "r_prime": r,
-                     "max_index": max((i for _, i in H), default=0),
-                     "h_nodes": H.number_of_nodes(), "h_edges": H.number_of_edges(), **stats})
+        info.update({"target": target, "r": counts[0], "r_prime": best, "splits": k,
+                     "exact": best == target, "h_nodes": H.number_of_nodes(), "h_edges": H.number_of_edges()})
     return H
 
 
-def _residual_cover(edges: list[tuple[Any, Any]], pos: dict[Any, int], info: dict) -> set[Any]:
-    """Vertex cover of the residual edges: Koenig (optimal) when bipartite, else by occurrences."""
-    if not edges:
-        info.update({"residual_exact": True})
-        return set()
-    R = nx.Graph()
-    R.add_edges_from(edges)
-    if nx.is_bipartite(R):
-        cover: set[Any] = set()
-        for comp in nx.connected_components(R):
-            S = R.subgraph(comp)
-            top = {v for v, c in nx.bipartite.color(S).items() if c == 0}
-            M = nx.bipartite.hopcroft_karp_matching(S, top_nodes=top)
-            cover |= nx.bipartite.to_vertex_cover(S, M, top_nodes=top)
-        info.update({"residual_exact": True})
-        return cover
-    # Greedy by number of occurrences, with a bucket queue (O(|R|)).
-    adj = {v: set(R[v]) for v in R}
-    deg = {v: len(a) for v, a in adj.items()}
-    maxd = max(deg.values())
-    buckets: list[deque] = [deque() for _ in range(maxd + 1)]
-    for v in sorted(adj, key=lambda v: pos[v]):
-        buckets[deg[v]].append(v)
-    cover = set()
-    for d in range(maxd, 0, -1):
-        while buckets[d]:
-            v = buckets[d].popleft()
-            if v in cover or deg[v] != d:
-                continue
-            cover.add(v)
-            for w in adj[v]:
-                if w not in cover:
-                    adj[w].discard(v)
-                    deg[w] -= 1
-                    buckets[deg[w]].append(w)
-            # deg[w] can only decrease, so lower buckets are visited later
-    info.update({"residual_exact": False})
-    return cover
-
-
-def _gdeg_cover(edges: list[tuple[Any, Any]], G: nx.Graph, pos: dict[Any, int], selected: set[Any]) -> set[Any]:
-    """Each still uncovered residual edge takes its endpoint of larger degree in ``G`` (ties by position)."""
-    cover: set[Any] = set()
-    for a, b in edges:
-        if a in selected or b in selected or a in cover or b in cover:
-            continue
-        cover.add(a if (G.degree(a), -pos[a]) >= (G.degree(b), -pos[b]) else b)
-    return cover
-
-
 def decode(G: nx.Graph, H: nx.Graph, rule: str = "deg_high", info: dict | None = None,
-           residual: str = "gdeg") -> set[Any]:
-    """Decode the minimum maximal matching of ``H`` to a vertex set of ``G``.
-
-    ``rule`` (see :data:`RULES`) resolves a matched edge ``((a, i), (b, j))``
-    with ``i != j`` whose endpoints are both unselected; ``residual`` (see
-    :data:`RESIDUALS`) covers the matched edges with ``i == j``.
-    """
+           matching: list | None = None) -> set[Any]:
+    """Decode the NetworkX minimum maximal matching of ``H`` to a set of vertices of ``G`` (not yet a
+    cover of ``G`` in general; see :func:`complete_cover`). ``info`` receives ``matching_h`` (edges of
+    the matching of ``H``), ``ties`` (matched edges with equal indices) and ``raw_size``."""
     if rule not in RULES:
-        raise ValueError(f"rule must be one of {RULES}")
-    if residual not in RESIDUALS:
-        raise ValueError(f"residual must be one of {RESIDUALS}")
+        raise ValueError(f"unknown rule {rule!r}; expected one of {RULES}")
     pos = {u: k for k, u in enumerate(G)}
-    matched = []
-    for x, y in _matching(H):
+    deg = G.degree
+    # matched edges ordered by (i, j) with i <= j, then by the position of the first endpoint: a
+    # counting sort, since each copy is matched once and the first endpoints of a group are distinct
+    groups: dict[tuple[int, int], list] = {(0, 0): [None] * len(pos), (0, 1): [None] * len(pos),
+                                           (1, 1): [None] * len(pos)}
+    for x, y in (matching if matching is not None else _matching(H)):
         (a, i), (b, j) = x, y
         if (j, pos[b]) < (i, pos[a]):
             (a, i), (b, j) = (b, j), (a, i)
-        matched.append(((a, i), (b, j)))
-    matched.sort(key=lambda e: (e[0][1], e[1][1], pos[e[0][0]], pos[e[1][0]]))
+        groups[(i, j)][pos[a]] = ((a, i), (b, j))
+    matched = [e for g in ((0, 0), (0, 1), (1, 1)) for e in groups[g] if e is not None]
     selected: set[Any] = set()
-    ties: list[tuple[Any, Any]] = []
-    reused = 0
-    for (a, i), (b, j) in matched:  # i <= j after the swap above
-        if i == j:
-            ties.append((a, b))
-            continue
+    ties = 0
+    for (a, i), (b, j) in matched:  # here i <= j
         if a in selected or b in selected:
-            reused += 1
             continue
-        if rule == "low":
+        if i == j:
+            ties += 1
+            pick = a if (deg[a], -pos[a]) >= (deg[b], -pos[b]) else b
+        elif rule == "low":
             pick = a
         elif rule == "high":
             pick = b
+        elif deg[a] != deg[b]:
+            pick = a if deg[a] > deg[b] else b
         else:
-            da, db = G.degree(a), G.degree(b)
-            pick = (a if da > db else b) if da != db else (a if rule == "deg_low" else b)
+            pick = a if rule == "deg_low" else b
         selected.add(pick)
-    open_ties = [(a, b) for a, b in ties if a not in selected and b not in selected]
-    local: dict = {}
-    if residual == "konig":
-        selected |= _residual_cover(open_ties, pos, local)
-    elif residual == "occ":
-        selected |= _occurrence_cover(open_ties, pos)
-        local["residual_exact"] = not open_ties
-    else:
-        selected |= _gdeg_cover(open_ties, G, pos, selected)
-        local["residual_exact"] = not open_ties
     if info is not None:
-        info.update({"matching_h": len(matched), "ties": len(ties), "residual_open": len(open_ties),
-                     "reused": reused, "raw_size": len(selected), **local})
+        info.update({"matching_h": len(matched), "ties": ties, "raw_size": len(selected)})
     return selected
 
 
-def _occurrence_cover(edges: list[tuple[Any, Any]], pos: dict[Any, int]) -> set[Any]:
-    """Greedy cover by largest current number of occurrences (lazy heap), ties by position."""
-    import heapq
-
+def complete_cover(G: nx.Graph, raw: set[Any]) -> set[Any]:
+    """``raw`` plus a bucket-queue greedy cover (largest uncovered degree first) of the edges of ``G``
+    that ``raw`` leaves uncovered, in O(n + m)."""
     adj: dict[Any, set[Any]] = {}
-    for a, b in edges:
-        adj.setdefault(a, set()).add(b)
-        adj.setdefault(b, set()).add(a)
-    heap = [(-len(nb), pos[v], v) for v, nb in adj.items()]
-    heapq.heapify(heap)
-    cover: set[Any] = set()
-    while heap:
-        d, _, v = heapq.heappop(heap)
-        cur = len(adj[v])
-        if v in cover or cur == 0:
+    for u, v in G.edges():
+        if u not in raw and v not in raw:
+            adj.setdefault(u, set()).add(v)
+            adj.setdefault(v, set()).add(u)
+    cover = set(raw)
+    if not adj:
+        return cover
+    deg = {v: len(nb) for v, nb in adj.items()}
+    top = max(deg.values())
+    buckets: list[list[Any]] = [[] for _ in range(top + 1)]
+    for v in reversed([u for u in G if u in adj]):  # pop() takes the earliest position first
+        buckets[deg[v]].append(v)
+    d = top
+    while d > 0:
+        if not buckets[d]:
+            d -= 1
             continue
-        if -d != cur:
-            heapq.heappush(heap, (-cur, pos[v], v))
-            continue
+        v = buckets[d].pop()
+        if v in cover or deg[v] != d:
+            continue  # stale entry
         cover.add(v)
         for w in adj[v]:
-            adj[w].discard(v)
-            heapq.heappush(heap, (-len(adj[w]), pos[w], w))
-        adj[v] = set()
+            if w not in cover:
+                deg[w] -= 1
+                buckets[deg[w]].append(w)
+        deg[v] = 0
     return cover
 
 
-def complete_cover(G: nx.Graph, raw: set[Any]) -> set[Any]:
-    """``raw`` plus a greedy cover (largest uncovered degree first) of the edges it leaves uncovered."""
-    pos = {u: k for k, u in enumerate(G)}
-    uncovered = [(u, v) for u, v in G.edges() if u not in raw and v not in raw]
-    return set(raw) | _occurrence_cover(uncovered, pos)
-
-
 def component_split_covers(G: nx.Graph, info: dict | None = None,
-                           variants: dict[str, tuple[str, str]] | None = None,
-                           exact_stop: bool = True, complete: bool = True) -> dict[str, set[Any]]:
-    """Vertex sets of c0 for every variant (default :data:`DEFAULT_VARIANTS`).
-
-    ``G`` must have no self-loops or isolated vertices. With ``complete`` each
-    decoded set is completed greedily to a vertex cover of ``G``
-    (:func:`complete_cover`); the caller prunes it. ``info`` receives the
-    split statistics of :func:`build_split_graph` and, per variant, the
-    decoding statistics of :func:`decode` under the variant's name.
-    ``variants=LEGACY_VARIANTS, exact_stop=False, complete=False`` reproduces
-    the first c0.
-    """
-    variants = DEFAULT_VARIANTS if variants is None else variants
+                           variants: tuple[str, ...] = DEFAULT_VARIANTS) -> dict[str, set[Any]]:
+    """Every decoding rule of c1 on the split graph of ``G``, completed to a vertex cover of ``G``
+    (not pruned). ``info`` receives the split statistics of :func:`build_split_graph` and, per rule,
+    ``info[rule]`` with the decoding statistics."""
     split_info: dict = {}
-    H = build_split_graph(G, split_info, exact_stop=exact_stop)
+    H = build_split_graph(G, split_info)
+    MH = _matching(H)
     out: dict[str, set[Any]] = {}
-    for name, (rule, residual) in variants.items():
-        rule_info: dict = {}
-        raw = decode(G, H, rule, rule_info, residual=residual)
-        out[name] = complete_cover(G, raw) if complete else raw
+    for rule in variants:
+        dec_info: dict = {}
+        out[rule] = complete_cover(G, decode(G, H, rule, dec_info, MH))
         if info is not None:
-            info[name] = rule_info
+            info[rule] = dec_info
     if info is not None:
         info.update(split_info)
     return out

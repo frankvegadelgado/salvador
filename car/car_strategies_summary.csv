@@ -1,241 +1,321 @@
-group,instances,strategy,name,wins,sole_wins,win_rate,final_source
-"Barabasi-Albert scale-free hub graph",1,c1,"maximal matching",0,0,0.0000,0
-"Barabasi-Albert scale-free hub graph",1,c2,"max-degree greedy",0,0,0.0000,0
-"Barabasi-Albert scale-free hub graph",1,c3,"Hallelujah reduction",0,0,0.0000,0
-"Barabasi-Albert scale-free hub graph",1,c4,"Min-to-Min",0,0,0.0000,0
-"Barabasi-Albert scale-free hub graph",1,c5,"primal-dual",0,0,0.0000,0
-"Barabasi-Albert scale-free hub graph",1,c6,"MIDS Baker reduction",0,0,0.0000,0
-"Barabasi-Albert scale-free hub graph",1,c7,"union re-prune",0,0,0.0000,0
-"Barabasi-Albert scale-free hub graph",1,c8,"bipartite planar reduction",0,0,0.0000,0
-"Barabasi-Albert scale-free hub graph",1,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",1,0,1.0000,1
-"Barabasi-Albert scale-free hub graph",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",1,0,1.0000,1
-"Barabasi-Albert scale-free hub graph",1,c13,"bounded-treewidth exact DP",1,0,1.0000,1
-"Barabasi-Albert scale-free hub graph",1,c9,"(1,2)-swap local search (strict improvements)",1,,1.0000,1
-"Barabasi-Albert scale-free hub graph",1,c12,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c11 (strict improvements over c1..c11)",0,,0.0000,1
-"Barabasi-Albert scale-free hub graph",1,c14,"consensus forcing: vertices in all/most of c1..c13 forced, rest re-solved (strict improvements over c1..c13)",0,,0.0000,1
-"Barabasi-Albert scale-free hub graph",1,c15,"swap-maximize refinement of c1..c14 (strict improvements)",0,,0.0000,
-"Bipartite obstruction (exact)",1,c1,"maximal matching",1,0,1.0000,1
-"Bipartite obstruction (exact)",1,c2,"max-degree greedy",1,0,1.0000,1
-"Bipartite obstruction (exact)",1,c3,"Hallelujah reduction",1,0,1.0000,1
-"Bipartite obstruction (exact)",1,c4,"Min-to-Min",1,0,1.0000,1
-"Bipartite obstruction (exact)",1,c5,"primal-dual",1,0,1.0000,1
-"Bipartite obstruction (exact)",1,c6,"MIDS Baker reduction",1,0,1.0000,1
-"Bipartite obstruction (exact)",1,c7,"union re-prune",1,0,1.0000,1
-"Bipartite obstruction (exact)",1,c8,"bipartite planar reduction",1,0,1.0000,1
-"Bipartite obstruction (exact)",1,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",1,0,1.0000,1
-"Bipartite obstruction (exact)",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",1,0,1.0000,1
-"Bipartite obstruction (exact)",1,c13,"bounded-treewidth exact DP",1,0,1.0000,1
-"Bipartite obstruction (exact)",1,c9,"(1,2)-swap local search (strict improvements)",0,,0.0000,1
-"Bipartite obstruction (exact)",1,c12,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c11 (strict improvements over c1..c11)",0,,0.0000,1
-"Bipartite obstruction (exact)",1,c14,"consensus forcing: vertices in all/most of c1..c13 forced, rest re-solved (strict improvements over c1..c13)",0,,0.0000,1
-"Bipartite obstruction (exact)",1,c15,"swap-maximize refinement of c1..c14 (strict improvements)",0,,0.0000,
-"Complete bipartite (dense)",2,c1,"maximal matching",2,0,1.0000,2
-"Complete bipartite (dense)",2,c2,"max-degree greedy",2,0,1.0000,2
-"Complete bipartite (dense)",2,c3,"Hallelujah reduction",2,0,1.0000,2
-"Complete bipartite (dense)",2,c4,"Min-to-Min",2,0,1.0000,2
-"Complete bipartite (dense)",2,c5,"primal-dual",2,0,1.0000,2
-"Complete bipartite (dense)",2,c6,"MIDS Baker reduction",2,0,1.0000,2
-"Complete bipartite (dense)",2,c7,"union re-prune",2,0,1.0000,2
-"Complete bipartite (dense)",2,c8,"bipartite planar reduction",2,0,1.0000,2
-"Complete bipartite (dense)",2,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",2,0,1.0000,2
-"Complete bipartite (dense)",2,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",2,0,1.0000,2
-"Complete bipartite (dense)",2,c13,"bounded-treewidth exact DP",2,0,1.0000,2
-"Complete bipartite (dense)",2,c9,"(1,2)-swap local search (strict improvements)",0,,0.0000,2
-"Complete bipartite (dense)",2,c12,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c11 (strict improvements over c1..c11)",0,,0.0000,2
-"Complete bipartite (dense)",2,c14,"consensus forcing: vertices in all/most of c1..c13 forced, rest re-solved (strict improvements over c1..c13)",0,,0.0000,2
-"Complete bipartite (dense)",2,c15,"swap-maximize refinement of c1..c14 (strict improvements)",0,,0.0000,
-"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c1,"maximal matching",2,0,1.0000,2
-"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c2,"max-degree greedy",2,0,1.0000,2
-"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c3,"Hallelujah reduction",2,0,1.0000,2
-"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c4,"Min-to-Min",2,0,1.0000,2
-"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c5,"primal-dual",2,0,1.0000,2
-"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c6,"MIDS Baker reduction",2,0,1.0000,2
-"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c7,"union re-prune",2,0,1.0000,2
-"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c8,"bipartite planar reduction",2,0,1.0000,2
-"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",2,0,1.0000,2
-"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",2,0,1.0000,2
-"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c13,"bounded-treewidth exact DP",2,0,1.0000,2
-"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c9,"(1,2)-swap local search (strict improvements)",0,,0.0000,2
-"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c12,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c11 (strict improvements over c1..c11)",0,,0.0000,2
-"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c14,"consensus forcing: vertices in all/most of c1..c13 forced, rest re-solved (strict improvements over c1..c13)",0,,0.0000,2
-"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c15,"swap-maximize refinement of c1..c14 (strict improvements)",0,,0.0000,
-"Double star + bridge (matching-heuristic stress)",1,c1,"maximal matching",1,0,1.0000,1
-"Double star + bridge (matching-heuristic stress)",1,c2,"max-degree greedy",1,0,1.0000,1
-"Double star + bridge (matching-heuristic stress)",1,c3,"Hallelujah reduction",1,0,1.0000,1
-"Double star + bridge (matching-heuristic stress)",1,c4,"Min-to-Min",1,0,1.0000,1
-"Double star + bridge (matching-heuristic stress)",1,c5,"primal-dual",1,0,1.0000,1
-"Double star + bridge (matching-heuristic stress)",1,c6,"MIDS Baker reduction",1,0,1.0000,1
-"Double star + bridge (matching-heuristic stress)",1,c7,"union re-prune",1,0,1.0000,1
-"Double star + bridge (matching-heuristic stress)",1,c8,"bipartite planar reduction",1,0,1.0000,1
-"Double star + bridge (matching-heuristic stress)",1,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",1,0,1.0000,1
-"Double star + bridge (matching-heuristic stress)",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",1,0,1.0000,1
-"Double star + bridge (matching-heuristic stress)",1,c13,"bounded-treewidth exact DP",1,0,1.0000,1
-"Double star + bridge (matching-heuristic stress)",1,c9,"(1,2)-swap local search (strict improvements)",0,,0.0000,1
-"Double star + bridge (matching-heuristic stress)",1,c12,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c11 (strict improvements over c1..c11)",0,,0.0000,1
-"Double star + bridge (matching-heuristic stress)",1,c14,"consensus forcing: vertices in all/most of c1..c13 forced, rest re-solved (strict improvements over c1..c13)",0,,0.0000,1
-"Double star + bridge (matching-heuristic stress)",1,c15,"swap-maximize refinement of c1..c14 (strict improvements)",0,,0.0000,
-"Graph atlas n<=7",202,c1,"maximal matching",181,0,0.8960,202
-"Graph atlas n<=7",202,c2,"max-degree greedy",198,0,0.9802,202
-"Graph atlas n<=7",202,c3,"Hallelujah reduction",195,0,0.9653,202
-"Graph atlas n<=7",202,c4,"Min-to-Min",200,0,0.9901,202
-"Graph atlas n<=7",202,c5,"primal-dual",181,0,0.8960,202
-"Graph atlas n<=7",202,c6,"MIDS Baker reduction",195,0,0.9653,202
-"Graph atlas n<=7",202,c7,"union re-prune",186,0,0.9208,202
-"Graph atlas n<=7",202,c8,"bipartite planar reduction",200,0,0.9901,202
-"Graph atlas n<=7",202,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",202,0,1.0000,202
-"Graph atlas n<=7",202,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",202,0,1.0000,202
-"Graph atlas n<=7",202,c13,"bounded-treewidth exact DP",202,0,1.0000,202
-"Graph atlas n<=7",202,c9,"(1,2)-swap local search (strict improvements)",0,,0.0000,202
-"Graph atlas n<=7",202,c12,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c11 (strict improvements over c1..c11)",0,,0.0000,202
-"Graph atlas n<=7",202,c14,"consensus forcing: vertices in all/most of c1..c13 forced, rest re-solved (strict improvements over c1..c13)",0,,0.0000,202
-"Graph atlas n<=7",202,c15,"swap-maximize refinement of c1..c14 (strict improvements)",0,,0.0000,
-"Grids, bipartite (exact)",16,c1,"maximal matching",16,0,1.0000,16
-"Grids, bipartite (exact)",16,c2,"max-degree greedy",12,0,0.7500,13
-"Grids, bipartite (exact)",16,c3,"Hallelujah reduction",9,0,0.5625,13
-"Grids, bipartite (exact)",16,c4,"Min-to-Min",14,0,0.8750,15
-"Grids, bipartite (exact)",16,c5,"primal-dual",16,0,1.0000,16
-"Grids, bipartite (exact)",16,c6,"MIDS Baker reduction",9,0,0.5625,13
-"Grids, bipartite (exact)",16,c7,"union re-prune",16,0,1.0000,16
-"Grids, bipartite (exact)",16,c8,"bipartite planar reduction",14,0,0.8750,15
-"Grids, bipartite (exact)",16,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",16,0,1.0000,16
-"Grids, bipartite (exact)",16,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",16,0,1.0000,16
-"Grids, bipartite (exact)",16,c13,"bounded-treewidth exact DP",16,0,1.0000,16
-"Grids, bipartite (exact)",16,c9,"(1,2)-swap local search (strict improvements)",0,,0.0000,16
-"Grids, bipartite (exact)",16,c12,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c11 (strict improvements over c1..c11)",0,,0.0000,16
-"Grids, bipartite (exact)",16,c14,"consensus forcing: vertices in all/most of c1..c13 forced, rest re-solved (strict improvements over c1..c13)",0,,0.0000,16
-"Grids, bipartite (exact)",16,c15,"swap-maximize refinement of c1..c14 (strict improvements)",0,,0.0000,
-"Random 12-regular (bounded-degree adversarial)",1,c1,"maximal matching",0,0,0.0000,0
-"Random 12-regular (bounded-degree adversarial)",1,c2,"max-degree greedy",0,0,0.0000,0
-"Random 12-regular (bounded-degree adversarial)",1,c3,"Hallelujah reduction",0,0,0.0000,0
-"Random 12-regular (bounded-degree adversarial)",1,c4,"Min-to-Min",0,0,0.0000,0
-"Random 12-regular (bounded-degree adversarial)",1,c5,"primal-dual",0,0,0.0000,0
-"Random 12-regular (bounded-degree adversarial)",1,c6,"MIDS Baker reduction",0,0,0.0000,0
-"Random 12-regular (bounded-degree adversarial)",1,c7,"union re-prune",0,0,0.0000,0
-"Random 12-regular (bounded-degree adversarial)",1,c8,"bipartite planar reduction",0,0,0.0000,0
-"Random 12-regular (bounded-degree adversarial)",1,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",0,0,0.0000,0
-"Random 12-regular (bounded-degree adversarial)",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",0,0,0.0000,0
-"Random 12-regular (bounded-degree adversarial)",1,c13,"bounded-treewidth exact DP",1,1,1.0000,1
-"Random 12-regular (bounded-degree adversarial)",1,c9,"(1,2)-swap local search (strict improvements)",1,,1.0000,0
-"Random 12-regular (bounded-degree adversarial)",1,c12,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c11 (strict improvements over c1..c11)",1,,1.0000,1
-"Random 12-regular (bounded-degree adversarial)",1,c14,"consensus forcing: vertices in all/most of c1..c13 forced, rest re-solved (strict improvements over c1..c13)",0,,0.0000,1
-"Random 12-regular (bounded-degree adversarial)",1,c15,"swap-maximize refinement of c1..c14 (strict improvements)",0,,0.0000,
-"Random 3-regular (bounded-degree adversarial)",1,c1,"maximal matching",0,0,0.0000,0
-"Random 3-regular (bounded-degree adversarial)",1,c2,"max-degree greedy",0,0,0.0000,0
-"Random 3-regular (bounded-degree adversarial)",1,c3,"Hallelujah reduction",0,0,0.0000,0
-"Random 3-regular (bounded-degree adversarial)",1,c4,"Min-to-Min",0,0,0.0000,0
-"Random 3-regular (bounded-degree adversarial)",1,c5,"primal-dual",0,0,0.0000,0
-"Random 3-regular (bounded-degree adversarial)",1,c6,"MIDS Baker reduction",0,0,0.0000,0
-"Random 3-regular (bounded-degree adversarial)",1,c7,"union re-prune",0,0,0.0000,0
-"Random 3-regular (bounded-degree adversarial)",1,c8,"bipartite planar reduction",0,0,0.0000,0
-"Random 3-regular (bounded-degree adversarial)",1,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",0,0,0.0000,0
-"Random 3-regular (bounded-degree adversarial)",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",0,0,0.0000,0
-"Random 3-regular (bounded-degree adversarial)",1,c13,"bounded-treewidth exact DP",1,1,1.0000,1
-"Random 3-regular (bounded-degree adversarial)",1,c9,"(1,2)-swap local search (strict improvements)",1,,1.0000,0
-"Random 3-regular (bounded-degree adversarial)",1,c12,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c11 (strict improvements over c1..c11)",1,,1.0000,1
-"Random 3-regular (bounded-degree adversarial)",1,c14,"consensus forcing: vertices in all/most of c1..c13 forced, rest re-solved (strict improvements over c1..c13)",0,,0.0000,1
-"Random 3-regular (bounded-degree adversarial)",1,c15,"swap-maximize refinement of c1..c14 (strict improvements)",0,,0.0000,
-"Random 6-regular (bounded-degree adversarial)",1,c1,"maximal matching",0,0,0.0000,0
-"Random 6-regular (bounded-degree adversarial)",1,c2,"max-degree greedy",0,0,0.0000,0
-"Random 6-regular (bounded-degree adversarial)",1,c3,"Hallelujah reduction",0,0,0.0000,0
-"Random 6-regular (bounded-degree adversarial)",1,c4,"Min-to-Min",0,0,0.0000,0
-"Random 6-regular (bounded-degree adversarial)",1,c5,"primal-dual",0,0,0.0000,0
-"Random 6-regular (bounded-degree adversarial)",1,c6,"MIDS Baker reduction",0,0,0.0000,0
-"Random 6-regular (bounded-degree adversarial)",1,c7,"union re-prune",0,0,0.0000,0
-"Random 6-regular (bounded-degree adversarial)",1,c8,"bipartite planar reduction",0,0,0.0000,0
-"Random 6-regular (bounded-degree adversarial)",1,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",0,0,0.0000,0
-"Random 6-regular (bounded-degree adversarial)",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",0,0,0.0000,0
-"Random 6-regular (bounded-degree adversarial)",1,c13,"bounded-treewidth exact DP",1,1,1.0000,1
-"Random 6-regular (bounded-degree adversarial)",1,c9,"(1,2)-swap local search (strict improvements)",1,,1.0000,0
-"Random 6-regular (bounded-degree adversarial)",1,c12,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c11 (strict improvements over c1..c11)",1,,1.0000,1
-"Random 6-regular (bounded-degree adversarial)",1,c14,"consensus forcing: vertices in all/most of c1..c13 forced, rest re-solved (strict improvements over c1..c13)",0,,0.0000,1
-"Random 6-regular (bounded-degree adversarial)",1,c15,"swap-maximize refinement of c1..c14 (strict improvements)",0,,0.0000,
-"Random bipartite (exact)",25,c1,"maximal matching",18,0,0.7200,25
-"Random bipartite (exact)",25,c2,"max-degree greedy",21,0,0.8400,25
-"Random bipartite (exact)",25,c3,"Hallelujah reduction",20,0,0.8000,25
-"Random bipartite (exact)",25,c4,"Min-to-Min",25,0,1.0000,25
-"Random bipartite (exact)",25,c5,"primal-dual",18,0,0.7200,25
-"Random bipartite (exact)",25,c6,"MIDS Baker reduction",21,0,0.8400,24
-"Random bipartite (exact)",25,c7,"union re-prune",17,0,0.6800,25
-"Random bipartite (exact)",25,c8,"bipartite planar reduction",25,0,1.0000,25
-"Random bipartite (exact)",25,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",25,0,1.0000,25
-"Random bipartite (exact)",25,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",25,0,1.0000,25
-"Random bipartite (exact)",25,c13,"bounded-treewidth exact DP",25,0,1.0000,25
-"Random bipartite (exact)",25,c9,"(1,2)-swap local search (strict improvements)",0,,0.0000,25
-"Random bipartite (exact)",25,c12,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c11 (strict improvements over c1..c11)",0,,0.0000,25
-"Random bipartite (exact)",25,c14,"consensus forcing: vertices in all/most of c1..c13 forced, rest re-solved (strict improvements over c1..c13)",0,,0.0000,25
-"Random bipartite (exact)",25,c15,"swap-maximize refinement of c1..c14 (strict improvements)",0,,0.0000,
-"Random general (exact, n<=12)",30,c1,"maximal matching",18,0,0.6000,27
-"Random general (exact, n<=12)",30,c2,"max-degree greedy",27,0,0.9000,28
-"Random general (exact, n<=12)",30,c3,"Hallelujah reduction",24,0,0.8000,29
-"Random general (exact, n<=12)",30,c4,"Min-to-Min",27,0,0.9000,28
-"Random general (exact, n<=12)",30,c5,"primal-dual",18,0,0.6000,27
-"Random general (exact, n<=12)",30,c6,"MIDS Baker reduction",24,0,0.8000,30
-"Random general (exact, n<=12)",30,c7,"union re-prune",18,0,0.6000,29
-"Random general (exact, n<=12)",30,c8,"bipartite planar reduction",27,0,0.9000,30
-"Random general (exact, n<=12)",30,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",30,0,1.0000,30
-"Random general (exact, n<=12)",30,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",30,0,1.0000,30
-"Random general (exact, n<=12)",30,c13,"bounded-treewidth exact DP",30,0,1.0000,30
-"Random general (exact, n<=12)",30,c9,"(1,2)-swap local search (strict improvements)",1,,0.0333,30
-"Random general (exact, n<=12)",30,c12,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c11 (strict improvements over c1..c11)",0,,0.0000,30
-"Random general (exact, n<=12)",30,c14,"consensus forcing: vertices in all/most of c1..c13 forced, rest re-solved (strict improvements over c1..c13)",0,,0.0000,30
-"Random general (exact, n<=12)",30,c15,"swap-maximize refinement of c1..c14 (strict improvements)",0,,0.0000,
-"Relabel / order stress (exact)",12,c1,"maximal matching",12,0,1.0000,12
-"Relabel / order stress (exact)",12,c2,"max-degree greedy",12,0,1.0000,12
-"Relabel / order stress (exact)",12,c3,"Hallelujah reduction",11,0,0.9167,12
-"Relabel / order stress (exact)",12,c4,"Min-to-Min",12,0,1.0000,12
-"Relabel / order stress (exact)",12,c5,"primal-dual",12,0,1.0000,12
-"Relabel / order stress (exact)",12,c6,"MIDS Baker reduction",9,0,0.7500,12
-"Relabel / order stress (exact)",12,c7,"union re-prune",11,0,0.9167,12
-"Relabel / order stress (exact)",12,c8,"bipartite planar reduction",12,0,1.0000,12
-"Relabel / order stress (exact)",12,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",12,0,1.0000,12
-"Relabel / order stress (exact)",12,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",12,0,1.0000,12
-"Relabel / order stress (exact)",12,c13,"bounded-treewidth exact DP",12,0,1.0000,12
-"Relabel / order stress (exact)",12,c9,"(1,2)-swap local search (strict improvements)",0,,0.0000,12
-"Relabel / order stress (exact)",12,c12,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c11 (strict improvements over c1..c11)",0,,0.0000,12
-"Relabel / order stress (exact)",12,c14,"consensus forcing: vertices in all/most of c1..c13 forced, rest re-solved (strict improvements over c1..c13)",0,,0.0000,12
-"Relabel / order stress (exact)",12,c15,"swap-maximize refinement of c1..c14 (strict improvements)",0,,0.0000,
-"Sparse Erdos-Renyi, avg degree 4",1,c1,"maximal matching",0,0,0.0000,0
-"Sparse Erdos-Renyi, avg degree 4",1,c2,"max-degree greedy",0,0,0.0000,0
-"Sparse Erdos-Renyi, avg degree 4",1,c3,"Hallelujah reduction",0,0,0.0000,0
-"Sparse Erdos-Renyi, avg degree 4",1,c4,"Min-to-Min",0,0,0.0000,0
-"Sparse Erdos-Renyi, avg degree 4",1,c5,"primal-dual",0,0,0.0000,0
-"Sparse Erdos-Renyi, avg degree 4",1,c6,"MIDS Baker reduction",0,0,0.0000,0
-"Sparse Erdos-Renyi, avg degree 4",1,c7,"union re-prune",0,0,0.0000,0
-"Sparse Erdos-Renyi, avg degree 4",1,c8,"bipartite planar reduction",0,0,0.0000,0
-"Sparse Erdos-Renyi, avg degree 4",1,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",0,0,0.0000,0
-"Sparse Erdos-Renyi, avg degree 4",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",0,0,0.0000,0
-"Sparse Erdos-Renyi, avg degree 4",1,c13,"bounded-treewidth exact DP",1,1,1.0000,1
-"Sparse Erdos-Renyi, avg degree 4",1,c9,"(1,2)-swap local search (strict improvements)",1,,1.0000,0
-"Sparse Erdos-Renyi, avg degree 4",1,c12,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c11 (strict improvements over c1..c11)",1,,1.0000,1
-"Sparse Erdos-Renyi, avg degree 4",1,c14,"consensus forcing: vertices in all/most of c1..c13 forced, rest re-solved (strict improvements over c1..c13)",0,,0.0000,1
-"Sparse Erdos-Renyi, avg degree 4",1,c15,"swap-maximize refinement of c1..c14 (strict improvements)",0,,0.0000,
-"Watts-Strogatz small-world",1,c1,"maximal matching",0,0,0.0000,0
-"Watts-Strogatz small-world",1,c2,"max-degree greedy",0,0,0.0000,0
-"Watts-Strogatz small-world",1,c3,"Hallelujah reduction",0,0,0.0000,0
-"Watts-Strogatz small-world",1,c4,"Min-to-Min",0,0,0.0000,0
-"Watts-Strogatz small-world",1,c5,"primal-dual",0,0,0.0000,0
-"Watts-Strogatz small-world",1,c6,"MIDS Baker reduction",0,0,0.0000,0
-"Watts-Strogatz small-world",1,c7,"union re-prune",0,0,0.0000,0
-"Watts-Strogatz small-world",1,c8,"bipartite planar reduction",0,0,0.0000,0
-"Watts-Strogatz small-world",1,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",0,0,0.0000,0
-"Watts-Strogatz small-world",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",0,0,0.0000,0
-"Watts-Strogatz small-world",1,c13,"bounded-treewidth exact DP",1,1,1.0000,1
-"Watts-Strogatz small-world",1,c9,"(1,2)-swap local search (strict improvements)",1,,1.0000,0
-"Watts-Strogatz small-world",1,c12,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c11 (strict improvements over c1..c11)",1,,1.0000,1
-"Watts-Strogatz small-world",1,c14,"consensus forcing: vertices in all/most of c1..c13 forced, rest re-solved (strict improvements over c1..c13)",0,,0.0000,1
-"Watts-Strogatz small-world",1,c15,"swap-maximize refinement of c1..c14 (strict improvements)",0,,0.0000,
-"ALL",297,c1,"maximal matching",251,0,0.8451,288
-"ALL",297,c2,"max-degree greedy",276,0,0.9293,286
-"ALL",297,c3,"Hallelujah reduction",265,0,0.8923,287
-"ALL",297,c4,"Min-to-Min",284,0,0.9562,288
-"ALL",297,c5,"primal-dual",251,0,0.8451,288
-"ALL",297,c6,"MIDS Baker reduction",264,0,0.8889,287
-"ALL",297,c7,"union re-prune",254,0,0.8552,290
-"ALL",297,c8,"bipartite planar reduction",284,0,0.9562,290
-"ALL",297,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",292,0,0.9832,292
-"ALL",297,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",292,0,0.9832,292
-"ALL",297,c13,"bounded-treewidth exact DP",297,5,1.0000,297
-"ALL",297,c9,"(1,2)-swap local search (strict improvements)",7,,0.0236,292
-"ALL",297,c12,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c11 (strict improvements over c1..c11)",5,,0.0168,297
-"ALL",297,c14,"consensus forcing: vertices in all/most of c1..c13 forced, rest re-solved (strict improvements over c1..c13)",0,,0.0000,297
-"ALL",297,c15,"swap-maximize refinement of c1..c14 (strict improvements)",0,,0.0000,
+group,instances,strategy,name,wins_or_improved,sole_wins,rate,total_gain,final_source
+"Barabasi-Albert scale-free hub graph",1,c1,"component amplification (indices 0/1) + NetworkX min maximal matching",0,0,0.0000,,0
+"Barabasi-Albert scale-free hub graph",1,c2,"maximal matching",0,0,0.0000,,0
+"Barabasi-Albert scale-free hub graph",1,c3,"max-degree greedy",0,0,0.0000,,0
+"Barabasi-Albert scale-free hub graph",1,c4,"Hallelujah reduction",0,0,0.0000,,0
+"Barabasi-Albert scale-free hub graph",1,c5,"Min-to-Min",0,0,0.0000,,0
+"Barabasi-Albert scale-free hub graph",1,c6,"primal-dual",0,0,0.0000,,0
+"Barabasi-Albert scale-free hub graph",1,c7,"MIDS Baker reduction",0,0,0.0000,,0
+"Barabasi-Albert scale-free hub graph",1,c8,"bipartite planar reduction",0,0,0.0000,,0
+"Barabasi-Albert scale-free hub graph",1,c9,"bipartite layers (bounded Hopcroft-Karp + Koenig per layer)",0,0,0.0000,,0
+"Barabasi-Albert scale-free hub graph",1,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",0,0,0.0000,,0
+"Barabasi-Albert scale-free hub graph",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",1,0,1.0000,,1
+"Barabasi-Albert scale-free hub graph",1,c12,"bounded-treewidth exact DP",1,0,1.0000,,1
+"Barabasi-Albert scale-free hub graph",1,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite) (strict improvements over c1..c9)",0,,0.0000,0,0
+"Barabasi-Albert scale-free hub graph",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling (strict improvements over c1..c10)",1,,1.0000,2,1
+"Barabasi-Albert scale-free hub graph",1,c12,"bounded-treewidth exact DP (strict improvements over c1..c11)",0,,0.0000,0,1
+"Barabasi-Albert scale-free hub graph",1,c13,"union re-prune of c2..c8 (strict improvements over c1..c12)",0,,0.0000,0,0
+"Barabasi-Albert scale-free hub graph",1,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",0,,0.0000,0,1
+"Barabasi-Albert scale-free hub graph",1,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",0,,0.0000,0,1
+"Barabasi-Albert scale-free hub graph",1,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",0,,0.0000,0,1
+"Barabasi-Albert scale-free hub graph",1,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",0,,0.0000,0,
+"Bipartite obstruction (exact)",1,c1,"component amplification (indices 0/1) + NetworkX min maximal matching",1,0,1.0000,,1
+"Bipartite obstruction (exact)",1,c2,"maximal matching",1,0,1.0000,,1
+"Bipartite obstruction (exact)",1,c3,"max-degree greedy",1,0,1.0000,,1
+"Bipartite obstruction (exact)",1,c4,"Hallelujah reduction",1,0,1.0000,,1
+"Bipartite obstruction (exact)",1,c5,"Min-to-Min",1,0,1.0000,,1
+"Bipartite obstruction (exact)",1,c6,"primal-dual",1,0,1.0000,,1
+"Bipartite obstruction (exact)",1,c7,"MIDS Baker reduction",1,0,1.0000,,1
+"Bipartite obstruction (exact)",1,c8,"bipartite planar reduction",1,0,1.0000,,1
+"Bipartite obstruction (exact)",1,c9,"bipartite layers (bounded Hopcroft-Karp + Koenig per layer)",1,0,1.0000,,1
+"Bipartite obstruction (exact)",1,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",1,0,1.0000,,1
+"Bipartite obstruction (exact)",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",1,0,1.0000,,1
+"Bipartite obstruction (exact)",1,c12,"bounded-treewidth exact DP",1,0,1.0000,,1
+"Bipartite obstruction (exact)",1,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite) (strict improvements over c1..c9)",0,,0.0000,0,1
+"Bipartite obstruction (exact)",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling (strict improvements over c1..c10)",0,,0.0000,0,1
+"Bipartite obstruction (exact)",1,c12,"bounded-treewidth exact DP (strict improvements over c1..c11)",0,,0.0000,0,1
+"Bipartite obstruction (exact)",1,c13,"union re-prune of c2..c8 (strict improvements over c1..c12)",0,,0.0000,0,1
+"Bipartite obstruction (exact)",1,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",0,,0.0000,0,1
+"Bipartite obstruction (exact)",1,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",0,,0.0000,0,1
+"Bipartite obstruction (exact)",1,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",0,,0.0000,0,1
+"Bipartite obstruction (exact)",1,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",0,,0.0000,0,
+"Complete bipartite (dense)",2,c1,"component amplification (indices 0/1) + NetworkX min maximal matching",2,0,1.0000,,2
+"Complete bipartite (dense)",2,c2,"maximal matching",2,0,1.0000,,2
+"Complete bipartite (dense)",2,c3,"max-degree greedy",2,0,1.0000,,2
+"Complete bipartite (dense)",2,c4,"Hallelujah reduction",2,0,1.0000,,2
+"Complete bipartite (dense)",2,c5,"Min-to-Min",2,0,1.0000,,2
+"Complete bipartite (dense)",2,c6,"primal-dual",2,0,1.0000,,2
+"Complete bipartite (dense)",2,c7,"MIDS Baker reduction",2,0,1.0000,,2
+"Complete bipartite (dense)",2,c8,"bipartite planar reduction",2,0,1.0000,,2
+"Complete bipartite (dense)",2,c9,"bipartite layers (bounded Hopcroft-Karp + Koenig per layer)",2,0,1.0000,,2
+"Complete bipartite (dense)",2,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",2,0,1.0000,,2
+"Complete bipartite (dense)",2,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",2,0,1.0000,,2
+"Complete bipartite (dense)",2,c12,"bounded-treewidth exact DP",2,0,1.0000,,2
+"Complete bipartite (dense)",2,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite) (strict improvements over c1..c9)",0,,0.0000,0,2
+"Complete bipartite (dense)",2,c11,"weighted subdivision reduction (bipartite) + reducing-peeling (strict improvements over c1..c10)",0,,0.0000,0,2
+"Complete bipartite (dense)",2,c12,"bounded-treewidth exact DP (strict improvements over c1..c11)",0,,0.0000,0,2
+"Complete bipartite (dense)",2,c13,"union re-prune of c2..c8 (strict improvements over c1..c12)",0,,0.0000,0,2
+"Complete bipartite (dense)",2,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",0,,0.0000,0,2
+"Complete bipartite (dense)",2,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",0,,0.0000,0,2
+"Complete bipartite (dense)",2,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",0,,0.0000,0,2
+"Complete bipartite (dense)",2,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",0,,0.0000,0,
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c1,"component amplification (indices 0/1) + NetworkX min maximal matching",2,0,1.0000,,2
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c2,"maximal matching",2,0,1.0000,,2
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c3,"max-degree greedy",2,0,1.0000,,2
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c4,"Hallelujah reduction",2,0,1.0000,,2
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c5,"Min-to-Min",2,0,1.0000,,2
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c6,"primal-dual",2,0,1.0000,,2
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c7,"MIDS Baker reduction",2,0,1.0000,,2
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c8,"bipartite planar reduction",2,0,1.0000,,2
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c9,"bipartite layers (bounded Hopcroft-Karp + Koenig per layer)",2,0,1.0000,,2
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",2,0,1.0000,,2
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",2,0,1.0000,,2
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c12,"bounded-treewidth exact DP",2,0,1.0000,,2
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite) (strict improvements over c1..c9)",0,,0.0000,0,2
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c11,"weighted subdivision reduction (bipartite) + reducing-peeling (strict improvements over c1..c10)",0,,0.0000,0,2
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c12,"bounded-treewidth exact DP (strict improvements over c1..c11)",0,,0.0000,0,2
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c13,"union re-prune of c2..c8 (strict improvements over c1..c12)",0,,0.0000,0,2
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",0,,0.0000,0,2
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",0,,0.0000,0,2
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",0,,0.0000,0,2
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",0,,0.0000,0,
+"Double star + bridge (matching-heuristic stress)",1,c1,"component amplification (indices 0/1) + NetworkX min maximal matching",1,0,1.0000,,1
+"Double star + bridge (matching-heuristic stress)",1,c2,"maximal matching",1,0,1.0000,,1
+"Double star + bridge (matching-heuristic stress)",1,c3,"max-degree greedy",1,0,1.0000,,1
+"Double star + bridge (matching-heuristic stress)",1,c4,"Hallelujah reduction",1,0,1.0000,,1
+"Double star + bridge (matching-heuristic stress)",1,c5,"Min-to-Min",1,0,1.0000,,1
+"Double star + bridge (matching-heuristic stress)",1,c6,"primal-dual",1,0,1.0000,,1
+"Double star + bridge (matching-heuristic stress)",1,c7,"MIDS Baker reduction",1,0,1.0000,,1
+"Double star + bridge (matching-heuristic stress)",1,c8,"bipartite planar reduction",1,0,1.0000,,1
+"Double star + bridge (matching-heuristic stress)",1,c9,"bipartite layers (bounded Hopcroft-Karp + Koenig per layer)",1,0,1.0000,,1
+"Double star + bridge (matching-heuristic stress)",1,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",1,0,1.0000,,1
+"Double star + bridge (matching-heuristic stress)",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",1,0,1.0000,,1
+"Double star + bridge (matching-heuristic stress)",1,c12,"bounded-treewidth exact DP",1,0,1.0000,,1
+"Double star + bridge (matching-heuristic stress)",1,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite) (strict improvements over c1..c9)",0,,0.0000,0,1
+"Double star + bridge (matching-heuristic stress)",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling (strict improvements over c1..c10)",0,,0.0000,0,1
+"Double star + bridge (matching-heuristic stress)",1,c12,"bounded-treewidth exact DP (strict improvements over c1..c11)",0,,0.0000,0,1
+"Double star + bridge (matching-heuristic stress)",1,c13,"union re-prune of c2..c8 (strict improvements over c1..c12)",0,,0.0000,0,1
+"Double star + bridge (matching-heuristic stress)",1,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",0,,0.0000,0,1
+"Double star + bridge (matching-heuristic stress)",1,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",0,,0.0000,0,1
+"Double star + bridge (matching-heuristic stress)",1,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",0,,0.0000,0,1
+"Double star + bridge (matching-heuristic stress)",1,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",0,,0.0000,0,
+"Graph atlas n<=7",202,c1,"component amplification (indices 0/1) + NetworkX min maximal matching",201,0,0.9950,,202
+"Graph atlas n<=7",202,c2,"maximal matching",181,0,0.8960,,202
+"Graph atlas n<=7",202,c3,"max-degree greedy",198,0,0.9802,,202
+"Graph atlas n<=7",202,c4,"Hallelujah reduction",195,0,0.9653,,202
+"Graph atlas n<=7",202,c5,"Min-to-Min",200,0,0.9901,,202
+"Graph atlas n<=7",202,c6,"primal-dual",181,0,0.8960,,202
+"Graph atlas n<=7",202,c7,"MIDS Baker reduction",195,0,0.9653,,202
+"Graph atlas n<=7",202,c8,"bipartite planar reduction",200,0,0.9901,,202
+"Graph atlas n<=7",202,c9,"bipartite layers (bounded Hopcroft-Karp + Koenig per layer)",199,0,0.9851,,202
+"Graph atlas n<=7",202,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",202,0,1.0000,,202
+"Graph atlas n<=7",202,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",202,0,1.0000,,202
+"Graph atlas n<=7",202,c12,"bounded-treewidth exact DP",202,0,1.0000,,202
+"Graph atlas n<=7",202,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite) (strict improvements over c1..c9)",0,,0.0000,0,202
+"Graph atlas n<=7",202,c11,"weighted subdivision reduction (bipartite) + reducing-peeling (strict improvements over c1..c10)",0,,0.0000,0,202
+"Graph atlas n<=7",202,c12,"bounded-treewidth exact DP (strict improvements over c1..c11)",0,,0.0000,0,202
+"Graph atlas n<=7",202,c13,"union re-prune of c2..c8 (strict improvements over c1..c12)",0,,0.0000,0,202
+"Graph atlas n<=7",202,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",0,,0.0000,0,202
+"Graph atlas n<=7",202,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",0,,0.0000,0,202
+"Graph atlas n<=7",202,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",0,,0.0000,0,202
+"Graph atlas n<=7",202,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",0,,0.0000,0,
+"Grids, bipartite (exact)",16,c1,"component amplification (indices 0/1) + NetworkX min maximal matching",10,0,0.6250,,16
+"Grids, bipartite (exact)",16,c2,"maximal matching",16,0,1.0000,,16
+"Grids, bipartite (exact)",16,c3,"max-degree greedy",12,0,0.7500,,13
+"Grids, bipartite (exact)",16,c4,"Hallelujah reduction",9,0,0.5625,,13
+"Grids, bipartite (exact)",16,c5,"Min-to-Min",14,0,0.8750,,15
+"Grids, bipartite (exact)",16,c6,"primal-dual",16,0,1.0000,,16
+"Grids, bipartite (exact)",16,c7,"MIDS Baker reduction",9,0,0.5625,,13
+"Grids, bipartite (exact)",16,c8,"bipartite planar reduction",14,0,0.8750,,15
+"Grids, bipartite (exact)",16,c9,"bipartite layers (bounded Hopcroft-Karp + Koenig per layer)",16,0,1.0000,,16
+"Grids, bipartite (exact)",16,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",16,0,1.0000,,16
+"Grids, bipartite (exact)",16,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",16,0,1.0000,,16
+"Grids, bipartite (exact)",16,c12,"bounded-treewidth exact DP",16,0,1.0000,,16
+"Grids, bipartite (exact)",16,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite) (strict improvements over c1..c9)",0,,0.0000,0,16
+"Grids, bipartite (exact)",16,c11,"weighted subdivision reduction (bipartite) + reducing-peeling (strict improvements over c1..c10)",0,,0.0000,0,16
+"Grids, bipartite (exact)",16,c12,"bounded-treewidth exact DP (strict improvements over c1..c11)",0,,0.0000,0,16
+"Grids, bipartite (exact)",16,c13,"union re-prune of c2..c8 (strict improvements over c1..c12)",0,,0.0000,0,16
+"Grids, bipartite (exact)",16,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",0,,0.0000,0,16
+"Grids, bipartite (exact)",16,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",0,,0.0000,0,16
+"Grids, bipartite (exact)",16,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",0,,0.0000,0,16
+"Grids, bipartite (exact)",16,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",0,,0.0000,0,
+"Random 12-regular (bounded-degree adversarial)",1,c1,"component amplification (indices 0/1) + NetworkX min maximal matching",0,0,0.0000,,0
+"Random 12-regular (bounded-degree adversarial)",1,c2,"maximal matching",0,0,0.0000,,0
+"Random 12-regular (bounded-degree adversarial)",1,c3,"max-degree greedy",0,0,0.0000,,0
+"Random 12-regular (bounded-degree adversarial)",1,c4,"Hallelujah reduction",0,0,0.0000,,0
+"Random 12-regular (bounded-degree adversarial)",1,c5,"Min-to-Min",0,0,0.0000,,0
+"Random 12-regular (bounded-degree adversarial)",1,c6,"primal-dual",0,0,0.0000,,0
+"Random 12-regular (bounded-degree adversarial)",1,c7,"MIDS Baker reduction",0,0,0.0000,,0
+"Random 12-regular (bounded-degree adversarial)",1,c8,"bipartite planar reduction",0,0,0.0000,,0
+"Random 12-regular (bounded-degree adversarial)",1,c9,"bipartite layers (bounded Hopcroft-Karp + Koenig per layer)",0,0,0.0000,,0
+"Random 12-regular (bounded-degree adversarial)",1,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",0,0,0.0000,,0
+"Random 12-regular (bounded-degree adversarial)",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",1,0,1.0000,,0
+"Random 12-regular (bounded-degree adversarial)",1,c12,"bounded-treewidth exact DP",1,0,1.0000,,0
+"Random 12-regular (bounded-degree adversarial)",1,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite) (strict improvements over c1..c9)",0,,0.0000,0,0
+"Random 12-regular (bounded-degree adversarial)",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling (strict improvements over c1..c10)",1,,1.0000,16,0
+"Random 12-regular (bounded-degree adversarial)",1,c12,"bounded-treewidth exact DP (strict improvements over c1..c11)",0,,0.0000,0,0
+"Random 12-regular (bounded-degree adversarial)",1,c13,"union re-prune of c2..c8 (strict improvements over c1..c12)",0,,0.0000,0,0
+"Random 12-regular (bounded-degree adversarial)",1,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",1,,1.0000,49,0
+"Random 12-regular (bounded-degree adversarial)",1,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",1,,1.0000,10,1
+"Random 12-regular (bounded-degree adversarial)",1,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",0,,0.0000,0,1
+"Random 12-regular (bounded-degree adversarial)",1,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",0,,0.0000,0,
+"Random 3-regular (bounded-degree adversarial)",1,c1,"component amplification (indices 0/1) + NetworkX min maximal matching",0,0,0.0000,,0
+"Random 3-regular (bounded-degree adversarial)",1,c2,"maximal matching",0,0,0.0000,,0
+"Random 3-regular (bounded-degree adversarial)",1,c3,"max-degree greedy",0,0,0.0000,,0
+"Random 3-regular (bounded-degree adversarial)",1,c4,"Hallelujah reduction",0,0,0.0000,,0
+"Random 3-regular (bounded-degree adversarial)",1,c5,"Min-to-Min",0,0,0.0000,,0
+"Random 3-regular (bounded-degree adversarial)",1,c6,"primal-dual",0,0,0.0000,,0
+"Random 3-regular (bounded-degree adversarial)",1,c7,"MIDS Baker reduction",0,0,0.0000,,0
+"Random 3-regular (bounded-degree adversarial)",1,c8,"bipartite planar reduction",0,0,0.0000,,0
+"Random 3-regular (bounded-degree adversarial)",1,c9,"bipartite layers (bounded Hopcroft-Karp + Koenig per layer)",0,0,0.0000,,0
+"Random 3-regular (bounded-degree adversarial)",1,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",0,0,0.0000,,0
+"Random 3-regular (bounded-degree adversarial)",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",0,0,0.0000,,0
+"Random 3-regular (bounded-degree adversarial)",1,c12,"bounded-treewidth exact DP",1,1,1.0000,,0
+"Random 3-regular (bounded-degree adversarial)",1,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite) (strict improvements over c1..c9)",0,,0.0000,0,0
+"Random 3-regular (bounded-degree adversarial)",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling (strict improvements over c1..c10)",1,,1.0000,66,0
+"Random 3-regular (bounded-degree adversarial)",1,c12,"bounded-treewidth exact DP (strict improvements over c1..c11)",1,,1.0000,1,0
+"Random 3-regular (bounded-degree adversarial)",1,c13,"union re-prune of c2..c8 (strict improvements over c1..c12)",0,,0.0000,0,0
+"Random 3-regular (bounded-degree adversarial)",1,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",1,,1.0000,6,0
+"Random 3-regular (bounded-degree adversarial)",1,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",1,,1.0000,4,1
+"Random 3-regular (bounded-degree adversarial)",1,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",0,,0.0000,0,1
+"Random 3-regular (bounded-degree adversarial)",1,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",0,,0.0000,0,
+"Random 6-regular (bounded-degree adversarial)",1,c1,"component amplification (indices 0/1) + NetworkX min maximal matching",0,0,0.0000,,0
+"Random 6-regular (bounded-degree adversarial)",1,c2,"maximal matching",0,0,0.0000,,0
+"Random 6-regular (bounded-degree adversarial)",1,c3,"max-degree greedy",0,0,0.0000,,0
+"Random 6-regular (bounded-degree adversarial)",1,c4,"Hallelujah reduction",0,0,0.0000,,0
+"Random 6-regular (bounded-degree adversarial)",1,c5,"Min-to-Min",0,0,0.0000,,0
+"Random 6-regular (bounded-degree adversarial)",1,c6,"primal-dual",0,0,0.0000,,0
+"Random 6-regular (bounded-degree adversarial)",1,c7,"MIDS Baker reduction",0,0,0.0000,,0
+"Random 6-regular (bounded-degree adversarial)",1,c8,"bipartite planar reduction",0,0,0.0000,,0
+"Random 6-regular (bounded-degree adversarial)",1,c9,"bipartite layers (bounded Hopcroft-Karp + Koenig per layer)",0,0,0.0000,,0
+"Random 6-regular (bounded-degree adversarial)",1,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",0,0,0.0000,,0
+"Random 6-regular (bounded-degree adversarial)",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",1,0,1.0000,,0
+"Random 6-regular (bounded-degree adversarial)",1,c12,"bounded-treewidth exact DP",1,0,1.0000,,0
+"Random 6-regular (bounded-degree adversarial)",1,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite) (strict improvements over c1..c9)",0,,0.0000,0,0
+"Random 6-regular (bounded-degree adversarial)",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling (strict improvements over c1..c10)",1,,1.0000,23,0
+"Random 6-regular (bounded-degree adversarial)",1,c12,"bounded-treewidth exact DP (strict improvements over c1..c11)",0,,0.0000,0,0
+"Random 6-regular (bounded-degree adversarial)",1,c13,"union re-prune of c2..c8 (strict improvements over c1..c12)",0,,0.0000,0,0
+"Random 6-regular (bounded-degree adversarial)",1,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",1,,1.0000,52,0
+"Random 6-regular (bounded-degree adversarial)",1,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",1,,1.0000,6,1
+"Random 6-regular (bounded-degree adversarial)",1,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",0,,0.0000,0,1
+"Random 6-regular (bounded-degree adversarial)",1,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",0,,0.0000,0,
+"Random bipartite (exact)",25,c1,"component amplification (indices 0/1) + NetworkX min maximal matching",21,0,0.8400,,24
+"Random bipartite (exact)",25,c2,"maximal matching",18,0,0.7200,,25
+"Random bipartite (exact)",25,c3,"max-degree greedy",21,0,0.8400,,25
+"Random bipartite (exact)",25,c4,"Hallelujah reduction",20,0,0.8000,,25
+"Random bipartite (exact)",25,c5,"Min-to-Min",25,0,1.0000,,25
+"Random bipartite (exact)",25,c6,"primal-dual",18,0,0.7200,,25
+"Random bipartite (exact)",25,c7,"MIDS Baker reduction",21,0,0.8400,,24
+"Random bipartite (exact)",25,c8,"bipartite planar reduction",25,0,1.0000,,25
+"Random bipartite (exact)",25,c9,"bipartite layers (bounded Hopcroft-Karp + Koenig per layer)",25,0,1.0000,,25
+"Random bipartite (exact)",25,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",25,0,1.0000,,25
+"Random bipartite (exact)",25,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",25,0,1.0000,,25
+"Random bipartite (exact)",25,c12,"bounded-treewidth exact DP",25,0,1.0000,,25
+"Random bipartite (exact)",25,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite) (strict improvements over c1..c9)",0,,0.0000,0,25
+"Random bipartite (exact)",25,c11,"weighted subdivision reduction (bipartite) + reducing-peeling (strict improvements over c1..c10)",0,,0.0000,0,25
+"Random bipartite (exact)",25,c12,"bounded-treewidth exact DP (strict improvements over c1..c11)",0,,0.0000,0,25
+"Random bipartite (exact)",25,c13,"union re-prune of c2..c8 (strict improvements over c1..c12)",0,,0.0000,0,25
+"Random bipartite (exact)",25,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",0,,0.0000,0,25
+"Random bipartite (exact)",25,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",0,,0.0000,0,25
+"Random bipartite (exact)",25,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",0,,0.0000,0,25
+"Random bipartite (exact)",25,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",0,,0.0000,0,
+"Random general (exact, n<=12)",30,c1,"component amplification (indices 0/1) + NetworkX min maximal matching",27,0,0.9000,,28
+"Random general (exact, n<=12)",30,c2,"maximal matching",18,0,0.6000,,27
+"Random general (exact, n<=12)",30,c3,"max-degree greedy",27,0,0.9000,,28
+"Random general (exact, n<=12)",30,c4,"Hallelujah reduction",24,0,0.8000,,29
+"Random general (exact, n<=12)",30,c5,"Min-to-Min",27,0,0.9000,,28
+"Random general (exact, n<=12)",30,c6,"primal-dual",18,0,0.6000,,27
+"Random general (exact, n<=12)",30,c7,"MIDS Baker reduction",24,0,0.8000,,30
+"Random general (exact, n<=12)",30,c8,"bipartite planar reduction",27,0,0.9000,,30
+"Random general (exact, n<=12)",30,c9,"bipartite layers (bounded Hopcroft-Karp + Koenig per layer)",29,0,0.9667,,30
+"Random general (exact, n<=12)",30,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",30,0,1.0000,,30
+"Random general (exact, n<=12)",30,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",30,0,1.0000,,30
+"Random general (exact, n<=12)",30,c12,"bounded-treewidth exact DP",30,0,1.0000,,30
+"Random general (exact, n<=12)",30,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite) (strict improvements over c1..c9)",0,,0.0000,0,30
+"Random general (exact, n<=12)",30,c11,"weighted subdivision reduction (bipartite) + reducing-peeling (strict improvements over c1..c10)",0,,0.0000,0,30
+"Random general (exact, n<=12)",30,c12,"bounded-treewidth exact DP (strict improvements over c1..c11)",0,,0.0000,0,30
+"Random general (exact, n<=12)",30,c13,"union re-prune of c2..c8 (strict improvements over c1..c12)",0,,0.0000,0,29
+"Random general (exact, n<=12)",30,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",0,,0.0000,0,30
+"Random general (exact, n<=12)",30,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",0,,0.0000,0,30
+"Random general (exact, n<=12)",30,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",0,,0.0000,0,30
+"Random general (exact, n<=12)",30,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",0,,0.0000,0,
+"Relabel / order stress (exact)",12,c1,"component amplification (indices 0/1) + NetworkX min maximal matching",10,0,0.8333,,12
+"Relabel / order stress (exact)",12,c2,"maximal matching",12,0,1.0000,,12
+"Relabel / order stress (exact)",12,c3,"max-degree greedy",12,0,1.0000,,12
+"Relabel / order stress (exact)",12,c4,"Hallelujah reduction",11,0,0.9167,,12
+"Relabel / order stress (exact)",12,c5,"Min-to-Min",12,0,1.0000,,12
+"Relabel / order stress (exact)",12,c6,"primal-dual",12,0,1.0000,,12
+"Relabel / order stress (exact)",12,c7,"MIDS Baker reduction",9,0,0.7500,,12
+"Relabel / order stress (exact)",12,c8,"bipartite planar reduction",12,0,1.0000,,12
+"Relabel / order stress (exact)",12,c9,"bipartite layers (bounded Hopcroft-Karp + Koenig per layer)",12,0,1.0000,,12
+"Relabel / order stress (exact)",12,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",12,0,1.0000,,12
+"Relabel / order stress (exact)",12,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",12,0,1.0000,,12
+"Relabel / order stress (exact)",12,c12,"bounded-treewidth exact DP",12,0,1.0000,,12
+"Relabel / order stress (exact)",12,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite) (strict improvements over c1..c9)",0,,0.0000,0,12
+"Relabel / order stress (exact)",12,c11,"weighted subdivision reduction (bipartite) + reducing-peeling (strict improvements over c1..c10)",0,,0.0000,0,12
+"Relabel / order stress (exact)",12,c12,"bounded-treewidth exact DP (strict improvements over c1..c11)",0,,0.0000,0,12
+"Relabel / order stress (exact)",12,c13,"union re-prune of c2..c8 (strict improvements over c1..c12)",0,,0.0000,0,12
+"Relabel / order stress (exact)",12,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",0,,0.0000,0,12
+"Relabel / order stress (exact)",12,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",0,,0.0000,0,12
+"Relabel / order stress (exact)",12,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",0,,0.0000,0,12
+"Relabel / order stress (exact)",12,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",0,,0.0000,0,
+"Sparse Erdos-Renyi, avg degree 4",1,c1,"component amplification (indices 0/1) + NetworkX min maximal matching",0,0,0.0000,,0
+"Sparse Erdos-Renyi, avg degree 4",1,c2,"maximal matching",0,0,0.0000,,0
+"Sparse Erdos-Renyi, avg degree 4",1,c3,"max-degree greedy",0,0,0.0000,,0
+"Sparse Erdos-Renyi, avg degree 4",1,c4,"Hallelujah reduction",0,0,0.0000,,0
+"Sparse Erdos-Renyi, avg degree 4",1,c5,"Min-to-Min",0,0,0.0000,,0
+"Sparse Erdos-Renyi, avg degree 4",1,c6,"primal-dual",0,0,0.0000,,0
+"Sparse Erdos-Renyi, avg degree 4",1,c7,"MIDS Baker reduction",0,0,0.0000,,0
+"Sparse Erdos-Renyi, avg degree 4",1,c8,"bipartite planar reduction",0,0,0.0000,,0
+"Sparse Erdos-Renyi, avg degree 4",1,c9,"bipartite layers (bounded Hopcroft-Karp + Koenig per layer)",0,0,0.0000,,0
+"Sparse Erdos-Renyi, avg degree 4",1,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",0,0,0.0000,,0
+"Sparse Erdos-Renyi, avg degree 4",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",1,0,1.0000,,0
+"Sparse Erdos-Renyi, avg degree 4",1,c12,"bounded-treewidth exact DP",1,0,1.0000,,0
+"Sparse Erdos-Renyi, avg degree 4",1,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite) (strict improvements over c1..c9)",0,,0.0000,0,0
+"Sparse Erdos-Renyi, avg degree 4",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling (strict improvements over c1..c10)",1,,1.0000,40,0
+"Sparse Erdos-Renyi, avg degree 4",1,c12,"bounded-treewidth exact DP (strict improvements over c1..c11)",0,,0.0000,0,0
+"Sparse Erdos-Renyi, avg degree 4",1,c13,"union re-prune of c2..c8 (strict improvements over c1..c12)",0,,0.0000,0,0
+"Sparse Erdos-Renyi, avg degree 4",1,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",1,,1.0000,2,0
+"Sparse Erdos-Renyi, avg degree 4",1,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",1,,1.0000,1,1
+"Sparse Erdos-Renyi, avg degree 4",1,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",0,,0.0000,0,1
+"Sparse Erdos-Renyi, avg degree 4",1,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",0,,0.0000,0,
+"Watts-Strogatz small-world",1,c1,"component amplification (indices 0/1) + NetworkX min maximal matching",0,0,0.0000,,0
+"Watts-Strogatz small-world",1,c2,"maximal matching",0,0,0.0000,,0
+"Watts-Strogatz small-world",1,c3,"max-degree greedy",0,0,0.0000,,0
+"Watts-Strogatz small-world",1,c4,"Hallelujah reduction",0,0,0.0000,,0
+"Watts-Strogatz small-world",1,c5,"Min-to-Min",0,0,0.0000,,0
+"Watts-Strogatz small-world",1,c6,"primal-dual",0,0,0.0000,,0
+"Watts-Strogatz small-world",1,c7,"MIDS Baker reduction",0,0,0.0000,,0
+"Watts-Strogatz small-world",1,c8,"bipartite planar reduction",0,0,0.0000,,0
+"Watts-Strogatz small-world",1,c9,"bipartite layers (bounded Hopcroft-Karp + Koenig per layer)",0,0,0.0000,,0
+"Watts-Strogatz small-world",1,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",0,0,0.0000,,0
+"Watts-Strogatz small-world",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",0,0,0.0000,,0
+"Watts-Strogatz small-world",1,c12,"bounded-treewidth exact DP",1,1,1.0000,,0
+"Watts-Strogatz small-world",1,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite) (strict improvements over c1..c9)",0,,0.0000,0,0
+"Watts-Strogatz small-world",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling (strict improvements over c1..c10)",1,,1.0000,36,0
+"Watts-Strogatz small-world",1,c12,"bounded-treewidth exact DP (strict improvements over c1..c11)",1,,1.0000,2,0
+"Watts-Strogatz small-world",1,c13,"union re-prune of c2..c8 (strict improvements over c1..c12)",0,,0.0000,0,0
+"Watts-Strogatz small-world",1,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",1,,1.0000,24,0
+"Watts-Strogatz small-world",1,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",1,,1.0000,4,1
+"Watts-Strogatz small-world",1,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",0,,0.0000,0,1
+"Watts-Strogatz small-world",1,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",0,,0.0000,0,
+"ALL",297,c1,"component amplification (indices 0/1) + NetworkX min maximal matching",275,0,0.9259,,288
+"ALL",297,c2,"maximal matching",251,0,0.8451,,288
+"ALL",297,c3,"max-degree greedy",276,0,0.9293,,286
+"ALL",297,c4,"Hallelujah reduction",265,0,0.8923,,287
+"ALL",297,c5,"Min-to-Min",284,0,0.9562,,288
+"ALL",297,c6,"primal-dual",251,0,0.8451,,288
+"ALL",297,c7,"MIDS Baker reduction",264,0,0.8889,,287
+"ALL",297,c8,"bipartite planar reduction",284,0,0.9562,,290
+"ALL",297,c9,"bipartite layers (bounded Hopcroft-Karp + Koenig per layer)",287,0,0.9663,,291
+"ALL",297,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",291,0,0.9798,,291
+"ALL",297,c11,"weighted subdivision reduction (bipartite) + reducing-peeling",295,0,0.9933,,292
+"ALL",297,c12,"bounded-treewidth exact DP",297,2,1.0000,,292
+"ALL",297,c10,"labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite) (strict improvements over c1..c9)",0,,0.0000,0,291
+"ALL",297,c11,"weighted subdivision reduction (bipartite) + reducing-peeling (strict improvements over c1..c10)",6,,0.0202,183,292
+"ALL",297,c12,"bounded-treewidth exact DP (strict improvements over c1..c11)",2,,0.0067,3,292
+"ALL",297,c13,"union re-prune of c2..c8 (strict improvements over c1..c12)",0,,0.0000,0,290
+"ALL",297,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",5,,0.0168,133,292
+"ALL",297,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",5,,0.0168,25,297
+"ALL",297,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",0,,0.0000,0,297
+"ALL",297,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",0,,0.0000,0,

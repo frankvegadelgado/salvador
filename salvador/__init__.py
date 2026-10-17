@@ -9,6 +9,7 @@ __all__ = [
     "applogger",
     "baker_ptas",
     "batch",
+    "bipartite_peel",
     "bipartite_reduction",
     "component_split",
     "consensus_force",

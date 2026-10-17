@@ -1,6 +1,6 @@
 """car/ scaling study: does the running time of Salvador grow linearly in n + m?
 
-The paper proves that every strategy c1..c15 runs in worst-case O(n + m) time
+Every strategy c1..c17 runs in worst-case linear time
 with the default budgets (Theorem "runtime"). This script measures it. For
 every graph family it builds graphs of doubling size, n = n0, 2 n0, 4 n0, ...,
 times the default call of Salvador (final_candidates, the call behind
@@ -17,16 +17,17 @@ effects); quadratic time would give b = 2. The script reports, per family:
   roughly constant for a linear algorithm;
 * the doubling ratios t(2s) / t(s), which stay near 2 for a linear algorithm
   (4 would mean quadratic);
-* the same slope for every strategy separately (c1..c5 together, c6, c8, c9,
-  c10, c11, c12, c13, c14, c15, pruning and the rest), so a super-linear piece
-  would be visible even if it is small.
+* the same slope for every strategy separately (c1, c2..c6 together, c7, c8,
+  c9, c10, c11, c12, c14, c15, c16, c17, pruning -- which includes the union
+  re-prune c13 -- and the rest), so a super-linear piece would be visible even
+  if it is small.
 
 Measuring the strategies separately
 -----------------------------------
 The breakdown wraps the public functions that the ensemble calls (results are
 unchanged; only time is recorded). Time is charged to the *outermost* wrapped
-call: the swap searches and reduction passes that c12 runs internally are
-charged to c12, not to c9 and c11. Everything not wrapped (cleaning the
+call: the swap searches and reduction passes that c15 runs internally are
+charged to c15, not to c14 and c11, and the pruning inside c1 and c9 to them. Everything not wrapped (cleaning the
 graph, building adjacency maps, comparisons) is "rest". The breakdown run is
 a second call on the same graph; the headline total is the first, unwrapped
 call. Use --no-breakdown to skip it.
@@ -86,7 +87,7 @@ FAMILIES: dict[str, str] = {
     "tf4": "Random triangle-free process, avg degree 4",
 }
 
-PIECES = ("c1-c5", "c6", "c8", "c9", "c10", "c11", "c12", "c13", "c14", "c15", "prune", "rest")
+PIECES = ("c1", "c2-c6", "c7", "c8", "c9", "c10", "c11", "c12", "c14", "c15", "c16", "c17", "prune", "rest")
 
 
 # ----------------------------------------------------------------------------
@@ -174,17 +175,19 @@ def install() -> None:
                           subdivision_reduction, treewidth_dp, vc_reduction)
     for name in ("maximal_matching_vertex_cover", "bucket_degree_greedy", "covering_via_reduction_max_degree_1",
                  "min_to_min_vertex_cover_linear", "linear_min_weighted_vertex_cover"):
-        setattr(algorithm, name, _timed("c1-c5", getattr(algorithm, name)))
+        setattr(algorithm, name, _timed("c2-c6", getattr(algorithm, name)))
     algorithm.prune_redundant_vertices = _timed("prune", algorithm.prune_redundant_vertices)
-    algorithm.refine_cover = _timed("c15", algorithm.refine_cover)
-    vc_reduction.solve_vc = _timed("c6", vc_reduction.solve_vc)
+    algorithm.c1_cover = _timed("c1", algorithm.c1_cover)  # its pruning is charged to c1 (outermost)
+    vc_reduction.solve_vc = _timed("c7", vc_reduction.solve_vc)
     bipartite_reduction.bipartite_planar_covers = _timed("c8", bipartite_reduction.bipartite_planar_covers)
-    local_search.improve_vertex_cover = _timed("c9", local_search.improve_vertex_cover)
+    algorithm.c9_cover = _timed("c9", algorithm.c9_cover)
     eds_treewidth.eds_treewidth_cover = _timed("c10", eds_treewidth.eds_treewidth_cover)
     subdivision_reduction.subdivision_covers = _timed("c11", subdivision_reduction.subdivision_covers)
-    reduce_search.reduce_search_cover = _timed("c12", reduce_search.reduce_search_cover)
-    treewidth_dp.treewidth_vertex_cover = _timed("c13", treewidth_dp.treewidth_vertex_cover)
-    consensus_force.consensus_force_cover = _timed("c14", consensus_force.consensus_force_cover)
+    treewidth_dp.treewidth_vertex_cover = _timed("c12", treewidth_dp.treewidth_vertex_cover)
+    local_search.improve_vertex_cover = _timed("c14", local_search.improve_vertex_cover)
+    reduce_search.reduce_search_cover = _timed("c15", reduce_search.reduce_search_cover)
+    consensus_force.consensus_force_cover = _timed("c16", consensus_force.consensus_force_cover)
+    algorithm.refine_cover = _timed("c17", algorithm.refine_cover)
     _installed = True
 
 
@@ -192,7 +195,7 @@ def install() -> None:
 # One instance (runs in the worker process)
 # ----------------------------------------------------------------------------
 def _job(family: str, n_target: int, reps: int, breakdown: bool) -> dict:
-    from salvador.algorithm import final_candidates
+    from salvador.algorithm import FINAL_NAME, final_candidates
 
     rng = cc.instance_rng(SEED, f"{family}_{n_target}")
     t0 = time.perf_counter()
@@ -207,7 +210,7 @@ def _job(family: str, n_target: int, reps: int, breakdown: bool) -> dict:
         t0 = time.perf_counter()
         cands = final_candidates(G, epsilon=cc.DEFAULT_EPSILON)
         times.append(time.perf_counter() - t0)
-        cover = cands["c15"]
+        cover = cands[FINAL_NAME]
     if not all(u in cover or v in cover for u, v in G.edges()):
         raise AssertionError(f"{family} n={n}: invalid cover")
 

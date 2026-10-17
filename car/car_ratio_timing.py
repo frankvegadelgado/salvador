@@ -4,16 +4,18 @@ Runs exactly the Part A sweep of car_ratio.py (same instances, same seed, same
 hill climb) and times every piece of each find_vertex_cover call without
 changing its result:
 
-* c6   -- vc_reduction.solve_vc (Baker PTAS reduction)
+* c1   -- algorithm.c1_cover (component amplification, indices 0/1)
+* c7   -- vc_reduction.solve_vc (Baker PTAS reduction)
 * c8   -- bipartite_reduction.bipartite_planar_covers
-* c9   -- local_search.improve_vertex_cover
+* c9   -- algorithm.c9_cover (bipartite layers, bounded Hopcroft-Karp + Koenig)
 * c10  -- eds_treewidth.eds_treewidth_cover (EDS gadget, min-degree order, bags <= 6)
 * c11  -- subdivision_reduction.subdivision_vertex_cover (weighted subdivision)
-* c12  -- reduce_search.reduce_search_cover (ILS + exact reductions)
-* c13  -- treewidth_dp.treewidth_vertex_cover
-* c14  -- consensus_force.consensus_force_cover (consensus forcing)
-* c15  -- refine_cover (all calls of one find_vertex_cover)
-* rest -- everything else inside find_vertex_cover (c1..c5, c7, pruning)
+* c12  -- treewidth_dp.treewidth_vertex_cover
+* c14  -- local_search.improve_vertex_cover (also the searches inside c15)
+* c15  -- reduce_search.reduce_search_cover (ILS + exact reductions)
+* c16  -- consensus_force.consensus_force_cover (consensus forcing)
+* c17  -- refine_cover (all calls of one find_vertex_cover)
+* rest -- everything else inside find_vertex_cover (c2..c6, c13, pruning)
 * exact -- car_common.exact_vertex_cover_size (the exact optimum, not Salvador)
 
 Run from the repository root:
@@ -39,7 +41,7 @@ from salvador import (algorithm, bipartite_reduction, consensus_force, eds_treew
                       subdivision_reduction,
                       treewidth_dp, vc_reduction)
 
-PIECES = ("c6", "c8", "c9", "c10", "c11", "c12", "c13", "c14", "c15")
+PIECES = ("c1", "c7", "c8", "c9", "c10", "c11", "c12", "c14", "c15", "c16", "c17")
 _current: dict[str, float] = {}
 
 
@@ -55,16 +57,18 @@ def _timed(piece: str, fn):
 
 def install() -> None:
     """Wrap the pieces in place (results are unchanged; only time is recorded)."""
-    vc_reduction.solve_vc = _timed("c6", vc_reduction.solve_vc)
+    algorithm.c1_cover = _timed("c1", algorithm.c1_cover)
+    vc_reduction.solve_vc = _timed("c7", vc_reduction.solve_vc)
     bipartite_reduction.bipartite_planar_covers = _timed("c8", bipartite_reduction.bipartite_planar_covers)
-    local_search.improve_vertex_cover = _timed("c9", local_search.improve_vertex_cover)
+    algorithm.c9_cover = _timed("c9", algorithm.c9_cover)
     eds_treewidth.eds_treewidth_cover = _timed("c10", eds_treewidth.eds_treewidth_cover)
     subdivision_reduction.subdivision_vertex_cover = _timed(
         "c11", subdivision_reduction.subdivision_vertex_cover)
-    reduce_search.reduce_search_cover = _timed("c12", reduce_search.reduce_search_cover)
-    treewidth_dp.treewidth_vertex_cover = _timed("c13", treewidth_dp.treewidth_vertex_cover)
-    consensus_force.consensus_force_cover = _timed("c14", consensus_force.consensus_force_cover)
-    algorithm.refine_cover = _timed("c15", algorithm.refine_cover)
+    treewidth_dp.treewidth_vertex_cover = _timed("c12", treewidth_dp.treewidth_vertex_cover)
+    local_search.improve_vertex_cover = _timed("c14", local_search.improve_vertex_cover)
+    reduce_search.reduce_search_cover = _timed("c15", reduce_search.reduce_search_cover)
+    consensus_force.consensus_force_cover = _timed("c16", consensus_force.consensus_force_cover)
+    algorithm.refine_cover = _timed("c17", algorithm.refine_cover)
 
 
 def main() -> None:
@@ -118,10 +122,10 @@ def main() -> None:
         print(f"{k:10} {totals[k]:>10.2f} {share:>6.1%}")
     slow = sorted(rows, key=lambda r: r["salvador"], reverse=True)[:15]
     print("\nSlowest find_vertex_cover calls")
-    print(f"{'#':>5} {'n':>4} {'m':>5} {'total':>8} {'c10':>8} {'c11':>8} {'c12':>8} {'c13':>8} {'c14':>8} {'c9':>8} {'c15':>8}")
+    print(f"{'#':>5} {'n':>4} {'m':>5} {'total':>8} " + " ".join(f"{p:>8}" for p in PIECES))
     for r in slow:
-        print(f"{r['index']:>5} {r['n']:>4} {r['m']:>5} {r['salvador']:>8.3f} {r['c10']:>8.3f} {r['c11']:>8.3f} {r['c12']:>8.3f} "
-              f"{r['c13']:>8.3f} {r.get('c14', 0.0):>8.3f} {r['c9']:>8.3f} {r['c15']:>8.3f}")
+        print(f"{r['index']:>5} {r['n']:>4} {r['m']:>5} {r['salvador']:>8.3f} "
+              + " ".join(f"{r.get(p, 0.0):>8.3f}" for p in PIECES))
 
     out = cc.OUT_DIR
     with open(out / "car_ratio_timing.json", "w") as fh:

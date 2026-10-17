@@ -56,7 +56,7 @@ SEED = 20261010
 
 
 def matching_cover(adj) -> set:
-    """Both endpoints of the NetworkX minimum maximal matching approximation (as c1): a valid reference cover."""
+    """Both endpoints of the NetworkX minimum maximal matching approximation (as c2): a valid reference cover."""
     G = nx.Graph()
     G.add_edges_from((u, w) for u, nb in adj.items() for w in nb if w != u)
     return {x for e in nx.approximation.min_maximal_matching(G) for x in e}

@@ -1,0 +1,298 @@
+group,name,n,m,c1_low,c1_high,c1_deg_low,c1_deg_high,c1,c1_rule,c2,c1_minus_c2,tau,lower_bound,lower_bound_method,ratio_low,ratio_high,ratio_deg_low,ratio_deg_high,ratio_c1,ratio_c2,r,r_prime,target,splits,r_prime_exact,low_matching_h,low_ties,low_raw_size,high_matching_h,high_ties,high_raw_size,deg_low_matching_h,deg_low_ties,deg_low_raw_size,deg_high_matching_h,deg_high_ties,deg_high_raw_size,bound_2tau_minus_rprime,bound_holds,seconds_c1,seconds_c2,seconds_ensemble,best_c2_c16,c1_minus_best,c1_strictly_best,c17,final_from_c1,final_only_from_c1
+Bipartite obstruction (exact),bipartite_obstruction,7,11,3,3,3,3,3,deg_high,3,0,3,3,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,2,3,5,2,3,5,2,3,5,2,3,3,True,0.0008,0.0,0.023,3,0,False,3,True,False
+Relabel / order stress (exact),relabel_0,7,11,5,5,5,5,5,deg_high,3,2,3,3,bipartite-matching,1.6666666666666667,1.6666666666666667,1.6666666666666667,1.6666666666666667,1.6666666666666667,1.0,1,3,3,2,True,5,3,3,5,3,3,5,3,3,5,3,3,3,False,0.0007,0.0,0.012,3,2,False,3,True,False
+Relabel / order stress (exact),relabel_1,7,11,3,3,3,3,3,deg_high,3,0,3,3,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,3,3,5,3,3,5,3,3,5,3,3,3,True,0.0003,0.0,0.011,3,0,False,3,True,False
+Relabel / order stress (exact),relabel_2,7,11,3,3,3,3,3,deg_high,3,0,3,3,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,2,3,5,2,3,5,2,3,5,2,3,3,True,0.0004,0.0,0.01,3,0,False,3,True,False
+Relabel / order stress (exact),relabel_3,7,11,5,3,5,3,3,deg_high,3,0,3,3,bipartite-matching,1.6666666666666667,1.0,1.6666666666666667,1.0,1.0,1.0,1,3,3,2,True,5,2,3,5,2,3,5,2,3,5,2,3,3,True,0.0004,0.0,0.011,3,0,False,3,True,False
+Relabel / order stress (exact),relabel_4,7,11,3,3,3,3,3,deg_high,3,0,3,3,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,3,3,5,3,3,5,3,3,5,3,3,3,True,0.0005,0.0,0.009,3,0,False,3,True,False
+Relabel / order stress (exact),relabel_5,7,11,3,3,3,3,3,deg_high,3,0,3,3,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,2,3,5,2,3,5,2,3,5,2,3,3,True,0.0003,0.0,0.011,3,0,False,3,True,False
+Relabel / order stress (exact),relabel_6,7,11,3,3,3,3,3,deg_high,3,0,3,3,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,3,3,5,3,3,5,3,3,5,3,3,3,True,0.0005,0.0,0.01,3,0,False,3,True,False
+Relabel / order stress (exact),relabel_7,7,11,3,3,3,3,3,deg_high,3,0,3,3,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,2,3,5,2,3,5,2,3,5,2,3,3,True,0.0003,0.0,0.012,3,0,False,3,True,False
+Relabel / order stress (exact),relabel_8,7,11,5,5,5,5,5,deg_high,3,2,3,3,bipartite-matching,1.6666666666666667,1.6666666666666667,1.6666666666666667,1.6666666666666667,1.6666666666666667,1.0,1,3,3,2,True,5,3,3,5,3,3,5,3,3,5,3,3,3,False,0.0003,0.0,0.01,3,2,False,3,True,False
+Relabel / order stress (exact),relabel_9,7,11,5,3,5,3,3,deg_high,3,0,3,3,bipartite-matching,1.6666666666666667,1.0,1.6666666666666667,1.0,1.0,1.0,1,3,3,2,True,5,2,3,5,2,3,5,2,3,5,2,3,3,True,0.0004,0.0,0.012,3,0,False,3,True,False
+Relabel / order stress (exact),relabel_10,7,11,3,3,3,3,3,deg_high,3,0,3,3,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,3,3,5,3,3,5,3,3,5,3,3,3,True,0.0004,0.0,0.011,3,0,False,3,True,False
+Relabel / order stress (exact),relabel_11,7,11,3,3,3,3,3,deg_high,3,0,3,3,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,2,3,5,2,3,5,2,3,5,2,3,3,True,0.0003,0.0,0.015,3,0,False,3,True,False
+Random bipartite (exact),randbip_4_3,7,9,5,5,5,5,5,deg_high,3,2,3,3,bipartite-matching,1.6666666666666667,1.6666666666666667,1.6666666666666667,1.6666666666666667,1.6666666666666667,1.0,1,3,3,2,True,5,4,4,5,4,4,5,4,4,5,4,4,3,False,0.0003,0.0,0.007,3,2,False,3,True,False
+Random bipartite (exact),randbip_4_5,9,12,4,4,4,4,4,deg_high,6,-2,4,4,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.5,1,4,4,3,True,7,5,5,7,5,5,7,5,5,7,5,5,4,True,0.0004,0.0,0.008,4,0,False,4,True,False
+Random bipartite (exact),randbip_3_2,5,3,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,2,2,2,0,True,2,2,2,2,2,2,2,2,2,2,2,2,2,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Random bipartite (exact),randbip_7_6,13,28,9,9,9,9,9,deg_high,6,3,6,6,bipartite-matching,1.5,1.5,1.5,1.5,1.5,1.0,1,6,6,5,True,11,5,7,11,5,7,11,5,7,11,5,7,6,False,0.0011,0.0,0.009,6,3,False,6,False,False
+Random bipartite (exact),randbip_2_7,8,9,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,2,True,0.0004,0.0,0.005,2,0,False,2,True,False
+Random bipartite (exact),randbip_4_2,4,2,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,2,2,2,0,True,2,2,2,2,2,2,2,2,2,2,2,2,2,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Random bipartite (exact),randbip_2_2,2,1,1,1,1,1,1,deg_high,1,0,1,1,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,1,1,0,True,1,1,1,1,1,1,1,1,1,1,1,1,1,True,0.0002,0.0,0.001,1,0,False,1,True,False
+Random bipartite (exact),randbip_7_2,7,8,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,2,True,0.0002,0.0,0.004,2,0,False,2,True,False
+Random bipartite (exact),randbip_6_3,9,11,3,3,3,3,3,deg_high,3,0,3,3,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,2,3,5,2,3,5,2,3,5,2,3,3,True,0.0003,0.0,0.008,3,0,False,3,True,False
+Random bipartite (exact),randbip_6_6,12,12,5,6,5,6,5,deg_low,5,0,5,5,bipartite-matching,1.0,1.2,1.0,1.2,1.0,1.0,2,5,5,4,True,7,4,5,7,4,5,7,4,5,7,4,5,5,True,0.0008,0.0,0.007,5,0,False,5,True,False
+Random bipartite (exact),randbip_3_4,7,7,4,3,3,3,3,deg_high,4,-1,3,3,bipartite-matching,1.3333333333333333,1.0,1.0,1.0,1.0,1.3333333333333333,1,3,3,1,True,4,2,3,4,2,3,4,2,3,4,2,3,3,True,0.0003,0.0,0.003,3,0,False,3,True,False
+Random bipartite (exact),randbip_4_6,10,17,4,4,4,4,4,deg_high,6,-2,4,4,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.5,1,4,4,3,True,7,3,5,7,3,5,7,3,5,7,3,5,4,True,0.0004,0.0,0.024,4,0,False,4,True,False
+Random bipartite (exact),randbip_6_6,12,26,7,7,7,7,7,deg_high,6,1,6,6,bipartite-matching,1.1666666666666667,1.1666666666666667,1.1666666666666667,1.1666666666666667,1.1666666666666667,1.0,1,6,6,5,True,10,6,6,10,6,6,10,6,6,10,6,6,6,False,0.0008,0.0,0.01,6,1,False,6,True,False
+Random bipartite (exact),randbip_2_3,5,5,2,2,2,2,2,deg_high,3,-1,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.5,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,2,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Random bipartite (exact),randbip_3_5,8,11,3,3,3,3,3,deg_high,5,-2,3,3,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.6666666666666667,1,3,3,2,True,5,2,3,5,2,3,5,2,3,5,2,3,3,True,0.0003,0.0,0.008,3,0,False,3,True,False
+Random bipartite (exact),randbip_5_3,8,9,4,3,4,4,3,high,3,0,3,3,bipartite-matching,1.3333333333333333,1.0,1.3333333333333333,1.3333333333333333,1.0,1.0,1,3,3,2,True,5,3,4,5,3,4,5,3,4,5,3,4,3,True,0.0003,0.0,0.005,3,0,False,3,True,False
+Random bipartite (exact),randbip_5_7,9,7,5,5,5,5,5,deg_high,4,1,4,4,bipartite-matching,1.25,1.25,1.25,1.25,1.25,1.0,2,4,4,1,True,5,3,4,5,3,4,5,3,4,5,3,4,4,False,0.0003,0.0,0.003,4,1,False,4,True,False
+Random bipartite (exact),randbip_2_4,6,5,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,1,2,0,False,2,2,2,2,2,2,2,2,2,2,2,2,3,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Random bipartite (exact),randbip_2_7,4,2,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,2,2,2,0,True,2,2,2,2,2,2,2,2,2,2,2,2,2,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Random bipartite (exact),randbip_7_6,10,9,4,4,4,4,4,deg_high,4,0,4,4,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,1,True,5,3,4,5,3,4,5,3,4,5,3,4,5,True,0.0003,0.0,0.004,4,0,False,4,True,False
+Random bipartite (exact),randbip_4_3,7,5,3,3,3,3,3,deg_high,3,0,3,3,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,2,3,3,1,True,4,3,3,4,3,3,4,3,3,4,3,3,3,True,0.0002,0.0,0.003,3,0,False,3,True,False
+Random bipartite (exact),randbip_2_6,7,9,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,2,True,0.0003,0.0,0.005,2,0,False,2,True,False
+Random bipartite (exact),randbip_7_6,12,16,6,6,6,6,6,deg_high,7,-1,6,6,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.1666666666666667,1,5,5,4,True,8,5,6,8,5,6,8,5,6,8,5,6,7,True,0.0005,0.0,0.016,6,0,False,6,True,False
+Random bipartite (exact),randbip_3_5,8,9,3,3,3,3,3,deg_high,4,-1,3,3,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.3333333333333333,1,3,3,2,True,5,2,3,5,2,3,5,2,3,5,2,3,3,True,0.0003,0.0,0.004,3,0,False,3,True,False
+Random bipartite (exact),randbip_5_2,5,4,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,2,True,0.0002,0.0,0.003,2,0,False,2,True,False
+"Grids, bipartite (exact)",grid_2x2,4,4,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,2,True,0.0002,0.0,0.002,2,0,False,2,True,False
+"Grids, bipartite (exact)",grid_2x3,6,7,3,3,3,3,3,deg_high,3,0,3,3,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,4,4,5,4,4,5,4,4,5,4,4,3,True,0.0003,0.0,0.004,3,0,False,3,True,False
+"Grids, bipartite (exact)",grid_2x4,8,10,4,5,5,5,5,deg_high,4,1,4,4,bipartite-matching,1.0,1.25,1.25,1.25,1.25,1.0,1,4,4,3,True,7,4,5,7,4,5,7,4,5,7,4,5,4,False,0.0004,0.0,0.006,4,1,False,4,True,False
+"Grids, bipartite (exact)",grid_2x5,10,13,5,5,5,5,5,deg_high,5,0,5,5,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,5,5,4,True,9,7,7,9,7,7,9,7,7,9,7,7,5,True,0.0004,0.0,0.007,5,0,False,5,True,False
+"Grids, bipartite (exact)",grid_3x2,6,7,4,3,4,3,3,deg_high,3,0,3,3,bipartite-matching,1.3333333333333333,1.0,1.3333333333333333,1.0,1.0,1.0,1,2,3,1,False,4,2,3,4,2,3,4,2,3,4,2,3,4,True,0.0003,0.0,0.003,3,0,False,3,True,False
+"Grids, bipartite (exact)",grid_3x3,9,12,4,4,4,4,4,deg_high,4,0,4,4,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,3,4,2,False,6,4,4,6,4,4,6,4,4,6,4,4,5,True,0.0004,0.0,0.009,4,0,False,4,True,False
+"Grids, bipartite (exact)",grid_3x4,12,17,7,7,7,7,7,deg_high,6,1,6,6,bipartite-matching,1.1666666666666667,1.1666666666666667,1.1666666666666667,1.1666666666666667,1.1666666666666667,1.0,1,6,6,4,True,10,6,6,10,6,6,10,6,6,10,6,6,6,False,0.0004,0.0,0.021,6,1,False,6,True,False
+"Grids, bipartite (exact)",grid_3x5,15,22,7,7,7,7,7,deg_high,7,0,7,7,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,7,7,5,True,12,7,7,12,7,7,12,7,7,12,7,7,7,True,0.0005,0.0,0.03,7,0,False,7,True,False
+"Grids, bipartite (exact)",grid_4x2,8,10,5,5,5,5,5,deg_high,4,1,4,4,bipartite-matching,1.25,1.25,1.25,1.25,1.25,1.0,1,4,4,2,True,6,4,4,6,4,4,6,4,4,6,4,4,4,False,0.0005,0.0,0.005,4,1,False,4,True,False
+"Grids, bipartite (exact)",grid_4x3,12,17,7,6,7,7,6,high,6,0,6,6,bipartite-matching,1.1666666666666667,1.0,1.1666666666666667,1.1666666666666667,1.0,1.0,1,6,6,4,True,9,5,6,9,5,6,9,5,6,9,5,6,6,True,0.0004,0.0,0.014,6,0,False,6,True,False
+"Grids, bipartite (exact)",grid_4x4,16,24,9,10,9,10,9,deg_low,8,1,8,8,bipartite-matching,1.125,1.25,1.125,1.25,1.125,1.0,1,8,8,6,True,13,8,9,13,8,9,13,8,9,13,8,9,8,False,0.0005,0.0,0.058,8,1,False,8,True,False
+"Grids, bipartite (exact)",grid_4x5,20,31,12,11,12,11,11,deg_high,10,1,10,10,bipartite-matching,1.2,1.1,1.2,1.1,1.1,1.0,1,10,10,8,True,17,11,12,17,11,12,17,11,12,17,11,12,10,False,0.0007,0.0,0.076,10,1,False,10,True,False
+"Grids, bipartite (exact)",grid_5x2,10,13,5,5,5,5,5,deg_high,5,0,5,5,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,5,5,3,True,8,5,6,8,5,6,8,5,6,8,5,6,5,True,0.0006,0.0,0.006,5,0,False,5,True,False
+"Grids, bipartite (exact)",grid_5x3,15,22,7,7,7,7,7,deg_high,7,0,7,7,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,7,7,5,True,12,7,9,12,7,9,12,7,9,12,7,9,7,True,0.0005,0.0,0.035,7,0,False,7,True,False
+"Grids, bipartite (exact)",grid_5x4,20,31,12,12,12,12,12,deg_high,10,2,10,10,bipartite-matching,1.2,1.2,1.2,1.2,1.2,1.0,1,9,10,7,False,17,10,13,17,10,13,17,10,13,17,10,13,11,False,0.001,0.0,0.095,10,2,False,10,True,False
+"Grids, bipartite (exact)",grid_5x5,25,40,14,12,12,12,12,deg_high,12,0,12,12,bipartite-matching,1.1666666666666667,1.0,1.0,1.0,1.0,1.0,1,11,12,9,False,21,12,16,21,12,16,21,12,16,21,12,16,13,True,0.0009,0.0003,0.036,12,0,False,12,True,False
+Graph atlas n<=7,atlas_3,2,1,1,1,1,1,1,deg_high,1,0,1,1,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,1,1,0,True,1,1,1,1,1,1,1,1,1,1,1,1,1,True,0.0002,0.0,0.001,1,0,False,1,True,False
+Graph atlas n<=7,atlas_5,2,1,1,1,1,1,1,deg_high,1,0,1,1,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,1,1,0,True,1,1,1,1,1,1,1,1,1,1,1,1,1,True,0.0003,0.0,0.001,1,0,False,1,True,False
+Graph atlas n<=7,atlas_6,3,2,1,1,1,1,1,deg_high,1,0,1,1,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,1,1,0,True,1,1,1,1,1,1,1,1,1,1,1,1,1,True,0.0002,0.0,0.001,1,0,False,1,True,False
+Graph atlas n<=7,atlas_7,3,3,2,2,2,2,2,deg_high,2,0,2,2,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,1,1,0,True,1,1,1,1,1,1,1,1,1,1,1,1,3,True,0.0003,0.0,0.001,2,0,False,2,True,False
+Graph atlas n<=7,atlas_9,2,1,1,1,1,1,1,deg_high,1,0,1,1,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,1,1,0,True,1,1,1,1,1,1,1,1,1,1,1,1,1,True,0.0002,0.0,0.001,1,0,False,1,True,False
+Graph atlas n<=7,atlas_10,3,2,1,1,1,1,1,deg_high,1,0,1,1,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,1,1,0,True,1,1,1,1,1,1,1,1,1,1,1,1,1,True,0.0002,0.0,0.001,1,0,False,1,True,False
+Graph atlas n<=7,atlas_11,4,2,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,2,2,2,0,True,2,2,2,2,2,2,2,2,2,2,2,2,2,True,0.0001,0.0,0.001,2,0,False,2,True,False
+Graph atlas n<=7,atlas_12,3,3,2,2,2,2,2,deg_high,2,0,2,2,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,1,1,0,True,1,1,1,1,1,1,1,1,1,1,1,1,3,True,0.0001,0.0,0.001,2,0,False,2,True,False
+Graph atlas n<=7,atlas_13,4,3,1,1,1,1,1,deg_high,1,0,1,1,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,1,1,0,True,1,1,1,1,1,1,1,1,1,1,1,1,1,True,0.0002,0.0,0.002,1,0,False,1,True,False
+Graph atlas n<=7,atlas_14,4,3,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,1,1,0,True,1,1,1,1,1,1,1,1,1,1,1,1,3,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_15,4,4,2,2,2,2,2,deg_high,2,0,2,2,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,2,2,2,2,2,2,2,2,2,2,2,2,2,True,0.0004,0.0001,0.001,2,0,False,2,True,False
+Graph atlas n<=7,atlas_16,4,4,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,2,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_17,4,5,2,2,2,2,2,deg_high,3,-1,2,2,exact-branch,1.0,1.0,1.0,1.0,1.0,1.5,1,2,2,1,True,2,1,1,2,1,1,2,1,1,2,1,1,2,True,0.0002,0.0,0.001,2,0,False,2,True,False
+Graph atlas n<=7,atlas_18,4,6,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0004,0.0,0.001,3,0,False,3,True,False
+Graph atlas n<=7,atlas_20,2,1,1,1,1,1,1,deg_high,1,0,1,1,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,1,1,0,True,1,1,1,1,1,1,1,1,1,1,1,1,1,True,0.0001,0.0,0.001,1,0,False,1,True,False
+Graph atlas n<=7,atlas_21,3,2,1,1,1,1,1,deg_high,1,0,1,1,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,1,1,0,True,1,1,1,1,1,1,1,1,1,1,1,1,1,True,0.0004,0.0,0.001,1,0,False,1,True,False
+Graph atlas n<=7,atlas_22,4,2,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,2,2,2,0,True,2,2,2,2,2,2,2,2,2,2,2,2,2,True,0.0001,0.0,0.001,2,0,False,2,True,False
+Graph atlas n<=7,atlas_23,3,3,2,2,2,2,2,deg_high,2,0,2,2,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,1,1,0,True,1,1,1,1,1,1,1,1,1,1,1,1,3,True,0.0002,0.0,0.001,2,0,False,2,True,False
+Graph atlas n<=7,atlas_24,4,3,1,1,1,1,1,deg_high,1,0,1,1,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,1,1,0,True,1,1,1,1,1,1,1,1,1,1,1,1,1,True,0.0001,0.0,0.002,1,0,False,1,True,False
+Graph atlas n<=7,atlas_25,4,3,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,2,2,2,2,2,2,2,2,2,2,2,2,2,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_26,5,3,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,2,2,2,0,True,2,2,2,2,2,2,2,2,2,2,2,2,2,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_27,4,4,2,2,2,2,2,deg_high,2,0,2,2,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,2,1,1,2,1,1,2,1,1,2,1,1,2,True,0.0002,0.0,0.001,2,0,False,2,True,False
+Graph atlas n<=7,atlas_28,4,4,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,2,True,0.0006,0.0,0.003,2,0,False,2,True,False
+Graph atlas n<=7,atlas_29,5,4,1,1,1,1,1,deg_high,1,0,1,1,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,1,1,0,True,1,1,1,1,1,1,1,1,1,1,1,1,1,True,0.0002,0.0,0.002,1,0,False,1,True,False
+Graph atlas n<=7,atlas_30,5,4,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,2,2,2,2,2,2,2,2,2,2,2,2,2,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_31,5,4,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,1,2,0,False,2,2,2,2,2,2,2,2,2,2,2,2,3,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_32,5,4,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,2,2,2,0,True,2,2,2,2,2,2,2,2,2,2,2,2,4,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_33,4,5,2,2,2,2,2,deg_high,3,-1,2,2,exact-branch,1.0,1.0,1.0,1.0,1.0,1.5,1,2,2,1,True,2,1,1,2,1,1,2,1,1,2,1,1,2,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_34,5,5,2,2,2,2,2,deg_high,2,0,2,2,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,2,True,0.0002,0.0,0.003,2,0,False,2,True,False
+Graph atlas n<=7,atlas_35,5,5,2,2,2,2,2,deg_high,2,0,2,2,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,2,1,1,2,1,1,2,1,1,2,1,1,2,True,0.0005,0.0,0.003,2,0,False,2,True,False
+Graph atlas n<=7,atlas_36,5,5,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,4,True,0.0002,0.0,0.001,3,0,False,3,True,False
+Graph atlas n<=7,atlas_37,5,5,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,2,True,0.0002,0.0,0.003,2,0,False,2,True,False
+Graph atlas n<=7,atlas_38,5,5,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_39,4,6,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0003,0.0,0.001,3,0,False,3,True,False
+Graph atlas n<=7,atlas_40,5,6,2,2,2,2,2,deg_high,2,0,2,2,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,2,1,1,2,1,1,2,1,1,2,1,1,2,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_41,5,6,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,4,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_42,5,6,3,3,3,3,3,deg_high,4,-1,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.3333333333333333,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,4,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_43,5,6,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_44,5,6,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,2,True,0.0002,0.0,0.004,2,0,False,2,True,False
+Graph atlas n<=7,atlas_45,5,7,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,4,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_46,5,7,2,2,2,2,2,deg_high,2,0,2,2,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,2,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_47,5,7,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_48,5,7,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,4,True,0.0003,0.0,0.003,3,0,False,3,True,False
+Graph atlas n<=7,atlas_49,5,8,3,4,3,3,3,deg_high,4,-1,3,3,exact-branch,1.0,1.3333333333333333,1.0,1.0,1.0,1.3333333333333333,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0007,0.0,0.003,3,0,False,3,True,False
+Graph atlas n<=7,atlas_50,5,8,3,3,3,3,3,deg_high,4,-1,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.3333333333333333,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_51,5,9,3,4,3,3,3,deg_high,4,-1,3,3,exact-branch,1.0,1.3333333333333333,1.0,1.0,1.0,1.3333333333333333,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_52,5,10,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,6,True,0.0003,0.0,0.003,4,0,False,4,True,False
+Graph atlas n<=7,atlas_54,2,1,1,1,1,1,1,deg_high,1,0,1,1,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,1,1,0,True,1,1,1,1,1,1,1,1,1,1,1,1,1,True,0.0001,0.0,0.001,1,0,False,1,True,False
+Graph atlas n<=7,atlas_55,4,2,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,2,2,2,0,True,2,2,2,2,2,2,2,2,2,2,2,2,2,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_56,3,2,1,1,1,1,1,deg_high,1,0,1,1,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,1,1,0,True,1,1,1,1,1,1,1,1,1,1,1,1,1,True,0.0001,0.0,0.001,1,0,False,1,True,False
+Graph atlas n<=7,atlas_57,3,3,2,2,2,2,2,deg_high,2,0,2,2,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,1,1,0,True,1,1,1,1,1,1,1,1,1,1,1,1,3,True,0.0002,0.0,0.001,2,0,False,2,True,False
+Graph atlas n<=7,atlas_58,4,3,1,1,1,1,1,deg_high,1,0,1,1,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,1,1,0,True,1,1,1,1,1,1,1,1,1,1,1,1,1,True,0.0002,0.0,0.002,1,0,False,1,True,False
+Graph atlas n<=7,atlas_59,4,3,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,2,2,2,2,2,2,2,2,2,2,2,2,2,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_60,5,3,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,2,2,2,0,True,2,2,2,2,2,2,2,2,2,2,2,2,2,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_61,6,3,3,3,3,3,3,deg_high,3,0,3,3,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,3,3,3,0,True,3,3,3,3,3,3,3,3,3,3,3,3,3,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_62,4,4,2,2,2,2,2,deg_high,3,-1,2,2,exact-branch,1.0,1.0,1.0,1.0,1.0,1.5,1,2,2,1,True,2,1,1,2,1,1,2,1,1,2,1,1,2,True,0.0002,0.0,0.001,2,0,False,2,True,False
+Graph atlas n<=7,atlas_63,4,4,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,2,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_64,5,4,1,1,1,1,1,deg_high,1,0,1,1,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,1,1,0,True,1,1,1,1,1,1,1,1,1,1,1,1,1,True,0.0002,0.0,0.003,1,0,False,1,True,False
+Graph atlas n<=7,atlas_65,5,4,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,2,2,2,2,2,2,2,2,2,2,2,2,2,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_66,5,4,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,2,True,0.0006,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_67,5,4,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,2,2,2,0,True,2,2,2,2,2,2,2,2,2,2,2,2,4,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_68,6,4,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,2,2,2,0,True,2,2,2,2,2,2,2,2,2,2,2,2,2,True,0.0002,0.0,0.003,2,0,False,2,True,False
+Graph atlas n<=7,atlas_69,6,4,3,3,3,3,3,deg_high,3,0,3,3,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,2,3,3,1,True,3,3,3,3,3,3,3,3,3,3,3,3,3,True,0.0002,0.0,0.004,3,0,False,3,True,False
+Graph atlas n<=7,atlas_70,6,4,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,2,2,2,0,True,2,2,2,2,2,2,2,2,2,2,2,2,2,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_71,4,5,2,3,2,2,2,deg_high,3,-1,2,2,exact-branch,1.0,1.5,1.0,1.0,1.0,1.5,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,2,True,0.0002,0.0,0.001,2,0,False,2,True,False
+Graph atlas n<=7,atlas_72,5,5,2,2,2,2,2,deg_high,2,0,2,2,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,2,True,0.0002,0.0,0.001,2,0,False,2,True,False
+Graph atlas n<=7,atlas_73,5,5,2,2,2,2,2,deg_high,2,0,2,2,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,2,True,0.0002,0.0,0.001,2,0,False,2,True,False
+Graph atlas n<=7,atlas_74,5,5,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,4,True,0.0005,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_75,5,5,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,2,True,0.0004,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_76,5,5,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_77,6,5,1,1,1,1,1,deg_high,1,0,1,1,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,1,1,0,True,1,1,1,1,1,1,1,1,1,1,1,1,1,True,0.0002,0.0,0.002,1,0,False,1,True,False
+Graph atlas n<=7,atlas_78,6,5,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,2,1,1,2,1,1,2,1,1,2,1,1,2,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_79,6,5,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,2,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_80,6,5,3,3,3,3,3,deg_high,3,0,3,3,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,4,3,3,4,3,3,4,3,3,4,3,3,3,True,0.0002,0.0,0.003,3,0,False,3,True,False
+Graph atlas n<=7,atlas_81,6,5,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,1,2,0,False,2,2,2,2,2,2,2,2,2,2,2,2,3,True,0.0003,0.0,0.003,2,0,False,2,True,False
+Graph atlas n<=7,atlas_82,6,5,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,2,3,3,1,True,3,2,2,3,2,2,3,2,2,3,2,2,3,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_83,6,5,3,3,3,3,3,deg_high,3,0,3,3,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,4,2,2,4,2,2,4,2,2,4,2,2,3,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_84,6,5,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,2,2,2,0,True,2,2,2,2,2,2,2,2,2,2,2,2,4,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_85,6,5,3,3,3,3,3,deg_high,3,0,3,3,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,2,3,3,1,True,4,2,3,4,2,3,4,2,3,4,2,3,3,True,0.0002,0.0,0.003,3,0,False,3,True,False
+Graph atlas n<=7,atlas_86,4,6,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_87,5,6,2,2,2,2,2,deg_high,2,0,2,2,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,2,True,0.0003,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_88,5,6,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,2,2,2,2,2,2,2,2,2,2,2,2,4,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_89,5,6,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,4,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_90,5,6,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_91,5,6,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,2,True,0.0002,0.0,0.003,2,0,False,2,True,False
+Graph atlas n<=7,atlas_92,6,6,2,2,2,2,2,deg_high,2,0,2,2,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,2,True,0.0004,0.0,0.003,2,0,False,2,True,False
+Graph atlas n<=7,atlas_93,6,6,2,2,2,2,2,deg_high,2,0,2,2,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,2,True,0.0003,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_94,6,6,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,4,3,3,4,3,3,4,3,3,4,3,3,3,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_95,6,6,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,1,2,0,False,2,2,2,2,2,2,2,2,2,2,2,2,5,True,0.0002,0.0001,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_96,6,6,2,2,2,2,2,deg_high,3,-1,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.5,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,2,True,0.0002,0.0,0.003,2,0,False,2,True,False
+Graph atlas n<=7,atlas_97,6,6,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,4,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_98,6,6,3,3,3,3,3,deg_high,3,0,3,3,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0003,0.0,0.004,3,0,False,3,True,False
+Graph atlas n<=7,atlas_99,6,6,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,2,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_100,6,6,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,4,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_101,6,6,3,4,3,3,3,deg_high,4,-1,3,3,exact-branch,1.0,1.3333333333333333,1.0,1.0,1.0,1.3333333333333333,2,3,3,1,True,4,2,3,4,2,3,4,2,3,4,2,3,3,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_102,6,6,3,3,3,3,3,deg_high,4,-1,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.3333333333333333,1,1,2,0,False,2,2,2,2,2,2,2,2,2,2,2,2,5,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_103,6,6,3,3,3,3,3,deg_high,3,0,3,3,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,1,2,0,False,2,2,2,2,2,2,2,2,2,2,2,2,5,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_104,6,6,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0005,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_105,6,6,3,4,3,4,3,deg_low,3,0,3,3,bipartite-matching,1.0,1.3333333333333333,1.0,1.3333333333333333,1.0,1.0,1,2,3,1,False,4,2,3,4,2,3,4,2,3,4,2,3,4,True,0.0002,0.0,0.003,3,0,False,3,True,False
+Graph atlas n<=7,atlas_106,6,6,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,2,2,2,0,True,2,2,2,2,2,2,2,2,2,2,2,2,6,True,0.0002,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_107,5,7,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_108,5,7,2,2,2,2,2,deg_high,2,0,2,2,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,2,True,0.0005,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_109,5,7,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_110,5,7,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_111,6,7,2,2,2,2,2,deg_high,2,0,2,2,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,2,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_112,6,7,2,2,2,2,2,deg_high,2,0,2,2,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,2,1,1,2,1,1,2,1,1,2,1,1,2,True,0.0004,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_113,6,7,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_114,6,7,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,4,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_115,6,7,3,3,3,3,3,deg_high,4,-1,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.3333333333333333,1,3,3,2,True,4,2,2,4,2,2,4,2,2,4,2,2,3,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_116,6,7,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,2,3,3,1,True,4,2,3,4,2,3,4,2,3,4,2,3,5,True,0.0002,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_117,6,7,3,3,3,3,3,deg_high,5,-2,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.6666666666666667,1,3,3,2,True,4,3,3,4,3,3,4,3,3,4,3,3,3,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_118,6,7,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_119,6,7,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,4,2,3,4,2,3,4,2,3,4,2,3,4,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_120,6,7,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,1,2,0,False,2,2,2,2,2,2,2,2,2,2,2,2,5,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_121,6,7,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,2,True,0.0002,0.0,0.003,2,0,False,2,True,False
+Graph atlas n<=7,atlas_122,6,7,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_123,6,7,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,1,2,0,False,2,2,2,2,2,2,2,2,2,2,2,2,5,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_124,6,7,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,4,2,3,4,2,3,4,2,3,4,2,3,4,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_125,6,7,3,3,3,3,3,deg_high,3,0,3,3,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,4,3,3,4,3,3,4,3,3,4,3,3,3,True,0.0002,0.0,0.005,3,0,False,3,True,False
+Graph atlas n<=7,atlas_126,6,7,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,4,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_127,6,7,3,4,3,4,3,deg_low,3,0,3,3,exact-branch,1.0,1.3333333333333333,1.0,1.3333333333333333,1.0,1.0,1,3,3,2,True,5,2,3,5,2,3,5,2,3,5,2,3,3,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_128,6,7,3,3,3,3,3,deg_high,3,0,3,3,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,3,1,False,4,2,3,4,2,3,4,2,3,4,2,3,4,True,0.0002,0.0,0.005,3,0,False,3,True,False
+Graph atlas n<=7,atlas_129,6,7,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,4,2,3,4,2,3,4,2,3,4,2,3,4,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_130,6,7,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,6,True,0.0002,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_131,5,8,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_132,5,8,3,3,3,3,3,deg_high,4,-1,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.3333333333333333,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_133,6,8,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_134,6,8,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_135,6,8,2,2,2,2,2,deg_high,2,0,2,2,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,2,True,0.0006,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_136,6,8,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_137,6,8,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,4,2,3,4,2,3,4,2,3,4,2,3,3,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_138,6,8,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_139,6,8,4,3,4,3,3,deg_high,3,0,3,3,exact-branch,1.3333333333333333,1.0,1.3333333333333333,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_140,6,8,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_141,6,8,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,4,2,2,4,2,2,4,2,2,4,2,2,3,True,0.0002,0.0,0.003,3,0,False,3,True,False
+Graph atlas n<=7,atlas_142,6,8,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,4,4,5,4,4,5,4,4,5,4,4,5,True,0.0002,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_143,6,8,3,4,3,4,3,deg_low,4,-1,3,3,exact-branch,1.0,1.3333333333333333,1.0,1.3333333333333333,1.0,1.3333333333333333,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0003,0.0,0.003,3,0,False,3,True,False
+Graph atlas n<=7,atlas_144,6,8,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,4,2,3,4,2,3,4,2,3,4,2,3,4,True,0.0003,0.0,0.003,3,0,False,3,True,False
+Graph atlas n<=7,atlas_145,6,8,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,4,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_146,6,8,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,2,True,0.0002,0.0,0.006,2,0,False,2,True,False
+Graph atlas n<=7,atlas_147,6,8,3,3,3,3,3,deg_high,4,-1,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.3333333333333333,1,3,3,2,True,5,2,3,5,2,3,5,2,3,5,2,3,3,True,0.0004,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_148,6,8,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,4,2,3,4,2,3,4,2,3,4,2,3,4,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_149,6,8,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,4,True,0.0004,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_150,6,8,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,3,3,2,3,3,2,3,3,2,3,6,True,0.0002,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_151,6,8,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,2,3,5,2,3,5,2,3,5,2,3,3,True,0.0002,0.0,0.003,3,0,False,3,True,False
+Graph atlas n<=7,atlas_152,6,8,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,2,4,5,2,4,5,2,4,5,2,4,5,True,0.0003,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_153,6,8,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,4,2,3,4,2,3,4,2,3,4,2,3,6,True,0.0003,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_154,6,8,4,3,4,4,3,high,3,0,3,3,bipartite-matching,1.3333333333333333,1.0,1.3333333333333333,1.3333333333333333,1.0,1.0,1,3,3,2,True,5,2,4,5,2,4,5,2,4,5,2,4,3,True,0.0003,0.0,0.006,3,0,False,3,True,False
+Graph atlas n<=7,atlas_155,5,9,3,4,3,3,3,deg_high,4,-1,3,3,exact-branch,1.0,1.3333333333333333,1.0,1.0,1.0,1.3333333333333333,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0004,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_156,6,9,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_157,6,9,4,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.3333333333333333,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_158,6,9,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,4,2,3,4,2,3,4,2,3,4,2,3,3,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_159,6,9,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,4,2,2,4,2,2,4,2,2,4,2,2,3,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_160,6,9,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,3,3,5,3,3,5,3,3,5,3,3,5,True,0.0003,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_161,6,9,2,2,2,2,2,deg_high,2,0,2,2,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,2,True,0.0002,0.0,0.002,2,0,False,2,True,False
+Graph atlas n<=7,atlas_162,6,9,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,4,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_163,6,9,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0003,0.0,0.003,3,0,False,3,True,False
+Graph atlas n<=7,atlas_164,6,9,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,4,2,3,4,2,3,4,2,3,4,2,3,4,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_165,6,9,4,4,4,4,4,deg_high,5,-1,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.25,1,3,3,2,True,5,4,4,5,4,4,5,4,4,5,4,4,5,True,0.0002,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_166,6,9,4,3,4,3,3,deg_high,3,0,3,3,exact-branch,1.3333333333333333,1.0,1.3333333333333333,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_167,6,9,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,4,4,5,4,4,5,4,4,5,4,4,5,True,0.0002,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_168,6,9,4,4,4,4,4,deg_high,3,1,3,3,exact-branch,1.3333333333333333,1.3333333333333333,1.3333333333333333,1.3333333333333333,1.3333333333333333,1.0,1,3,3,2,True,5,3,3,5,3,3,5,3,3,5,3,3,3,False,0.0003,0.0,0.002,3,1,False,3,True,False
+Graph atlas n<=7,atlas_169,6,9,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,4,2,3,4,2,3,4,2,3,4,2,3,6,True,0.0003,0.0,0.003,4,0,False,4,True,False
+Graph atlas n<=7,atlas_170,6,9,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,4,2,3,4,2,3,4,2,3,4,2,3,3,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_171,6,9,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,4,2,2,4,2,2,4,2,2,4,2,2,5,True,0.0003,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_172,6,9,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,6,True,0.0003,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_173,6,9,3,3,3,3,3,deg_high,4,-1,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.3333333333333333,1,3,3,2,True,4,2,2,4,2,2,4,2,2,4,2,2,3,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_174,6,9,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,2,4,5,2,4,5,2,4,5,2,4,5,True,0.0004,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_175,6,9,3,3,3,3,3,deg_high,3,0,3,3,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,2,3,5,2,3,5,2,3,5,2,3,3,True,0.0002,0.0,0.009,3,0,False,3,True,False
+Graph atlas n<=7,atlas_176,5,10,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,6,True,0.0004,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_177,6,10,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,4,2,2,4,2,2,4,2,2,4,2,2,3,True,0.0005,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_178,6,10,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,6,True,0.0003,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_179,6,10,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,4,2,3,4,2,3,4,2,3,4,2,3,3,True,0.0002,0.0,0.003,3,0,False,3,True,False
+Graph atlas n<=7,atlas_180,6,10,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,2,3,5,2,3,5,2,3,5,2,3,3,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_181,6,10,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,4,2,3,4,2,3,4,2,3,4,2,3,5,True,0.0004,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_182,6,10,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,4,2,2,4,2,2,4,2,2,4,2,2,3,True,0.0002,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_183,6,10,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,4,2,3,4,2,3,4,2,3,4,2,3,5,True,0.0003,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_184,6,10,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,6,True,0.0003,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_185,6,10,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,6,True,0.0003,0.0,0.003,4,0,False,4,True,False
+Graph atlas n<=7,atlas_186,6,10,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,3,3,5,3,3,5,3,3,5,3,3,3,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_187,6,10,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,4,2,3,4,2,3,4,2,3,4,2,3,5,True,0.0005,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_188,6,10,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,2,3,5,2,3,5,2,3,5,2,3,5,True,0.0003,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_189,6,10,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,2,3,5,2,3,5,2,3,5,2,3,3,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_190,6,10,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,3,3,5,3,3,5,3,3,5,3,3,5,True,0.0003,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_191,6,11,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,6,True,0.0003,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_192,6,11,3,4,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.3333333333333333,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0004,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_193,6,11,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,4,2,3,4,2,3,4,2,3,4,2,3,5,True,0.0005,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_194,6,11,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,4,4,5,4,4,5,4,4,5,4,4,5,True,0.0005,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_195,6,11,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,4,4,5,4,4,5,4,4,5,4,4,5,True,0.0003,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_196,6,11,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,2,3,5,2,3,5,2,3,5,2,3,5,True,0.0003,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_197,6,11,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,4,2,3,4,2,3,4,2,3,4,2,3,4,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_198,6,11,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,4,2,3,4,2,3,4,2,3,4,2,3,6,True,0.0005,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_199,6,11,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,3,3,5,3,3,5,3,3,5,3,3,5,True,0.0003,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_200,6,12,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,3,3,5,3,3,5,3,3,5,3,3,5,True,0.0003,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_201,6,12,3,3,3,3,3,deg_high,3,0,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,1,2,3,1,2,3,1,2,3,1,2,4,True,0.0003,0.0,0.002,3,0,False,3,True,False
+Graph atlas n<=7,atlas_202,6,12,4,5,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.25,1.0,1.0,1.0,1.0,1,3,3,2,True,5,2,4,5,2,4,5,2,4,5,2,4,5,True,0.0002,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_203,6,12,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,3,3,5,3,3,5,3,3,5,3,3,5,True,0.0003,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_204,6,12,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,2,4,5,2,4,5,2,4,5,2,4,5,True,0.0003,0.0,0.003,4,0,False,4,True,False
+Graph atlas n<=7,atlas_205,6,13,4,4,4,4,4,deg_high,5,-1,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.25,1,3,3,2,True,5,4,4,5,4,4,5,4,4,5,4,4,5,True,0.0003,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_206,6,13,4,4,4,4,4,deg_high,5,-1,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.25,1,3,3,2,True,5,3,3,5,3,3,5,3,3,5,3,3,5,True,0.0003,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_207,6,14,4,5,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.25,1.0,1.0,1.0,1.0,1,3,3,2,True,5,2,3,5,2,3,5,2,3,5,2,3,5,True,0.0003,0.0,0.002,4,0,False,4,True,False
+Graph atlas n<=7,atlas_208,6,15,5,5,5,5,5,deg_high,5,0,5,5,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,5,4,4,5,4,4,5,4,4,5,4,4,7,True,0.0003,0.0,0.003,5,0,False,5,True,False
+"Random general (exact, n<=12)",randgen_11,11,36,8,8,8,8,8,deg_high,9,-1,8,8,exact-branch,1.0,1.0,1.0,1.0,1.0,1.125,1,5,5,4,True,9,4,5,9,4,5,9,4,5,9,4,5,11,True,0.0007,0.0,0.006,8,0,False,8,True,False
+"Random general (exact, n<=12)",randgen_12,12,37,9,9,9,9,9,deg_high,9,0,8,8,exact-branch,1.125,1.125,1.125,1.125,1.125,1.125,1,5,5,4,True,9,5,6,9,5,6,9,5,6,9,5,6,11,True,0.0006,0.0,0.005,8,1,False,8,False,False
+"Random general (exact, n<=12)",randgen_10,9,10,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,2,3,1,False,5,3,4,5,3,4,5,3,4,5,3,4,6,True,0.0004,0.0,0.003,4,0,False,4,True,False
+"Random general (exact, n<=12)",randgen_8,8,16,5,5,5,5,5,deg_high,6,-1,5,5,exact-branch,1.0,1.0,1.0,1.0,1.0,1.2,1,3,3,2,True,6,3,4,6,3,4,6,3,4,6,3,4,7,True,0.0007,0.0,0.003,5,0,False,5,True,False
+"Random general (exact, n<=12)",randgen_8,6,7,3,3,3,3,3,deg_high,4,-1,3,3,exact-branch,1.0,1.0,1.0,1.0,1.0,1.3333333333333333,1,3,3,2,True,4,2,2,4,2,2,4,2,2,4,2,2,3,True,0.0004,0.0,0.002,3,0,False,3,True,False
+"Random general (exact, n<=12)",randgen_12,12,44,8,8,8,8,8,deg_high,8,0,8,8,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,6,6,5,True,11,6,8,11,6,8,11,6,8,11,6,8,10,True,0.0009,0.0,0.006,8,0,False,8,True,False
+"Random general (exact, n<=12)",randgen_9,8,18,6,6,5,5,5,deg_high,6,-1,5,5,exact-branch,1.2,1.2,1.0,1.0,1.0,1.2,1,4,4,3,True,7,3,5,7,3,5,7,3,5,7,3,5,6,True,0.0005,0.0,0.004,5,0,False,5,True,False
+"Random general (exact, n<=12)",randgen_12,12,28,8,8,8,8,8,deg_high,8,0,7,7,exact-branch,1.1428571428571428,1.1428571428571428,1.1428571428571428,1.1428571428571428,1.1428571428571428,1.1428571428571428,1,5,5,4,True,10,4,7,10,4,7,10,4,7,10,4,7,9,True,0.0006,0.0,0.005,7,1,False,7,False,False
+"Random general (exact, n<=12)",randgen_9,8,10,4,4,4,4,4,deg_high,4,0,4,4,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,4,4,3,True,6,3,4,6,3,4,6,3,4,6,3,4,4,True,0.001,0.0,0.002,4,0,False,4,True,False
+"Random general (exact, n<=12)",randgen_10,10,24,7,7,7,7,7,deg_high,7,0,7,7,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,4,4,3,True,8,4,5,8,4,5,8,4,5,8,4,5,10,True,0.0004,0.0,0.004,7,0,False,7,True,False
+"Random general (exact, n<=12)",randgen_7,7,9,4,3,4,4,3,high,3,0,3,3,exact-branch,1.3333333333333333,1.0,1.3333333333333333,1.3333333333333333,1.0,1.0,1,2,2,1,True,3,2,3,3,2,3,3,2,3,3,2,3,4,True,0.0004,0.0,0.002,3,0,False,3,True,False
+"Random general (exact, n<=12)",randgen_12,12,43,8,8,8,8,8,deg_high,8,0,8,8,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,5,5,4,True,9,6,6,9,6,6,9,6,6,9,6,6,11,True,0.0011,0.0001,0.007,8,0,False,8,True,False
+"Random general (exact, n<=12)",randgen_7,7,5,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,2,2,2,0,True,2,2,2,2,2,2,2,2,2,2,2,2,2,True,0.0002,0.0,0.003,2,0,False,2,True,False
+"Random general (exact, n<=12)",randgen_9,9,20,6,6,6,6,6,deg_high,6,0,6,6,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,4,4,3,True,7,3,4,7,3,4,7,3,4,7,3,4,8,True,0.001,0.0,0.004,6,0,False,6,True,False
+"Random general (exact, n<=12)",randgen_12,12,26,8,8,8,8,8,deg_high,8,0,8,8,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,5,5,4,True,9,4,7,9,4,7,9,4,7,9,4,7,11,True,0.0006,0.0,0.004,8,0,False,8,True,False
+"Random general (exact, n<=12)",randgen_12,12,26,8,8,8,8,8,deg_high,7,1,7,7,exact-branch,1.1428571428571428,1.1428571428571428,1.1428571428571428,1.1428571428571428,1.1428571428571428,1.0,1,6,6,5,True,10,5,6,10,5,6,10,5,6,10,5,6,8,True,0.0009,0.0,0.004,7,1,False,7,True,False
+"Random general (exact, n<=12)",randgen_11,11,38,8,8,8,8,8,deg_high,9,-1,8,8,exact-branch,1.0,1.0,1.0,1.0,1.0,1.125,1,5,5,4,True,9,4,5,9,4,5,9,4,5,9,4,5,11,True,0.0009,0.0,0.005,8,0,False,8,True,False
+"Random general (exact, n<=12)",randgen_10,10,20,6,6,6,6,6,deg_high,7,-1,6,6,exact-branch,1.0,1.0,1.0,1.0,1.0,1.1666666666666667,1,5,5,4,True,8,5,5,8,5,5,8,5,5,8,5,5,7,True,0.0004,0.0,0.003,6,0,False,6,True,False
+"Random general (exact, n<=12)",randgen_11,11,21,7,7,7,7,7,deg_high,7,0,7,7,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,5,5,4,True,9,6,6,9,6,6,9,6,6,9,6,6,9,True,0.0004,0.0,0.004,7,0,False,7,True,False
+"Random general (exact, n<=12)",randgen_11,11,13,5,5,5,5,5,deg_high,5,0,5,5,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,4,4,2,True,7,3,5,7,3,5,7,3,5,7,3,5,6,True,0.0003,0.0,0.004,5,0,False,5,True,False
+"Random general (exact, n<=12)",randgen_9,9,20,6,6,6,6,6,deg_high,6,0,6,6,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,4,4,3,True,7,4,4,7,4,4,7,4,4,7,4,4,8,True,0.0004,0.0,0.003,6,0,False,6,True,False
+"Random general (exact, n<=12)",randgen_8,8,14,5,5,5,5,5,deg_high,5,0,5,5,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,4,4,3,True,6,3,4,6,3,4,6,3,4,6,3,4,6,True,0.0008,0.0,0.003,5,0,False,5,True,False
+"Random general (exact, n<=12)",randgen_9,9,22,7,6,7,6,6,deg_high,7,-1,6,6,exact-branch,1.1666666666666667,1.0,1.1666666666666667,1.0,1.0,1.1666666666666667,1,4,4,3,True,7,3,4,7,3,4,7,3,4,7,3,4,8,True,0.0004,0.0,0.003,6,0,False,6,True,False
+"Random general (exact, n<=12)",randgen_9,8,14,5,5,5,5,5,deg_high,5,0,5,5,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,3,3,2,True,6,4,4,6,4,4,6,4,4,6,4,4,7,True,0.0003,0.0,0.003,5,0,False,5,True,False
+"Random general (exact, n<=12)",randgen_8,8,12,5,5,5,5,5,deg_high,5,0,5,5,exact-branch,1.0,1.0,1.0,1.0,1.0,1.0,1,4,4,3,True,6,3,3,6,3,3,6,3,3,6,3,3,6,True,0.0004,0.0,0.003,5,0,False,5,True,False
+"Random general (exact, n<=12)",randgen_9,9,10,4,4,4,4,4,deg_high,4,0,4,4,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,4,4,3,True,5,3,4,5,3,4,5,3,4,5,3,4,4,True,0.0003,0.0,0.005,4,0,False,4,True,False
+"Random general (exact, n<=12)",randgen_12,12,37,8,9,8,8,8,deg_high,9,-1,8,8,exact-branch,1.0,1.125,1.0,1.0,1.0,1.125,1,6,6,5,True,11,6,7,11,6,7,11,6,7,11,6,7,10,True,0.0005,0.0,0.004,8,0,False,8,True,False
+"Random general (exact, n<=12)",randgen_12,12,42,8,8,8,8,8,deg_high,9,-1,8,8,exact-branch,1.0,1.0,1.0,1.0,1.0,1.125,1,6,6,5,True,11,6,7,11,6,7,11,6,7,11,6,7,10,True,0.0008,0.0,0.006,8,0,False,8,True,False
+"Random general (exact, n<=12)",randgen_10,10,18,6,7,6,6,6,deg_high,7,-1,6,6,exact-branch,1.0,1.1666666666666667,1.0,1.0,1.0,1.1666666666666667,1,4,4,3,True,8,4,5,8,4,5,8,4,5,8,4,5,8,True,0.0007,0.0,0.004,6,0,False,6,True,False
+"Random general (exact, n<=12)",randgen_10,10,28,7,8,7,7,7,deg_high,7,0,7,7,exact-branch,1.0,1.1428571428571428,1.0,1.0,1.0,1.0,1,5,5,4,True,9,4,6,9,4,6,9,4,6,9,4,6,9,True,0.0005,0.0,0.005,7,0,False,7,True,False
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",crown_200,400,39800,200,200,200,200,200,deg_high,200,0,200,200,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,200,200,199,True,399,201,201,399,201,201,399,201,201,399,201,201,200,True,0.2234,0.0071,7.032,200,0,False,200,True,False
+Complete bipartite (dense),complete_bipartite_200,400,40000,200,200,200,200,200,deg_high,200,0,200,200,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,200,200,199,True,399,199,200,399,199,200,399,199,200,399,199,200,200,True,0.2109,0.0072,7.325,200,0,False,200,True,False
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",crown_400,800,159600,400,400,400,400,400,deg_high,400,0,400,400,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,400,400,399,True,799,401,401,799,401,401,799,401,401,799,401,401,400,True,0.8171,0.0303,31.23,400,0,False,400,True,False
+Complete bipartite (dense),complete_bipartite_400,800,160000,400,400,400,400,400,deg_high,400,0,400,400,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,400,400,399,True,799,399,400,799,399,400,799,399,400,799,399,400,400,True,0.8733,0.0305,49.094,400,0,False,400,True,False
+Double star + bridge (matching-heuristic stress),double_star_1000,2002,2001,2,2,2,2,2,deg_high,2,0,2,2,bipartite-matching,1.0,1.0,1.0,1.0,1.0,1.0,1,2,2,1,True,3,2,2,3,2,2,3,2,2,3,2,2,2,True,0.0501,0.0017,1.344,2,0,False,2,True,False
+Random 3-regular (bounded-degree adversarial),regular_n5000_d3,5000,7500,3118,3122,3118,3122,3118,deg_low,3130,-12,,2575,spectral_laplacian_hoffman,1.210873786407767,1.2124271844660195,1.210873786407767,1.2124271844660195,1.210873786407767,1.2155339805825243,1,2239,2239,2238,True,4506,2646,2877,4506,2646,2877,4506,2646,2877,4506,2646,2877,,,0.3143,0.0132,2.426,2761,357,False,2761,False,False
+Random 6-regular (bounded-degree adversarial),regular_n5000_d6,5000,15000,3582,3593,3582,3593,3582,deg_low,3616,-34,,2870,spectral_laplacian_hoffman,1.2480836236933799,1.2519163763066201,1.2480836236933799,1.2519163763066201,1.2480836236933799,1.2599303135888502,1,2340,2340,2339,True,4674,2792,2916,4674,2792,2916,4674,2792,2916,4674,2792,2916,,,0.2577,0.0084,2.972,3274,308,False,3274,False,False
+Random 12-regular (bounded-degree adversarial),regular_n5000_d12,5000,30000,4012,4012,4012,4012,4012,deg_high,4028,-16,,3220,spectral_laplacian_hoffman,1.2459627329192546,1.2459627329192546,1.2459627329192546,1.2459627329192546,1.2459627329192546,1.2509316770186336,1,2399,2399,2398,True,4785,2904,2991,4785,2904,2991,4785,2904,2991,4785,2904,2991,,,0.3858,0.011,4.386,3751,261,False,3751,False,False
+Barabasi-Albert scale-free hub graph,barabasi_albert_n5000,5000,14991,2652,2580,2606,2601,2580,high,2584,-4,,2446,karp_sipser_matching,1.0842191332788225,1.0547833197056418,1.0654129190515127,1.063368765331153,1.0547833197056418,1.0564186426819298,1,1821,1821,1820,True,3527,2010,2328,3527,2010,2328,3527,2010,2328,3527,2010,2328,,,0.3758,0.0226,2.977,2465,115,False,2465,False,False
+"Sparse Erdos-Renyi, avg degree 4",gnp_n5000,4908,9891,2765,2768,2743,2751,2743,deg_low,2827,-84,,2442,karp_sipser_matching,1.1322686322686322,1.1334971334971335,1.1232596232596233,1.1265356265356266,1.1232596232596233,1.1576576576576576,6,2072,2072,2055,True,3983,2299,2560,3983,2299,2560,3983,2299,2560,3983,2299,2560,,,0.3029,0.0145,4.54,2597,146,False,2597,False,False
+Watts-Strogatz small-world,ws_n5000,5000,15000,3715,3716,3715,3715,3715,deg_high,3639,76,,3359,clique_packing,1.1059839237868414,1.106281631437928,1.1059839237868414,1.1059839237868414,1.1059839237868414,1.0833581423042573,1,2498,2498,2497,True,4912,3061,3062,4912,3061,3062,4912,3061,3062,4912,3061,3062,,,0.4047,0.0214,4.478,3539,176,False,3539,False,False

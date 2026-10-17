@@ -33,10 +33,10 @@ Which proved certificate of the paper already covers the instance
       potential argument of the regular-graph theorem, which holds for every
       graph (the min-degree greedy independent set has at least
       sum_v 1/(deg v + 1) vertices);
-    * C3 Hallelujah bound sqrt(2 m W(G)) / tau            (Theorem c3);
+    * C3 Hallelujah bound sqrt(2 m W(G)) / tau            (Theorem c4, Hallelujah);
     * C4 classes solved exactly by Min-to-Min (forest, cycle, K_n, K_ab
       components);
-    * C5 max degree <= 3 -> 11/6                          (Theorem c2);
+    * C5 max degree <= 3 -> 11/6                          (Theorem c3, max-degree greedy);
     * C6 regular with d < 2e9 -> 2 - 2/(d+1)              (Theorem regular).
     The instance is *in the residue* when no certificate gives <= R0. The best
     certified value is the smallest of them: it is a *proved* per-instance
@@ -47,15 +47,15 @@ Mechanism probes (the candidate explanations)
        in a reference maximum independent set (the integer-program optimum
        when available, otherwise the planted set, otherwise the complement of
        the returned cover). AUC = 0.5 means degrees carry no information;
-       min-degree heuristics (c4, c8, maximize_solution) exploit AUC > 0.5.
+       min-degree heuristics (c5, c8, maximize_solution) exploit AUC > 0.5.
     H2 LP / Nemhauser-Trotter structure: kernel fraction, and how well the
        returned cover agrees with persistency (share of V1 in the cover, share
        of V0 outside it). If the kernel is small, any cover that respects
        persistency has ratio at most (|V1| + |V_half|) / (|V1| + |V_half|/2).
     H3 local optimality: the returned cover is checked for (1,2)-swap
        improvements; the excess |C| - tau is split into what the greedy
-       candidates left (best of c1..c8 minus tau) and what local search
-       removed (c9, c15).
+       candidates left (best of the base strategies and c13, c1..c13, minus tau) and what the
+       improvers removed (c14..c17).
     H4 scaling: every family is generated at several sizes, so the excess
        ratio can be fitted against n (does it stay bounded, grow like
        log n, or tend to 0?).
@@ -402,7 +402,7 @@ def run_instance(name, family, size, G, planted, args):
     cands = A.final_candidates(G, epsilon=cc.DEFAULT_EPSILON)
     elapsed = time.perf_counter() - t0
     sizes = {k: len(cands[k]) for k in NAMES}
-    C = cands["c15"]
+    C = cands[A.FINAL_NAME]
     assert all(u in C or v in C for u, v in G.edges()), name
 
     lp, V0, V1, Vh = nt_decomposition(G)
@@ -424,7 +424,7 @@ def run_instance(name, family, size, G, planted, args):
         ref_set, ref_kind = {v for v in planted if v in G}, "planted"
     else:
         ref_set, ref_kind = set(G) - C, "returned"
-    best_greedy = min(sizes[k] for k in ("c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8"))
+    best_greedy = min(sizes[k] for k in (*A.BASE_NAMES, "c13"))
     row = {
         "family": family, "name": name, "size_N": size, "n": n, "m": m,
         "deg_min": min(degs), "deg_max": max(degs), "deg_mean": 2 * m / n,
@@ -521,8 +521,8 @@ def print_report(summary, scal):
     print(f"  H2 corr(excess, kernel fraction) over all exact instances: {f(alls['corr_excess_kernel'], 3)};"
           f" persistency respected on {alls['persistency_respected']}/{alls['instances']}")
     print(f"  H1 corr(excess, degree AUC) over all exact instances:      {f(alls['corr_excess_auc'], 3)}")
-    print(f"  H3 mean relative excess after greedy (best c1..c8): {f(alls['mean_greedy_excess_rel'])};"
-          f" after local search (c15): {f(alls['mean_excess_rel'])}; (1,2)-swap left: {alls['with_12_swap']}")
+    print(f"  H3 mean relative excess after the base strategies (best c1..c13): {f(alls['mean_greedy_excess_rel'])};"
+          f" after the improvers (c17): {f(alls['mean_excess_rel'])}; (1,2)-swap left: {alls['with_12_swap']}")
     print(f"  Residue: {alls['in_residue']}/{alls['instances']} instances have no proved certificate <= R0;"
           f" best certificate counts: {alls['best_certificate_counts']}")
     print("\n  H4 scaling (mean exact ratio, or certified upper bound when tau is unknown)")

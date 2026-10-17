@@ -1,85 +1,58 @@
-"""car/ strategy-winner report: which strategy wins, and how often (Salvador 0.1.3).
+"""car/ strategy-winner report: which strategy wins, and how often (Salvador 0.1.4).
 
-``salvador.algorithm.final_candidates`` exposes all fourteen strategies (every
-one a valid cover); ``salvador.algorithm.find_vertex_cover`` returns ``c15``:
+Salvador's ensemble computes seventeen strategies in their numbering order (each
+one a valid cover); ``salvador.algorithm.find_vertex_cover`` returns ``c17``:
 
-    c1  maximal matching            c8  bipartite planar reduction
-    c2  max-degree greedy           c9  (1,2)-swap local search
-    c3  Hallelujah reduction        c10 EDS reduction + treewidth DP (bipartite)
-    c4  Min-to-Min                  c11 weighted subdivision reduction (bipartite)
-    c5  primal-dual                 c12 reduce-and-search (ILS + exact reductions)
-    c6  MIDS Baker reduction        c13 bounded-treewidth exact DP
-    c7  union re-prune              c14 consensus forcing (votes of c1..c13)
-                                    c15 swap-maximize refinement of c1..c14
+    base strategies                                 improvers
+    c1  component amplification (indices 0/1)       c13 union re-prune of c2..c8
+    c2  maximal matching                            c14 (1,2)-swap local search, from the best of c1..c13
+    c3  max-degree greedy                           c15 reduce-and-search, from the best of c1..c14
+    c4  Hallelujah reduction                        c16 consensus forcing (votes of c1..c15)
+    c5  Min-to-Min                                  c17 swap-maximize refinement of c1..c16 (final)
+    c6  primal-dual
+    c7  MIDS Baker reduction
+    c8  bipartite planar reduction
+    c9  bipartite layers (bounded Hopcroft-Karp + Koenig)
+    c10 EDS reduction + treewidth DP (bipartite), reference: best of c1..c9
+    c11 weighted subdivision reduction, guided by the best of c1..c10
+    c12 bounded-treewidth exact DP, core from the best of c1..c11
 
-Three of them are *improvers* rather than independent strategies:
+The report gives, per instance:
 
-* ``c9`` starts from the best of ``c1``...``c8`` and can only shrink it;
-* ``c12`` starts from the best of ``c1``...``c11`` and can only shrink it;
-* ``c15`` applies the budgeted swap-maximize refinement to every one of
-  ``c1``...``c14`` and keeps the smallest result, so it can only shrink the
-  best of them.
-
-``c10`` builds the edge-dominating-set gadget of every bipartite component (one
-node per edge; for each vertex a path through its edge-nodes), computes a
-minimum EDS with a treewidth DP and decodes each chosen edge ``((u,k),(u,x))``
-to ``u``; the DP core and the non-bipartite components are taken from the best
-of ``c1``...``c9``, and the reference is kept when the decoded cover is larger.
-
-``c11`` (salvador/subdivision_reduction.py) keeps the vertices as
-vertex-nodes ``(u, u)`` and turns every edge ``(u, w)`` into the edge-node
-``(u, w)`` with the half-edges ``((u, u), (u, w))`` and ``((w, w), (u, w))`` (the
-bipartite subdivision); vertex-nodes weigh 1, an undominated edge-node
-``n + 1``, and a reducing-peeling solver (exact degree-0, degree-1, triangle
-and degree-2 fold reductions; a max- or min-degree peel otherwise; the best of
-``subdivision_reduction.VARIANTS`` is kept) selects vertex-nodes until every
-edge-node is dominated. car_c11_variants.py compares the variants. The report records, per instance, the
-number of reductions and peels, whether c11 needed no peel (then it is a
-minimum cover: ``c11_exact``), its gap to the best base strategy, and checks
-that no edge-node is left undominated.
-``c12`` (salvador/reduce_search.py) is an improver like c9: from the best of
-``c1``...``c11`` it runs rounds of the (1,2)-swap iterated local search, each
-followed by c11's exact reductions and folds guided by the searched cover, and
-never returns a larger cover. The report records whether c12 strictly improved
-on the best of c1..c11 (``c12_gain``) and how much of the gain came from the
-search and from the reduction passes.
-"c10 exact" means the minimum EDS was computed with an empty core (it does not
-mean the decoded cover is minimum); ``c10_raw`` is the decoded cover before the
-comparison with the reference. ``c13`` is exact (a minimum vertex cover) when its elimination core is
-empty; otherwise it completes the best of ``c1``...``c10`` exactly outside the
-core. The report records, per instance, whether c10 and c13 were exact, their
-core sizes and widths, and the share of vertices in bipartite components.
-
-So the report gives, per instance:
-
-* the **winners among the base strategies** ``c1``...``c8``, ``c10``, ``c11`` and ``c13``:
-  every strategy attaining the minimum (ties credit all of them) and, when
-  the minimum is attained once, the *sole* winner;
-* whether **c9 strictly improved** on the best of ``c1``...``c8``, and by how much;
-* whether **c10 strictly improved** on its reference, the best of ``c1``...``c9``;
-* whether **c12 strictly improved** on its reference, the best of ``c1``...``c11``;
-* whether **c15 strictly improved** on the best of ``c1``...``c14``, by how
-  much, and **from which strategies** the final cover was obtained (every
-  strategy whose refined cover attains ``|c15|``).
+* the **winners among the base strategies** c1..c12: every strategy attaining
+  the minimum (ties credit all of them) and, when the minimum is attained once,
+  the *sole* winner;
+* for each of c10, c12, c13, c14, c15, c16 and c17, its **gain** over its
+  reference (the best of the strategies before it, see ``REFERENCE``): positive
+  when it strictly improved, 0 when it tied, negative when it is larger (only
+  c11 and c13 can be larger than the best before them; c10 and c12 keep their
+  reference when they are larger, c14 and c15 their start);
+* **from which strategies** the final cover was obtained (every strategy whose
+  refined cover attains ``|c17|``);
+* the diagnostics of c1 (``r'``, the target ``|M|``, the rule kept), c9 (layers,
+  orders, exact), c10 (exact, raw size, core, width, bipartite share), c11
+  (exact, variant, reductions, folds and peels, gap to the best base strategy),
+  c12 (exact, core, width), c15 (search and reduction gains) and c16 (rounds,
+  forced vertices, lower bound, certified ratio |C|/L).
 
 It aggregates these per graph family: wins, sole wins and win rate per base
-strategy, how often (and by how much on average) c9, c10, c12 and c15 improved,
-how often c10, c11 and c13 were exact, the mean c11 peel share, and how
-often each strategy was a source of the final cover.
+strategy, how often (and by how much in total) each improver improved, how often
+c9, c10, c11 and c12 were exact, the mean c11 peel share, and how often each
+strategy was a source of the final cover.
 
 Instances: the non-adaptive small Part A graphs, the Part B adversarial
 families up to ``--max-n`` and, optionally, every edge-list file in a
-directory (e.g. ``--dimacs experiment/clique_complement``).
+directory (e.g. ``--dimacs experiment``).
 
 Run from the repository root:
 
     python car/car_strategies.py
     python car/car_strategies.py --quick --max-n 5000
-    python car/car_strategies.py --dimacs experiment/clique_complement
-    python car/car_strategies.py --refine-budget -1    # unbounded c15 refinement
-    python car/car_strategies.py --tw-max-width 12 --tw-budget 1024   # larger c13 limits
+    python car/car_strategies.py --dimacs experiment
+    python car/car_strategies.py --refine-budget -1    # unbounded c17 refinement
+    python car/car_strategies.py --tw-max-width 12 --tw-budget 1024   # larger c12 limits
     python car/car_strategies.py --eds-max-width 5 --eds-budget 1024  # larger c10 budget (bags <= 6)
-    python car/car_strategies.py --search-rounds 5 --search-budget 200  # longer c12 search
+    python car/car_strategies.py --search-rounds 5 --search-budget 200  # longer c15 search
     python car/car_strategies.py --timeout 60    # skip instances taking more than 60 s
 
 The Part B families and the edge-list files are built and evaluated in a worker
@@ -103,17 +76,17 @@ from pathlib import Path
 import networkx as nx
 
 import car_common as cc
-from salvador.algorithm import (BASE_NAMES, C9_INPUT_NAMES, C10_INPUT_NAMES, CANDIDATE_NAMES,
-                                DEFAULT_EDS_BUDGET, DEFAULT_EDS_MAX_WIDTH, DEFAULT_REFINE_BUDGET,
-                                DEFAULT_SEARCH_BUDGET, DEFAULT_SEARCH_ROUNDS, final_candidates)
+from salvador.algorithm import (BASE_NAMES, CANDIDATE_NAMES, DEFAULT_EDS_BUDGET, DEFAULT_EDS_MAX_WIDTH,
+                                DEFAULT_REFINE_BUDGET, DEFAULT_SEARCH_BUDGET, DEFAULT_SEARCH_ROUNDS, FINAL_NAME,
+                                final_candidates)
 from salvador.treewidth_dp import DEFAULT_DP_BUDGET, DEFAULT_MAX_WIDTH
 
-BASE = list(BASE_NAMES)                                      # c1..c8, c10, c11, c13
-C12_INPUT = [k for k in CANDIDATE_NAMES if k not in ("c0", "c12", "c13", "c14", "c15")]  # c1..c11 (reference of c12)
-C14_INPUT = [f"c{i}" for i in range(1, 14)]                  # c1..c13 (votes of c14)
-C9_INPUT = list(C9_INPUT_NAMES)                              # c1..c8 (input of c9)
-C10_INPUT = list(C10_INPUT_NAMES)                            # c1..c9 (reference of c10)
-PRE_FINAL = [k for k in CANDIDATE_NAMES if k != "c15"]       # c0..c14 (input of c15)
+BASE = list(BASE_NAMES)                                      # c1..c12
+PRE_FINAL = [k for k in CANDIDATE_NAMES if k != FINAL_NAME]  # c1..c16 (input of c17)
+#: Every strategy that uses or improves the earlier covers, with the strategies it is compared with.
+REFERENCE: dict[str, list[str]] = {k: [f"c{i}" for i in range(1, int(k[1:]))]
+                                   for k in ("c10", "c11", "c12", "c13", "c14", "c15", "c16", "c17")}
+IMPROVERS = list(REFERENCE)
 
 # Set from the command line in main().
 REFINE_BUDGET: float | None = DEFAULT_REFINE_BUDGET
@@ -175,20 +148,21 @@ def run_instance(name: str, group: str, G: nx.Graph) -> dict:
         raise AssertionError(f"{name}: c11 left {info['c11_undominated']} edge-nodes undominated")
     best = min(sizes[k] for k in BASE)
     winners = [k for k in BASE if sizes[k] == best]
-    best_legacy = min(sizes[k] for k in C9_INPUT)
-    best_pre_final = min(sizes[k] for k in PRE_FINAL)
     refined_sizes = {k: len(refined[k]) for k in PRE_FINAL}
-    c15_from = [k for k in PRE_FINAL if refined_sizes[k] == sizes["c15"]]
+    final = sizes[FINAL_NAME]
+    gains = {k: min(sizes[x] for x in REFERENCE[k]) - sizes[k] for k in IMPROVERS}
     row = {
         "group": group, "name": name, "n": G.number_of_nodes(), "m": G.number_of_edges(),
         "sizes": sizes, "refined_sizes": refined_sizes,
         "best_base": best, "winners": winners,
         "sole_winner": winners[0] if len(winners) == 1 else None,
-        "best_c1_c8": best_legacy, "c9_gain": best_legacy - sizes["c9"],
-        "final": sizes["c15"],
-        "best_c1_c13": best_pre_final, "c15_gain": best_pre_final - sizes["c15"], "c15_from": c15_from,
-        "best_c1_c9": min(sizes[k] for k in C10_INPUT),
-        "c10_gain": min(sizes[k] for k in C10_INPUT) - sizes["c10"],
+        "final": final, "gains": gains,
+        "final_from": [k for k in PRE_FINAL if refined_sizes[k] == final],
+        "c1_rule": info.get("c1_rule", ""), "c1_r_prime": info.get("c1_r_prime", 0),
+        "c1_target": info.get("c1_target", 0), "c1_splits": info.get("c1_splits", 0),
+        "c9_layers": info.get("c9_max_layers", 0), "c9_orders": info.get("c9_orders", 0),
+        "c9_exact": bool(info.get("c9_exact", False)),
+        "c9_bipartite": info.get("c9_nonbipartite_components", 1) == 0,
         "c10_exact": bool(info.get("c10_exact", True)),
         "c10_raw": info.get("c10_raw_size", sizes["c10"]),
         "c10_core_size": info.get("c10_core_size", 0),
@@ -203,32 +177,27 @@ def run_instance(name: str, group: str, G: nx.Graph) -> dict:
         "c11_peels": info.get("c11_peels", 0),
         "c11_peel_fraction": info.get("c11_peels", 0) / max(G.number_of_nodes(), 1),
         "c11_gap": sizes["c11"] - best,
-        "best_c1_c11": min(sizes[k] for k in C12_INPUT),
-        "c12_gain": min(sizes[k] for k in C12_INPUT) - sizes["c12"],
-        "c12_search_gain": info.get("c12_search_gain", 0),
-        "c12_reduce_gain": info.get("c12_reduce_gain", 0),
-        "c12_rounds_improved": info.get("c12_rounds_improved", 0),
-        "best_c1_c13": min(sizes[k] for k in C14_INPUT),
-        "c14_gain": min(sizes[k] for k in C14_INPUT) - sizes["c14"],
-        "c14_rounds_run": info.get("c14_rounds_run", 0),
-        "c14_forced": info.get("c14_forced", 0),
-        "c14_lower_bound": info.get("c14_lower_bound", 0),
-        "c14_certified_ratio": info.get("c14_certified_ratio", 0.0),
-        "c13_exact": bool(info.get("c13_exact", True)),
-        "c13_core_size": info.get("c13_core_size", 0),
-        "c13_width": info.get("c13_width", 0),
+        "c12_exact": bool(info.get("c12_exact", True)),
+        "c12_core_size": info.get("c12_core_size", 0),
+        "c12_width": info.get("c12_width", 0),
+        "c15_search_gain": info.get("c15_search_gain", 0),
+        "c15_reduce_gain": info.get("c15_reduce_gain", 0),
+        "c15_rounds_improved": info.get("c15_rounds_improved", 0),
+        "c16_rounds_run": info.get("c16_rounds_run", 0),
+        "c16_forced": info.get("c16_forced", 0),
+        "c16_lower_bound": info.get("c16_lower_bound", 0),
+        "c16_certified_ratio": info.get("c16_certified_ratio", 0.0),
         "elapsed_seconds": elapsed,
     }
-    print(f"  [strategies] {group[:28]:28} {name:28} best={best:>7,} by {','.join(winners):28}"
-          f" c9=-{row['c9_gain']:<5} c10=-{row['c10_gain']:<5} c10raw={row['c10_raw']:>7,} final={sizes['c15']:>7,} (-{row['c15_gain']}"
-          f" from {','.join(c15_from)})"
-          f" c10={'exact' if row['c10_exact'] else ('core=' + str(row['c10_core_size']) if row['c10_bipartite_fraction'] == 1.0 else 'bip=' + format(row['c10_bipartite_fraction'], '.2f'))}"
-          f" c11={sizes['c11']:,} ({'exact' if row['c11_exact'] else 'peels=' + str(row['c11_peels'])}, +{row['c11_gap']})"
-          f" c12={sizes['c12']:,} (-{row['c12_gain']}: search -{row['c12_search_gain']}, reduce -{row['c12_reduce_gain']})"
-          f" c13={'exact' if row['c13_exact'] else 'core=' + str(row['c13_core_size'])}"
-          f" w={row['c13_width']}"
-          f" c14={sizes['c14']:,} ({row['c14_gain']:+d} vs c1..c13, rounds {row['c14_rounds_run']}, forced {row['c14_forced']},"
-          f" |C|/L={row['c14_certified_ratio']:.4f})", flush=True)
+    print(f"  [strategies] {group[:28]:28} {name:28} best base={best:>7,} by {','.join(winners):24}"
+          f" final={final:>7,} from {','.join(row['final_from'])}"
+          f" gains " + " ".join(f"{k}={gains[k]:+d}" for k in IMPROVERS)
+          + f" c1: r'={row['c1_r_prime']}/{row['c1_target']} c9: layers={row['c9_layers']}"
+          f"{' exact' if row['c9_exact'] else ''}"
+          f" c10={'exact' if row['c10_exact'] else 'core=' + str(row['c10_core_size'])}"
+          f" c11={'exact' if row['c11_exact'] else 'peels=' + str(row['c11_peels'])}"
+          f" c12={'exact' if row['c12_exact'] else 'core=' + str(row['c12_core_size'])}"
+          f" c16 |C|/L={row['c16_certified_ratio']:.4f}", flush=True)
     return row
 
 
@@ -242,90 +211,67 @@ def summarise(rows: list[dict]) -> dict:
             wins = sum(s in r["winners"] for r in grows)
             sole = sum(r["sole_winner"] == s for r in grows)
             per[s] = {"wins": wins, "sole_wins": sole, "win_rate": wins / k if k else 0.0}
-        final_source = {s: sum(s in r["c15_from"] for r in grows) for s in PRE_FINAL}
-        imp9 = [r for r in grows if r["c9_gain"] > 0]
-        imp15 = [r for r in grows if r["c15_gain"] > 0]
-        imp10 = [r for r in grows if r["c10_gain"] > 0]
-        imp12 = [r for r in grows if r["c12_gain"] > 0]
-        imp14 = [r for r in grows if r["c14_gain"] > 0]
+        improvers = {}
+        for s in IMPROVERS:
+            imp = [r["gains"][s] for r in grows if r["gains"][s] > 0]
+            improvers[s] = {"improved": len(imp), "improved_rate": len(imp) / k if k else 0.0,
+                            "ties": sum(r["gains"][s] == 0 for r in grows),
+                            "worse": sum(r["gains"][s] < 0 for r in grows),
+                            "total_gain": sum(imp), "mean_gain_when_improved": sum(imp) / len(imp) if imp else 0.0}
         out[g] = {
             "instances": k,
             "per_strategy": per,
-            "c9_improved": len(imp9),
-            "c9_improved_rate": len(imp9) / k if k else 0.0,
-            "c9_mean_gain_when_improved": (sum(r["c9_gain"] for r in imp9) / len(imp9)) if imp9 else 0.0,
-            "c9_total_gain": sum(r["c9_gain"] for r in grows),
-            "c15_improved": len(imp15),
-            "c15_improved_rate": len(imp15) / k if k else 0.0,
-            "c15_mean_gain_when_improved": (sum(r["c15_gain"] for r in imp15) / len(imp15)) if imp15 else 0.0,
-            "c15_total_gain": sum(r["c15_gain"] for r in grows),
-            "c15_source_counts": final_source,
-            "c10_improved": len(imp10),
-            "c10_improved_rate": len(imp10) / k if k else 0.0,
-            "c10_mean_gain_when_improved": (sum(r["c10_gain"] for r in imp10) / len(imp10)) if imp10 else 0.0,
-            "c10_total_gain": sum(r["c10_gain"] for r in grows),
+            "improvers": improvers,
+            "final_source_counts": {s: sum(s in r["final_from"] for r in grows) for s in PRE_FINAL},
+            "c1_r_prime_equals_target": sum(r["c1_r_prime"] == r["c1_target"] for r in grows),
+            "c9_exact": sum(r["c9_exact"] for r in grows),
+            "c9_mean_layers": (sum(r["c9_layers"] for r in grows) / k) if k else 0.0,
+            "c9_max_layers": max((r["c9_layers"] for r in grows), default=0),
             "c10_exact": sum(r["c10_exact"] for r in grows),
             "c10_raw_best": sum(r["c10_raw"] <= r["best_base"] for r in grows),
-            "c10_raw_mean_excess": (sum(r["c10_raw"] - r["best_base"] for r in grows) / k) if k else 0.0,
-            "c10_exact_rate": (sum(r["c10_exact"] for r in grows) / k) if k else 0.0,
             "c10_bipartite_instances": sum(r["c10_bipartite_fraction"] == 1.0 for r in grows),
-            "c10_mean_core_fraction": (sum(r["c10_core_size"] / r["n"] for r in grows if r["n"]) / k) if k else 0.0,
             "c10_max_width": max((r["c10_width"] for r in grows), default=0),
-            "c11_sole_wins": sum(r["sole_winner"] == "c11" for r in grows),
             "c11_exact": sum(r["c11_exact"] for r in grows),
-            "c11_exact_rate": (sum(r["c11_exact"] for r in grows) / k) if k else 0.0,
             "c11_mean_peel_fraction": (sum(r["c11_peel_fraction"] for r in grows) / k) if k else 0.0,
             "c11_mean_gap": (sum(r["c11_gap"] for r in grows) / k) if k else 0.0,
-            "c12_improved": len(imp12),
-            "c12_improved_rate": len(imp12) / k if k else 0.0,
-            "c12_mean_gain_when_improved": (sum(r["c12_gain"] for r in imp12) / len(imp12)) if imp12 else 0.0,
-            "c12_total_gain": sum(r["c12_gain"] for r in grows),
-            "c12_sole_wins": sum(r["sole_winner"] == "c12" for r in grows),
-            "c12_search_gain": sum(r["c12_search_gain"] for r in grows),
-            "c12_reduce_gain": sum(r["c12_reduce_gain"] for r in grows),
-            "c13_exact": sum(r["c13_exact"] for r in grows),
-            "c13_exact_rate": (sum(r["c13_exact"] for r in grows) / k) if k else 0.0,
-            "c13_mean_core_fraction": (sum(r["c13_core_size"] / r["n"] for r in grows if r["n"]) / k) if k else 0.0,
-            "c13_max_width": max((r["c13_width"] for r in grows), default=0),
-            "c14_improved": len(imp14),
-            "c14_improved_rate": len(imp14) / k if k else 0.0,
-            "c14_total_gain": sum(max(r["c14_gain"], 0) for r in grows),
-            "c14_mean_rounds": (sum(r["c14_rounds_run"] for r in grows) / k) if k else 0.0,
-            "max_certified_ratio": max((r["c14_certified_ratio"] for r in grows), default=0.0),
+            "c12_exact": sum(r["c12_exact"] for r in grows),
+            "c12_max_width": max((r["c12_width"] for r in grows), default=0),
+            "c15_search_gain": sum(r["c15_search_gain"] for r in grows),
+            "c15_reduce_gain": sum(r["c15_reduce_gain"] for r in grows),
+            "c16_mean_rounds": (sum(r["c16_rounds_run"] for r in grows) / k) if k else 0.0,
+            "max_certified_ratio": max((r["c16_certified_ratio"] for r in grows), default=0.0),
         }
     return out
 
 
 def print_table(summary: dict) -> None:
-    header = (f"{'family':44} {'inst':>5} " + " ".join(f"{s:>5}" for s in BASE)
-              + "  c9-impr     c10-impr    c15-impr    c10-exact   c10raw=best c13-exact   c11-exact   c11-peel c11-gap  c12-impr  c12-gain search reduce  c14-impr  c14-gain rounds  max|C|/L")
-    print("\nWins among the base strategies c1..c8, c10, c11, c13 "
-          "(ties credit every tied strategy; [sole wins] in the second line)")
+    header = f"{'family':44} {'inst':>5} " + " ".join(f"{s:>5}" for s in BASE)
+    print("\nWins among the base strategies c1..c12 (ties credit every tied strategy; [sole wins] in the second line)")
     print(header)
     print("-" * len(header))
     for g, s in summary.items():
         per = s["per_strategy"]
-        print(f"{g[:44]:44} {s['instances']:>5} " + " ".join(f"{per[k]['wins']:>5}" for k in BASE)
-              + f"  {s['c9_improved']:>4} ({100 * s['c9_improved_rate']:3.0f}%)"
-              + f"  {s['c10_improved']:>4} ({100 * s['c10_improved_rate']:3.0f}%)"
-              + f"  {s['c15_improved']:>4} ({100 * s['c15_improved_rate']:3.0f}%)"
-              + f"  {s['c10_exact']:>4} ({100 * s['c10_exact_rate']:3.0f}%)"
-              + f"  {s['c10_raw_best']:>4} ({100 * s['c10_raw_best'] / max(s['instances'], 1):3.0f}%)"
-              + f"  {s['c13_exact']:>4} ({100 * s['c13_exact_rate']:3.0f}%)"
-              + f"  {s['c11_exact']:>4} ({100 * s['c11_exact_rate']:3.0f}%)"
-              + f"  {s['c11_mean_peel_fraction']:>8.3f} {s['c11_mean_gap']:>7.2f}"
-              + f"  {s['c12_improved']:>4} ({100 * s['c12_improved_rate']:3.0f}%) {s['c12_total_gain']:>7}"
-              + f" {s['c12_search_gain']:>6} {s['c12_reduce_gain']:>6}"
-              + f"  {s['c14_improved']:>4} ({100 * s['c14_improved_rate']:3.0f}%) {s['c14_total_gain']:>7}"
-              + f" {s['c14_mean_rounds']:>6.2f} {s['max_certified_ratio']:>9.4f}")
+        print(f"{g[:44]:44} {s['instances']:>5} " + " ".join(f"{per[k]['wins']:>5}" for k in BASE))
         print(f"{'':44} {'':>5} " + " ".join(f"{'[' + str(per[k]['sole_wins']) + ']':>5}" for k in BASE))
-    print("\nSource of the final cover c15 (number of instances on which the refinement of"
-          " each strategy attains |c15|; ties credit every source)")
+    print("\nStrategies after c9: instances on which each one is strictly smaller than the best of the strategies"
+          " before it [total vertices saved]")
+    header = f"{'family':44} {'inst':>5} " + " ".join(f"{s:>12}" for s in IMPROVERS) + \
+        "  c9ex c10ex c11ex c12ex  c9 layers  max|C|/L"
+    print(header)
+    print("-" * len(header))
+    for g, s in summary.items():
+        imp = s["improvers"]
+        print(f"{g[:44]:44} {s['instances']:>5} "
+              + " ".join(f"{imp[k]['improved']:>5} [{imp[k]['total_gain']:>4}]" for k in IMPROVERS)
+              + f"  {s['c9_exact']:>4} {s['c10_exact']:>5} {s['c11_exact']:>5} {s['c12_exact']:>5}"
+              + f"  {s['c9_mean_layers']:>9.2f} {s['max_certified_ratio']:>9.4f}")
+    print("\nSource of the final cover c17 (number of instances on which the refinement of"
+          " each strategy attains |c17|; ties credit every source)")
     header2 = f"{'family':44} {'inst':>5} " + " ".join(f"{s:>5}" for s in PRE_FINAL)
     print(header2)
     print("-" * len(header2))
     for g, s in summary.items():
-        src = s["c15_source_counts"]
+        src = s["final_source_counts"]
         print(f"{g[:44]:44} {s['instances']:>5} " + " ".join(f"{src[k]:>5}" for k in PRE_FINAL))
     print("\nLegend: " + "; ".join(f"{k} = {v}" for k, v in CANDIDATE_NAMES.items()))
 
@@ -339,18 +285,18 @@ def main() -> None:
     ap.add_argument("--max-n", type=int, default=50_000, help="largest Part B instance (default 50000)")
     ap.add_argument("--dimacs", type=str, default=None, help="directory of edge-list files to include")
     ap.add_argument("--refine-budget", type=float, default=DEFAULT_REFINE_BUDGET,
-                    help="work budget of the c15 refinement in units of (n + m) per cover "
+                    help="work budget of the c17 refinement in units of (n + m) per cover "
                          f"(default {DEFAULT_REFINE_BUDGET}; -1 = unbounded)")
     ap.add_argument("--tw-max-width", type=int, default=DEFAULT_MAX_WIDTH,
-                    help=f"c13: largest elimination bag minus one (default {DEFAULT_MAX_WIDTH})")
+                    help=f"c12: largest elimination bag minus one (default {DEFAULT_MAX_WIDTH})")
     ap.add_argument("--tw-budget", type=float, default=DEFAULT_DP_BUDGET,
-                    help=f"c13: DP table budget in units of (n + m) (default {DEFAULT_DP_BUDGET})")
+                    help=f"c12: DP table budget in units of (n + m) (default {DEFAULT_DP_BUDGET})")
     ap.add_argument("--eds-max-width", type=int, default=DEFAULT_EDS_MAX_WIDTH,
                     help=f"c10: largest elimination bag minus one (default {DEFAULT_EDS_MAX_WIDTH})")
     ap.add_argument("--search-rounds", type=int, default=DEFAULT_SEARCH_ROUNDS,
-                    help=f"c12: search + reduction rounds (default {DEFAULT_SEARCH_ROUNDS})")
+                    help=f"c15: search + reduction rounds (default {DEFAULT_SEARCH_ROUNDS})")
     ap.add_argument("--search-budget", type=float, default=DEFAULT_SEARCH_BUDGET,
-                    help=f"c12: local-search work per round in units of (n + m) (default {DEFAULT_SEARCH_BUDGET})")
+                    help=f"c15: local-search work per round in units of (n + m) (default {DEFAULT_SEARCH_BUDGET})")
     ap.add_argument("--eds-budget", type=float, default=DEFAULT_EDS_BUDGET,
                     help=f"c10: DP table budget in units of (n + m) (default {DEFAULT_EDS_BUDGET})")
     cc.add_timeout_argument(ap)
@@ -395,44 +341,33 @@ def main() -> None:
 
     summary = summarise(rows)
     out = cc.OUT_DIR
+    diag = ["c1_rule", "c1_r_prime", "c1_target", "c1_splits", "c9_layers", "c9_orders", "c9_exact", "c10_exact",
+            "c10_raw", "c10_core_size", "c10_width", "c10_bipartite_fraction", "c11_exact", "c11_variant", "c11_deg0",
+            "c11_deg1", "c11_triangle", "c11_folds", "c11_peels", "c11_peel_fraction", "c11_gap", "c12_exact",
+            "c12_core_size", "c12_width", "c15_search_gain", "c15_reduce_gain", "c15_rounds_improved",
+            "c16_rounds_run", "c16_forced", "c16_lower_bound", "c16_certified_ratio", "elapsed_seconds"]
     with (out / "car_strategies.csv").open("w", encoding="utf-8") as fh:
-        fh.write("group,name,n,m," + ",".join(CANDIDATE_NAMES)
-                 + ",best_base,winners,sole_winner,c9_gain,c10_gain,c15_gain,c15_from,"
-                 + "c10_exact,c10_raw,c10_core_size,c10_width,c10_bipartite_fraction,"
-                 + "c11_exact,c11_variant,c11_deg0,c11_deg1,c11_triangle,c11_folds,c11_peels,c11_peel_fraction,c11_gap,"
-                 + "best_c1_c11,c12_gain,c12_search_gain,c12_reduce_gain,c12_rounds_improved,"
-                 + "c13_exact,c13_core_size,c13_width,best_c1_c13,c14_gain,c14_rounds_run,c14_forced,c14_lower_bound,"
-                 + "c14_certified_ratio,elapsed_seconds\n")
+        fh.write("group,name,n,m," + ",".join(CANDIDATE_NAMES) + ",best_base,winners,sole_winner,final_from,"
+                 + ",".join(f"{k}_gain" for k in IMPROVERS) + "," + ",".join(diag) + "\n")
         for r in rows:
             fh.write(f"\"{r['group']}\",{r['name']},{r['n']},{r['m']},"
                      + ",".join(str(r["sizes"][k]) for k in CANDIDATE_NAMES)
-                     + f",{r['best_base']},{'+'.join(r['winners'])},{r['sole_winner'] or ''},"
-                     + f"{r['c9_gain']},{r['c10_gain']},{r['c15_gain']},{'+'.join(r['c15_from'])},"
-                     + f"{r['c10_exact']},{r['c10_raw']},{r['c10_core_size']},{r['c10_width']},{r['c10_bipartite_fraction']:.4f},"
-                     + f"{r['c11_exact']},{r['c11_variant']},{r['c11_deg0']},{r['c11_deg1']},{r['c11_triangle']},"
-                     + f"{r['c11_folds']},{r['c11_peels']},"
-                     + f"{r['c11_peel_fraction']:.4f},{r['c11_gap']},"
-                     + f"{r['best_c1_c11']},{r['c12_gain']},{r['c12_search_gain']},{r['c12_reduce_gain']},"
-                     + f"{r['c12_rounds_improved']},"
-                     + f"{r['c13_exact']},{r['c13_core_size']},{r['c13_width']},"
-                     + f"{r['best_c1_c13']},{r['c14_gain']},{r['c14_rounds_run']},{r['c14_forced']},{r['c14_lower_bound']},"
-                     + f"{r['c14_certified_ratio']:.6f},{r['elapsed_seconds']:.3f}\n")
+                     + f",{r['best_base']},{'+'.join(r['winners'])},{r['sole_winner'] or ''},{'+'.join(r['final_from'])},"
+                     + ",".join(str(r["gains"][k]) for k in IMPROVERS) + ","
+                     + ",".join(f"{r[k]:.6f}" if isinstance(r[k], float) else str(r[k]) for k in diag) + "\n")
     with (out / "car_strategies_summary.csv").open("w", encoding="utf-8") as fh:
-        fh.write("group,instances,strategy,name,wins,sole_wins,win_rate,final_source\n")
+        fh.write("group,instances,strategy,name,wins_or_improved,sole_wins,rate,total_gain,final_source\n")
         for g, s in summary.items():
-            src = s["c15_source_counts"]
+            src = s["final_source_counts"]
             for k in BASE:
                 p = s["per_strategy"][k]
                 fh.write(f"\"{g}\",{s['instances']},{k},\"{CANDIDATE_NAMES[k]}\","
-                         f"{p['wins']},{p['sole_wins']},{p['win_rate']:.4f},{src[k]}\n")
-            fh.write(f"\"{g}\",{s['instances']},c9,\"{CANDIDATE_NAMES['c9']} (strict improvements)\","
-                     f"{s['c9_improved']},,{s['c9_improved_rate']:.4f},{src['c9']}\n")
-            fh.write(f"\"{g}\",{s['instances']},c12,\"{CANDIDATE_NAMES['c12']} (strict improvements over c1..c11)\","
-                     f"{s['c12_improved']},,{s['c12_improved_rate']:.4f},{src['c12']}\n")
-            fh.write(f"\"{g}\",{s['instances']},c14,\"{CANDIDATE_NAMES['c14']} (strict improvements over c1..c13)\","
-                     f"{s['c14_improved']},,{s['c14_improved_rate']:.4f},{src['c14']}\n")
-            fh.write(f"\"{g}\",{s['instances']},c15,\"{CANDIDATE_NAMES['c15']} (strict improvements)\","
-                     f"{s['c15_improved']},,{s['c15_improved_rate']:.4f},\n")
+                         f"{p['wins']},{p['sole_wins']},{p['win_rate']:.4f},,{src[k]}\n")
+            for k in IMPROVERS:
+                p = s["improvers"][k]
+                fh.write(f"\"{g}\",{s['instances']},{k},\"{CANDIDATE_NAMES[k]} (strict improvements over "
+                         f"c1..c{int(k[1:]) - 1})\",{p['improved']},,{p['improved_rate']:.4f},{p['total_gain']},"
+                         f"{src.get(k, '')}\n")
     (out / "car_strategies.json").write_text(json.dumps(
         {"salvador_version": cc.__version__, "environment": cc.environment(),
          "candidates": CANDIDATE_NAMES, "base_strategies": BASE,

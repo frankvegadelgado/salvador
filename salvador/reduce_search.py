@@ -1,6 +1,6 @@
-"""Reduce-and-search improver for vertex cover (candidate c12).
+"""Reduce-and-search improver for vertex cover (candidate c15).
 
-c12 starts from the best of c1..c11 and alternates, for ``rounds`` rounds:
+c15 starts from the best of c1..c14 and alternates, for ``rounds`` rounds:
 
 1. **Swap search** -- the budgeted (1,2)-swap iterated local search of
    :mod:`salvador.local_search` (Andrade, Resende and Werneck), which accepts

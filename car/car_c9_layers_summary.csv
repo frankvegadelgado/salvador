@@ -1,0 +1,10 @@
+group,instances,exact_instances,bipartite_instances,c9_optimal,c9_exact,c17_optimal,c9_above_1_5,c9_above_2tau_minus_r,c9_max_ratio,c9_mean_ratio,c9_worst_instance,c9_strictly_best,c9_ties_best,c9_worse_than_best,c9_total_gain,c9_smaller_than_c1,c9_smaller_than_c2,c9_larger_than_c2,c17_from_c9,mean_layers,max_layers,max_layers_over_log2m,seconds
+Bipartite obstruction (exact),1,1,1,1,1,1,0,0,1.0,1.0,bipartite_obstruction,0,1,0,0,0,0,0,1,1.0,1,0.25,0.0107
+Graph atlas n<=7,202,202,55,199,202,202,0,0,1.5,1.0057755775577557,atlas_35,0,199,3,0,1,21,3,202,1.7623762376237624,3,1.0,0.4532
+"Grids, bipartite (exact)",16,16,16,16,16,16,0,0,1.0,1.0,grid_2x2,0,16,0,0,6,0,0,16,1.0,1,0.3333333333333333,0.41910000000000003
+Hand-made mixtures (exact),2,2,0,2,2,2,0,0,1.0,1.0,mixed_grid_C5_K4,0,2,0,0,2,0,0,2,2.0,2,0.4,0.0456
+Hand-made non-bipartite (exact),37,37,2,32,37,37,0,0,1.25,1.0245495495495496,mycielski_C5_2,0,32,5,0,5,5,4,36,2.135135135135135,3,1.0,0.1754
+Random bipartite (exact),25,25,25,25,25,25,0,0,1.0,1.0,randbip_4_3,0,25,0,0,4,7,0,25,1.0,1,1.0,0.1424
+"Random general (exact, n<=12)",30,30,2,29,30,30,0,0,1.125,1.0041666666666667,randgen_12,0,29,1,0,3,11,0,30,2.3,3,0.6666666666666666,0.12789999999999999
+Relabel / order stress (exact),12,12,12,12,12,12,0,0,1.0,1.0,relabel_0,0,12,0,0,2,0,0,12,1.0,1,0.25,0.1312
+ALL,325,325,113,316,325,325,0,0,1.5,1.0067692307692306,atlas_35,0,316,9,0,23,44,7,324,1.7292307692307691,3,1.0,1.5055

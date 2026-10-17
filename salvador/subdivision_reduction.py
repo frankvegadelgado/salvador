@@ -60,7 +60,7 @@ applies exact reductions while one is available and peels otherwise:
     part of Phi the most per unit weight;
   - ``peel="min"``: leave the vertex-node with the smallest residual degree
     unselected, which forces its (fewest) open edge-nodes' other endpoints
-    into the cover -- the minimum-degree independent-set rule of c4/c8, with
+    into the cover -- the minimum-degree independent-set rule of c5/c8, with
     the exact reductions re-applied after every step;
   - ``peel="ref"`` (guided): select the vertex-node of largest residual
     degree among those in a *reference cover* (in the ensemble: the best of

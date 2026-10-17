@@ -1,10 +1,10 @@
-"""Consensus forcing for vertex cover (candidate c14).
+"""Consensus forcing for vertex cover (candidate c16).
 
 Idea
 ----
-The strategies c1..c13 are different heuristics, and a vertex that all of
+The strategies c1..c15 are different heuristics, and a vertex that all of
 them (or most of them) put into their covers is likely to belong to a minimum
-cover. Candidate c14 *forces* such vertices into the cover -- equivalently, it
+cover. Candidate c16 *forces* such vertices into the cover -- equivalently, it
 puts a self-loop on each of them, which no cover can leave uncovered -- deletes
 them from the graph, solves the residual graph again with linear-time solvers
 (pruned NetworkX minimum maximal matching, Min-to-Min and the subdivision reduction c11 with
@@ -19,7 +19,7 @@ first the vertices on which *all* covers agree, then the ones on which most
 agree. Every new cover joins the pool. Before every round the best cover is
 checked against a certified lower bound ``L <= tau(G)``, computed in linear
 time as the larger of the NetworkX minimum maximal matching approximation
-(the matching of c1) and a Karp-Sipser matching
+(the matching of c2) and a Karp-Sipser matching
 (any matching is a lower bound on tau). The rounds stop as soon as
 ``|best| <= target * L``, which proves the ratio ``|best| / tau <= target`` on
 this graph; they also stop when a round would force the same set again.
@@ -27,18 +27,18 @@ this graph; they also stop when a round would force the same set again.
 The default target is 1 (stop only when the cover is certified optimal). A
 target of R0 = 1.999999999 would stop before the first round on every graph
 whose matching has fewer than 10^9 edges: the pruned maximal-matching cover
-c1 already has |c1| <= 2|M| - 1 (Theorem "2 tau - r"), so
+c2 already has |c2| <= 2|M| - 1 (Theorem "2 tau - r"), so
 |best| / L <= 2 - 1/|M| <= R0 there, and the rounds would never run.
 
 What is and is not guaranteed
 -----------------------------
 * The result is always a valid vertex cover, and the ensemble keeps the
-  smallest candidate, so c14 can never make Salvador's answer worse.
+  smallest candidate, so c16 can never make Salvador's answer worse.
 * When the stopping rule fires, the ratio <= R0 is certified on that graph by
   the matching lower bound.
 * Nothing guarantees that the forced vertices lie in a minimum cover: all the
   heuristics may agree on a wrong vertex. If a forced vertex lies in no
-  minimum cover, forcing it costs one vertex. So c14 is a heuristic; it does
+  minimum cover, forcing it costs one vertex. So c16 is a heuristic; it does
   not prove ratio <= R0 on graphs where the certificate fails, and on the hard
   instances of the hardness reductions the matching bound is far below tau,
   so the certificate cannot prove a ratio much better than the theorem.
@@ -63,7 +63,7 @@ Adj = dict[Any, set[Any]]
 
 
 def greedy_matching_size(adj: Mapping[Any, Iterable[Any]]) -> int:
-    """Size of the NetworkX minimum maximal matching approximation of ``adj`` (the matching of c1)."""
+    """Size of the NetworkX minimum maximal matching approximation of ``adj`` (the matching of c2)."""
     G = nx.Graph()
     G.add_edges_from((u, v) for u, nb in adj.items() for v in nb if v != u)
     return len(nx.approximation.min_maximal_matching(G))

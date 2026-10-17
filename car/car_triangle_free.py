@@ -11,7 +11,7 @@ them (unless P = NP).
 What this experiment can and cannot show
 -----------------------------------------
 * It **certifies, per instance**, an interval for the ratio
-  ``|C| / tau(G)`` of Salvador's final cover ``C = c15``:
+  ``|C| / tau(G)`` of Salvador's final cover ``C = c17``:
 
       ratio_lower = |C| / tau_upper  <=  |C| / tau(G)  <=  |C| / tau_lower = ratio_upper,
 
@@ -74,8 +74,8 @@ margin, worst planted lower bound, counts below 2 - eps for several eps).
 
 A priori bound checked on every row (Theorem "2 - r/tau" of the paper): for
 every graph with r >= 1 connected components that have an edge, Salvador's
-final cover satisfies |C| <= 2 tau - r, because c1 (pruned maximal matching)
-already does and |c15| <= |c1|. Rows with exact tau assert it; every row
+final cover satisfies |C| <= 2 tau - r, because c2 (pruned maximal matching)
+already does and |c17| <= |c2|. Rows with exact tau assert it; every row
 records the implied ratio bound 2 - r / tau_upper (valid since tau <= tau_upper)
 and whether it is <= 1.999999999.
 
@@ -112,11 +112,11 @@ import networkx as nx
 
 import car_common as cc
 import car_yes_instances as kr
-from salvador.algorithm import CANDIDATE_NAMES, final_candidates
+from salvador.algorithm import CANDIDATE_NAMES, FINAL_NAME, final_candidates
 
 SEED = 20261013
-NAMES = list(CANDIDATE_NAMES)  # c1..c15
-FINAL = "c15"
+NAMES = list(CANDIDATE_NAMES)  # c1..c17
+FINAL = FINAL_NAME
 EPS_LEVELS = (0.5, 0.25, 0.1, 0.05, 0.01)
 BARRIER = 1.999999999  # the 2 - 1e-9 threshold of the a priori bound 2 - r / tau
 STAGE_LOG_N = 20_000   # print the stage times of instances at least this large
@@ -472,7 +472,7 @@ def evaluate(name: str, group: str, G: nx.Graph, planted_I, args: dict, exact_sm
     # Certified bounds on tau.
     t0 = time.perf_counter()
     lower: dict[str, float] = {}
-    upper: dict[str, int] = {"salvador_c15": final}
+    upper: dict[str, int] = {"salvador_c17": final}
     tau = None
     method = None
     if nx.is_bipartite(G):
@@ -535,9 +535,9 @@ def evaluate(name: str, group: str, G: nx.Graph, planted_I, args: dict, exact_sm
         "planted_cover": upper.get("planted"),
         "ratio_vs_planted": (final / upper["planted"]) if upper.get("planted") else None,
         "components": r_comp, "thm_ratio_bound": thm_bound, "thm_below_barrier": thm_bound <= BARRIER,
-        "c11_exact": bool(info.get("c11_exact", False)), "c13_exact": bool(info.get("c13_exact", False)),
-        "c11_peels": info.get("c11_peels"), "c12_search_gain": info.get("c12_search_gain"),
-        "c12_reduce_gain": info.get("c12_reduce_gain"),
+        "c11_exact": bool(info.get("c11_exact", False)), "c12_exact": bool(info.get("c12_exact", False)),
+        "c11_peels": info.get("c11_peels"), "c15_search_gain": info.get("c15_search_gain"),
+        "c15_reduce_gain": info.get("c15_reduce_gain"),
         "salvador_seconds": salvador_seconds, "bound_seconds": bound_seconds,
     }
     rat = f"ratio={row['ratio']:.4f}" if row["ratio"] else f"ratio in [{ratio_lower:.4f}, {ratio_upper:.4f}]"
@@ -662,7 +662,7 @@ def summarise(rows: list[dict]) -> dict:
 
 def print_summary(summary: dict) -> None:
     f = lambda x: "-" if x is None else f"{x:.4f}"
-    print("\nTriangle-free graphs: ratio of Salvador's final cover c15 (exact where tau is proved, else the"
+    print("\nTriangle-free graphs: ratio of Salvador's final cover c17 (exact where tau is proved, else the"
           " certified interval)")
     head = (f"{'family':48} {'N':>4} {'exact':>5} {'opt':>4} {'max exact':>9} {'max ub':>8} {'min eps':>8}"
             f" {'max lb':>7} {'vs plant':>8} {'LP gap':>7} " + " ".join(f"<=2-{e:<4}" for e in EPS_LEVELS))
@@ -781,7 +781,7 @@ def main() -> None:
     cols = ["group", "name", "n", "m", "min_degree", "max_degree", "avg_degree", "bipartite"]
     tail = ["components", "thm_ratio_bound", "thm_below_barrier", "final", "final_fraction", "tau", "tau_method", "exact", "tau_lower", "tau_lower_method", "tau_upper",
             "tau_upper_method", "ratio", "ratio_lower", "ratio_upper", "eps_certified", "lp", "ratio_vs_lp",
-            "integrality_gap", "planted_cover", "ratio_vs_planted", "c11_exact", "c13_exact",
+            "integrality_gap", "planted_cover", "ratio_vs_planted", "c11_exact", "c12_exact",
             "salvador_seconds", "bound_seconds"]
 
     def cell(v):

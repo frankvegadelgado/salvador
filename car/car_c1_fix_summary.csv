@@ -1,0 +1,11 @@
+variant,is_pipeline,instances,exact_instances,bound_violations,proven_bound_violations,above_1_5,optimal,max_ratio,mean_ratio,inexact_instances,certified,refuted,undecided,worst_instance
+c1,True,311,311,13,0,3,295,1.6666666666666667,1.0152809676925434,0,0,0,0,relabel_0
+high/greedy,False,311,311,17,0,3,279,1.6666666666666667,1.0301561782269177,0,0,0,0,relabel_0
+deg_high/greedy,False,311,311,18,0,3,287,1.6666666666666667,1.0232927576175164,0,0,0,0,relabel_0
+c2,True,311,311,18,0,3,270,1.6666666666666667,1.043465778594396,0,0,0,0,randbip_3_5
+deg_low/greedy,False,311,311,18,0,5,285,1.6666666666666667,1.027392436074108,0,0,0,0,relabel_0
+low/greedy,False,311,311,22,0,5,279,1.6666666666666667,1.03194763435921,0,0,0,0,relabel_0
+deg_low/prune,False,311,311,24,2,5,273,2.5,1.0447634359209923,0,0,0,0,broom_3_4
+low/prune,False,311,311,28,4,5,264,2.5,1.0561858827132138,0,0,0,0,broom_3_4
+deg_high/prune,False,311,311,29,2,9,271,2.5,1.051730209768795,0,0,0,0,broom_3_4
+high/prune,False,311,311,39,4,14,254,2.5,1.077618282039504,0,0,0,0,broom_3_4

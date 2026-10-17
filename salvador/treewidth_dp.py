@@ -1,4 +1,4 @@
-"""Bounded-treewidth dynamic program for vertex cover (candidate c13).
+"""Bounded-treewidth dynamic program for vertex cover (candidate c12).
 
 Vertex cover is solvable in time ``O(2^w * w * n)`` on graphs of treewidth
 ``w``, hence in linear time when ``w`` is bounded. This module realises that

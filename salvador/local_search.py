@@ -1,4 +1,4 @@
-"""Budgeted (1,2)-swap iterated local search for vertex cover (candidate c9).
+"""Budgeted (1,2)-swap iterated local search for vertex cover (candidate c14, from the best of c1..c13).
 
 A vertex cover ``C`` is the complement of an independent set ``S = V \\ C``,
 so every independent vertex gained is a cover vertex saved. This module

@@ -1,4 +1,4 @@
-"""Regression smoke tests for Salvador v0.1.3."""
+"""Regression smoke tests for Salvador v0.1.4."""
 
 from __future__ import annotations
 
@@ -10,8 +10,8 @@ from salvador.parser import read
 from salvador.utils import is_vertex_cover
 
 
-def test_version_is_013() -> None:
-    assert __version__ == "0.1.3"
+def test_version_is_014() -> None:
+    assert __version__ == "0.1.4"
 
 
 def test_small_benchmark_cover_is_valid() -> None:
@@ -103,7 +103,7 @@ def test_bipartite_planar_reduction_is_exact_and_valid() -> None:
 
 
 def test_local_search_candidate_never_worse_and_valid() -> None:
-    """c9 is a valid cover no larger than the best of c1..c8."""
+    """c14 is a valid cover no larger than the best of c1..c13."""
     from salvador.algorithm import ensemble_candidates
 
     for seed in range(20):
@@ -111,8 +111,8 @@ def test_local_search_candidate_never_worse_and_valid() -> None:
         cands = ensemble_candidates(graph)
         for cover in cands.values():
             assert is_vertex_cover(graph, cover)
-        best_other = min(len(c) for k, c in cands.items() if k not in ("c0", "c9"))
-        assert len(cands["c9"]) <= best_other
+        assert list(cands) == [f"c{i}" for i in range(1, 17)]
+        assert len(cands["c14"]) <= min(len(cands[f"c{i}"]) for i in range(1, 14))
 
 
 
@@ -155,12 +155,12 @@ def test_subdivision_c11_valid_and_exact_when_unpeeled() -> None:
                 if vi["exact"] and n <= 14:
                     assert len(c) == len(find_vertex_cover_brute_force(graph))
         cands = ensemble_candidates(graph)
-        assert set(cands) == {f"c{i}" for i in range(0, 15)}
+        assert set(cands) == {f"c{i}" for i in range(1, 17)}
         assert is_vertex_cover(graph, cands["c11"])
 
 
-def test_reduce_search_c12_never_worse_and_valid() -> None:
-    """c12: valid cover, never larger than its start (the best of c1..c11), reproducible."""
+def test_reduce_search_c15_never_worse_and_valid() -> None:
+    """c15: valid cover, never larger than its start (the best of c1..c14), reproducible."""
     from salvador import reduce_search as rs
     from salvador.algorithm import ensemble_candidates
 
@@ -173,9 +173,8 @@ def test_reduce_search_c12_never_worse_and_valid() -> None:
         assert is_vertex_cover(graph, cover) and len(cover) <= len(start)
         assert cover == rs.reduce_search_cover(adj, start, rounds=2, budget=20)
         cands = ensemble_candidates(graph)
-        assert is_vertex_cover(graph, cands["c12"])
-        assert len(cands["c12"]) <= min(len(cands[k]) for k in
-                                        ("c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "c10", "c11"))
+        assert is_vertex_cover(graph, cands["c15"])
+        assert len(cands["c15"]) <= min(len(cands[f"c{i}"]) for i in range(1, 15))
 
 
 def test_a_priori_bound_two_tau_minus_components() -> None:
@@ -210,11 +209,11 @@ def test_a_priori_bound_two_tau_minus_components() -> None:
                     matched |= {u, v}
             c1 = prune_redundant_vertices(adj, matched)
             assert is_vertex_cover(graph, c1) and len(c1) <= 2 * tau - r
-        assert len(final_candidates(graph)["c15"]) <= 2 * tau - r
+        assert len(final_candidates(graph)["c17"]) <= 2 * tau - r
 
 
-def test_consensus_c14_valid_and_never_breaks_the_ensemble() -> None:
-    """c14: valid cover; the forced vertices are deleted and added to the cover directly (no self-loops,
+def test_consensus_c16_valid_and_never_breaks_the_ensemble() -> None:
+    """c16: valid cover; the forced vertices are deleted and added to the cover directly (no self-loops,
     which _clean would drop); the lower bound used to stop is a true lower bound; reproducible."""
     from salvador import consensus_force as cf
     from salvador.algorithm import ensemble_candidates, final_candidates, find_vertex_cover_brute_force
@@ -231,15 +230,17 @@ def test_consensus_c14_valid_and_never_breaks_the_ensemble() -> None:
         assert cf.lower_bound(adj) <= tau
         info: dict = {}
         cands = ensemble_candidates(graph, info=info)
-        assert is_vertex_cover(graph, cands["c14"])
-        assert cands["c14"] == ensemble_candidates(graph)["c14"]
-        assert len(final_candidates(graph)["c15"]) <= min(len(cands[f"c{i}"]) for i in range(1, 15))
+        assert is_vertex_cover(graph, cands["c16"])
+        assert cands["c16"] == ensemble_candidates(graph)["c16"]
+        assert len(final_candidates(graph)["c17"]) <= min(len(cands[f"c{i}"]) for i in range(1, 17))
 
 
-def test_component_split_c0_valid_and_reaches_target() -> None:
-    """c0: the split graph has exactly |M| components (M = NetworkX min maximal matching, as in c1), its
-    edges are those of G relabelled by copy index, every decoding completes to a valid cover, c0 is never
-    larger than c1, and the result is reproducible."""
+def test_component_split_c1_valid_and_linear_split() -> None:
+    """c1: copies (u, 0) and (u, 1) only; only edges of M (both endpoints at index 0) are split; the split
+    graph has r' components with r <= r' <= |M| and r' >= |M| - 1, equal to the union-find count; its edges
+    are those of G relabelled by copy index; every decoding completes to a valid cover; reproducible."""
+    from collections import Counter
+
     from salvador import component_split as cs
     from salvador.algorithm import ensemble_candidates
 
@@ -254,22 +255,55 @@ def test_component_split_c0_valid_and_reaches_target() -> None:
             continue
         info: dict = {}
         H = cs.build_split_graph(graph, info)
-        assert info["r_prime"] == nx.number_connected_components(H) >= info["target"]
+        assert {i for _, i in H} <= {0, 1}
+        with_edge = sum(1 for c in nx.connected_components(H) if len(c) > 1)
+        assert info["r_prime"] == with_edge
         assert info["target"] == len(nx.approximation.min_maximal_matching(graph))
-        from collections import Counter
+        assert info["r"] <= info["r_prime"] <= info["target"] and info["r_prime"] >= info["target"] - 1
         assert Counter(frozenset((a, b)) for (a, _), (b, _) in H.edges()) == \
             Counter(frozenset(e) for e in graph.edges())
-        # exact stop: r' is exactly max(r, |M|) = |M|, never more
-        assert info["r_prime"] == info["target"]
-        legacy = cs.build_split_graph(graph, exact_stop=False)
-        assert nx.number_connected_components(legacy) >= info["target"]
         for rule in cs.RULES:
-            for residual in cs.RESIDUALS:
-                raw = cs.decode(graph, H, rule, residual=residual)
-                assert raw <= set(graph)
-                assert is_vertex_cover(graph, cs.complete_cover(graph, raw))
-        info = {}
-        cands = ensemble_candidates(graph, info=info)
-        assert is_vertex_cover(graph, cands["c0"])
-        assert len(cands["c0"]) <= len(cands["c1"])  # fallback to c1: |c0| <= |c1| <= 2 tau - r
-        assert cands["c0"] == ensemble_candidates(graph)["c0"]
+            raw = cs.decode(graph, H, rule)
+            assert raw <= set(graph)
+            assert is_vertex_cover(graph, cs.complete_cover(graph, raw))
+        cands = ensemble_candidates(graph)
+        assert is_vertex_cover(graph, cands["c1"])
+        assert cands["c1"] == ensemble_candidates(graph)["c1"]
+
+
+def test_bipartite_layers_c9_valid_exact_on_bipartite_and_refined_by_c17() -> None:
+    """c9 is a valid cover; on bipartite graphs it is one layer and minimum when its Hopcroft-Karp phases
+    reach a maximum matching (always, with enough phases); the number of layers is at most
+    floor(log2 m) + 1; c17 is never larger than c9."""
+    import math
+    import random
+
+    from salvador import bipartite_peel as bp
+    from salvador.algorithm import c9_cover, final_candidates
+
+    rng = random.Random(9)
+    graphs = [nx.complete_bipartite_graph(4, 7), nx.grid_2d_graph(5, 6), nx.cycle_graph(10), nx.path_graph(9),
+              nx.cycle_graph(7), nx.petersen_graph(), nx.complete_graph(6), nx.wheel_graph(8),
+              nx.disjoint_union(nx.cycle_graph(5), nx.complete_bipartite_graph(3, 5))]
+    graphs += [nx.gnp_random_graph(rng.randint(5, 12), rng.choice([0.25, 0.5, 0.75]), seed=t) for t in range(40)]
+    graphs += [nx.bipartite.random_graph(rng.randint(2, 8), rng.randint(2, 8), 0.4, seed=t) for t in range(40)]
+    for graph in graphs:
+        G = nx.convert_node_labels_to_integers(graph)
+        G.remove_nodes_from(list(nx.isolates(G)))
+        if G.number_of_edges() == 0:
+            continue
+        adj = {v: set(G[v]) for v in G}
+        info: dict = {}
+        c9 = c9_cover(adj, info=info)
+        assert is_vertex_cover(G, c9)
+        assert info["max_layers"] <= math.floor(math.log2(G.number_of_edges())) + 1
+        if nx.is_bipartite(G):
+            top = {v for c in nx.connected_components(G) for v, s in nx.bipartite.color(G.subgraph(c)).items() if s == 0}
+            tau = len(nx.bipartite.hopcroft_karp_matching(G, top_nodes=top)) // 2
+            assert info["max_layers"] == 1
+            full = bp.bipartite_layers_cover(adj, phases=G.number_of_nodes())
+            assert len(full) == tau
+            if info["exact"]:
+                assert len(c9) == tau
+        cands = final_candidates(G)
+        assert len(cands["c17"]) <= len(cands["c9"])

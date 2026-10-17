@@ -33,7 +33,7 @@
   </head>
 <body>
 <h1>Salvador: Approximate Vertex Cover Solver</h1>
-<p><strong>Current version:</strong> v0.1.3</p>
+<p><strong>Current version:</strong> v0.1.4</p>
 <p><img src="salvador.jpg" alt="In Loving Memory of Salvador Vega (The Grandfather I Never Knew)"></p>
 <p>This work builds upon <a href="https://www.preprints.org/manuscript/202605.2000">The Salvador Algorithm</a>.</p>
 <hr>
@@ -136,7 +136,7 @@ e 3 5
 <li>Python ≥ 3.12</li>
 </ul>
 <h2>Installation</h2>
-<pre><code class="language-bash">pip install salvador==0.1.3
+<pre><code class="language-bash">pip install salvador==0.1.4
 </code></pre>
 <h2>Execution</h2>
 <ol>
@@ -240,7 +240,7 @@ options:
 python run_all.py --quick
 </code></pre>
 <p>Install the package and its dependencies, then run a script from the repository root:</p>
-<pre><code class="language-bash">pip install salvador==0.1.3
+<pre><code class="language-bash">pip install salvador==0.1.4
 python car/car_strategies.py
 </code></pre>
 <p>The scripts also run from a clone of the repository without installing the package. Every script accepts <code>-h</code> to list its options, <code>--quick</code> for a shorter run and <code>--timeout</code> to limit the time spent on each graph.</p>
@@ -252,6 +252,86 @@ python car/run_all.py                                  # every experiment in ful
 python car/run_all.py --skip triangle_free mechanism   # full runs except some
 </code></pre>
 <p>Each experiment writes its own result files, and <code>car/run_all_log.txt</code> records the time and status of each one.</p>
+<h2>Strategies</h2>
+<p>Salvador 0.1.4 runs seventeen strategies in linear time, numbered in the order in which they are computed: the base strategies first, the improvers last.</p>
+<table>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>c1</code></td>
+<td>Component amplification: copies (u, 0) and (u, 1) only; edges of the NetworkX minimum maximal matching with both endpoints at index 0 are split off until the split graph has as many components as possible without exceeding the matching size; the NetworkX minimum maximal matching of the split graph is decoded by copy index and degree.</td>
+</tr>
+<tr>
+<td><code>c2</code></td>
+<td>Maximal matching (NetworkX minimum maximal matching).</td>
+</tr>
+<tr>
+<td><code>c3</code></td>
+<td>Maximum-degree greedy (bucket queue).</td>
+</tr>
+<tr>
+<td><code>c4</code></td>
+<td>Degree-1 weighted reduction (Hallelujah).</td>
+</tr>
+<tr>
+<td><code>c5</code></td>
+<td>Min-to-Min.</td>
+</tr>
+<tr>
+<td><code>c6</code></td>
+<td>Primal-dual 2-approximation.</td>
+</tr>
+<tr>
+<td><code>c7</code></td>
+<td>Planar forest-core reduction to a weighted MIDS gadget (Baker-style PTAS, epsilon = 1).</td>
+</tr>
+<tr>
+<td><code>c8</code></td>
+<td>Bipartite planar oriented-incidence reduction (cycle DP).</td>
+</tr>
+<tr>
+<td><code>c9</code></td>
+<td>Bipartite layers: matching + bounded Hopcroft–Karp + Koenig on bipartite components; non-bipartite components split into bipartite layers solved in several orders.</td>
+</tr>
+<tr>
+<td><code>c10</code></td>
+<td>Edge-dominating-set gadget + treewidth DP on the bipartite components.</td>
+</tr>
+<tr>
+<td><code>c11</code></td>
+<td>Weighted subdivision reduction + reducing-peeling.</td>
+</tr>
+<tr>
+<td><code>c12</code></td>
+<td>Bounded-treewidth exact DP.</td>
+</tr>
+<tr>
+<td><code>c13</code></td>
+<td>Union of <code>c2</code>...<code>c8</code>, re-pruned.</td>
+</tr>
+<tr>
+<td><code>c14</code></td>
+<td>(1,2)-swap local search from the best of <code>c1</code>...<code>c13</code>.</td>
+</tr>
+<tr>
+<td><code>c15</code></td>
+<td>Reduce-and-search from the best of <code>c1</code>...<code>c14</code>.</td>
+</tr>
+<tr>
+<td><code>c16</code></td>
+<td>Consensus forcing over <code>c1</code>...<code>c15</code>.</td>
+</tr>
+<tr>
+<td><code>c17</code></td>
+<td>Swap-maximize refinement of every candidate; the smallest refined cover is returned.</td>
+</tr>
+</tbody>
+</table>
 <h2>What each script does</h2>
 <table>
 <thead>
@@ -275,7 +355,7 @@ python car/run_all.py --skip triangle_free mechanism   # full runs except some
 </tr>
 <tr>
 <td><code>car_strategies.py</code></td>
-<td>Reports which of the strategies <code>c1</code>...<code>c15</code> finds the smallest cover, and how often.</td>
+<td>Reports which of the strategies <code>c1</code>...<code>c17</code> finds the smallest cover, and how often: wins among the base strategies <code>c1</code>...<code>c12</code>, and how often each later strategy (<code>c10</code>...<code>c17</code>) improves on the best of the strategies before it.</td>
 </tr>
 <tr>
 <td><code>car_c11_variants.py</code></td>
@@ -286,12 +366,16 @@ python car/run_all.py --skip triangle_free mechanism   # full runs except some
 <td>Checks the bag sizes of the dynamic program of strategy <code>c10</code>.</td>
 </tr>
 <tr>
-<td><code>car_c0_components.py</code></td>
-<td>Measures strategy <code>c0</code> (component amplification of the split graph before the NetworkX minimum maximal matching): both index rules against <code>c1</code>, tau (or a certified lower bound) and the rest of the ensemble.</td>
+<td><code>car_c1_components.py</code></td>
+<td>Measures strategy <code>c1</code> (component amplification with the copy indices 0 and 1 before the NetworkX minimum maximal matching): every decoding rule against <code>c2</code>, tau (or a certified lower bound) and the rest of the ensemble.</td>
 </tr>
 <tr>
-<td><code>car_c0_fix.py</code></td>
-<td>Tests the bound size(c0) &lt;= 2 tau - r' (r' = number of components of the split graph) for the first <code>c0</code>, for all 24 decodings (four selection rules, three residual rules, two repairs) and for the repaired <code>c0</code> of version 0.1.3 stage by stage. On graphs with a known optimum it checks the bound exactly; on the others it marks each graph certified, refuted or undecided from a certified lower bound. The paper's <code>c0</code> study uses its full run, <code>python car/car_c0_fix.py</code>.</td>
+<td><code>car_c1_fix.py</code></td>
+<td>Tests the bound size(c1) &lt;= 2 tau - r' (r' = number of components of the split graph) for every decoding rule and completion of <code>c1</code> and for <code>c1</code> itself. On graphs with a known optimum it checks the bound exactly; on the others it marks each graph certified, refuted or undecided from a certified lower bound.</td>
+</tr>
+<tr>
+<td><code>car_c9_layers.py</code></td>
+<td>Studies strategy <code>c9</code>: bipartite components are solved with the NetworkX minimum maximal matching, a few Hopcroft–Karp phases and Koenig's theorem; non-bipartite components are split into bipartite layers (at most log2 m + 1), solved in several orders, a vertex selected in one layer being discarded from the later ones. It checks the bound on the number of layers and compares <code>c9</code> with the optimum (or a certified lower bound), <code>c1</code>, <code>c2</code>, the other candidates and the final cover <code>c17</code>.</td>
 </tr>
 <tr>
 <td><code>car_regular.py</code></td>
@@ -324,7 +408,9 @@ python car/run_all.py --skip triangle_free mechanism   # full runs except some
 python car/car_bipartite.py
 python car/car_scaling.py --quick
 python car/car_triangle_free.py --quick
-python car/car_c0_fix.py                                # full c0 study (about 35 minutes)
+python car/car_c1_fix.py                                # full c1 bound study
+python car/car_c9_layers.py                             # full c9 study
+python car/car_c9_layers.py --dimacs experiment         # also on the DIMACS clique complements
 </code></pre>
 <hr>
 <h1>Code</h1>

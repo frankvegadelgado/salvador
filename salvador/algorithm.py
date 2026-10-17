@@ -1,67 +1,55 @@
-"""Public vertex-cover solvers exposed by Salvador (version 0.1.3).
+"""Public vertex-cover solvers exposed by Salvador (version 0.1.4).
 
-Version 0.1.3 keeps the linear-time ensemble c1..c9 described below, adds c10,
-the labelled, weighted edge-dominating-set reduction solved by a treewidth DP
-with bags of at most 6 nodes on the bipartite components
-(:mod:`salvador.eds_treewidth`), c11, the weighted subdivision reduction to
-a bipartite graph (:mod:`salvador.subdivision_reduction`: the vertices are
-kept, every edge ``(u, w)`` becomes ``((u, u), (u, w))`` and
-``((w, w), (u, w))``, and a reducing-peeling solver selects vertex-nodes until
-every edge-node is dominated), c12, the reduce-and-search improver
-(:mod:`salvador.reduce_search`: from the best of c1..c11, rounds of the
-budgeted (1,2)-swap iterated local search alternated with c11's exact
-reductions and folds guided by the searched cover), c13, the
-bounded-treewidth exact dynamic program
-(:mod:`salvador.treewidth_dp`), c14, consensus forcing
-(:mod:`salvador.consensus_force`: the vertices that all, then most, of
-c1..c13 contain are forced into the cover and the rest is solved again), and
-c0, component amplification (:mod:`salvador.component_split`: bridges, then
-matching edges, of the split graph with vertices ``(u, i)`` are split off as
-isolated edges until it has at least as many components as the NetworkX
-minimum maximal matching of c1 has edges, and the NetworkX minimum maximal
-matching of the split graph is decoded by copy index; computed after c14 so
-that c1..c14 are unchanged), and
-a final strategy, c15: every candidate is
-refined by a budgeted swap-maximize pass (:func:`refine_cover`) and the
-smallest refined cover is returned. With the default budgets c1..c15 run in
-worst-case O(n + m) time.
+:func:`find_vertex_cover` runs an ensemble of seventeen strategies, numbered in
+the order in which they are computed. The base strategies come first, the
+improvers (combination, local search, swaps, consensus, refinement) last:
 
-:func:`find_vertex_cover` runs an ensemble of independently linear-time
-O(n + m) heuristics and returns the smallest valid cover found. Four of the
-six candidate heuristics, together with the redundant-vertex pruning pass,
-adapt the ensemble published as the Hvala algorithm (Frank Vega, "The Hvala
-Algorithm", Gauge Freedom Journal, v1 i1-004, DOI: 10.65323/gfj.2026.004,
-2026; PyPI package ``hvala``), which proves an unconditional O(n + m) time
-and space bound and a worst-case approximation ratio at most 2 for every
-graph:
+Base strategies
 
-* :func:`maximal_matching_vertex_cover` -- the maximal-matching strategy.
-* :func:`bucket_degree_greedy` -- the bucket-queue maximum-degree greedy
-  method.
-* :func:`covering_via_reduction_max_degree_1` /
-  :func:`covering_via_reduction_max_degree_1` -- the degree-1
-  weighted-reduction ("Hallelujah") heuristic.
-* :func:`prune_redundant_vertices` -- redundant-vertex pruning.
+* c1  -- component amplification (:mod:`salvador.component_split`): copies
+  ``(u, 0)`` and ``(u, 1)`` only; edges of the NetworkX minimum maximal matching
+  ``M`` with both endpoints at index 0 are split off as isolated edges until the
+  split graph has as many components as possible without exceeding ``|M|``; the
+  NetworkX minimum maximal matching of the split graph is decoded by copy index
+  and degree and completed greedily.
+* c2  -- maximal matching (:func:`maximal_matching_vertex_cover`, Hvala).
+* c3  -- maximum-degree greedy with a bucket queue (:func:`bucket_degree_greedy`, Hvala).
+* c4  -- degree-1 weighted reduction, "Hallelujah"
+  (:func:`covering_via_reduction_max_degree_1`, Hvala).
+* c5  -- Min-to-Min (:func:`min_to_min_vertex_cover_linear`).
+* c6  -- primal-dual / local-ratio 2-approximation (:func:`linear_min_weighted_vertex_cover`).
+* c7  -- planar forest-core reduction to a weighted MIDS gadget solved by the
+  Baker-style PTAS at ``epsilon = 1`` (:mod:`salvador.vc_reduction`).
+* c8  -- bipartite planar oriented-incidence reduction with a cycle DP
+  (:mod:`salvador.bipartite_reduction`).
+* c9  -- bipartite layers (:mod:`salvador.bipartite_peel`): bipartite components
+  solved by matching + bounded Hopcroft--Karp phases + Koenig; non-bipartite
+  components split into bipartite edge layers (copy indices 0, 1, ...), solved
+  in several orders, a vertex selected in one layer discarded from the later ones.
+* c10 -- labelled, weighted edge-dominating-set gadget + treewidth DP on the
+  bipartite components (:mod:`salvador.eds_treewidth`); reference: best of c1..c9.
+* c11 -- weighted subdivision reduction + reducing-peeling
+  (:mod:`salvador.subdivision_reduction`); guided variant along the best of c1..c10.
+* c12 -- bounded-treewidth exact DP (:mod:`salvador.treewidth_dp`); core fixed
+  from the best of c1..c11.
 
-Salvador extends this ensemble with two further linear-time candidates of
-its own, the Min-to-Min bucket heuristic (:func:`min_to_min_vertex_cover_linear`)
-and a primal-dual/local-ratio 2-approximation
-(:func:`linear_min_weighted_vertex_cover`), plus a sixth candidate produced
-by :func:`salvador.vc_reduction.solve_vc`, the planar forest-core reduction
-to a weighted Minimum Independent Dominating Set gadget solved by an
-accuracy-controlled Baker-style PTAS (:mod:`salvador.baker_ptas`), and a seventh candidate from
-:mod:`salvador.bipartite_reduction`: the bipartite planar oriented-incidence
-reduction of the manuscript, whose auxiliary graph is a disjoint union of
-even cycles and is therefore solved exactly by a linear-time cycle DP
-instead of min-cut. An eighth candidate (``c9``, :mod:`salvador.local_search`)
-improves the best of the others with a (1,2)-swap iterated local search
-stopped after an O(n + m) work budget. At the
-default accuracy ``epsilon = 1`` that PTAS pass degenerates to its
-linear-time greedy baseline (Baker layering width ``k = 1``), so every
-candidate in the ensemble -- and hence the ensemble as a whole -- runs in
-worst-case O(n + m) time; see the runtime analysis in the accompanying
-paper for the full argument, including the linear-time fix applied to the
-Min-to-Min heuristic.
+Improvers
+
+* c13 -- union of c2..c8, re-pruned (Hvala's pruning, :func:`prune_redundant_vertices`).
+* c14 -- budgeted (1,2)-swap iterated local search (:mod:`salvador.local_search`)
+  from the best of c1..c13.
+* c15 -- reduce-and-search (:mod:`salvador.reduce_search`) from the best of c1..c14.
+* c16 -- consensus forcing (:mod:`salvador.consensus_force`), votes of c1..c15.
+* c17 -- budgeted swap-maximize refinement (:func:`refine_cover`) of every
+  candidate c1..c16; the smallest refined cover is returned.
+
+Every strategy runs in linear time ``O(n + m)`` for the default parameters (c1 in
+``O((n + m) alpha(n))`` with a union-find structure; c9, c10, c12, c14, c15 and
+c17 have fixed work budgets or a fixed number of phases), so the whole ensemble
+is linear. Four of the candidates (c2, c3, c4, and the pruning) adapt the
+ensemble published as the Hvala algorithm (Frank Vega, "The Hvala Algorithm",
+Gauge Freedom Journal, v1 i1-004, DOI: 10.65323/gfj.2026.004, 2026; PyPI package
+``hvala``), which has worst-case ratio 2; since c2 is a candidate, so does Salvador.
 """
 
 from __future__ import annotations
@@ -70,7 +58,7 @@ import itertools
 from typing import Any
 import networkx as nx
 
-from . import (bipartite_reduction, component_split, consensus_force, eds_treewidth, local_search, reduce_search, subdivision_reduction,
+from . import (bipartite_peel, bipartite_reduction, component_split, consensus_force, eds_treewidth, local_search, reduce_search, subdivision_reduction,
                treewidth_dp, utils, vc_reduction)
 from collections import deque
 
@@ -226,7 +214,7 @@ def linear_min_weighted_vertex_cover(adj, weights=None):
     return cover
 
 # ============================================================
-# 1. Maximal matching (2-approx) -- Hvala strategy 1
+# c2. Maximal matching (2-approx) -- Hvala strategy 1
 # ============================================================
 
 def maximal_matching_vertex_cover(G):
@@ -238,7 +226,7 @@ def maximal_matching_vertex_cover(G):
     return cover
 
 # ============================================================
-# 2. Bucket-queue max-degree greedy -- Hvala strategy 2
+# c3. Bucket-queue max-degree greedy -- Hvala strategy 2
 #    (linear-time O(n + m); worst-case approximation ratio
 #    Theta(log Delta) by Johnson's classical bound)
 # ============================================================
@@ -281,7 +269,7 @@ def bucket_degree_greedy(adj):
 
 
 # ============================================================
-# 3. Weighted reduction to (near) degree-1 instance
+# c4. Weighted reduction to (near) degree-1 instance
 #    -- Hvala strategy 3, the "Hallelujah heuristic"
 # ============================================================
 
@@ -439,7 +427,7 @@ def covering_via_reduction_max_degree_1(graph):
 
 
 # ============================================================
-# Linear-time redundant-vertex pruning -- Hvala strategy 4
+# Linear-time redundant-vertex pruning -- Hvala strategy 4 (used by every candidate)
 # (replaces bitsets + local search)
 # ============================================================
 
@@ -488,53 +476,59 @@ def prune_redundant_vertices(adj, C):
 
 
 # ============================================================
-# Main ensemble (now strictly linear-time O(n + m))
+# Main ensemble (linear time)
 # ============================================================
 
 #: Human-readable names of the strategies, in evaluation order.
 CANDIDATE_NAMES: dict[str, str] = {
-    "c0": "component-amplified split graph + NetworkX min maximal matching",
-    "c1": "maximal matching",
-    "c2": "max-degree greedy",
-    "c3": "Hallelujah reduction",
-    "c4": "Min-to-Min",
-    "c5": "primal-dual",
-    "c6": "MIDS Baker reduction",
-    "c7": "union re-prune",
+    "c1": "component amplification (indices 0/1) + NetworkX min maximal matching",
+    "c2": "maximal matching",
+    "c3": "max-degree greedy",
+    "c4": "Hallelujah reduction",
+    "c5": "Min-to-Min",
+    "c6": "primal-dual",
+    "c7": "MIDS Baker reduction",
     "c8": "bipartite planar reduction",
-    "c9": "(1,2)-swap local search",
+    "c9": "bipartite layers (bounded Hopcroft-Karp + Koenig per layer)",
     "c10": "labelled weighted EDS reduction + treewidth DP, bags <= 6 (bipartite)",
     "c11": "weighted subdivision reduction (bipartite) + reducing-peeling",
-    "c12": "reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c11",
-    "c13": "bounded-treewidth exact DP",
-    "c14": "consensus forcing: vertices in all/most of c1..c13 forced, rest re-solved",
-    "c15": "swap-maximize refinement of c1..c14",
+    "c12": "bounded-treewidth exact DP",
+    "c13": "union re-prune of c2..c8",
+    "c14": "(1,2)-swap local search from the best of c1..c13",
+    "c15": "reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14",
+    "c16": "consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved",
+    "c17": "swap-maximize refinement of c1..c16",
 }
 
-#: Base strategies, computed independently of the improvers c9, c12 and c15.
-#: (c10 solves a labelled, weighted edge-dominating-set gadget and c13 a
-#: vertex-cover DP; both are exact when their core is empty and complete a
-#: reference cover outside it. c11 is the weighted subdivision reduction; its
-#: guided variant peels along the best of c1..c10. c12, an improver like c9,
-#: starts from the best of c1..c11.)
-BASE_NAMES: tuple[str, ...] = ("c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c10", "c11", "c13")
+#: Base strategies c1..c12 (c10, c11 and c12 complete or guide with the best earlier cover).
+BASE_NAMES: tuple[str, ...] = tuple(f"c{i}" for i in range(1, 13))
 
-#: The candidates c9 starts from (as in 0.0.9).
-C9_INPUT_NAMES: tuple[str, ...] = ("c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8")
+#: The improvers, computed after the base strategies.
+IMPROVER_NAMES: tuple[str, ...] = ("c13", "c14", "c15", "c16", "c17")
+
+#: The candidates whose union c13 re-prunes (Hvala's union pass).
+C13_INPUT_NAMES: tuple[str, ...] = ("c2", "c3", "c4", "c5", "c6", "c7", "c8")
 
 #: The candidates whose best cover is c10's reference (core and non-bipartite parts).
-C10_INPUT_NAMES: tuple[str, ...] = C9_INPUT_NAMES + ("c9",)
+C10_INPUT_NAMES: tuple[str, ...] = tuple(f"c{i}" for i in range(1, 10))
 
-#: Decoding variants of c0 (select/residual), see component_split.DEFAULT_VARIANTS.
-C0_RULES: tuple[str, ...] = tuple(component_split.DEFAULT_VARIANTS)
+#: The strategy whose refined candidates give the final cover.
+FINAL_NAME: str = "c17"
 
-#: Default work budget of the c15 refinement, in units of (n + m) per cover.
+#: Decoding rules of c1, see component_split.DEFAULT_VARIANTS.
+C1_RULES: tuple[str, ...] = tuple(component_split.DEFAULT_VARIANTS)
+
+#: Default limits of c9 (Hopcroft-Karp phases per bipartite solve, layer orders per component).
+DEFAULT_LAYER_PHASES: int = bipartite_peel.DEFAULT_PHASES
+DEFAULT_LAYER_ORDERS: int = bipartite_peel.DEFAULT_MAX_ORDERS
+
+#: Default work budget of the c17 refinement, in units of (n + m) per cover.
 DEFAULT_REFINE_BUDGET: float | None = 100
 
-#: Default number of consensus-forcing rounds of c14.
+#: Default number of consensus-forcing rounds of c16.
 DEFAULT_CONSENSUS_ROUNDS: int = consensus_force.DEFAULT_ROUNDS
 
-#: Default limits of the c12 reduce-and-search improver (rounds, search budget per (n + m) per round).
+#: Default limits of the c15 reduce-and-search improver (rounds, search budget per (n + m) per round).
 DEFAULT_SEARCH_ROUNDS: int = reduce_search.DEFAULT_ROUNDS
 DEFAULT_SEARCH_BUDGET: float = reduce_search.DEFAULT_BUDGET
 
@@ -552,14 +546,14 @@ def _clean(graph: nx.Graph) -> nx.Graph:
 
 
 def _matching_cover(adj: dict[Any, set[Any]]) -> set[Any]:
-    """Both endpoints of the NetworkX minimum maximal matching approximation (as c1), in O(n + m)."""
+    """Both endpoints of the NetworkX minimum maximal matching approximation (as c2), in O(n + m)."""
     G = nx.Graph()
     G.add_edges_from((u, v) for u, nb in adj.items() for v in nb if v != u)
     return {x for e in nx.approximation.min_maximal_matching(G) for x in e}
 
 
 def _consensus_inner(adj: dict[Any, set[Any]]) -> set[Any]:
-    """Residual solver of c14: best of pruned NetworkX min maximal matching, Min-to-Min and c11 (max+fold), all O(n + m)."""
+    """Residual solver of c16: best of pruned NetworkX min maximal matching, Min-to-Min and c11 (max+fold), all O(n + m)."""
     if not adj:
         return set()
     covers = [prune_redundant_vertices(adj, _matching_cover(adj)),
@@ -568,45 +562,37 @@ def _consensus_inner(adj: dict[Any, set[Any]]) -> set[Any]:
     return min(covers, key=len)
 
 
-def c0_cover(
-    G: nx.Graph,
-    adj: dict[Any, set[Any]],
-    c1: set[Any],
-    local_search_budget: float = local_search.DEFAULT_BUDGET,
-    c0_rule: str | None = None,
-    info: dict | None = None,
-) -> set[Any]:
-    """Strategy c0 (0.1.3) on a clean graph ``G`` (no self-loops or isolated vertices).
+def c1_cover(G: nx.Graph, adj: dict[Any, set[Any]], c1_rule: str | None = None,
+             info: dict | None = None) -> set[Any]:
+    """Strategy c1 on a clean graph ``G``: component amplification with copy indices 0 and 1.
 
-    Exact-stop splitting (``r' = |M|``), degree-aware decoding of every variant of
-    :data:`C0_RULES` with greedy completion, pruning, the smallest variant (or
-    ``c0_rule``), the budgeted (1,2)-swap local search, and finally ``c1`` when
-    ``c1`` is smaller. ``|c0| <= |c1| <= 2 tau - r`` therefore holds on every
-    graph (``r`` = components of ``G``). ``info`` receives ``rule``,
-    ``<variant>_size`` (pruned decoded size per variant), ``decoded_size``,
-    ``ls_gain``, ``fallback_c1``, the split statistics (``target``, ``r``,
-    ``r_prime``, ...) and the decoding statistics ``<variant>_<key>``.
+    Every rule of :data:`C1_RULES` is decoded, completed greedily and pruned; the
+    smallest cover is kept (or the one of ``c1_rule``). ``info`` receives ``rule``,
+    ``<rule>_size``, the split statistics (``target`` = ``|M|``, ``r``, ``r_prime``,
+    ``splits``, ``exact``, ``h_nodes``, ``h_edges``) and ``<rule>_<key>`` for the
+    decoding statistics (``matching_h``, ``ties``, ``raw_size``). Linear time.
     """
     split_info: dict = {}
-    variants = {name: prune_redundant_vertices(adj, cover)
-                for name, cover in component_split.component_split_covers(G, split_info).items()}
-    key = c0_rule if c0_rule in C0_RULES else min(C0_RULES, key=lambda k: len(variants[k]))
-    decoded = variants[key]
-    improved = prune_redundant_vertices(adj, local_search.improve_vertex_cover(adj, decoded, budget=local_search_budget))
-    cover = improved if len(improved) <= len(decoded) else set(decoded)
-    fallback = len(c1) < len(cover)
-    if fallback:
-        cover = set(c1)
+    variants = {rule: prune_redundant_vertices(adj, cover)
+                for rule, cover in component_split.component_split_covers(G, split_info).items()}
+    key = c1_rule if c1_rule in variants else min(C1_RULES, key=lambda k: len(variants[k]))
     if info is not None:
-        tag = {k: k.replace("/", "_") for k in C0_RULES}
-        info.update({"rule": key, **{f"{tag[k]}_size": len(v) for k, v in variants.items()},
-                     "decoded_size": len(decoded), "ls_gain": max(0, len(decoded) - len(improved)),
-                     "fallback_c1": fallback,
-                     **{k: split_info[k] for k in ("target", "r", "r_prime", "bridge_splits", "matching_splits",
-                                                   "rounds", "max_index", "h_nodes", "h_edges")},
-                     **{f"{tag[k]}_{s}": split_info[k][s] for k in C0_RULES for s in
-                        ("matching_h", "ties", "residual_open", "residual_exact", "reused", "raw_size")}})
-    return cover
+        info.update({"rule": key, **{f"{k}_size": len(v) for k, v in variants.items()},
+                     **{k: split_info[k] for k in ("target", "r", "r_prime", "splits", "exact", "h_nodes", "h_edges")},
+                     **{f"{k}_{s}": split_info[k][s] for k in variants for s in ("matching_h", "ties", "raw_size")}})
+    return variants[key]
+
+
+def c9_cover(adj: dict[Any, set[Any]], phases: int = DEFAULT_LAYER_PHASES, max_orders: int = DEFAULT_LAYER_ORDERS,
+             info: dict | None = None) -> set[Any]:
+    """Strategy c9: bipartite layers (see :mod:`salvador.bipartite_peel`), pruned. Linear time for fixed
+    ``phases`` and ``max_orders``. ``info`` receives ``bipartite_components``, ``nonbipartite_components``,
+    ``max_layers``, ``layers``, ``orders`` and ``exact``."""
+    return prune_redundant_vertices(adj, bipartite_peel.bipartite_layers_cover(adj, phases, max_orders, info))
+
+
+def _best(cands: dict[str, set[Any]], names) -> set[Any]:
+    return min((cands[k] for k in names), key=len)
 
 
 def ensemble_candidates(
@@ -621,191 +607,113 @@ def ensemble_candidates(
     search_rounds: int = DEFAULT_SEARCH_ROUNDS,
     search_budget: float = DEFAULT_SEARCH_BUDGET,
     consensus_rounds: int = DEFAULT_CONSENSUS_ROUNDS,
-    c0_rule: str | None = None,
+    c1_rule: str | None = None,
+    layer_phases: int = DEFAULT_LAYER_PHASES,
+    layer_orders: int = DEFAULT_LAYER_ORDERS,
 ) -> dict[str, set[Any]]:
-    """Return every pruned candidate ``c0``...``c14`` by name.
+    """Return every candidate ``c1``...``c16`` by name, each a valid vertex cover of ``graph``.
 
-    ``c0`` is the component-amplification strategy of
-    :mod:`salvador.component_split`: every vertex ``u`` becomes ``(u, 0)``,
-    bridges (and, when none is left, matching edges) of the split graph are
-    split off as isolated edges, moving the other edges of an endpoint to a new
-    copy ``(u, i + 1)``, until the split graph has at least ``|M|`` components
-    (``M`` the NetworkX minimum maximal matching of c1); the NetworkX minimum
-    maximal matching of the split graph is then decoded, an edge
-    ``((a, i), (b, j))`` costing nothing when ``a`` or ``b`` is already
-    selected, selecting the smaller-index endpoint (rule ``"low"``) or the
-    larger-index one (``"high"``) when ``i != j``, and going to a residual
-    graph when ``i == j``. Since 0.1.3 splitting stops exactly at ``r' = |M|``,
-    the endpoint of larger degree in ``G`` is selected (ties by index) for both
-    kinds of edges, the decoded set is completed greedily, pruned, improved by
-    the budgeted (1,2)-swap local search, and replaced by c1 when c1 is
-    smaller, so ``|c0| <= |c1| <= 2 tau - r``. ``c0_rule=None`` (the default)
-    keeps the smallest of :data:`C0_RULES`. ``c0`` is computed last and
-    does not feed c7, c9, ..., c14, which are therefore unchanged; ``c15``
-    refines it like every other candidate.
+    The strategies are computed in their numbering order (see the module
+    docstring): the base strategies c1..c12, then the improvers c13 (union
+    re-prune of c2..c8), c14 ((1,2)-swap local search from the best of c1..c13,
+    ``local_search_budget * (n + m)`` work; ``0`` disables it), c15
+    (reduce-and-search from the best of c1..c14, ``search_rounds`` rounds of
+    ``search_budget * (n + m)``), and c16 (consensus forcing over c1..c15, up to
+    ``consensus_rounds`` rounds). c10 and c12 are kept only when they are not larger
+    than their reference, c14 and c15 only when they are not larger than their
+    start, so ``|c14| <= min(|c1|, ..., |c13|)`` and ``|c15| <= |c14|``.
 
-    Each value is a valid vertex cover of ``graph``. ``c1``...``c6`` and
-    ``c8`` are independent linear-time heuristics; ``c7`` re-prunes their
-    union; ``c9`` starts from the smallest of ``c1``...``c8`` and improves
-    it with the budgeted (1,2)-swap iterated local search of
-    :mod:`salvador.local_search`, so ``|c9| <= min(|c1|, ..., |c8|)``.
-    Pass ``local_search_budget=0`` to effectively disable ``c9``. ``c10``
-    builds the edge-dominating-set gadget of every bipartite component (one
-    node per edge, and for each vertex a path through its edge-nodes) with a
-    cover label per vertex carried along its path, a penalty for choosing some
-    occurrences of a vertex and not others, equal total weight per vertex and
-    a unit overlap weight for an edge covered by both endpoints; its
-    minimum-weight solution, computed by the treewidth DP of
-    :mod:`salvador.eds_treewidth` along a min-degree elimination order of
-    the gadget with bags of at most 6 nodes (width cap
-    ``eds_max_width <= 5``, tables within ``eds_budget * (n + m)``), labels a
-    minimum vertex cover when the DP core is empty. The DP core and the
-    non-bipartite components are fixed as in the smallest of ``c1``...``c9``.
-    The decoded cover is pruned and kept only if it is no larger than that
-    reference.
-    ``c11`` is the weighted subdivision reduction of
-    :mod:`salvador.subdivision_reduction`: every edge ``(u, w)`` becomes the
-    edge-node ``(u, w)`` joined to the vertex-nodes ``(u, u)`` and ``(w, w)``
-    (a bipartite graph); vertex-nodes weigh 1 and an undominated edge-node
-    ``n + 1``, and the degree-0, degree-1, triangle and (budgeted) degree-2
-    fold reductions are applied exactly, peeling when none applies (largest
-    residual degree selected, the same restricted to the best of
-    ``c1``...``c10`` (guided), or smallest residual degree left out); the
-    smallest pruned cover over :data:`subdivision_reduction.VARIANTS` is kept.
-    It is a minimum cover when no peel was needed.
-    ``c12`` is the reduce-and-search improver of :mod:`salvador.reduce_search`:
-    from the best of ``c1``...``c11`` it runs ``search_rounds`` rounds of the
-    (1,2)-swap iterated local search (``search_budget * (n + m)`` work each)
-    followed by c11's exact reductions and folds guided by the searched cover,
-    keeping a cover only when it is not larger, so
-    ``|c12| <= min(|c1|, ..., |c11|)``.
-    ``c14`` is the consensus-forcing strategy of :mod:`salvador.consensus_force`:
-    for up to ``consensus_rounds`` rounds it forces into the cover the vertices
-    that lie in all (then 90%, then 75%) of the covers found so far (c1..c13
-    and its own earlier rounds), solves the rest with the best of the pruned
-    maximal matching, Min-to-Min and c11 (``max+fold``), and keeps the
-    smallest cover; it stops early when the best cover equals the matching
-    lower bound. It is a heuristic: a forced vertex need not lie in a minimum
-    cover.
-    ``c13`` is the bounded-treewidth dynamic program of
-    :mod:`salvador.treewidth_dp`: exact on the part of the graph that a
-    min-degree elimination removes with bags of at most ``tw_max_width + 1``
-    vertices within ``tw_budget * (n + m)`` table entries, with the remaining
-    core fixed as in the smallest of ``c1``...``c12``. It is a minimum vertex
-    cover when the core is empty and never larger than that reference.
-    ``info`` (optional dict) receives ``c10_exact`` (labelled EDS computed
-    with an empty core: a minimum cover of the bipartite components), ``c10_raw_size`` (pruned decoded cover before the
-    comparison with the reference), ``c10_core_size``, ``c10_width``,
-    ``c10_bipartite_fraction``, the c11 counts ``c11_deg0``, ``c11_deg1``,
-    ``c11_triangle``, ``c11_folds``, ``c11_peels``, ``c11_exact``,
-    ``c11_fold_budget_hit``, ``c11_undominated`` (always 0), ``c11_nodes`` and
-    ``c11_edges`` of the subdivision and ``c11_variant`` (the kept variant), the c12
-    counts ``c12_start``, ``c12_search_gain``, ``c12_reduce_gain`` and
-    ``c12_rounds_improved``, and
-    ``c13_core_size``, ``c13_width`` and ``c13_exact``, and the c14 values
-    ``c14_lower_bound``, ``c14_rounds_run``, ``c14_forced``, ``c14_certified``,
-    ``c14_gain`` and ``c14_certified_ratio``.
+    ``info`` (optional dict) receives the diagnostics, prefixed by the strategy:
+    ``c1_*`` (:func:`c1_cover`), ``c9_*`` (:func:`c9_cover`), ``c10_exact``,
+    ``c10_raw_size``, ``c10_core_size``, ``c10_width``, ``c10_max_bag``,
+    ``c10_bipartite_fraction``; the c11 counts ``c11_deg0``, ``c11_deg1``,
+    ``c11_triangle``, ``c11_folds``, ``c11_peels``, ``c11_ref_peels``,
+    ``c11_exact``, ``c11_fold_budget_hit``, ``c11_undominated`` (always 0),
+    ``c11_nodes``, ``c11_edges`` and ``c11_variant``; ``c12_core_size``,
+    ``c12_width``, ``c12_exact`` (treewidth DP); ``c15_start``,
+    ``c15_search_gain``, ``c15_reduce_gain``, ``c15_rounds_improved``
+    (reduce-and-search); and ``c16_lower_bound``, ``c16_rounds_run``,
+    ``c16_forced``, ``c16_certified``, ``c16_gain``, ``c16_certified_ratio``
+    (consensus forcing).
     """
     G = _clean(graph)
 
     if G.number_of_edges() == 0:
-        return {name: set() for name in CANDIDATE_NAMES if name != "c15"}
+        return {name: set() for name in CANDIDATE_NAMES if name != FINAL_NAME}
 
     adj = {v: set(G[v]) for v in G}
+    cands: dict[str, set[Any]] = {}
 
-    # 1-6: linear-time heuristics producing valid covers
-    c1 = maximal_matching_vertex_cover(G) # min-maximal-matching
-    c2 = bucket_degree_greedy(adj)  # max-degree
-    c3 = covering_via_reduction_max_degree_1(G) # reduction-based solver
-    c4 = min_to_min_vertex_cover_linear(adj) # Min-to-Min (MtM) heuristic
-    c5 = linear_min_weighted_vertex_cover(G) # primal-dual 2-approx in O(m + n)
-    c6 = vc_reduction.solve_vc(G, epsilon) # Using MIDS Baker PTAS reduction
-    # 8: bipartite planar oriented-incidence reduction, solved exactly on the
-    # auxiliary graph by a linear-time cycle DP (manuscript order + residual
-    # min-degree order); each variant is pruned and the best one kept.
-    c8 = min(
-        (prune_redundant_vertices(adj, c)
-         for c in bipartite_reduction.bipartite_planar_covers(adj)),
-        key=len,
-    )
-
-    # Final pruning on every candidate (still linear)
-    c1 = prune_redundant_vertices(adj, c1)
-    c2 = prune_redundant_vertices(adj, c2)
-    c3 = prune_redundant_vertices(adj, c3)
-    c4 = prune_redundant_vertices(adj, c4)
-    c5 = prune_redundant_vertices(adj, c5)
-    c6 = prune_redundant_vertices(adj, c6)
-    # 7: prune on the union (strongest starting cover)
-    c7 = prune_redundant_vertices(adj, c1 | c2 | c3 | c4 | c5 | c6 | c8)
-
-    cands = {"c1": c1, "c2": c2, "c3": c3, "c4": c4, "c5": c5,
-             "c6": c6, "c7": c7, "c8": c8}
-    # 9: budgeted (1,2)-swap iterated local search on the best cover so far.
-    best = min(cands.values(), key=len)
-    c9 = local_search.improve_vertex_cover(adj, best, budget=local_search_budget)
-    cands["c9"] = c9 if len(c9) <= len(best) else set(best)
-    # 10: edge-dominating-set gadget, minimum EDS by a treewidth DP (min-degree
-    # elimination order, bags <= 6) on the bipartite components; core and
-    # non-bipartite parts from the best of c1..c9.
-    best = min(cands.values(), key=len)
+    # ---- Base strategies ----
+    # 1: component amplification of the split graph (indices 0/1) + NetworkX min maximal matching.
+    c1_info: dict = {}
+    cands["c1"] = c1_cover(G, adj, c1_rule, c1_info)
+    # 2-7: linear-time heuristics (Hvala strategies and Salvador's own), each pruned.
+    cands["c2"] = prune_redundant_vertices(adj, maximal_matching_vertex_cover(G))
+    cands["c3"] = prune_redundant_vertices(adj, bucket_degree_greedy(adj))
+    cands["c4"] = prune_redundant_vertices(adj, covering_via_reduction_max_degree_1(G))
+    cands["c5"] = prune_redundant_vertices(adj, min_to_min_vertex_cover_linear(adj))
+    cands["c6"] = prune_redundant_vertices(adj, linear_min_weighted_vertex_cover(G))
+    cands["c7"] = prune_redundant_vertices(adj, vc_reduction.solve_vc(G, epsilon))
+    # 8: bipartite planar oriented-incidence reduction, cycle DP; the best pruned variant.
+    cands["c8"] = min((prune_redundant_vertices(adj, c) for c in bipartite_reduction.bipartite_planar_covers(adj)),
+                      key=len)
+    # 9: bipartite layers, each solved by matching + bounded Hopcroft-Karp + Koenig.
+    c9_info: dict = {}
+    cands["c9"] = c9_cover(adj, layer_phases, layer_orders, c9_info)
+    # 10: EDS gadget + treewidth DP on the bipartite components; reference: best of c1..c9.
+    best = _best(cands, C10_INPUT_NAMES)
     eds_info: dict = {}
-    c10 = prune_redundant_vertices(
-        adj, eds_treewidth.eds_treewidth_cover(adj, best, eds_max_width, eds_budget, eds_info))
+    c10 = prune_redundant_vertices(adj, eds_treewidth.eds_treewidth_cover(adj, best, eds_max_width, eds_budget, eds_info))
     cands["c10"] = c10 if len(c10) <= len(best) else set(best)
-    # 11: weighted subdivision reduction (bipartite), reducing-peeling solver;
-    # the guided ("ref") variant peels along the best of c1..c10.
+    # 11: weighted subdivision reduction; the guided variant peels along the best of c1..c10.
     variant_info: dict = {}
-    c11_ref = min(cands.values(), key=len)
-    c11_variants = {
-        key: prune_redundant_vertices(adj, cover)
-        for key, cover in subdivision_reduction.subdivision_covers(
-            adj, info=variant_info, reference=c11_ref).items()
-    }
+    c11_variants = {key: prune_redundant_vertices(adj, cover)
+                    for key, cover in subdivision_reduction.subdivision_covers(
+                        adj, info=variant_info, reference=_best(cands, cands)).items()}
     c11_key = min(c11_variants, key=lambda k: len(c11_variants[k]))
     cands["c11"] = c11_variants[c11_key]
     sub_info = variant_info[c11_key]
-    # 12: reduce-and-search improver from the best of c1..c11.
-    best = min(cands.values(), key=len)
-    search_info: dict = {}
-    c12 = prune_redundant_vertices(
-        adj, reduce_search.reduce_search_cover(adj, best, search_rounds, search_budget, info=search_info))
-    cands["c12"] = c12 if len(c12) <= len(best) else set(best)
-    # 13: bounded-treewidth exact DP, core fixed from the best of c1..c12.
-    ref = min(cands.values(), key=len)
+    # 12: bounded-treewidth exact DP, core fixed from the best of c1..c11.
+    ref = _best(cands, cands)
     tw_info: dict = {}
-    cands["c13"] = prune_redundant_vertices(
-        adj, treewidth_dp.treewidth_vertex_cover(adj, ref, tw_max_width, tw_budget, tw_info))
-    # 14: consensus forcing. The vertices that all (then most) of c1..c13 contain
-    # are forced into the cover -- deleted from the graph and added to the cover,
-    # which is what a self-loop on them would do, without going through _clean,
-    # which drops self-loops -- and the residual graph is solved again.
+    c12 = prune_redundant_vertices(adj, treewidth_dp.treewidth_vertex_cover(adj, ref, tw_max_width, tw_budget, tw_info))
+    cands["c12"] = c12 if len(c12) <= len(ref) else set(ref)
+
+    # ---- Improvers ----
+    # 13: union of c2..c8, re-pruned.
+    cands["c13"] = prune_redundant_vertices(adj, set().union(*(cands[k] for k in C13_INPUT_NAMES)))
+    # 14: budgeted (1,2)-swap iterated local search from the best of c1..c13.
+    best = _best(cands, cands)
+    c14 = local_search.improve_vertex_cover(adj, best, budget=local_search_budget)
+    cands["c14"] = c14 if len(c14) <= len(best) else set(best)
+    # 15: reduce-and-search from the best of c1..c14.
+    best = _best(cands, cands)
+    search_info: dict = {}
+    c15 = prune_redundant_vertices(
+        adj, reduce_search.reduce_search_cover(adj, best, search_rounds, search_budget, info=search_info))
+    cands["c15"] = c15 if len(c15) <= len(best) else set(best)
+    # 16: consensus forcing over c1..c15: vertices that all (then most) of them contain are forced
+    # into the cover -- deleted from the graph and added to the cover -- and the rest is solved again.
     cons_info: dict = {}
-    cands["c14"] = consensus_force.consensus_force_cover(
-        adj, [cands[f"c{i}"] for i in range(1, 14)], _consensus_inner, prune_redundant_vertices,
+    cands["c16"] = consensus_force.consensus_force_cover(
+        adj, [cands[f"c{i}"] for i in range(1, 16)], _consensus_inner, prune_redundant_vertices,
         rounds=consensus_rounds, info=cons_info)
-    # 0: component amplification of the split graph + NetworkX min maximal matching.
-    c0_info: dict = {}
-    # Exact-stop splitting (r' = |M|), degree-aware decoding, greedy completion and
-    # pruning (component_split), then the budgeted (1,2)-swap local search, and c1
-    # when c1 is smaller, so that |c0| <= |c1| <= 2 tau - r on every graph.
-    cands = {"c0": c0_cover(G, adj, cands["c1"], local_search_budget, c0_rule, c0_info), **cands}
+
     if info is not None:
-        info.update({f"c0_{k}": v for k, v in c0_info.items()})
+        info.update({f"c1_{k}": v for k, v in c1_info.items()})
+        info.update({f"c9_{k}": v for k, v in c9_info.items()})
         info.update({"c10_exact": eds_info["exact"], "c10_raw_size": len(c10),
-                     "c10_core_size": eds_info["core_size"],
-                     "c10_width": eds_info["width"],
-                     "c10_max_bag": eds_info["max_bag"],
-                     "c10_bipartite_fraction": eds_info["bipartite_fraction"],
+                     "c10_core_size": eds_info["core_size"], "c10_width": eds_info["width"],
+                     "c10_max_bag": eds_info["max_bag"], "c10_bipartite_fraction": eds_info["bipartite_fraction"],
                      **{f"c11_{k}": sub_info[k] for k in
                         ("deg0", "deg1", "triangle", "folds", "peels", "ref_peels", "exact", "fold_budget_hit",
                          "undominated", "nodes", "edges")},
                      "c11_variant": f"{c11_key[0]}{'+fold' if c11_key[1] else ''}",
-                     **{f"c12_{k}": search_info[k] for k in
-                        ("start", "search_gain", "reduce_gain", "rounds_improved")},
-                     "c13_core_size": tw_info["core_size"], "c13_width": tw_info["width"],
-                     "c13_exact": tw_info["exact"],
-                     **{f"c14_{k}": cons_info[k] for k in
+                     "c12_core_size": tw_info["core_size"], "c12_width": tw_info["width"],
+                     "c12_exact": tw_info["exact"], "c12_raw_size": len(c12),
+                     **{f"c15_{k}": search_info[k] for k in ("start", "search_gain", "reduce_gain", "rounds_improved")},
+                     **{f"c16_{k}": cons_info[k] for k in
                         ("lower_bound", "rounds_run", "forced", "certified", "gain", "certified_ratio")}})
     return cands
 
@@ -888,7 +796,7 @@ def refine_cover(
     v_max: Any = None,
     budget: float | None = DEFAULT_REFINE_BUDGET,
 ) -> set[Any]:
-    """Swap-maximize refinement of one cover (strategy c15).
+    """Swap-maximize refinement of one cover (strategy c17).
 
     For every ``u`` in ``cover ∪ {v_max}`` it forms the cover
     ``(cover - {u}) ∪ N(u)``, i.e. it moves ``u`` into the independent set
@@ -993,34 +901,35 @@ def final_candidates(
     search_rounds: int = DEFAULT_SEARCH_ROUNDS,
     search_budget: float = DEFAULT_SEARCH_BUDGET,
     consensus_rounds: int = DEFAULT_CONSENSUS_ROUNDS,
-    c0_rule: str | None = None,
+    c1_rule: str | None = None,
+    layer_phases: int = DEFAULT_LAYER_PHASES,
+    layer_orders: int = DEFAULT_LAYER_ORDERS,
 ):
-    """Every strategy of Salvador 0.1.3 (``c0``...``c15``) by name.
+    """Every strategy of Salvador 0.1.4 (``c1``...``c17``) by name.
 
-    ``c0``...``c14`` are the candidates of :func:`ensemble_candidates`. ``c15``
+    ``c1``...``c16`` are the candidates of :func:`ensemble_candidates`. ``c17``
     is the final swap-maximize refinement: :func:`refine_cover` is applied to
-    every candidate ``c0``...``c14`` (with the same maximum-degree vertex
+    every candidate ``c1``...``c16`` (with the same maximum-degree vertex
     ``v_max`` for all of them, and a work budget of ``refine_budget * (n + m)``
     per distinct cover) and the smallest refined cover is kept. A refined
     cover is never larger than its input, so
-    ``|c15| <= min(|c0|, ..., |c14|)``. Identical candidate covers are refined
+    ``|c17| <= min(|c1|, ..., |c16|)``. Identical candidate covers are refined
     only once.
 
     With ``return_refined=True`` the result is ``(candidates, refined)``, where
     ``refined[name]`` is the refinement of candidate ``name``. ``info``
-    (optional dict) receives the c10, c11, c12 and c13 diagnostics of
-    :func:`ensemble_candidates`.
+    (optional dict) receives the diagnostics of :func:`ensemble_candidates`.
 
-    Running time: ``O(n + m)`` for fixed ``epsilon = 1``, ``local_search_budget``,
-    ``refine_budget``, ``eds_max_width``/``eds_budget`` and the c13 limits.
+    Running time: ``O(n + m)`` (``O((n + m) alpha(n))`` for c1) for the default parameters.
     """
     G = _clean(graph)
     cands = ensemble_candidates(G, epsilon, local_search_budget, tw_max_width, tw_budget, info=info,
                                 eds_max_width=eds_max_width, eds_budget=eds_budget,
                                 search_rounds=search_rounds, search_budget=search_budget,
-                                consensus_rounds=consensus_rounds, c0_rule=c0_rule)
+                                consensus_rounds=consensus_rounds, c1_rule=c1_rule,
+                                layer_phases=layer_phases, layer_orders=layer_orders)
     if G.number_of_edges() == 0:
-        cands["c15"] = set()
+        cands[FINAL_NAME] = set()
         return (cands, {k: set() for k in cands}) if return_refined else cands
     v_max = max(set(G.nodes()), key=G.degree)
     seen: dict[frozenset, set[Any]] = {}
@@ -1030,7 +939,7 @@ def final_candidates(
         if key not in seen:
             seen[key] = refine_cover(G, cover, v_max, refine_budget)
         refined[name] = seen[key]
-    cands["c15"] = min(refined.values(), key=len)
+    cands[FINAL_NAME] = min(refined.values(), key=len)
     return (cands, refined) if return_refined else cands
 
 
@@ -1041,10 +950,10 @@ def find_vertex_cover(
     eds_max_width: int = DEFAULT_EDS_MAX_WIDTH,
     eds_budget: float = DEFAULT_EDS_BUDGET,
 ) -> set[Any]:
-    """Return the final cover of Salvador 0.1.3.
+    """Return the final cover of Salvador 0.1.4 (``c17``, the smallest refined candidate), in linear time.
     """
     return final_candidates(graph, epsilon, refine_budget=refine_budget,
-                                     eds_max_width=eds_max_width, eds_budget=eds_budget)["c15"]
+                            eds_max_width=eds_max_width, eds_budget=eds_budget)[FINAL_NAME]
 
 
 def find_vertex_cover_brute_force(graph: nx.Graph) -> set[Any] | None:

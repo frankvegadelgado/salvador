@@ -17,9 +17,9 @@ ref+fold) and keeps the smaller cover; ``ensemble_c11`` is that cover's size.
 
 Per instance the script runs all four variants (each pruned exactly as in the
 ensemble) and, as the bar to beat, the ensemble candidates c1..c10 (``best_c1_c10``
-is the smallest of c1..c10, c9 included; ``c10`` is reported on its own). It
+is the smallest of the base strategies c1..c10; ``c10`` is reported on its own). It
 records every variant's size, its gap to best_c1_c10 (negative = c11 would
-improve the ensemble before c12 and c13), its reductions, folds and peels, whether it
+improve the ensemble before c12 and the improvers c13..c17), its reductions, folds and peels, whether it
 needed no peel (then it is a minimum cover), whether the fold budget was hit,
 and its running time. When an exact optimum is cheap (Part A) it is reported too.
 
@@ -171,7 +171,7 @@ def print_table(summary: dict) -> None:
         print(f"{g[:40]:40} {s['instances']:>5} " + " ".join(f"{c:>30}" for c in cells))
     print("\nSeconds per variant (all instances): "
           + ", ".join(f"{nm} {summary['ALL']['per_variant'][nm]['seconds']:.2f}" for nm in NAMES)
-          + f"; ensemble c1..c14 {summary['ALL']['ensemble_seconds']:.2f}")
+          + f"; ensemble c1..c16 {summary['ALL']['ensemble_seconds']:.2f}")
 
 
 def main() -> None:
