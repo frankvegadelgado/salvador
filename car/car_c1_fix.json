@@ -983,7 +983,7 @@
     "c1": 1,
     "c2": 1
    },
-   "seconds": 0.0011
+   "seconds": 0.0004
   },
   {
    "group": "Stress: paths/stars/spiders",
@@ -1013,7 +1013,7 @@
     "c1": 1,
     "c2": 1
    },
-   "seconds": 0.0004
+   "seconds": 0.0002
   },
   {
    "group": "Stress: paths/stars/spiders",
@@ -1043,7 +1043,7 @@
     "c1": 1,
     "c2": 1
    },
-   "seconds": 0.0004
+   "seconds": 0.0002
   },
   {
    "group": "Stress: paths/stars/spiders",
@@ -1073,7 +1073,7 @@
     "c1": 1,
     "c2": 1
    },
-   "seconds": 0.0004
+   "seconds": 0.0003
   },
   {
    "group": "Stress: paths/stars/spiders",
@@ -1103,7 +1103,7 @@
     "c1": 1,
     "c2": 1
    },
-   "seconds": 0.0008
+   "seconds": 0.0007
   },
   {
    "group": "Stress: paths/stars/spiders",
@@ -1163,7 +1163,7 @@
     "c1": 2,
     "c2": 2
    },
-   "seconds": 0.0004
+   "seconds": 0.0002
   },
   {
    "group": "Stress: paths/stars/spiders",
@@ -1223,7 +1223,7 @@
     "c1": 2,
     "c2": 2
    },
-   "seconds": 0.0027
+   "seconds": 0.0025
   },
   {
    "group": "Stress: paths/stars/spiders",
@@ -1253,7 +1253,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0003
+   "seconds": 0.0007
   },
   {
    "group": "Stress: paths/stars/spiders",
@@ -1283,7 +1283,7 @@
     "c1": 5,
     "c2": 5
    },
-   "seconds": 0.0003
+   "seconds": 0.0004
   },
   {
    "group": "Stress: paths/stars/spiders",
@@ -1313,7 +1313,7 @@
     "c1": 5,
     "c2": 8
    },
-   "seconds": 0.0004
+   "seconds": 0.0005
   },
   {
    "group": "Stress: paths/stars/spiders",
@@ -1343,7 +1343,7 @@
     "c1": 10,
     "c2": 10
    },
-   "seconds": 0.0005
+   "seconds": 0.0006
   },
   {
    "group": "Stress: caterpillars/brooms/K2k",
@@ -1373,7 +1373,7 @@
     "c1": 4,
     "c2": 4
    },
-   "seconds": 0.0004
+   "seconds": 0.0005
   },
   {
    "group": "Stress: caterpillars/brooms/K2k",
@@ -1403,7 +1403,7 @@
     "c1": 6,
     "c2": 6
    },
-   "seconds": 0.0005
+   "seconds": 0.0006
   },
   {
    "group": "Stress: caterpillars/brooms/K2k",
@@ -1463,7 +1463,7 @@
     "c1": 10,
     "c2": 10
    },
-   "seconds": 0.0013
+   "seconds": 0.0009
   },
   {
    "group": "Stress: caterpillars/brooms/K2k",
@@ -1553,7 +1553,7 @@
     "c1": 2,
     "c2": 2
    },
-   "seconds": 0.0009
+   "seconds": 0.0006
   },
   {
    "group": "Stress: caterpillars/brooms/K2k",
@@ -1823,7 +1823,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0003
+   "seconds": 0.0004
   },
   {
    "group": "Relabel / order stress (exact)",
@@ -1853,7 +1853,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0003
+   "seconds": 0.0005
   },
   {
    "group": "Relabel / order stress (exact)",
@@ -1913,7 +1913,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0003
+   "seconds": 0.0004
   },
   {
    "group": "Relabel / order stress (exact)",
@@ -2003,7 +2003,7 @@
     "c1": 5,
     "c2": 3
    },
-   "seconds": 0.0003
+   "seconds": 0.0004
   },
   {
    "group": "Relabel / order stress (exact)",
@@ -2303,7 +2303,7 @@
     "c1": 1,
     "c2": 1
    },
-   "seconds": 0.0003
+   "seconds": 0.0001
   },
   {
    "group": "Random bipartite (exact)",
@@ -2363,7 +2363,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0003
+   "seconds": 0.0004
   },
   {
    "group": "Random bipartite (exact)",
@@ -2453,7 +2453,7 @@
     "c1": 4,
     "c2": 6
    },
-   "seconds": 0.0005
+   "seconds": 0.0004
   },
   {
    "group": "Random bipartite (exact)",
@@ -2543,7 +2543,7 @@
     "c1": 3,
     "c2": 5
    },
-   "seconds": 0.0003
+   "seconds": 0.0004
   },
   {
    "group": "Random bipartite (exact)",
@@ -2573,7 +2573,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0003
+   "seconds": 0.0006
   },
   {
    "group": "Random bipartite (exact)",
@@ -2603,7 +2603,7 @@
     "c1": 5,
     "c2": 4
    },
-   "seconds": 0.0003
+   "seconds": 0.0004
   },
   {
    "group": "Random bipartite (exact)",
@@ -2693,7 +2693,7 @@
     "c1": 4,
     "c2": 4
    },
-   "seconds": 0.0003
+   "seconds": 0.0004
   },
   {
    "group": "Random bipartite (exact)",
@@ -2723,7 +2723,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0002
+   "seconds": 0.0003
   },
   {
    "group": "Random bipartite (exact)",
@@ -2753,7 +2753,7 @@
     "c1": 2,
     "c2": 2
    },
-   "seconds": 0.0002
+   "seconds": 0.0003
   },
   {
    "group": "Random bipartite (exact)",
@@ -2813,7 +2813,7 @@
     "c1": 3,
     "c2": 4
    },
-   "seconds": 0.0003
+   "seconds": 0.0004
   },
   {
    "group": "Random bipartite (exact)",
@@ -2963,7 +2963,7 @@
     "c1": 5,
     "c2": 5
    },
-   "seconds": 0.0004
+   "seconds": 0.0006
   },
   {
    "group": "Grids, bipartite (exact)",
@@ -2993,7 +2993,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0003
+   "seconds": 0.0005
   },
   {
    "group": "Grids, bipartite (exact)",
@@ -3023,7 +3023,7 @@
     "c1": 4,
     "c2": 4
    },
-   "seconds": 0.0003
+   "seconds": 0.0007
   },
   {
    "group": "Grids, bipartite (exact)",
@@ -3053,7 +3053,7 @@
     "c1": 7,
     "c2": 6
    },
-   "seconds": 0.001
+   "seconds": 0.0008
   },
   {
    "group": "Grids, bipartite (exact)",
@@ -3083,7 +3083,7 @@
     "c1": 7,
     "c2": 7
    },
-   "seconds": 0.0006
+   "seconds": 0.0008
   },
   {
    "group": "Grids, bipartite (exact)",
@@ -3113,7 +3113,7 @@
     "c1": 5,
     "c2": 4
    },
-   "seconds": 0.0004
+   "seconds": 0.0006
   },
   {
    "group": "Grids, bipartite (exact)",
@@ -3143,7 +3143,7 @@
     "c1": 6,
     "c2": 6
    },
-   "seconds": 0.0006
+   "seconds": 0.0015
   },
   {
    "group": "Grids, bipartite (exact)",
@@ -3173,7 +3173,7 @@
     "c1": 9,
     "c2": 8
    },
-   "seconds": 0.0006
+   "seconds": 0.0013
   },
   {
    "group": "Grids, bipartite (exact)",
@@ -3203,7 +3203,7 @@
     "c1": 11,
     "c2": 10
    },
-   "seconds": 0.0008
+   "seconds": 0.0009
   },
   {
    "group": "Grids, bipartite (exact)",
@@ -3233,7 +3233,7 @@
     "c1": 5,
     "c2": 5
    },
-   "seconds": 0.0004
+   "seconds": 0.0005
   },
   {
    "group": "Grids, bipartite (exact)",
@@ -3263,7 +3263,7 @@
     "c1": 7,
     "c2": 7
    },
-   "seconds": 0.0006
+   "seconds": 0.0022
   },
   {
    "group": "Grids, bipartite (exact)",
@@ -3293,7 +3293,7 @@
     "c1": 12,
     "c2": 10
    },
-   "seconds": 0.0006
+   "seconds": 0.0014
   },
   {
    "group": "Grids, bipartite (exact)",
@@ -3323,7 +3323,7 @@
     "c1": 12,
     "c2": 12
    },
-   "seconds": 0.0011
+   "seconds": 0.0018
   },
   {
    "group": "Graph atlas n<=7",
@@ -3413,7 +3413,7 @@
     "c1": 1,
     "c2": 1
    },
-   "seconds": 0.0004
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -3503,7 +3503,7 @@
     "c1": 1,
     "c2": 1
    },
-   "seconds": 0.0003
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -3533,7 +3533,7 @@
     "c1": 2,
     "c2": 2
    },
-   "seconds": 0.0003
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -3863,7 +3863,7 @@
     "c1": 2,
     "c2": 2
    },
-   "seconds": 0.0002
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -3893,7 +3893,7 @@
     "c1": 1,
     "c2": 1
    },
-   "seconds": 0.0001
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -4013,7 +4013,7 @@
     "c1": 2,
     "c2": 2
    },
-   "seconds": 0.0003
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -4043,7 +4043,7 @@
     "c1": 1,
     "c2": 1
    },
-   "seconds": 0.0006
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -4073,7 +4073,7 @@
     "c1": 2,
     "c2": 2
    },
-   "seconds": 0.0003
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -4343,7 +4343,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0003
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -4373,7 +4373,7 @@
     "c1": 2,
     "c2": 2
    },
-   "seconds": 0.0003
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -4403,7 +4403,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0003
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -4433,7 +4433,7 @@
     "c1": 3,
     "c2": 4
    },
-   "seconds": 0.0003
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -4493,7 +4493,7 @@
     "c1": 2,
     "c2": 2
    },
-   "seconds": 0.0003
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -4823,7 +4823,7 @@
     "c1": 1,
     "c2": 1
    },
-   "seconds": 0.0001
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -4853,7 +4853,7 @@
     "c1": 2,
     "c2": 2
    },
-   "seconds": 0.0002
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -5033,7 +5033,7 @@
     "c1": 2,
     "c2": 2
    },
-   "seconds": 0.0002
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -5183,7 +5183,7 @@
     "c1": 2,
     "c2": 2
    },
-   "seconds": 0.0003
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -5213,7 +5213,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0008
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -5483,7 +5483,7 @@
     "c1": 2,
     "c2": 2
    },
-   "seconds": 0.0004
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -5513,7 +5513,7 @@
     "c1": 2,
     "c2": 2
    },
-   "seconds": 0.0004
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -5543,7 +5543,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0005
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -5573,7 +5573,7 @@
     "c1": 2,
     "c2": 2
    },
-   "seconds": 0.0004
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -5603,7 +5603,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0003
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -5813,7 +5813,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0003
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -5843,7 +5843,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0002
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -5963,7 +5963,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0002
+   "seconds": 0.0005
   },
   {
    "group": "Graph atlas n<=7",
@@ -5993,7 +5993,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0002
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -6053,7 +6053,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0002
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -6083,7 +6083,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0002
+   "seconds": 0.0004
   },
   {
    "group": "Graph atlas n<=7",
@@ -6143,7 +6143,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0002
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -6203,7 +6203,7 @@
     "c1": 3,
     "c2": 4
    },
-   "seconds": 0.0003
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -6233,7 +6233,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0005
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -6293,7 +6293,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0005
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -6383,7 +6383,7 @@
     "c1": 2,
     "c2": 2
    },
-   "seconds": 0.0005
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -6413,7 +6413,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0004
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -6473,7 +6473,7 @@
     "c1": 2,
     "c2": 2
    },
-   "seconds": 0.0003
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -6503,7 +6503,7 @@
     "c1": 2,
     "c2": 2
    },
-   "seconds": 0.0006
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -6803,7 +6803,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0003
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -6923,7 +6923,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0002
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -6953,7 +6953,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0003
+   "seconds": 0.0004
   },
   {
    "group": "Graph atlas n<=7",
@@ -7013,7 +7013,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0006
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -7073,7 +7073,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0003
+   "seconds": 0.0004
   },
   {
    "group": "Graph atlas n<=7",
@@ -7163,7 +7163,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0006
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -7223,7 +7223,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0003
+   "seconds": 0.0004
   },
   {
    "group": "Graph atlas n<=7",
@@ -7343,7 +7343,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0004
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -7433,7 +7433,7 @@
     "c1": 3,
     "c2": 4
    },
-   "seconds": 0.0004
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -7463,7 +7463,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0005
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -7493,7 +7493,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0003
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -7523,7 +7523,7 @@
     "c1": 2,
     "c2": 2
    },
-   "seconds": 0.0004
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -7583,7 +7583,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0005
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -7613,7 +7613,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0006
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -7643,7 +7643,7 @@
     "c1": 4,
     "c2": 4
    },
-   "seconds": 0.0005
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -7673,7 +7673,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0003
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -7703,7 +7703,7 @@
     "c1": 4,
     "c2": 4
    },
-   "seconds": 0.0005
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -7733,7 +7733,7 @@
     "c1": 4,
     "c2": 4
    },
-   "seconds": 0.0005
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -7763,7 +7763,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0005
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -7793,7 +7793,7 @@
     "c1": 3,
     "c2": 4
    },
-   "seconds": 0.0006
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -7823,7 +7823,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0004
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -7883,7 +7883,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0003
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -7913,7 +7913,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0007
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -7943,7 +7943,7 @@
     "c1": 4,
     "c2": 4
    },
-   "seconds": 0.0005
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -7973,7 +7973,7 @@
     "c1": 2,
     "c2": 2
    },
-   "seconds": 0.0006
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -8033,7 +8033,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0003
+   "seconds": 0.0006
   },
   {
    "group": "Graph atlas n<=7",
@@ -8063,7 +8063,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0003
+   "seconds": 0.0004
   },
   {
    "group": "Graph atlas n<=7",
@@ -8093,7 +8093,7 @@
     "c1": 4,
     "c2": 5
    },
-   "seconds": 0.0004
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -8123,7 +8123,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0004
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -8213,7 +8213,7 @@
     "c1": 4,
     "c2": 4
    },
-   "seconds": 0.0006
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -8243,7 +8243,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0004
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -8303,7 +8303,7 @@
     "c1": 4,
     "c2": 4
    },
-   "seconds": 0.0006
+   "seconds": 0.0005
   },
   {
    "group": "Graph atlas n<=7",
@@ -8333,7 +8333,7 @@
     "c1": 3,
     "c2": 4
    },
-   "seconds": 0.0004
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -8483,7 +8483,7 @@
     "c1": 4,
     "c2": 4
    },
-   "seconds": 0.0005
+   "seconds": 0.0004
   },
   {
    "group": "Graph atlas n<=7",
@@ -8513,7 +8513,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0004
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -8543,7 +8543,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0004
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -8663,7 +8663,7 @@
     "c1": 4,
     "c2": 4
    },
-   "seconds": 0.0005
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -8693,7 +8693,7 @@
     "c1": 4,
     "c2": 4
    },
-   "seconds": 0.001
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -8723,7 +8723,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0003
+   "seconds": 0.0002
   },
   {
    "group": "Graph atlas n<=7",
@@ -8753,7 +8753,7 @@
     "c1": 4,
     "c2": 4
    },
-   "seconds": 0.0004
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -8783,7 +8783,7 @@
     "c1": 4,
     "c2": 4
    },
-   "seconds": 0.0005
+   "seconds": 0.0003
   },
   {
    "group": "Graph atlas n<=7",
@@ -8813,7 +8813,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0005
+   "seconds": 0.0004
   },
   {
    "group": "Graph atlas n<=7",
@@ -8963,7 +8963,7 @@
     "c1": 4,
     "c2": 4
    },
-   "seconds": 0.0004
+   "seconds": 0.0007
   },
   {
    "group": "Graph atlas n<=7",
@@ -8993,7 +8993,7 @@
     "c1": 4,
     "c2": 4
    },
-   "seconds": 0.0003
+   "seconds": 0.0004
   },
   {
    "group": "Graph atlas n<=7",
@@ -9053,7 +9053,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0002
+   "seconds": 0.0004
   },
   {
    "group": "Graph atlas n<=7",
@@ -9083,7 +9083,7 @@
     "c1": 4,
     "c2": 4
    },
-   "seconds": 0.0003
+   "seconds": 0.0004
   },
   {
    "group": "Graph atlas n<=7",
@@ -9113,7 +9113,7 @@
     "c1": 4,
     "c2": 4
    },
-   "seconds": 0.0003
+   "seconds": 0.0004
   },
   {
    "group": "Graph atlas n<=7",
@@ -9173,7 +9173,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0003
+   "seconds": 0.0004
   },
   {
    "group": "Graph atlas n<=7",
@@ -9383,7 +9383,7 @@
     "c1": 5,
     "c2": 5
    },
-   "seconds": 0.0003
+   "seconds": 0.0004
   },
   {
    "group": "Random general (exact, n<=12)",
@@ -9443,7 +9443,7 @@
     "c1": 9,
     "c2": 9
    },
-   "seconds": 0.0008
+   "seconds": 0.0006
   },
   {
    "group": "Random general (exact, n<=12)",
@@ -9473,7 +9473,7 @@
     "c1": 4,
     "c2": 4
    },
-   "seconds": 0.0004
+   "seconds": 0.0003
   },
   {
    "group": "Random general (exact, n<=12)",
@@ -9503,7 +9503,7 @@
     "c1": 5,
     "c2": 6
    },
-   "seconds": 0.0006
+   "seconds": 0.0003
   },
   {
    "group": "Random general (exact, n<=12)",
@@ -9533,7 +9533,7 @@
     "c1": 3,
     "c2": 4
    },
-   "seconds": 0.0004
+   "seconds": 0.0002
   },
   {
    "group": "Random general (exact, n<=12)",
@@ -9563,7 +9563,7 @@
     "c1": 8,
     "c2": 8
    },
-   "seconds": 0.0007
+   "seconds": 0.0006
   },
   {
    "group": "Random general (exact, n<=12)",
@@ -9623,7 +9623,7 @@
     "c1": 8,
     "c2": 8
    },
-   "seconds": 0.0006
+   "seconds": 0.0007
   },
   {
    "group": "Random general (exact, n<=12)",
@@ -9653,7 +9653,7 @@
     "c1": 4,
     "c2": 4
    },
-   "seconds": 0.0003
+   "seconds": 0.0005
   },
   {
    "group": "Random general (exact, n<=12)",
@@ -9683,7 +9683,7 @@
     "c1": 7,
     "c2": 7
    },
-   "seconds": 0.0005
+   "seconds": 0.0006
   },
   {
    "group": "Random general (exact, n<=12)",
@@ -9713,7 +9713,7 @@
     "c1": 3,
     "c2": 3
    },
-   "seconds": 0.0003
+   "seconds": 0.0004
   },
   {
    "group": "Random general (exact, n<=12)",
@@ -10073,7 +10073,7 @@
     "c1": 6,
     "c2": 7
    },
-   "seconds": 0.0015
+   "seconds": 0.0004
   },
   {
    "group": "Random general (exact, n<=12)",
@@ -10103,7 +10103,7 @@
     "c1": 5,
     "c2": 5
    },
-   "seconds": 0.0005
+   "seconds": 0.0003
   },
   {
    "group": "Random general (exact, n<=12)",
@@ -10133,7 +10133,7 @@
     "c1": 5,
     "c2": 5
    },
-   "seconds": 0.0004
+   "seconds": 0.0003
   },
   {
    "group": "Random general (exact, n<=12)",
@@ -10163,7 +10163,7 @@
     "c1": 4,
     "c2": 4
    },
-   "seconds": 0.0004
+   "seconds": 0.0003
   },
   {
    "group": "Random general (exact, n<=12)",
@@ -10193,7 +10193,7 @@
     "c1": 8,
     "c2": 9
    },
-   "seconds": 0.0007
+   "seconds": 0.0006
   },
   {
    "group": "Random general (exact, n<=12)",
@@ -10223,7 +10223,7 @@
     "c1": 8,
     "c2": 9
    },
-   "seconds": 0.0007
+   "seconds": 0.0008
   },
   {
    "group": "Random general (exact, n<=12)",
@@ -10253,7 +10253,7 @@
     "c1": 6,
     "c2": 7
    },
-   "seconds": 0.0004
+   "seconds": 0.0005
   },
   {
    "group": "Random general (exact, n<=12)",
@@ -10283,8 +10283,8 @@
     "c1": 7,
     "c2": 7
    },
-   "seconds": 0.0006
+   "seconds": 0.0008
   }
  ],
- "elapsed_seconds": 0.2838451862335205
+ "elapsed_seconds": 0.29212212562561035
 }

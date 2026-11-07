@@ -11,8 +11,13 @@ search for the maximum independent set problem", J. Heuristics 18, 2012):
 * A **(1,2)-swap** removes one solution vertex ``x`` and inserts two
   non-adjacent 1-tight neighbours ``v, w`` of ``x``: ``|S|`` grows by one, so
   ``|C|`` shrinks by one. Free vertices exposed by the swap are inserted too.
+* An **iterated local search** step forces a non-solution vertex ``u`` into
+  ``S`` (evicting its solution neighbours), re-inserts free vertices and
+  runs (1,2)-swaps around the change. The step is kept when ``|S|`` does not
+  decrease and undone otherwise, through an undo log whose cost is
+  proportional to the work of the step.
 * A **weighted swap search** (:mod:`salvador.weighted_search`, NuMVC-style) runs
-  from the descent result: it searches covers of a fixed size ``k`` that may leave
+  from the result of the iterated local search, with the second half of the work limit: it searches covers of a fixed size ``k`` that may leave
   edges uncovered, with swap moves under edge weights and configuration checking;
   every cover found is recorded and ``k - 1`` is tried. A last (1,2)-swap descent
   is run on its result.
@@ -36,6 +41,7 @@ so results are reproducible.
 
 from __future__ import annotations
 
+import random
 from collections import deque
 from typing import Any, Iterable, Mapping
 
@@ -173,12 +179,45 @@ def improve_vertex_cover(
     # Phase 1: plain (1,2)-swap descent over every solution vertex.
     _local_search(s, deque(i for i in range(n) if s.in_s[i]), mark, stamp, limit)
 
-    # Phase 2: weighted swap search (salvador.weighted_search) on the cover from the descent.
+    # Phase 2: iterated local search with undo-on-worsening, in the first half of the remaining work.
+    best_size = s.size
+    rng = random.Random(seed)
+    limit_ils = s.work + (limit - s.work) // 2
+    while s.work <= limit_ils:
+        u = rng.randrange(n)
+        tries = 0
+        while (s.in_s[u] or s.tight[u] > 2) and tries < 4:
+            u = rng.randrange(n)
+            tries += 1
+        s.work += tries + 1
+        if s.in_s[u]:
+            continue
+        s.logging = True
+        evicted = [y for y in adj[u] if s.in_s[y]]
+        s.work += len(adj[u])
+        for y in evicted:
+            s.remove(y)
+        s.insert(u)
+        touched = [u]
+        for y in evicted:
+            s.insert_free_around(y, touched)
+        _local_search(s, deque(touched), mark, stamp, limit_ils)
+        if s.size >= best_size:
+            if s.size > best_size:
+                best_size = s.size
+            s.logging = False
+            s.commit()
+        else:
+            s.undo()
+            s.commit()
+    # Invariant: the live set is always the best seen (worse steps are undone).
+
+    # Phase 3: weighted swap search (salvador.weighted_search) on the cover from the iterated local search.
     start_size = n - s.size
     rest = limit - s.work
     found = weighted_cover_search(adj, [not x for x in s.in_s], max(rest, 0), seed)
     if sum(found) < start_size:
-        # Phase 3: a last descent on the result.
+        # Phase 4: a last descent on the result.
         s = _IndependentSet(adj, (i for i in range(n) if not found[i]))
         for i in range(n):
             if not s.in_s[i] and s.tight[i] == 0:
