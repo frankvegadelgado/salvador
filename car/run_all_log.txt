@@ -1,15 +1,15 @@
-ratio           ok                      102.5 s   D:\Work\NP\salvador\car\car_ratio.py --quick --max-n 5000 --timeout 120
-strategies      ok                      106.6 s   D:\Work\NP\salvador\car\car_strategies.py --quick --max-n 5000
-c11_variants    ok                      123.7 s   D:\Work\NP\salvador\car\car_c11_variants.py --quick --max-n 5000
-c10_bags        ok                      135.6 s   D:\Work\NP\salvador\car\car_c10_bags.py --quick
-c1_components   ok                      130.1 s   D:\Work\NP\salvador\car\car_c1_components.py --quick --max-n 5000
-c1_fix          ok                        1.2 s   D:\Work\NP\salvador\car\car_c1_fix.py --quick
-c9_layers       ok                        2.6 s   D:\Work\NP\salvador\car\car_c9_layers.py --quick
-regular         ok                       22.7 s   D:\Work\NP\salvador\car\car_regular.py --quick
-bipartite       ok                      221.3 s   D:\Work\NP\salvador\car\car_bipartite.py --quick --max-n 1000
-yes_instances   ok                      628.1 s   D:\Work\NP\salvador\car\car_yes_instances.py --quick --max-n 1280 --exact-time 20
-mechanism       ok                      179.3 s   D:\Work\NP\salvador\car\car_mechanism.py --quick --exact-time 20
-triangle_free   ok                      738.4 s   D:\Work\NP\salvador\car\car_triangle_free.py --quick --max-n 2000 --exact-time 20 --timeout 120
-scaling         ok                      354.0 s   D:\Work\NP\salvador\car\car_scaling.py --quick --max-n 8000
-ratio_timing    ok                        3.2 s   D:\Work\NP\salvador\car\car_ratio_timing.py --quick
-total                                  2749.5 s   mode: quick
+ratio           ok                      121.5 s   D:\Work\NP\salvador\car\car_ratio.py --quick --max-n 5000 --timeout 120
+strategies      ok                      112.6 s   D:\Work\NP\salvador\car\car_strategies.py --quick --max-n 5000
+c11_variants    ok                      104.2 s   D:\Work\NP\salvador\car\car_c11_variants.py --quick --max-n 5000
+c10_bags        ok                      119.1 s   D:\Work\NP\salvador\car\car_c10_bags.py --quick
+c1_components   ok                      120.2 s   D:\Work\NP\salvador\car\car_c1_components.py --quick --max-n 5000
+c1_fix          ok                        1.0 s   D:\Work\NP\salvador\car\car_c1_fix.py --quick
+c9_layers       ok                        6.4 s   D:\Work\NP\salvador\car\car_c9_layers.py --quick
+regular         ok                       23.4 s   D:\Work\NP\salvador\car\car_regular.py --quick
+bipartite       ok                      168.8 s   D:\Work\NP\salvador\car\car_bipartite.py --quick --max-n 1000
+yes_instances   ok                      610.8 s   D:\Work\NP\salvador\car\car_yes_instances.py --quick --max-n 1280 --exact-time 20
+mechanism       ok                      169.4 s   D:\Work\NP\salvador\car\car_mechanism.py --quick --exact-time 20
+triangle_free   ok                      811.7 s   D:\Work\NP\salvador\car\car_triangle_free.py --quick --max-n 2000 --exact-time 20 --timeout 120
+scaling         ok                      401.6 s   D:\Work\NP\salvador\car\car_scaling.py --quick --max-n 8000
+ratio_timing    ok                       12.9 s   D:\Work\NP\salvador\car\car_ratio_timing.py --quick
+total                                  2783.7 s   mode: quick

@@ -1,6 +1,6 @@
 # Salvador: Approximate Vertex Cover Solver
 
-**Current version:** v0.1.4
+**Current version:** v0.1.5
 
 ![In Loving Memory of Salvador Vega (The Grandfather I Never Knew)](docs/salvador.jpg)
 
@@ -80,7 +80,7 @@ Vertex Cover Found `1, 3, 4`: Nodes `1`, `3`, and `4` constitute an optimal solu
 ## Installation
 
 ```bash
-pip install salvador==0.1.4
+pip install salvador==0.1.5
 ```
 
 ## Execution
@@ -230,7 +230,7 @@ python run_all.py --quick
 Install the package and its dependencies, then run a script from the repository root:
 
 ```bash
-pip install salvador==0.1.4
+pip install salvador==0.1.5
 python car/car_strategies.py
 ```
 
@@ -250,7 +250,7 @@ Each experiment writes its own result files, and `car/run_all_log.txt` records t
 
 ## Strategies
 
-Salvador 0.1.4 runs seventeen strategies in linear time, numbered in the order in which they are computed: the base strategies first, the improvers last.
+Salvador 0.1.5 runs seventeen strategies in linear time, numbered in the order in which they are computed: the base strategies first, the improvers last.
 
 | Strategy | What it does |
 | -------- | ------------ |

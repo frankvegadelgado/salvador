@@ -1,4 +1,4 @@
-"""car/ c9 study: bipartite layers solved one after another (Salvador 0.1.4).
+"""car/ c9 study: bipartite layers solved one after another (Salvador 0.1.5).
 
 Strategy c9 (salvador/bipartite_peel.py) treats every connected component on
 its own. A bipartite component is solved with a linear-time near-optimal

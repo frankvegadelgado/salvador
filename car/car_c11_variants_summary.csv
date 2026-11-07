@@ -1,64 +1,64 @@
 group,instances,variant,beats_best_c1_c10,ties,loses,total_gap,mean_gap,best_variant,exact,optimal,with_tau,fold_budget_hit,seconds
-"Barabasi-Albert scale-free hub graph",1,max,1,0,0,-2,-2.0000,1,0,0,0,0,0.050
-"Barabasi-Albert scale-free hub graph",1,max+fold,1,0,0,-2,-2.0000,1,0,0,0,0,0.146
-"Barabasi-Albert scale-free hub graph",1,min,1,0,0,-2,-2.0000,1,0,0,0,0,0.046
-"Barabasi-Albert scale-free hub graph",1,min+fold,1,0,0,-2,-2.0000,1,0,0,0,0,0.257
-"Barabasi-Albert scale-free hub graph",1,ref,1,0,0,-2,-2.0000,1,0,0,0,0,0.040
-"Barabasi-Albert scale-free hub graph",1,ref+fold,1,0,0,-2,-2.0000,1,0,0,0,0,0.139
+"Barabasi-Albert scale-free hub graph",1,max,1,0,0,-2,-2.0000,1,0,0,0,0,0.019
+"Barabasi-Albert scale-free hub graph",1,max+fold,1,0,0,-2,-2.0000,1,0,0,0,0,0.076
+"Barabasi-Albert scale-free hub graph",1,min,1,0,0,-2,-2.0000,1,0,0,0,0,0.018
+"Barabasi-Albert scale-free hub graph",1,min+fold,1,0,0,-2,-2.0000,1,0,0,0,0,0.075
+"Barabasi-Albert scale-free hub graph",1,ref,1,0,0,-2,-2.0000,1,0,0,0,0,0.044
+"Barabasi-Albert scale-free hub graph",1,ref+fold,1,0,0,-2,-2.0000,1,0,0,0,0,0.081
 "Bipartite obstruction (exact)",1,max,0,1,0,0,0.0000,1,0,1,1,0,0.000
 "Bipartite obstruction (exact)",1,max+fold,0,1,0,0,0.0000,1,1,1,1,0,0.000
 "Bipartite obstruction (exact)",1,min,0,1,0,0,0.0000,1,0,1,1,0,0.000
 "Bipartite obstruction (exact)",1,min+fold,0,1,0,0,0.0000,1,1,1,1,0,0.000
 "Bipartite obstruction (exact)",1,ref,0,1,0,0,0.0000,1,0,1,1,0,0.000
 "Bipartite obstruction (exact)",1,ref+fold,0,1,0,0,0.0000,1,1,1,1,0,0.000
-"Complete bipartite (dense)",2,max,0,2,0,0,0.0000,2,0,0,0,0,0.273
-"Complete bipartite (dense)",2,max+fold,0,2,0,0,0.0000,2,0,0,0,0,0.187
-"Complete bipartite (dense)",2,min,0,2,0,0,0.0000,2,0,0,0,0,0.180
-"Complete bipartite (dense)",2,min+fold,0,2,0,0,0.0000,2,0,0,0,0,0.196
-"Complete bipartite (dense)",2,ref,0,2,0,0,0.0000,2,0,0,0,0,0.177
-"Complete bipartite (dense)",2,ref+fold,0,2,0,0,0.0000,2,0,0,0,0,0.123
-"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,max,0,2,0,0,0.0000,2,0,0,0,0,0.108
-"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,max+fold,0,2,0,0,0.0000,2,0,0,0,0,0.108
-"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,min,0,2,0,0,0.0000,2,0,0,0,0,0.103
-"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,min+fold,0,2,0,0,0.0000,2,0,0,0,0,0.105
-"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,ref,0,2,0,0,0.0000,2,0,0,0,0,0.108
-"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,ref+fold,0,2,0,0,0.0000,2,0,0,0,0,0.103
-"Double star + bridge (matching-heuristic stress)",1,max,0,1,0,0,0.0000,1,1,0,0,0,0.004
-"Double star + bridge (matching-heuristic stress)",1,max+fold,0,1,0,0,0.0000,1,1,0,0,0,0.004
-"Double star + bridge (matching-heuristic stress)",1,min,0,1,0,0,0.0000,1,1,0,0,0,0.006
-"Double star + bridge (matching-heuristic stress)",1,min+fold,0,1,0,0,0.0000,1,1,0,0,0,0.007
-"Double star + bridge (matching-heuristic stress)",1,ref,0,1,0,0,0.0000,1,1,0,0,0,0.005
-"Double star + bridge (matching-heuristic stress)",1,ref+fold,0,1,0,0,0.0000,1,1,0,0,0,0.007
+"Complete bipartite (dense)",2,max,0,2,0,0,0.0000,2,0,0,0,0,0.092
+"Complete bipartite (dense)",2,max+fold,0,2,0,0,0.0000,2,0,0,0,0,0.089
+"Complete bipartite (dense)",2,min,0,2,0,0,0.0000,2,0,0,0,0,0.090
+"Complete bipartite (dense)",2,min+fold,0,2,0,0,0.0000,2,0,0,0,0,0.088
+"Complete bipartite (dense)",2,ref,0,2,0,0,0.0000,2,0,0,0,0,0.092
+"Complete bipartite (dense)",2,ref+fold,0,2,0,0,0.0000,2,0,0,0,0,0.089
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,max,0,2,0,0,0.0000,2,0,0,0,0,0.092
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,max+fold,0,2,0,0,0.0000,2,0,0,0,0,0.091
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,min,0,2,0,0,0.0000,2,0,0,0,0,0.087
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,min+fold,0,2,0,0,0.0000,2,0,0,0,0,0.088
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,ref,0,2,0,0,0.0000,2,0,0,0,0,0.088
+"Crown graph K_{h,h} minus perfect matching (dense, near-regular)",2,ref+fold,0,2,0,0,0.0000,2,0,0,0,0,0.090
+"Double star + bridge (matching-heuristic stress)",1,max,0,1,0,0,0.0000,1,1,0,0,0,0.003
+"Double star + bridge (matching-heuristic stress)",1,max+fold,0,1,0,0,0.0000,1,1,0,0,0,0.003
+"Double star + bridge (matching-heuristic stress)",1,min,0,1,0,0,0.0000,1,1,0,0,0,0.003
+"Double star + bridge (matching-heuristic stress)",1,min+fold,0,1,0,0,0.0000,1,1,0,0,0,0.003
+"Double star + bridge (matching-heuristic stress)",1,ref,0,1,0,0,0.0000,1,1,0,0,0,0.003
+"Double star + bridge (matching-heuristic stress)",1,ref+fold,0,1,0,0,0.0000,1,1,0,0,0,0.003
 "Graph atlas n<=7",202,max,0,201,1,1,0.0050,201,140,201,202,0,0.005
-"Graph atlas n<=7",202,max+fold,0,202,0,0,0.0000,202,164,202,202,0,0.005
+"Graph atlas n<=7",202,max+fold,0,202,0,0,0.0000,202,164,202,202,0,0.004
 "Graph atlas n<=7",202,min,0,201,1,1,0.0050,201,140,201,202,0,0.004
-"Graph atlas n<=7",202,min+fold,0,201,1,1,0.0050,201,164,201,202,0,0.005
+"Graph atlas n<=7",202,min+fold,0,201,1,1,0.0050,201,164,201,202,0,0.004
 "Graph atlas n<=7",202,ref,0,202,0,0,0.0000,202,140,202,202,0,0.004
-"Graph atlas n<=7",202,ref+fold,0,202,0,0,0.0000,202,164,202,202,0,0.005
+"Graph atlas n<=7",202,ref+fold,0,202,0,0,0.0000,202,164,202,202,0,0.004
 "Grids, bipartite (exact)",16,max,0,13,3,3,0.1875,13,0,13,16,0,0.001
 "Grids, bipartite (exact)",16,max+fold,0,16,0,0,0.0000,16,12,16,16,0,0.001
 "Grids, bipartite (exact)",16,min,0,16,0,0,0.0000,16,0,16,16,0,0.001
 "Grids, bipartite (exact)",16,min+fold,0,15,1,1,0.0625,15,12,15,16,0,0.001
 "Grids, bipartite (exact)",16,ref,0,16,0,0,0.0000,16,0,16,16,0,0.001
 "Grids, bipartite (exact)",16,ref+fold,0,16,0,0,0.0000,16,12,16,16,0,0.001
-"Random 12-regular (bounded-degree adversarial)",1,max,0,0,1,58,58.0000,0,0,0,0,0,0.144
-"Random 12-regular (bounded-degree adversarial)",1,max+fold,0,0,1,33,33.0000,0,0,0,0,0,0.058
-"Random 12-regular (bounded-degree adversarial)",1,min,0,1,0,0,0.0000,0,0,0,0,0,0.058
-"Random 12-regular (bounded-degree adversarial)",1,min+fold,1,0,0,-2,-2.0000,0,0,0,0,0,0.053
-"Random 12-regular (bounded-degree adversarial)",1,ref,1,0,0,-13,-13.0000,0,0,0,0,0,0.042
-"Random 12-regular (bounded-degree adversarial)",1,ref+fold,1,0,0,-16,-16.0000,1,0,0,0,0,0.126
-"Random 3-regular (bounded-degree adversarial)",1,max,0,0,1,29,29.0000,0,0,0,0,0,0.038
-"Random 3-regular (bounded-degree adversarial)",1,max+fold,1,0,0,-66,-66.0000,1,0,0,0,0,0.068
-"Random 3-regular (bounded-degree adversarial)",1,min,1,0,0,-3,-3.0000,0,0,0,0,0,0.035
-"Random 3-regular (bounded-degree adversarial)",1,min+fold,1,0,0,-38,-38.0000,0,0,0,0,0,0.062
-"Random 3-regular (bounded-degree adversarial)",1,ref,1,0,0,-22,-22.0000,0,0,0,0,0,0.030
-"Random 3-regular (bounded-degree adversarial)",1,ref+fold,1,0,0,-28,-28.0000,0,0,0,0,0,0.072
-"Random 6-regular (bounded-degree adversarial)",1,max,0,0,1,63,63.0000,0,0,0,0,0,0.075
-"Random 6-regular (bounded-degree adversarial)",1,max+fold,0,0,1,15,15.0000,0,0,0,0,0,0.100
-"Random 6-regular (bounded-degree adversarial)",1,min,0,0,1,3,3.0000,0,0,0,0,0,0.046
-"Random 6-regular (bounded-degree adversarial)",1,min+fold,1,0,0,-18,-18.0000,0,0,0,0,0,0.087
-"Random 6-regular (bounded-degree adversarial)",1,ref,1,0,0,-19,-19.0000,0,0,0,0,0,0.071
-"Random 6-regular (bounded-degree adversarial)",1,ref+fold,1,0,0,-23,-23.0000,1,0,0,0,0,0.085
+"Random 12-regular (bounded-degree adversarial)",1,max,0,0,1,58,58.0000,0,0,0,0,0,0.030
+"Random 12-regular (bounded-degree adversarial)",1,max+fold,0,0,1,33,33.0000,0,0,0,0,0,0.071
+"Random 12-regular (bounded-degree adversarial)",1,min,0,1,0,0,0.0000,0,0,0,0,0,0.027
+"Random 12-regular (bounded-degree adversarial)",1,min+fold,1,0,0,-2,-2.0000,0,0,0,0,0,0.036
+"Random 12-regular (bounded-degree adversarial)",1,ref,1,0,0,-13,-13.0000,0,0,0,0,0,0.029
+"Random 12-regular (bounded-degree adversarial)",1,ref+fold,1,0,0,-16,-16.0000,1,0,0,0,0,0.043
+"Random 3-regular (bounded-degree adversarial)",1,max,0,0,1,29,29.0000,0,0,0,0,0,0.013
+"Random 3-regular (bounded-degree adversarial)",1,max+fold,1,0,0,-66,-66.0000,1,0,0,0,0,0.028
+"Random 3-regular (bounded-degree adversarial)",1,min,1,0,0,-3,-3.0000,0,0,0,0,0,0.012
+"Random 3-regular (bounded-degree adversarial)",1,min+fold,1,0,0,-38,-38.0000,0,0,0,0,0,0.026
+"Random 3-regular (bounded-degree adversarial)",1,ref,1,0,0,-22,-22.0000,0,0,0,0,0,0.013
+"Random 3-regular (bounded-degree adversarial)",1,ref+fold,1,0,0,-28,-28.0000,0,0,0,0,0,0.030
+"Random 6-regular (bounded-degree adversarial)",1,max,0,0,1,63,63.0000,0,0,0,0,0,0.020
+"Random 6-regular (bounded-degree adversarial)",1,max+fold,0,0,1,15,15.0000,0,0,0,0,0,0.032
+"Random 6-regular (bounded-degree adversarial)",1,min,0,0,1,3,3.0000,0,0,0,0,0,0.045
+"Random 6-regular (bounded-degree adversarial)",1,min+fold,1,0,0,-18,-18.0000,0,0,0,0,0,0.027
+"Random 6-regular (bounded-degree adversarial)",1,ref,1,0,0,-19,-19.0000,0,0,0,0,0,0.020
+"Random 6-regular (bounded-degree adversarial)",1,ref+fold,1,0,0,-23,-23.0000,1,0,0,0,0,0.040
 "Random bipartite (exact)",25,max,0,25,0,0,0.0000,25,19,25,25,0,0.001
 "Random bipartite (exact)",25,max+fold,0,25,0,0,0.0000,25,23,25,25,0,0.001
 "Random bipartite (exact)",25,min,0,24,1,1,0.0400,24,19,24,25,0,0.001
@@ -77,21 +77,21 @@ group,instances,variant,beats_best_c1_c10,ties,loses,total_gap,mean_gap,best_var
 "Relabel / order stress (exact)",12,min+fold,0,12,0,0,0.0000,12,12,12,12,0,0.000
 "Relabel / order stress (exact)",12,ref,0,12,0,0,0.0000,12,0,12,12,0,0.000
 "Relabel / order stress (exact)",12,ref+fold,0,12,0,0,0.0000,12,12,12,12,0,0.000
-"Sparse Erdos-Renyi, avg degree 4",1,max,1,0,0,-32,-32.0000,0,0,0,0,0,0.022
-"Sparse Erdos-Renyi, avg degree 4",1,max+fold,1,0,0,-40,-40.0000,1,0,0,0,0,0.048
-"Sparse Erdos-Renyi, avg degree 4",1,min,0,1,0,0,0.0000,0,0,0,0,0,0.018
-"Sparse Erdos-Renyi, avg degree 4",1,min+fold,1,0,0,-30,-30.0000,0,0,0,0,0,0.068
-"Sparse Erdos-Renyi, avg degree 4",1,ref,1,0,0,-31,-31.0000,0,0,0,0,0,0.020
-"Sparse Erdos-Renyi, avg degree 4",1,ref+fold,1,0,0,-27,-27.0000,0,0,0,0,0,0.052
-"Watts-Strogatz small-world",1,max,1,0,0,-16,-16.0000,0,0,0,0,0,0.051
-"Watts-Strogatz small-world",1,max+fold,1,0,0,-20,-20.0000,0,0,0,0,0,0.025
-"Watts-Strogatz small-world",1,min,1,0,0,-7,-7.0000,0,0,0,0,0,0.053
-"Watts-Strogatz small-world",1,min+fold,1,0,0,-6,-6.0000,0,0,0,0,0,0.049
-"Watts-Strogatz small-world",1,ref,1,0,0,-30,-30.0000,0,0,0,0,0,0.036
-"Watts-Strogatz small-world",1,ref+fold,1,0,0,-36,-36.0000,1,0,0,0,0,0.052
-"ALL",297,max,3,287,7,104,0.3502,288,168,282,286,0,0.774
-"ALL",297,max+fold,4,291,2,-80,-0.2694,294,223,286,286,0,0.753
-"ALL",297,min,3,288,6,-4,-0.0135,287,168,281,286,0,0.554
-"ALL",297,min+fold,6,286,5,-91,-0.3064,287,223,281,286,0,0.892
-"ALL",297,ref,6,291,0,-117,-0.3939,292,168,286,286,0,0.534
-"ALL",297,ref+fold,6,291,0,-132,-0.4444,295,223,286,286,0,0.769
+"Sparse Erdos-Renyi, avg degree 4",1,max,1,0,0,-32,-32.0000,0,0,0,0,0,0.016
+"Sparse Erdos-Renyi, avg degree 4",1,max+fold,1,0,0,-40,-40.0000,1,0,0,0,0,0.039
+"Sparse Erdos-Renyi, avg degree 4",1,min,0,1,0,0,0.0000,0,0,0,0,0,0.015
+"Sparse Erdos-Renyi, avg degree 4",1,min+fold,1,0,0,-30,-30.0000,0,0,0,0,0,0.035
+"Sparse Erdos-Renyi, avg degree 4",1,ref,1,0,0,-31,-31.0000,0,0,0,0,0,0.015
+"Sparse Erdos-Renyi, avg degree 4",1,ref+fold,1,0,0,-27,-27.0000,0,0,0,0,0,0.040
+"Watts-Strogatz small-world",1,max,1,0,0,-16,-16.0000,0,0,0,0,0,0.018
+"Watts-Strogatz small-world",1,max+fold,1,0,0,-20,-20.0000,0,0,0,0,0,0.044
+"Watts-Strogatz small-world",1,min,1,0,0,-7,-7.0000,0,0,0,0,0,0.018
+"Watts-Strogatz small-world",1,min+fold,1,0,0,-6,-6.0000,0,0,0,0,0,0.018
+"Watts-Strogatz small-world",1,ref,1,0,0,-30,-30.0000,0,0,0,0,0,0.020
+"Watts-Strogatz small-world",1,ref+fold,1,0,0,-36,-36.0000,1,0,0,0,0,0.020
+"ALL",297,max,3,287,7,104,0.3502,288,168,282,286,0,0.311
+"ALL",297,max+fold,4,291,2,-80,-0.2694,294,223,286,286,0,0.480
+"ALL",297,min,3,288,6,-4,-0.0135,287,168,281,286,0,0.321
+"ALL",297,min+fold,6,286,5,-91,-0.3064,287,223,281,286,0,0.402
+"ALL",297,ref,6,291,0,-117,-0.3939,292,168,286,286,0,0.330
+"ALL",297,ref+fold,6,291,0,-132,-0.4444,295,223,286,286,0,0.443

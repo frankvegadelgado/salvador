@@ -1,4 +1,4 @@
-"""Public vertex-cover solvers exposed by Salvador (version 0.1.4).
+"""Public vertex-cover solvers exposed by Salvador (version 0.1.5).
 
 :func:`find_vertex_cover` runs an ensemble of seventeen strategies, numbered in
 the order in which they are computed. The base strategies come first, the
@@ -905,7 +905,7 @@ def final_candidates(
     layer_phases: int = DEFAULT_LAYER_PHASES,
     layer_orders: int = DEFAULT_LAYER_ORDERS,
 ):
-    """Every strategy of Salvador 0.1.4 (``c1``...``c17``) by name.
+    """Every strategy of Salvador 0.1.5 (``c1``...``c17``) by name.
 
     ``c1``...``c16`` are the candidates of :func:`ensemble_candidates`. ``c17``
     is the final swap-maximize refinement: :func:`refine_cover` is applied to
@@ -950,7 +950,7 @@ def find_vertex_cover(
     eds_max_width: int = DEFAULT_EDS_MAX_WIDTH,
     eds_budget: float = DEFAULT_EDS_BUDGET,
 ) -> set[Any]:
-    """Return the final cover of Salvador 0.1.4 (``c17``, the smallest refined candidate), in linear time.
+    """Return the final cover of Salvador 0.1.5 (``c17``, the smallest refined candidate), in linear time.
     """
     return final_candidates(graph, epsilon, refine_budget=refine_budget,
                             eds_max_width=eds_max_width, eds_budget=eds_budget)[FINAL_NAME]

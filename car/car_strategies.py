@@ -1,4 +1,4 @@
-"""car/ strategy-winner report: which strategy wins, and how often (Salvador 0.1.4).
+"""car/ strategy-winner report: which strategy wins, and how often (Salvador 0.1.5).
 
 Salvador's ensemble computes seventeen strategies in their numbering order (each
 one a valid cover); ``salvador.algorithm.find_vertex_cover`` returns ``c17``:

@@ -155,10 +155,10 @@ group,instances,strategy,name,wins_or_improved,sole_wins,rate,total_gain,final_s
 "Random 12-regular (bounded-degree adversarial)",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling (strict improvements over c1..c10)",1,,1.0000,16,0
 "Random 12-regular (bounded-degree adversarial)",1,c12,"bounded-treewidth exact DP (strict improvements over c1..c11)",0,,0.0000,0,0
 "Random 12-regular (bounded-degree adversarial)",1,c13,"union re-prune of c2..c8 (strict improvements over c1..c12)",0,,0.0000,0,0
-"Random 12-regular (bounded-degree adversarial)",1,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",1,,1.0000,49,0
-"Random 12-regular (bounded-degree adversarial)",1,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",1,,1.0000,10,1
+"Random 12-regular (bounded-degree adversarial)",1,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",1,,1.0000,2,0
+"Random 12-regular (bounded-degree adversarial)",1,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",1,,1.0000,12,1
 "Random 12-regular (bounded-degree adversarial)",1,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",0,,0.0000,0,1
-"Random 12-regular (bounded-degree adversarial)",1,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",0,,0.0000,0,
+"Random 12-regular (bounded-degree adversarial)",1,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",1,,1.0000,1,
 "Random 3-regular (bounded-degree adversarial)",1,c1,"component amplification (indices 0/1) + NetworkX min maximal matching",0,0,0.0000,,0
 "Random 3-regular (bounded-degree adversarial)",1,c2,"maximal matching",0,0,0.0000,,0
 "Random 3-regular (bounded-degree adversarial)",1,c3,"max-degree greedy",0,0,0.0000,,0
@@ -175,8 +175,8 @@ group,instances,strategy,name,wins_or_improved,sole_wins,rate,total_gain,final_s
 "Random 3-regular (bounded-degree adversarial)",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling (strict improvements over c1..c10)",1,,1.0000,66,0
 "Random 3-regular (bounded-degree adversarial)",1,c12,"bounded-treewidth exact DP (strict improvements over c1..c11)",1,,1.0000,1,0
 "Random 3-regular (bounded-degree adversarial)",1,c13,"union re-prune of c2..c8 (strict improvements over c1..c12)",0,,0.0000,0,0
-"Random 3-regular (bounded-degree adversarial)",1,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",1,,1.0000,6,0
-"Random 3-regular (bounded-degree adversarial)",1,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",1,,1.0000,4,1
+"Random 3-regular (bounded-degree adversarial)",1,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",0,,0.0000,0,0
+"Random 3-regular (bounded-degree adversarial)",1,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",1,,1.0000,7,1
 "Random 3-regular (bounded-degree adversarial)",1,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",0,,0.0000,0,1
 "Random 3-regular (bounded-degree adversarial)",1,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",0,,0.0000,0,
 "Random 6-regular (bounded-degree adversarial)",1,c1,"component amplification (indices 0/1) + NetworkX min maximal matching",0,0,0.0000,,0
@@ -195,10 +195,10 @@ group,instances,strategy,name,wins_or_improved,sole_wins,rate,total_gain,final_s
 "Random 6-regular (bounded-degree adversarial)",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling (strict improvements over c1..c10)",1,,1.0000,23,0
 "Random 6-regular (bounded-degree adversarial)",1,c12,"bounded-treewidth exact DP (strict improvements over c1..c11)",0,,0.0000,0,0
 "Random 6-regular (bounded-degree adversarial)",1,c13,"union re-prune of c2..c8 (strict improvements over c1..c12)",0,,0.0000,0,0
-"Random 6-regular (bounded-degree adversarial)",1,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",1,,1.0000,52,0
-"Random 6-regular (bounded-degree adversarial)",1,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",1,,1.0000,6,1
+"Random 6-regular (bounded-degree adversarial)",1,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",1,,1.0000,3,0
+"Random 6-regular (bounded-degree adversarial)",1,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",1,,1.0000,17,1
 "Random 6-regular (bounded-degree adversarial)",1,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",0,,0.0000,0,1
-"Random 6-regular (bounded-degree adversarial)",1,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",0,,0.0000,0,
+"Random 6-regular (bounded-degree adversarial)",1,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",1,,1.0000,1,
 "Random bipartite (exact)",25,c1,"component amplification (indices 0/1) + NetworkX min maximal matching",21,0,0.8400,,24
 "Random bipartite (exact)",25,c2,"maximal matching",18,0,0.7200,,25
 "Random bipartite (exact)",25,c3,"max-degree greedy",21,0,0.8400,,25
@@ -275,9 +275,9 @@ group,instances,strategy,name,wins_or_improved,sole_wins,rate,total_gain,final_s
 "Sparse Erdos-Renyi, avg degree 4",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling (strict improvements over c1..c10)",1,,1.0000,40,0
 "Sparse Erdos-Renyi, avg degree 4",1,c12,"bounded-treewidth exact DP (strict improvements over c1..c11)",0,,0.0000,0,0
 "Sparse Erdos-Renyi, avg degree 4",1,c13,"union re-prune of c2..c8 (strict improvements over c1..c12)",0,,0.0000,0,0
-"Sparse Erdos-Renyi, avg degree 4",1,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",1,,1.0000,2,0
-"Sparse Erdos-Renyi, avg degree 4",1,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",1,,1.0000,1,1
-"Sparse Erdos-Renyi, avg degree 4",1,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",0,,0.0000,0,1
+"Sparse Erdos-Renyi, avg degree 4",1,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",0,,0.0000,0,0
+"Sparse Erdos-Renyi, avg degree 4",1,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",0,,0.0000,0,0
+"Sparse Erdos-Renyi, avg degree 4",1,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",1,,1.0000,1,1
 "Sparse Erdos-Renyi, avg degree 4",1,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",0,,0.0000,0,
 "Watts-Strogatz small-world",1,c1,"component amplification (indices 0/1) + NetworkX min maximal matching",0,0,0.0000,,0
 "Watts-Strogatz small-world",1,c2,"maximal matching",0,0,0.0000,,0
@@ -295,10 +295,10 @@ group,instances,strategy,name,wins_or_improved,sole_wins,rate,total_gain,final_s
 "Watts-Strogatz small-world",1,c11,"weighted subdivision reduction (bipartite) + reducing-peeling (strict improvements over c1..c10)",1,,1.0000,36,0
 "Watts-Strogatz small-world",1,c12,"bounded-treewidth exact DP (strict improvements over c1..c11)",1,,1.0000,2,0
 "Watts-Strogatz small-world",1,c13,"union re-prune of c2..c8 (strict improvements over c1..c12)",0,,0.0000,0,0
-"Watts-Strogatz small-world",1,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",1,,1.0000,24,0
-"Watts-Strogatz small-world",1,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",1,,1.0000,4,1
-"Watts-Strogatz small-world",1,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",0,,0.0000,0,1
-"Watts-Strogatz small-world",1,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",0,,0.0000,0,
+"Watts-Strogatz small-world",1,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",1,,1.0000,4,0
+"Watts-Strogatz small-world",1,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",1,,1.0000,9,0
+"Watts-Strogatz small-world",1,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",1,,1.0000,7,1
+"Watts-Strogatz small-world",1,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",1,,1.0000,1,
 "ALL",297,c1,"component amplification (indices 0/1) + NetworkX min maximal matching",275,0,0.9259,,288
 "ALL",297,c2,"maximal matching",251,0,0.8451,,288
 "ALL",297,c3,"max-degree greedy",276,0,0.9293,,286
@@ -315,7 +315,7 @@ group,instances,strategy,name,wins_or_improved,sole_wins,rate,total_gain,final_s
 "ALL",297,c11,"weighted subdivision reduction (bipartite) + reducing-peeling (strict improvements over c1..c10)",6,,0.0202,183,292
 "ALL",297,c12,"bounded-treewidth exact DP (strict improvements over c1..c11)",2,,0.0067,3,292
 "ALL",297,c13,"union re-prune of c2..c8 (strict improvements over c1..c12)",0,,0.0000,0,290
-"ALL",297,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",5,,0.0168,133,292
-"ALL",297,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",5,,0.0168,25,297
-"ALL",297,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",0,,0.0000,0,297
-"ALL",297,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",0,,0.0000,0,
+"ALL",297,c14,"(1,2)-swap local search from the best of c1..c13 (strict improvements over c1..c13)",3,,0.0101,9,292
+"ALL",297,c15,"reduce-and-search: (1,2)-swap ILS + exact reductions/folds, from best of c1..c14 (strict improvements over c1..c14)",4,,0.0135,45,295
+"ALL",297,c16,"consensus forcing: vertices in all/most of c1..c15 forced, rest re-solved (strict improvements over c1..c15)",2,,0.0067,8,297
+"ALL",297,c17,"swap-maximize refinement of c1..c16 (strict improvements over c1..c16)",3,,0.0101,3,
