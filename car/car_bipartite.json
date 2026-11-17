@@ -1,10 +1,10 @@
 {
-  "salvador_version": "0.1.5",
+  "salvador_version": "0.1.6",
   "environment": {
     "python": "3.12.3",
     "platform": "Windows-11-10.0.26200-SP0",
-    "networkx": "3.6.1",
-    "salvador": "0.1.5",
+    "networkx": "3.7",
+    "salvador": "0.1.6",
     "salvador_source": "repository",
     "salvador_path": "D:\\Work\\NP\\salvador\\salvador"
   },
@@ -67,7 +67,7 @@
         "c16": 2,
         "c17": 2
       },
-      "seconds": 0.7274744999886025
+      "seconds": 0.7258063000044785
     },
     "2D grid, 70% edges kept": {
       "instances": 6,
@@ -103,7 +103,7 @@
         "c16": 6,
         "c17": 6
       },
-      "seconds": 3.2920209000003524
+      "seconds": 3.275811399988015
     },
     "3D grid": {
       "instances": 2,
@@ -139,7 +139,7 @@
         "c16": 2,
         "c17": 2
       },
-      "seconds": 0.8768206000095233
+      "seconds": 0.8876087000098778
     },
     "complete bipartite": {
       "instances": 2,
@@ -175,7 +175,7 @@
         "c16": 2,
         "c17": 2
       },
-      "seconds": 36.39483969999128
+      "seconds": 38.271373499999754
     },
     "crown graph": {
       "instances": 2,
@@ -211,7 +211,7 @@
         "c16": 2,
         "c17": 2
       },
-      "seconds": 49.43959789999644
+      "seconds": 49.52681520000624
     },
     "double cover G x K2 of random regular": {
       "instances": 12,
@@ -247,7 +247,7 @@
         "c16": 12,
         "c17": 12
       },
-      "seconds": 4.299304800020764
+      "seconds": 4.396123700003955
     },
     "even cycle": {
       "instances": 2,
@@ -283,7 +283,7 @@
         "c16": 2,
         "c17": 2
       },
-      "seconds": 0.5386665999831166
+      "seconds": 0.5648691000096733
     },
     "hidden perfect matching + random edges": {
       "instances": 12,
@@ -319,7 +319,7 @@
         "c16": 12,
         "c17": 12
       },
-      "seconds": 4.3238380999537185
+      "seconds": 4.426574699959019
     },
     "hypercube": {
       "instances": 1,
@@ -355,7 +355,7 @@
         "c16": 1,
         "c17": 1
       },
-      "seconds": 0.2034900000144262
+      "seconds": 0.24702130000514444
     },
     "hypercube, 50% edges kept": {
       "instances": 1,
@@ -391,7 +391,7 @@
         "c16": 1,
         "c17": 1
       },
-      "seconds": 0.14862049999646842
+      "seconds": 0.15420239999366459
     },
     "power-law bipartite": {
       "instances": 6,
@@ -427,7 +427,7 @@
         "c16": 6,
         "c17": 6
       },
-      "seconds": 1.5678586999420077
+      "seconds": 1.5869221999892034
     },
     "random bipartite (1:2)": {
       "instances": 18,
@@ -463,7 +463,7 @@
         "c16": 18,
         "c17": 18
       },
-      "seconds": 10.548993400065228
+      "seconds": 10.865404299998772
     },
     "random bipartite (balanced)": {
       "instances": 18,
@@ -499,7 +499,7 @@
         "c16": 18,
         "c17": 18
       },
-      "seconds": 11.734632100095041
+      "seconds": 11.993843600037508
     },
     "random d-regular bipartite": {
       "instances": 18,
@@ -535,7 +535,7 @@
         "c16": 18,
         "c17": 18
       },
-      "seconds": 6.810020200005965
+      "seconds": 7.37482609997096
     },
     "random tree": {
       "instances": 6,
@@ -571,7 +571,7 @@
         "c16": 6,
         "c17": 6
       },
-      "seconds": 1.3395035000285134
+      "seconds": 1.3486808000307065
     },
     "ALL": {
       "instances": 108,
@@ -607,7 +607,7 @@
         "c16": 108,
         "c17": 108
       },
-      "seconds": 132.24568150009145
+      "seconds": 135.64588330000697
     }
   },
   "rows": [
@@ -658,7 +658,7 @@
       "c12_core_size": 13,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.04037390000303276
+      "elapsed_seconds": 0.05180400000244845
     },
     {
       "group": "random bipartite (1:2)",
@@ -714,7 +714,7 @@
       "c12_core_size": 19,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.04570630000671372
+      "elapsed_seconds": 0.048089099989738315
     },
     {
       "group": "random bipartite (balanced)",
@@ -763,7 +763,7 @@
       "c12_core_size": 52,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.06616730001405813
+      "elapsed_seconds": 0.06172040000092238
     },
     {
       "group": "random bipartite (1:2)",
@@ -821,7 +821,7 @@
       "c12_core_size": 33,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.0533626000105869
+      "elapsed_seconds": 0.06673789999331348
     },
     {
       "group": "random bipartite (balanced)",
@@ -875,7 +875,7 @@
       "c12_core_size": 100,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.15877989999717101
+      "elapsed_seconds": 0.16222230000130367
     },
     {
       "group": "random bipartite (1:2)",
@@ -933,7 +933,7 @@
       "c12_core_size": 96,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.15646440000273287
+      "elapsed_seconds": 0.14475859999947716
     },
     {
       "group": "random d-regular bipartite",
@@ -988,7 +988,7 @@
       "c12_core_size": 28,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.040128299995558336
+      "elapsed_seconds": 0.055164800010970794
     },
     {
       "group": "random d-regular bipartite",
@@ -1043,7 +1043,7 @@
       "c12_core_size": 42,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.045617800002219155
+      "elapsed_seconds": 0.044713299997965805
     },
     {
       "group": "random d-regular bipartite",
@@ -1094,7 +1094,7 @@
       "c12_core_size": 58,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.0832358000043314
+      "elapsed_seconds": 0.07102709999890067
     },
     {
       "group": "power-law bipartite",
@@ -1151,7 +1151,7 @@
       "c12_core_size": 0,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.03941669999039732
+      "elapsed_seconds": 0.05162700000801124
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -1202,7 +1202,7 @@
       "c12_core_size": 27,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.043125700001837686
+      "elapsed_seconds": 0.04655830000410788
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -1253,7 +1253,7 @@
       "c12_core_size": 62,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.05199499998707324
+      "elapsed_seconds": 0.05267499999899883
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -1302,7 +1302,7 @@
       "c12_core_size": 0,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.08207219999167137
+      "elapsed_seconds": 0.0851130000082776
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -1354,7 +1354,7 @@
       "c12_core_size": 49,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.05634290000307374
+      "elapsed_seconds": 0.05402729999332223
     },
     {
       "group": "random tree",
@@ -1411,7 +1411,7 @@
       "c12_core_size": 0,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.03202669997699559
+      "elapsed_seconds": 0.029723600004217587
     },
     {
       "group": "2D grid, 70% edges kept",
@@ -1460,7 +1460,7 @@
       "c12_core_size": 0,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.5209025999938603
+      "elapsed_seconds": 0.550696499994956
     },
     {
       "group": "random bipartite (balanced)",
@@ -1509,7 +1509,7 @@
       "c12_core_size": 25,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.050099799991585314
+      "elapsed_seconds": 0.04616710000846069
     },
     {
       "group": "random bipartite (1:2)",
@@ -1561,7 +1561,7 @@
       "c12_core_size": 16,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.045946700003696606
+      "elapsed_seconds": 0.04027209999912884
     },
     {
       "group": "random bipartite (balanced)",
@@ -1611,7 +1611,7 @@
       "c12_core_size": 53,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.07832910001161508
+      "elapsed_seconds": 0.07664500000828411
     },
     {
       "group": "random bipartite (1:2)",
@@ -1669,7 +1669,7 @@
       "c12_core_size": 36,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.05823399999644607
+      "elapsed_seconds": 0.056435599995893426
     },
     {
       "group": "random bipartite (balanced)",
@@ -1722,7 +1722,7 @@
       "c12_core_size": 99,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.17126070000813343
+      "elapsed_seconds": 0.1739642000029562
     },
     {
       "group": "random bipartite (1:2)",
@@ -1780,7 +1780,7 @@
       "c12_core_size": 94,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.14946060001966543
+      "elapsed_seconds": 0.16375600000901613
     },
     {
       "group": "random d-regular bipartite",
@@ -1835,7 +1835,7 @@
       "c12_core_size": 29,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.04283510000095703
+      "elapsed_seconds": 0.0439734999963548
     },
     {
       "group": "random d-regular bipartite",
@@ -1890,7 +1890,7 @@
       "c12_core_size": 46,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.044708000001264736
+      "elapsed_seconds": 0.044333099998766556
     },
     {
       "group": "random d-regular bipartite",
@@ -1943,7 +1943,7 @@
       "c12_core_size": 60,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.08041510000475682
+      "elapsed_seconds": 0.08258019998902455
     },
     {
       "group": "power-law bipartite",
@@ -1994,7 +1994,7 @@
       "c12_core_size": 0,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.043832499999552965
+      "elapsed_seconds": 0.04868349999014754
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -2045,7 +2045,7 @@
       "c12_core_size": 30,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.058410099998582155
+      "elapsed_seconds": 0.04735380000784062
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -2096,7 +2096,7 @@
       "c12_core_size": 57,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.05392199999187142
+      "elapsed_seconds": 0.07155130000319332
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -2147,7 +2147,7 @@
       "c12_core_size": 0,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.046577699977206066
+      "elapsed_seconds": 0.046528499995474704
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -2199,7 +2199,7 @@
       "c12_core_size": 49,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.05206029998953454
+      "elapsed_seconds": 0.05413809999299701
     },
     {
       "group": "random tree",
@@ -2251,7 +2251,7 @@
       "c12_core_size": 0,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.043527100002393126
+      "elapsed_seconds": 0.03182830000878312
     },
     {
       "group": "2D grid, 70% edges kept",
@@ -2300,7 +2300,7 @@
       "c12_core_size": 0,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.17316740000387654
+      "elapsed_seconds": 0.16372810000029858
     },
     {
       "group": "random bipartite (balanced)",
@@ -2349,7 +2349,7 @@
       "c12_core_size": 20,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.04876299999887124
+      "elapsed_seconds": 0.04977090000465978
     },
     {
       "group": "random bipartite (1:2)",
@@ -2403,7 +2403,7 @@
       "c12_core_size": 22,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.05330530001083389
+      "elapsed_seconds": 0.045945399993797764
     },
     {
       "group": "random bipartite (balanced)",
@@ -2452,7 +2452,7 @@
       "c12_core_size": 54,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.06615299999248236
+      "elapsed_seconds": 0.07611999999789987
     },
     {
       "group": "random bipartite (1:2)",
@@ -2510,7 +2510,7 @@
       "c12_core_size": 33,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.07300859998213127
+      "elapsed_seconds": 0.061608599993633106
     },
     {
       "group": "random bipartite (balanced)",
@@ -2564,7 +2564,7 @@
       "c12_core_size": 97,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.15276510000694543
+      "elapsed_seconds": 0.15190189999702852
     },
     {
       "group": "random bipartite (1:2)",
@@ -2622,7 +2622,7 @@
       "c12_core_size": 97,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.14872239998658188
+      "elapsed_seconds": 0.1799923999933526
     },
     {
       "group": "random d-regular bipartite",
@@ -2677,7 +2677,7 @@
       "c12_core_size": 29,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.04408039999543689
+      "elapsed_seconds": 0.06199940000078641
     },
     {
       "group": "random d-regular bipartite",
@@ -2732,7 +2732,7 @@
       "c12_core_size": 43,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.058916599984513596
+      "elapsed_seconds": 0.053861999986111186
     },
     {
       "group": "random d-regular bipartite",
@@ -2784,7 +2784,7 @@
       "c12_core_size": 65,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.07442399999126792
+      "elapsed_seconds": 0.09050929998920765
     },
     {
       "group": "power-law bipartite",
@@ -2839,7 +2839,7 @@
       "c12_core_size": 0,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.04502289998345077
+      "elapsed_seconds": 0.04679249999753665
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -2890,7 +2890,7 @@
       "c12_core_size": 28,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.05852940000477247
+      "elapsed_seconds": 0.05047109999577515
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -2941,7 +2941,7 @@
       "c12_core_size": 58,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.05801480001537129
+      "elapsed_seconds": 0.06292169999505859
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -2990,7 +2990,7 @@
       "c12_core_size": 0,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.04599640000378713
+      "elapsed_seconds": 0.06352559999504592
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -3042,7 +3042,7 @@
       "c12_core_size": 46,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.056369799975072965
+      "elapsed_seconds": 0.05647260000114329
     },
     {
       "group": "random tree",
@@ -3094,7 +3094,7 @@
       "c12_core_size": 0,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.04311510000843555
+      "elapsed_seconds": 0.032245800000964664
     },
     {
       "group": "2D grid, 70% edges kept",
@@ -3143,7 +3143,7 @@
       "c12_core_size": 0,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.10896660000435077
+      "elapsed_seconds": 0.1233732999971835
     },
     {
       "group": "2D grid",
@@ -3193,7 +3193,7 @@
       "c12_core_size": 23,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.07187749998411164
+      "elapsed_seconds": 0.056616600006236695
     },
     {
       "group": "3D grid",
@@ -3246,7 +3246,7 @@
       "c12_core_size": 50,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.07361220000893809
+      "elapsed_seconds": 0.08189880001009442
     },
     {
       "group": "even cycle",
@@ -3299,7 +3299,7 @@
       "c12_core_size": 0,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.04252960000303574
+      "elapsed_seconds": 0.04213190000155009
     },
     {
       "group": "complete bipartite",
@@ -3357,7 +3357,7 @@
       "c12_core_size": 100,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.30322949998662807
+      "elapsed_seconds": 0.3128043000033358
     },
     {
       "group": "crown graph",
@@ -3415,7 +3415,7 @@
       "c12_core_size": 100,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.39335629998822697
+      "elapsed_seconds": 0.4030320000019856
     },
     {
       "group": "random bipartite (balanced)",
@@ -3466,7 +3466,7 @@
       "c12_core_size": 229,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.6072410000197124
+      "elapsed_seconds": 0.5865350000094622
     },
     {
       "group": "random bipartite (1:2)",
@@ -3517,7 +3517,7 @@
       "c12_core_size": 199,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.539831400004914
+      "elapsed_seconds": 0.5372558000090066
     },
     {
       "group": "random bipartite (balanced)",
@@ -3566,7 +3566,7 @@
       "c12_core_size": 500,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.8777002000133507
+      "elapsed_seconds": 0.8775582999951439
     },
     {
       "group": "random bipartite (1:2)",
@@ -3618,7 +3618,7 @@
       "c12_core_size": 344,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.7924093000183348
+      "elapsed_seconds": 0.7999533000111114
     },
     {
       "group": "random bipartite (balanced)",
@@ -3668,7 +3668,7 @@
       "c12_core_size": 992,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 2.1685246000124607
+      "elapsed_seconds": 2.2124356999993324
     },
     {
       "group": "random bipartite (1:2)",
@@ -3726,7 +3726,7 @@
       "c12_core_size": 936,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 1.8919465000217315
+      "elapsed_seconds": 1.9379236999957357
     },
     {
       "group": "random d-regular bipartite",
@@ -3781,7 +3781,7 @@
       "c12_core_size": 331,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.5159185999946203
+      "elapsed_seconds": 0.5496189999976195
     },
     {
       "group": "random d-regular bipartite",
@@ -3836,7 +3836,7 @@
       "c12_core_size": 493,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.5951467000122648
+      "elapsed_seconds": 0.6178283999906853
     },
     {
       "group": "random d-regular bipartite",
@@ -3890,7 +3890,7 @@
       "c12_core_size": 500,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.9816446000186261
+      "elapsed_seconds": 1.0291434999962803
     },
     {
       "group": "power-law bipartite",
@@ -3941,7 +3941,7 @@
       "c12_core_size": 41,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.4797633999842219
+      "elapsed_seconds": 0.4845119999954477
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -3992,7 +3992,7 @@
       "c12_core_size": 321,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.5639280999894254
+      "elapsed_seconds": 0.6116215999936685
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -4043,7 +4043,7 @@
       "c12_core_size": 598,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.754769999999553
+      "elapsed_seconds": 0.7649938999966253
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -4092,7 +4092,7 @@
       "c12_core_size": 125,
       "c9_exact": false,
       "c9_optimal": true,
-      "elapsed_seconds": 0.5581848000001628
+      "elapsed_seconds": 0.5715761000028579
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -4144,7 +4144,7 @@
       "c12_core_size": 506,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.7627766999939922
+      "elapsed_seconds": 0.7809986999927787
     },
     {
       "group": "random tree",
@@ -4195,7 +4195,7 @@
       "c12_core_size": 0,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.41979990000254475
+      "elapsed_seconds": 0.4019610000104876
     },
     {
       "group": "2D grid, 70% edges kept",
@@ -4244,7 +4244,7 @@
       "c12_core_size": 34,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.8536827999923844
+      "elapsed_seconds": 0.8567926999967312
     },
     {
       "group": "random bipartite (balanced)",
@@ -4293,7 +4293,7 @@
       "c12_core_size": 208,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.5634592000278644
+      "elapsed_seconds": 0.5724711000075331
     },
     {
       "group": "random bipartite (1:2)",
@@ -4345,7 +4345,7 @@
       "c12_core_size": 204,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.5404875999956857
+      "elapsed_seconds": 0.5343074999982491
     },
     {
       "group": "random bipartite (balanced)",
@@ -4394,7 +4394,7 @@
       "c12_core_size": 523,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.9357730000047013
+      "elapsed_seconds": 0.9530503999994835
     },
     {
       "group": "random bipartite (1:2)",
@@ -4445,7 +4445,7 @@
       "c12_core_size": 342,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.8467458999948576
+      "elapsed_seconds": 0.8740072000073269
     },
     {
       "group": "random bipartite (balanced)",
@@ -4495,7 +4495,7 @@
       "c12_core_size": 992,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 2.1571219000034034
+      "elapsed_seconds": 2.2199181000032695
     },
     {
       "group": "random bipartite (1:2)",
@@ -4553,7 +4553,7 @@
       "c12_core_size": 916,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 1.9112660000100732
+      "elapsed_seconds": 1.9228727000008803
     },
     {
       "group": "random d-regular bipartite",
@@ -4608,7 +4608,7 @@
       "c12_core_size": 330,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.5205239999922924
+      "elapsed_seconds": 0.5416882999998052
     },
     {
       "group": "random d-regular bipartite",
@@ -4663,7 +4663,7 @@
       "c12_core_size": 491,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.5989091000228655
+      "elapsed_seconds": 0.6225540000014007
     },
     {
       "group": "random d-regular bipartite",
@@ -4718,7 +4718,7 @@
       "c12_core_size": 500,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.9797508000046946
+      "elapsed_seconds": 0.9898553000093671
     },
     {
       "group": "power-law bipartite",
@@ -4769,7 +4769,7 @@
       "c12_core_size": 45,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.48675829998683184
+      "elapsed_seconds": 0.4911341999977594
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -4820,7 +4820,7 @@
       "c12_core_size": 325,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.5776019000040833
+      "elapsed_seconds": 0.5787410000048112
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -4871,7 +4871,7 @@
       "c12_core_size": 594,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.760630000004312
+      "elapsed_seconds": 0.7601110999967204
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -4920,7 +4920,7 @@
       "c12_core_size": 121,
       "c9_exact": false,
       "c9_optimal": true,
-      "elapsed_seconds": 0.5779808000079356
+      "elapsed_seconds": 0.5971264999971027
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -4971,7 +4971,7 @@
       "c12_core_size": 500,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.749442000000272
+      "elapsed_seconds": 0.7481597000005422
     },
     {
       "group": "random tree",
@@ -5022,7 +5022,7 @@
       "c12_core_size": 0,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.40384520002407953
+      "elapsed_seconds": 0.4282145000033779
     },
     {
       "group": "2D grid, 70% edges kept",
@@ -5071,7 +5071,7 @@
       "c12_core_size": 46,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.9184209000086412
+      "elapsed_seconds": 0.883063300003414
     },
     {
       "group": "random bipartite (balanced)",
@@ -5118,7 +5118,7 @@
       "c12_core_size": 199,
       "c9_exact": false,
       "c9_optimal": false,
-      "elapsed_seconds": 0.5941261000116356
+      "elapsed_seconds": 0.5822496000037063
     },
     {
       "group": "random bipartite (1:2)",
@@ -5170,7 +5170,7 @@
       "c12_core_size": 195,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.5317018000059761
+      "elapsed_seconds": 0.5443628000066383
     },
     {
       "group": "random bipartite (balanced)",
@@ -5219,7 +5219,7 @@
       "c12_core_size": 494,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.8101669999887235
+      "elapsed_seconds": 0.8439919999946142
     },
     {
       "group": "random bipartite (1:2)",
@@ -5269,7 +5269,7 @@
       "c12_core_size": 341,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.8436578999971971
+      "elapsed_seconds": 0.8414676999964286
     },
     {
       "group": "random bipartite (balanced)",
@@ -5319,7 +5319,7 @@
       "c12_core_size": 985,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 2.1878272999892943
+      "elapsed_seconds": 2.295317600000999
     },
     {
       "group": "random bipartite (1:2)",
@@ -5377,7 +5377,7 @@
       "c12_core_size": 932,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 1.8667360999970697
+      "elapsed_seconds": 2.0656579000060447
     },
     {
       "group": "random d-regular bipartite",
@@ -5432,7 +5432,7 @@
       "c12_core_size": 331,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.5205844999873079
+      "elapsed_seconds": 0.6903489000105765
     },
     {
       "group": "random d-regular bipartite",
@@ -5487,7 +5487,7 @@
       "c12_core_size": 495,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.6236879999923985
+      "elapsed_seconds": 0.794263999996474
     },
     {
       "group": "random d-regular bipartite",
@@ -5541,7 +5541,7 @@
       "c12_core_size": 505,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.9594928000005893
+      "elapsed_seconds": 0.9913620000006631
     },
     {
       "group": "power-law bipartite",
@@ -5592,7 +5592,7 @@
       "c12_core_size": 34,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.47306489999755286
+      "elapsed_seconds": 0.4641730000003008
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -5643,7 +5643,7 @@
       "c12_core_size": 329,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.569755400007125
+      "elapsed_seconds": 0.5816903000086313
     },
     {
       "group": "double cover G x K2 of random regular",
@@ -5694,7 +5694,7 @@
       "c12_core_size": 609,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.7486224000167567
+      "elapsed_seconds": 0.7674345999985235
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -5743,7 +5743,7 @@
       "c12_core_size": 107,
       "c9_exact": false,
       "c9_optimal": true,
-      "elapsed_seconds": 0.6081294000032358
+      "elapsed_seconds": 0.5894715999893378
     },
     {
       "group": "hidden perfect matching + random edges",
@@ -5794,7 +5794,7 @@
       "c12_core_size": 491,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.7279051000077743
+      "elapsed_seconds": 0.7794369999901392
     },
     {
       "group": "random tree",
@@ -5845,7 +5845,7 @@
       "c12_core_size": 0,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.39718950001406483
+      "elapsed_seconds": 0.42470760000287555
     },
     {
       "group": "2D grid, 70% edges kept",
@@ -5892,7 +5892,7 @@
       "c12_core_size": 58,
       "c9_exact": false,
       "c9_optimal": false,
-      "elapsed_seconds": 0.7168805999972392
+      "elapsed_seconds": 0.6981574999954319
     },
     {
       "group": "2D grid",
@@ -5944,7 +5944,7 @@
       "c12_core_size": 335,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.6555970000044908
+      "elapsed_seconds": 0.6691896999982418
     },
     {
       "group": "3D grid",
@@ -5994,7 +5994,7 @@
       "c12_core_size": 509,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.8032084000005852
+      "elapsed_seconds": 0.8057098999997834
     },
     {
       "group": "even cycle",
@@ -6047,7 +6047,7 @@
       "c12_core_size": 0,
       "c9_exact": false,
       "c9_optimal": true,
-      "elapsed_seconds": 0.4961369999800809
+      "elapsed_seconds": 0.5227372000081232
     },
     {
       "group": "complete bipartite",
@@ -6105,7 +6105,7 @@
       "c12_core_size": 1000,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 36.09161020000465
+      "elapsed_seconds": 37.95856919999642
     },
     {
       "group": "crown graph",
@@ -6163,7 +6163,7 @@
       "c12_core_size": 1000,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 49.046241600008216
+      "elapsed_seconds": 49.123783200004254
     },
     {
       "group": "hypercube",
@@ -6216,7 +6216,7 @@
       "c12_core_size": 128,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.2034900000144262
+      "elapsed_seconds": 0.24702130000514444
     },
     {
       "group": "hypercube, 50% edges kept",
@@ -6265,8 +6265,8 @@
       "c12_core_size": 101,
       "c9_exact": true,
       "c9_optimal": true,
-      "elapsed_seconds": 0.14862049999646842
+      "elapsed_seconds": 0.15420239999366459
     }
   ],
-  "elapsed_seconds": 139.1423921585083
+  "elapsed_seconds": 142.73157286643982
 }

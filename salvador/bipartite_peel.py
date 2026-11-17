@@ -285,10 +285,16 @@ def bipartite_layers_cover(adj: dict[Any, set[Any]], phases: int = DEFAULT_PHASE
     stats = {"bipartite_components": 0, "nonbipartite_components": 0, "max_layers": 0, "layers": 0,
              "orders": 0, "exact": True}
     cover: set[Any] = set()
-    for comp in nx.connected_components(G):
-        if len(comp) < 2:
-            continue
-        layers = bipartite_layers(adj, comp, order)
+    # the order of every component, all of them in one O(n) pass
+    comps = [comp for comp in nx.connected_components(G) if len(comp) >= 2]
+    comp_of = {v: i for i, comp in enumerate(comps) for v in comp}
+    comp_orders: list[list[Any]] = [[] for _ in comps]
+    for v in order:
+        i = comp_of.get(v)
+        if i is not None:
+            comp_orders[i].append(v)
+    for comp, comp_order in zip(comps, comp_orders):
+        layers = bipartite_layers(adj, comp, comp_order)
         L = len(layers)
         stats["bipartite_components" if L == 1 else "nonbipartite_components"] += 1
         stats["max_layers"] = max(stats["max_layers"], L)

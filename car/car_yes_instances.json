@@ -1,10 +1,10 @@
 {
-  "salvador_version": "0.1.5",
+  "salvador_version": "0.1.6",
   "environment": {
     "python": "3.12.3",
     "platform": "Windows-11-10.0.26200-SP0",
-    "networkx": "3.6.1",
-    "salvador": "0.1.5",
+    "networkx": "3.7",
+    "salvador": "0.1.6",
     "salvador_source": "repository",
     "salvador_path": "D:\\Work\\NP\\salvador\\salvador"
   },
@@ -43,7 +43,7 @@
       "tau_known": 0,
       "optimal": 0,
       "max_ratio_vs_tau": null,
-      "max_ratio_upper_bound": 1.1599402092675635,
+      "max_ratio_upper_bound": 1.1739788199697427,
       "best_by_strategy": {
         "c1": 0,
         "c2": 0,
@@ -63,7 +63,7 @@
         "c16": 3,
         "c17": 4
       },
-      "seconds": 8.502320599975064
+      "seconds": 14.206494400001247
     },
     "KR bias p=0.49": {
       "instances": 4,
@@ -93,7 +93,7 @@
         "c16": 4,
         "c17": 4
       },
-      "seconds": 5.730887299956521
+      "seconds": 6.828752999994322
     },
     "KR constraint degree d=8": {
       "instances": 4,
@@ -123,7 +123,7 @@
         "c16": 4,
         "c17": 4
       },
-      "seconds": 8.278287599998293
+      "seconds": 9.996874100004788
     },
     "KR label size k=3": {
       "instances": 4,
@@ -133,7 +133,7 @@
       "tau_known": 1,
       "optimal": 1,
       "max_ratio_vs_tau": 1.0,
-      "max_ratio_upper_bound": 1.0428994082840237,
+      "max_ratio_upper_bound": 1.0730593607305936,
       "best_by_strategy": {
         "c1": 0,
         "c2": 0,
@@ -153,7 +153,7 @@
         "c16": 4,
         "c17": 4
       },
-      "seconds": 6.4706806000031065
+      "seconds": 13.029185200008214
     },
     "KR label size k=6": {
       "instances": 4,
@@ -183,7 +183,7 @@
         "c16": 4,
         "c17": 4
       },
-      "seconds": 4.303731099993456
+      "seconds": 7.673022800008766
     },
     "KR linear UG Max-2-Lin(Z_k)": {
       "instances": 4,
@@ -213,7 +213,7 @@
         "c16": 3,
         "c17": 4
       },
-      "seconds": 5.561710600013612
+      "seconds": 7.833127100006095
     },
     "KR noise eta=0.02": {
       "instances": 4,
@@ -223,7 +223,7 @@
       "tau_known": 2,
       "optimal": 1,
       "max_ratio_vs_tau": 1.0088757396449703,
-      "max_ratio_upper_bound": 1.048316251830161,
+      "max_ratio_upper_bound": 1.0686567164179104,
       "best_by_strategy": {
         "c1": 0,
         "c2": 0,
@@ -243,7 +243,7 @@
         "c16": 4,
         "c17": 4
       },
-      "seconds": 6.825452299992321
+      "seconds": 8.520518800010905
     },
     "KR noise eta=0.1": {
       "instances": 4,
@@ -273,7 +273,7 @@
         "c16": 4,
         "c17": 4
       },
-      "seconds": 5.704181300010532
+      "seconds": 5.721468200004892
     },
     "KR permutation UG (k=4, p=0.45, eta=0)": {
       "instances": 4,
@@ -283,7 +283,7 @@
       "tau_known": 2,
       "optimal": 2,
       "max_ratio_vs_tau": 1.0,
-      "max_ratio_upper_bound": 1.0486725663716814,
+      "max_ratio_upper_bound": 1.0611940298507463,
       "best_by_strategy": {
         "c1": 0,
         "c2": 0,
@@ -303,7 +303,7 @@
         "c16": 4,
         "c17": 4
       },
-      "seconds": 5.856654699979117
+      "seconds": 11.896264900016831
     },
     "KR samples per block s=32": {
       "instances": 2,
@@ -313,7 +313,7 @@
       "tau_known": 0,
       "optimal": 0,
       "max_ratio_vs_tau": null,
-      "max_ratio_upper_bound": 1.0987841945288754,
+      "max_ratio_upper_bound": 1.1140215716486903,
       "best_by_strategy": {
         "c1": 0,
         "c2": 0,
@@ -333,7 +333,7 @@
         "c16": 2,
         "c17": 2
       },
-      "seconds": 5.964486200013198
+      "seconds": 13.572122899990063
     },
     "ALL": {
       "instances": 38,
@@ -343,7 +343,7 @@
       "tau_known": 18,
       "optimal": 15,
       "max_ratio_vs_tau": 1.0148367952522255,
-      "max_ratio_upper_bound": 1.1599402092675635,
+      "max_ratio_upper_bound": 1.1739788199697427,
       "best_by_strategy": {
         "c1": 0,
         "c2": 0,
@@ -363,7 +363,7 @@
         "c16": 36,
         "c17": 38
       },
-      "seconds": 63.19839229993522
+      "seconds": 99.27783140004613
     }
   },
   "rows": [
@@ -413,7 +413,7 @@
       "optimal": true,
       "c10_raw": 361,
       "c12_exact": false,
-      "elapsed_seconds": 0.9221828000154346
+      "elapsed_seconds": 0.910973300007754
     },
     {
       "group": "KR label size k=3",
@@ -461,7 +461,7 @@
       "optimal": true,
       "c10_raw": 359,
       "c12_exact": false,
-      "elapsed_seconds": 1.009644899982959
+      "elapsed_seconds": 1.0533953999984078
     },
     {
       "group": "KR label size k=6",
@@ -509,7 +509,7 @@
       "optimal": true,
       "c10_raw": 305,
       "c12_exact": false,
-      "elapsed_seconds": 1.0767842999775894
+      "elapsed_seconds": 0.6379310999909649
     },
     {
       "group": "KR bias p=0.35",
@@ -557,7 +557,7 @@
       "optimal": false,
       "c10_raw": 398,
       "c12_exact": false,
-      "elapsed_seconds": 2.1185229999828152
+      "elapsed_seconds": 1.1488058999966597
     },
     {
       "group": "KR bias p=0.49",
@@ -605,7 +605,7 @@
       "optimal": true,
       "c10_raw": 310,
       "c12_exact": false,
-      "elapsed_seconds": 1.6361774999822956
+      "elapsed_seconds": 0.7625776000058977
     },
     {
       "group": "KR noise eta=0.02",
@@ -653,7 +653,7 @@
       "optimal": false,
       "c10_raw": 344,
       "c12_exact": false,
-      "elapsed_seconds": 1.9386406999838073
+      "elapsed_seconds": 0.9533853000029922
     },
     {
       "group": "KR noise eta=0.1",
@@ -701,7 +701,7 @@
       "optimal": false,
       "c10_raw": 355,
       "c12_exact": false,
-      "elapsed_seconds": 0.8739155000075698
+      "elapsed_seconds": 0.9490474000049289
     },
     {
       "group": "KR constraint degree d=8",
@@ -749,7 +749,7 @@
       "optimal": true,
       "c10_raw": 374,
       "c12_exact": false,
-      "elapsed_seconds": 1.407810700009577
+      "elapsed_seconds": 1.4468301000015344
     },
     {
       "group": "KR samples per block s=32",
@@ -791,13 +791,13 @@
       "final": 705,
       "ratio_vs_planted": 1.0217391304347827,
       "ratio_vs_tau": null,
-      "lower_bound": 678,
-      "ratio_upper_bound": 1.0398230088495575,
+      "lower_bound": 658,
+      "ratio_upper_bound": 1.0714285714285714,
       "beats_or_matches_planted": false,
       "optimal": false,
       "c10_raw": 713,
       "c12_exact": false,
-      "elapsed_seconds": 2.814554800017504
+      "elapsed_seconds": 6.44584849999228
     },
     {
       "group": "KR linear UG Max-2-Lin(Z_k)",
@@ -845,7 +845,7 @@
       "optimal": false,
       "c10_raw": 349,
       "c12_exact": false,
-      "elapsed_seconds": 0.9064471999881789
+      "elapsed_seconds": 1.9545132000057492
     },
     {
       "group": "KR permutation UG (k=4, p=0.45, eta=0)",
@@ -893,7 +893,7 @@
       "optimal": true,
       "c10_raw": 341,
       "c12_exact": false,
-      "elapsed_seconds": 0.917387499997858
+      "elapsed_seconds": 1.974358100007521
     },
     {
       "group": "KR label size k=3",
@@ -935,13 +935,13 @@
       "final": 354,
       "ratio_vs_planted": 0.9389920424403183,
       "ratio_vs_tau": null,
-      "lower_bound": 345,
-      "ratio_upper_bound": 1.0260869565217392,
+      "lower_bound": 344,
+      "ratio_upper_bound": 1.0290697674418605,
       "beats_or_matches_planted": true,
       "optimal": false,
       "c10_raw": 363,
       "c12_exact": false,
-      "elapsed_seconds": 1.0833523999899626
+      "elapsed_seconds": 2.4207675000070594
     },
     {
       "group": "KR label size k=6",
@@ -989,7 +989,7 @@
       "optimal": true,
       "c10_raw": 316,
       "c12_exact": false,
-      "elapsed_seconds": 0.6450791000097524
+      "elapsed_seconds": 1.4640608000045177
     },
     {
       "group": "KR bias p=0.35",
@@ -1037,7 +1037,7 @@
       "optimal": false,
       "c10_raw": 387,
       "c12_exact": false,
-      "elapsed_seconds": 1.2722157999814954
+      "elapsed_seconds": 2.029422400009935
     },
     {
       "group": "KR bias p=0.49",
@@ -1085,7 +1085,7 @@
       "optimal": true,
       "c10_raw": 307,
       "c12_exact": false,
-      "elapsed_seconds": 0.8342362999974284
+      "elapsed_seconds": 0.7939152999897487
     },
     {
       "group": "KR noise eta=0.02",
@@ -1133,7 +1133,7 @@
       "optimal": true,
       "c10_raw": 354,
       "c12_exact": false,
-      "elapsed_seconds": 1.0017984000151046
+      "elapsed_seconds": 0.9942635000043083
     },
     {
       "group": "KR noise eta=0.1",
@@ -1181,7 +1181,7 @@
       "optimal": false,
       "c10_raw": 360,
       "c12_exact": false,
-      "elapsed_seconds": 1.009235000004992
+      "elapsed_seconds": 1.0147059000009904
     },
     {
       "group": "KR constraint degree d=8",
@@ -1229,7 +1229,7 @@
       "optimal": true,
       "c10_raw": 352,
       "c12_exact": false,
-      "elapsed_seconds": 1.3764726999797858
+      "elapsed_seconds": 3.1455870999925537
     },
     {
       "group": "KR samples per block s=32",
@@ -1271,13 +1271,13 @@
       "final": 723,
       "ratio_vs_planted": 0.9730820995962315,
       "ratio_vs_tau": null,
-      "lower_bound": 658,
-      "ratio_upper_bound": 1.0987841945288754,
+      "lower_bound": 649,
+      "ratio_upper_bound": 1.1140215716486903,
       "beats_or_matches_planted": true,
       "optimal": false,
       "c10_raw": 737,
       "c12_exact": false,
-      "elapsed_seconds": 3.149931399995694
+      "elapsed_seconds": 7.126274399997783
     },
     {
       "group": "KR linear UG Max-2-Lin(Z_k)",
@@ -1325,7 +1325,7 @@
       "optimal": true,
       "c10_raw": 354,
       "c12_exact": false,
-      "elapsed_seconds": 0.945565500005614
+      "elapsed_seconds": 2.015169699996477
     },
     {
       "group": "KR permutation UG (k=4, p=0.45, eta=0)",
@@ -1367,13 +1367,13 @@
       "final": 711,
       "ratio_vs_planted": 0.9888734353268428,
       "ratio_vs_tau": null,
-      "lower_bound": 678,
-      "ratio_upper_bound": 1.0486725663716814,
+      "lower_bound": 670,
+      "ratio_upper_bound": 1.0611940298507463,
       "beats_or_matches_planted": true,
       "optimal": false,
       "c10_raw": 717,
       "c12_exact": false,
-      "elapsed_seconds": 2.0289812999835704
+      "elapsed_seconds": 4.609362000002875
     },
     {
       "group": "KR label size k=3",
@@ -1415,13 +1415,13 @@
       "final": 670,
       "ratio_vs_planted": 1.0,
       "ratio_vs_tau": null,
-      "lower_bound": 670,
-      "ratio_upper_bound": 1.0,
+      "lower_bound": 667,
+      "ratio_upper_bound": 1.0044977511244377,
       "beats_or_matches_planted": true,
       "optimal": false,
       "c10_raw": 684,
       "c12_exact": false,
-      "elapsed_seconds": 2.1034369000117294
+      "elapsed_seconds": 4.595967600005679
     },
     {
       "group": "KR label size k=6",
@@ -1469,7 +1469,7 @@
       "optimal": true,
       "c10_raw": 603,
       "c12_exact": false,
-      "elapsed_seconds": 1.2662132999976166
+      "elapsed_seconds": 2.748477200002526
     },
     {
       "group": "KR bias p=0.35",
@@ -1511,13 +1511,13 @@
       "final": 776,
       "ratio_vs_planted": 0.91725768321513,
       "ratio_vs_tau": null,
-      "lower_bound": 669,
-      "ratio_upper_bound": 1.1599402092675635,
+      "lower_bound": 661,
+      "ratio_upper_bound": 1.1739788199697427,
       "beats_or_matches_planted": true,
       "optimal": false,
       "c10_raw": 781,
       "c12_exact": false,
-      "elapsed_seconds": 2.509422800008906
+      "elapsed_seconds": 5.438667700000224
     },
     {
       "group": "KR bias p=0.49",
@@ -1565,7 +1565,7 @@
       "optimal": true,
       "c10_raw": 637,
       "c12_exact": false,
-      "elapsed_seconds": 1.6408835999900475
+      "elapsed_seconds": 1.5926601999963168
     },
     {
       "group": "KR noise eta=0.02",
@@ -1613,7 +1613,7 @@
       "optimal": false,
       "c10_raw": 715,
       "c12_exact": false,
-      "elapsed_seconds": 1.8983214999898337
+      "elapsed_seconds": 1.8727935000060825
     },
     {
       "group": "KR noise eta=0.1",
@@ -1661,7 +1661,7 @@
       "optimal": false,
       "c10_raw": 694,
       "c12_exact": false,
-      "elapsed_seconds": 1.9373502999951597
+      "elapsed_seconds": 1.8810903999983566
     },
     {
       "group": "KR constraint degree d=8",
@@ -1709,7 +1709,7 @@
       "optimal": false,
       "c10_raw": 748,
       "c12_exact": false,
-      "elapsed_seconds": 2.8076858000131324
+      "elapsed_seconds": 2.7210478000051808
     },
     {
       "group": "KR linear UG Max-2-Lin(Z_k)",
@@ -1757,7 +1757,7 @@
       "optimal": false,
       "c10_raw": 724,
       "c12_exact": false,
-      "elapsed_seconds": 1.8942724000080489
+      "elapsed_seconds": 1.9541240000107791
     },
     {
       "group": "KR permutation UG (k=4, p=0.45, eta=0)",
@@ -1799,13 +1799,13 @@
       "final": 690,
       "ratio_vs_planted": 1.0072992700729928,
       "ratio_vs_tau": null,
-      "lower_bound": 673,
-      "ratio_upper_bound": 1.025260029717682,
+      "lower_bound": 672,
+      "ratio_upper_bound": 1.0267857142857142,
       "beats_or_matches_planted": false,
       "optimal": false,
       "c10_raw": 699,
       "c12_exact": false,
-      "elapsed_seconds": 1.9881030999822542
+      "elapsed_seconds": 4.401571499998681
     },
     {
       "group": "KR label size k=3",
@@ -1847,13 +1847,13 @@
       "final": 705,
       "ratio_vs_planted": 1.0,
       "ratio_vs_tau": null,
-      "lower_bound": 676,
-      "ratio_upper_bound": 1.0428994082840237,
+      "lower_bound": 657,
+      "ratio_upper_bound": 1.0730593607305936,
       "beats_or_matches_planted": true,
       "optimal": false,
       "c10_raw": 750,
       "c12_exact": false,
-      "elapsed_seconds": 2.2742464000184555
+      "elapsed_seconds": 4.959054699997068
     },
     {
       "group": "KR label size k=6",
@@ -1901,7 +1901,7 @@
       "optimal": true,
       "c10_raw": 643,
       "c12_exact": false,
-      "elapsed_seconds": 1.3156544000084978
+      "elapsed_seconds": 2.822553700010758
     },
     {
       "group": "KR bias p=0.35",
@@ -1943,13 +1943,13 @@
       "final": 766,
       "ratio_vs_planted": 0.9195678271308524,
       "ratio_vs_tau": null,
-      "lower_bound": 674,
-      "ratio_upper_bound": 1.1364985163204748,
+      "lower_bound": 656,
+      "ratio_upper_bound": 1.1676829268292683,
       "beats_or_matches_planted": true,
       "optimal": false,
       "c10_raw": 779,
       "c12_exact": false,
-      "elapsed_seconds": 2.6021590000018477
+      "elapsed_seconds": 5.589598399994429
     },
     {
       "group": "KR bias p=0.49",
@@ -1997,7 +1997,7 @@
       "optimal": true,
       "c10_raw": 645,
       "c12_exact": false,
-      "elapsed_seconds": 1.6195898999867495
+      "elapsed_seconds": 3.6795999000023585
     },
     {
       "group": "KR noise eta=0.02",
@@ -2039,13 +2039,13 @@
       "final": 716,
       "ratio_vs_planted": 0.9741496598639455,
       "ratio_vs_tau": null,
-      "lower_bound": 683,
-      "ratio_upper_bound": 1.048316251830161,
+      "lower_bound": 670,
+      "ratio_upper_bound": 1.0686567164179104,
       "beats_or_matches_planted": true,
       "optimal": false,
       "c10_raw": 733,
       "c12_exact": false,
-      "elapsed_seconds": 1.9866917000035755
+      "elapsed_seconds": 4.700076499997522
     },
     {
       "group": "KR noise eta=0.1",
@@ -2093,7 +2093,7 @@
       "optimal": false,
       "c10_raw": 693,
       "c12_exact": false,
-      "elapsed_seconds": 1.8836805000028107
+      "elapsed_seconds": 1.8766245000006165
     },
     {
       "group": "KR constraint degree d=8",
@@ -2141,7 +2141,7 @@
       "optimal": false,
       "c10_raw": 718,
       "c12_exact": false,
-      "elapsed_seconds": 2.6863183999957982
+      "elapsed_seconds": 2.6834091000055196
     },
     {
       "group": "KR linear UG Max-2-Lin(Z_k)",
@@ -2189,8 +2189,8 @@
       "optimal": false,
       "c10_raw": 691,
       "c12_exact": false,
-      "elapsed_seconds": 1.81542550001177
+      "elapsed_seconds": 1.9093201999930898
     }
   ],
-  "elapsed_seconds": 579.0865898132324
+  "elapsed_seconds": 633.6267635822296
 }

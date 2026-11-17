@@ -1,10 +1,10 @@
 {
-  "salvador_version": "0.1.5",
+  "salvador_version": "0.1.6",
   "environment": {
     "python": "3.12.3",
     "platform": "Windows-11-10.0.26200-SP0",
-    "networkx": "3.6.1",
-    "salvador": "0.1.5",
+    "networkx": "3.7",
+    "salvador": "0.1.6",
     "salvador_source": "repository",
     "salvador_path": "D:\\Work\\NP\\salvador\\salvador"
   },
@@ -2828,7 +2828,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.030829900002572685
+      "elapsed_seconds": 0.0204200000007404
     },
     {
       "group": "Relabel / order stress (exact)",
@@ -2947,7 +2947,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.0215349999780301
+      "elapsed_seconds": 0.02111519999743905
     },
     {
       "group": "Relabel / order stress (exact)",
@@ -3068,7 +3068,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.020656000007875264
+      "elapsed_seconds": 0.02038530001300387
     },
     {
       "group": "Relabel / order stress (exact)",
@@ -3189,7 +3189,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.02100310000241734
+      "elapsed_seconds": 0.019915400000172667
     },
     {
       "group": "Relabel / order stress (exact)",
@@ -3310,7 +3310,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.020771600014995784
+      "elapsed_seconds": 0.020785799992154352
     },
     {
       "group": "Relabel / order stress (exact)",
@@ -3430,7 +3430,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.018129800009774044
+      "elapsed_seconds": 0.01903340000717435
     },
     {
       "group": "Relabel / order stress (exact)",
@@ -3550,7 +3550,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01969810001901351
+      "elapsed_seconds": 0.0199949999951059
     },
     {
       "group": "Relabel / order stress (exact)",
@@ -3671,7 +3671,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.02136909999535419
+      "elapsed_seconds": 0.021714299989980645
     },
     {
       "group": "Relabel / order stress (exact)",
@@ -3792,7 +3792,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.021429400017950684
+      "elapsed_seconds": 0.027749500004574656
     },
     {
       "group": "Relabel / order stress (exact)",
@@ -3911,7 +3911,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.018922199989901856
+      "elapsed_seconds": 0.019610400006058626
     },
     {
       "group": "Relabel / order stress (exact)",
@@ -4032,7 +4032,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.022418899985495955
+      "elapsed_seconds": 0.019865499998559244
     },
     {
       "group": "Relabel / order stress (exact)",
@@ -4153,7 +4153,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.022943499992834404
+      "elapsed_seconds": 0.020545599996694364
     },
     {
       "group": "Relabel / order stress (exact)",
@@ -4274,7 +4274,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.022937700006878003
+      "elapsed_seconds": 0.023802199997589923
     },
     {
       "group": "Random bipartite (exact)",
@@ -4393,7 +4393,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01759709999896586
+      "elapsed_seconds": 0.01740080000308808
     },
     {
       "group": "Random bipartite (exact)",
@@ -4512,7 +4512,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 4,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01928149999002926
+      "elapsed_seconds": 0.01875070000824053
     },
     {
       "group": "Random bipartite (exact)",
@@ -4633,7 +4633,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.019786299992119893
+      "elapsed_seconds": 0.018504700012272224
     },
     {
       "group": "Random bipartite (exact)",
@@ -4749,7 +4749,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 6,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.018147799972211942
+      "elapsed_seconds": 0.01656199998978991
     },
     {
       "group": "Random bipartite (exact)",
@@ -4870,7 +4870,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01673019997542724
+      "elapsed_seconds": 0.018290699998033233
     },
     {
       "group": "Random bipartite (exact)",
@@ -4991,7 +4991,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.022177300008479506
+      "elapsed_seconds": 0.02233900000283029
     },
     {
       "group": "Random bipartite (exact)",
@@ -5112,7 +5112,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 1,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.011679299990646541
+      "elapsed_seconds": 0.012638000000151806
     },
     {
       "group": "Random bipartite (exact)",
@@ -5233,7 +5233,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.016320499998982996
+      "elapsed_seconds": 0.01579610000771936
     },
     {
       "group": "Random bipartite (exact)",
@@ -5354,7 +5354,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.018131599994376302
+      "elapsed_seconds": 0.01883349999843631
     },
     {
       "group": "Random bipartite (exact)",
@@ -5473,7 +5473,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 5,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.017202399991219863
+      "elapsed_seconds": 0.017405299993697554
     },
     {
       "group": "Random bipartite (exact)",
@@ -5591,7 +5591,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.014779399993130937
+      "elapsed_seconds": 0.015215699997497723
     },
     {
       "group": "Random bipartite (exact)",
@@ -5710,7 +5710,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 4,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.03130679999594577
+      "elapsed_seconds": 0.032013100004405715
     },
     {
       "group": "Random bipartite (exact)",
@@ -5828,7 +5828,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 6,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.017005000001518056
+      "elapsed_seconds": 0.01659980000113137
     },
     {
       "group": "Random bipartite (exact)",
@@ -5946,7 +5946,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01550639999913983
+      "elapsed_seconds": 0.01546490000328049
     },
     {
       "group": "Random bipartite (exact)",
@@ -6065,7 +6065,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01795259999926202
+      "elapsed_seconds": 0.01901860001089517
     },
     {
       "group": "Random bipartite (exact)",
@@ -6185,7 +6185,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.015370599983725697
+      "elapsed_seconds": 0.016463599997223355
     },
     {
       "group": "Random bipartite (exact)",
@@ -6304,7 +6304,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 4,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.016551999986404553
+      "elapsed_seconds": 0.01633669999137055
     },
     {
       "group": "Random bipartite (exact)",
@@ -6425,7 +6425,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.015789900004165247
+      "elapsed_seconds": 0.01602719999209512
     },
     {
       "group": "Random bipartite (exact)",
@@ -6546,7 +6546,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.022358500020345673
+      "elapsed_seconds": 0.02215980000619311
     },
     {
       "group": "Random bipartite (exact)",
@@ -6667,7 +6667,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 4,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.016534399997908622
+      "elapsed_seconds": 0.016736400008085184
     },
     {
       "group": "Random bipartite (exact)",
@@ -6787,7 +6787,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.015459999995073304
+      "elapsed_seconds": 0.01808520000486169
     },
     {
       "group": "Random bipartite (exact)",
@@ -6908,7 +6908,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.017084799997974187
+      "elapsed_seconds": 0.01698120000946801
     },
     {
       "group": "Random bipartite (exact)",
@@ -7027,7 +7027,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 6,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.024591399997007102
+      "elapsed_seconds": 0.024450999990222044
     },
     {
       "group": "Random bipartite (exact)",
@@ -7145,7 +7145,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.016031999984988943
+      "elapsed_seconds": 0.015855799996643327
     },
     {
       "group": "Random bipartite (exact)",
@@ -7266,7 +7266,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.016748399997595698
+      "elapsed_seconds": 0.01741990000300575
     },
     {
       "group": "Grids, bipartite (exact)",
@@ -7387,7 +7387,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01684739999473095
+      "elapsed_seconds": 0.01689030000125058
     },
     {
       "group": "Grids, bipartite (exact)",
@@ -7508,7 +7508,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.015579500002786517
+      "elapsed_seconds": 0.015693800000008196
     },
     {
       "group": "Grids, bipartite (exact)",
@@ -7626,7 +7626,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 4,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.016493700008140877
+      "elapsed_seconds": 0.017343999992590398
     },
     {
       "group": "Grids, bipartite (exact)",
@@ -7747,7 +7747,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 5,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.018322200019611046
+      "elapsed_seconds": 0.019633800009614788
     },
     {
       "group": "Grids, bipartite (exact)",
@@ -7868,7 +7868,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.015256800019415095
+      "elapsed_seconds": 0.014717300000484101
     },
     {
       "group": "Grids, bipartite (exact)",
@@ -7988,7 +7988,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 4,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.019817499996861443
+      "elapsed_seconds": 0.021776499997940846
     },
     {
       "group": "Grids, bipartite (exact)",
@@ -8106,7 +8106,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 6,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.027761500008637086
+      "elapsed_seconds": 0.02983719999610912
     },
     {
       "group": "Grids, bipartite (exact)",
@@ -8225,7 +8225,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 7,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.03407989998231642
+      "elapsed_seconds": 0.03541749999567401
     },
     {
       "group": "Grids, bipartite (exact)",
@@ -8343,7 +8343,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 4,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.015732700005173683
+      "elapsed_seconds": 0.01629749999847263
     },
     {
       "group": "Grids, bipartite (exact)",
@@ -8462,7 +8462,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 6,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.02516530000139028
+      "elapsed_seconds": 0.024844700004905462
     },
     {
       "group": "Grids, bipartite (exact)",
@@ -8574,7 +8574,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 8,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.06541099998867139
+      "elapsed_seconds": 0.06452600000193343
     },
     {
       "group": "Grids, bipartite (exact)",
@@ -8690,7 +8690,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 10,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.07908060000045225
+      "elapsed_seconds": 0.0806592000008095
     },
     {
       "group": "Grids, bipartite (exact)",
@@ -8811,7 +8811,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 5,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01754800000344403
+      "elapsed_seconds": 0.015412200009450316
     },
     {
       "group": "Grids, bipartite (exact)",
@@ -8930,7 +8930,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 7,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.029912800004240125
+      "elapsed_seconds": 0.03106389999447856
     },
     {
       "group": "Grids, bipartite (exact)",
@@ -9044,7 +9044,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 10,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.1094996000174433
+      "elapsed_seconds": 0.1088111000135541
     },
     {
       "group": "Grids, bipartite (exact)",
@@ -9163,7 +9163,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 12,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.04059879999840632
+      "elapsed_seconds": 0.04183470000862144
     },
     {
       "group": "Graph atlas n<=7",
@@ -9284,7 +9284,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 1,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.010489200009033084
+      "elapsed_seconds": 0.010519199990085326
     },
     {
       "group": "Graph atlas n<=7",
@@ -9405,7 +9405,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 1,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.012371199991321191
+      "elapsed_seconds": 0.011788999996497296
     },
     {
       "group": "Graph atlas n<=7",
@@ -9526,7 +9526,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 1,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.0245485000195913
+      "elapsed_seconds": 0.00835039999219589
     },
     {
       "group": "Graph atlas n<=7",
@@ -9647,7 +9647,7 @@
       "c16_forced": 1,
       "c16_lower_bound": 1,
       "c16_certified_ratio": 2.0,
-      "elapsed_seconds": 0.015680800017435104
+      "elapsed_seconds": 0.016679399996064603
     },
     {
       "group": "Graph atlas n<=7",
@@ -9768,7 +9768,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 1,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.012535299989394844
+      "elapsed_seconds": 0.012330700003076345
     },
     {
       "group": "Graph atlas n<=7",
@@ -9889,7 +9889,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 1,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.00857410000753589
+      "elapsed_seconds": 0.008731099995202385
     },
     {
       "group": "Graph atlas n<=7",
@@ -10010,7 +10010,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.02292469999520108
+      "elapsed_seconds": 0.02232400000502821
     },
     {
       "group": "Graph atlas n<=7",
@@ -10131,7 +10131,7 @@
       "c16_forced": 1,
       "c16_lower_bound": 1,
       "c16_certified_ratio": 2.0,
-      "elapsed_seconds": 0.01622499999939464
+      "elapsed_seconds": 0.01580660000036005
     },
     {
       "group": "Graph atlas n<=7",
@@ -10252,7 +10252,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 1,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.010260500013828278
+      "elapsed_seconds": 0.010291999991750345
     },
     {
       "group": "Graph atlas n<=7",
@@ -10373,7 +10373,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.019240699999500066
+      "elapsed_seconds": 0.019231099999160506
     },
     {
       "group": "Graph atlas n<=7",
@@ -10494,7 +10494,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.015118100011022761
+      "elapsed_seconds": 0.015760900001623668
     },
     {
       "group": "Graph atlas n<=7",
@@ -10615,7 +10615,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01726490000146441
+      "elapsed_seconds": 0.01646230000187643
     },
     {
       "group": "Graph atlas n<=7",
@@ -10734,7 +10734,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.014544300007401034
+      "elapsed_seconds": 0.014211900008376688
     },
     {
       "group": "Graph atlas n<=7",
@@ -10855,7 +10855,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.012263000011444092
+      "elapsed_seconds": 0.01262249999854248
     },
     {
       "group": "Graph atlas n<=7",
@@ -10976,7 +10976,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 1,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01090449999901466
+      "elapsed_seconds": 0.011644500002148561
     },
     {
       "group": "Graph atlas n<=7",
@@ -11097,7 +11097,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 1,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.009211899974616244
+      "elapsed_seconds": 0.008463099991786294
     },
     {
       "group": "Graph atlas n<=7",
@@ -11218,7 +11218,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.022331299987854436
+      "elapsed_seconds": 0.0247730999981286
     },
     {
       "group": "Graph atlas n<=7",
@@ -11339,7 +11339,7 @@
       "c16_forced": 1,
       "c16_lower_bound": 1,
       "c16_certified_ratio": 2.0,
-      "elapsed_seconds": 0.015002100000856444
+      "elapsed_seconds": 0.01630479999585077
     },
     {
       "group": "Graph atlas n<=7",
@@ -11460,7 +11460,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 1,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.010689499991713092
+      "elapsed_seconds": 0.009685900004114956
     },
     {
       "group": "Graph atlas n<=7",
@@ -11581,7 +11581,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.018649900011951104
+      "elapsed_seconds": 0.01876399999309797
     },
     {
       "group": "Graph atlas n<=7",
@@ -11702,7 +11702,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.018714799982262775
+      "elapsed_seconds": 0.021066600005724467
     },
     {
       "group": "Graph atlas n<=7",
@@ -11823,7 +11823,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.015170700004091486
+      "elapsed_seconds": 0.016692800010787323
     },
     {
       "group": "Graph atlas n<=7",
@@ -11944,7 +11944,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01692870000260882
+      "elapsed_seconds": 0.016918900000746362
     },
     {
       "group": "Graph atlas n<=7",
@@ -12065,7 +12065,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 1,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.009973600012017414
+      "elapsed_seconds": 0.009379900002386421
     },
     {
       "group": "Graph atlas n<=7",
@@ -12186,7 +12186,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01781019999179989
+      "elapsed_seconds": 0.020315100002335384
     },
     {
       "group": "Graph atlas n<=7",
@@ -12307,7 +12307,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01616729999659583
+      "elapsed_seconds": 0.016321000002790242
     },
     {
       "group": "Graph atlas n<=7",
@@ -12428,7 +12428,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.01568260000203736
+      "elapsed_seconds": 0.015584100008709356
     },
     {
       "group": "Graph atlas n<=7",
@@ -12547,7 +12547,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.013204600021708757
+      "elapsed_seconds": 0.013772000005701557
     },
     {
       "group": "Graph atlas n<=7",
@@ -12668,7 +12668,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.016937000007601455
+      "elapsed_seconds": 0.01704740000423044
     },
     {
       "group": "Graph atlas n<=7",
@@ -12788,7 +12788,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.014597200002754107
+      "elapsed_seconds": 0.015546900001936592
     },
     {
       "group": "Graph atlas n<=7",
@@ -12909,7 +12909,7 @@
       "c16_forced": 1,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.014871699997456744
+      "elapsed_seconds": 0.016724300003261305
     },
     {
       "group": "Graph atlas n<=7",
@@ -13029,7 +13029,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.0160162000101991
+      "elapsed_seconds": 0.0176528000010876
     },
     {
       "group": "Graph atlas n<=7",
@@ -13150,7 +13150,7 @@
       "c16_forced": 1,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.015378299984149635
+      "elapsed_seconds": 0.016954399994574487
     },
     {
       "group": "Graph atlas n<=7",
@@ -13271,7 +13271,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.011625099985394627
+      "elapsed_seconds": 0.012112500000512227
     },
     {
       "group": "Graph atlas n<=7",
@@ -13392,7 +13392,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.014181200007442385
+      "elapsed_seconds": 0.014736600001924671
     },
     {
       "group": "Graph atlas n<=7",
@@ -13513,7 +13513,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.01352399997995235
+      "elapsed_seconds": 0.018464299995684996
     },
     {
       "group": "Graph atlas n<=7",
@@ -13632,7 +13632,7 @@
       "c16_forced": 1,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.014266600017435849
+      "elapsed_seconds": 0.012877899993327446
     },
     {
       "group": "Graph atlas n<=7",
@@ -13753,7 +13753,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.014240299991797656
+      "elapsed_seconds": 0.014047999997274019
     },
     {
       "group": "Graph atlas n<=7",
@@ -13874,7 +13874,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.015616499993484467
+      "elapsed_seconds": 0.01624230000015814
     },
     {
       "group": "Graph atlas n<=7",
@@ -13995,7 +13995,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.011995399981969967
+      "elapsed_seconds": 0.01234850000764709
     },
     {
       "group": "Graph atlas n<=7",
@@ -14116,7 +14116,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.013238699990324676
+      "elapsed_seconds": 0.014326799995615147
     },
     {
       "group": "Graph atlas n<=7",
@@ -14237,7 +14237,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.013414899993222207
+      "elapsed_seconds": 0.01226170000154525
     },
     {
       "group": "Graph atlas n<=7",
@@ -14358,7 +14358,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.014023699972312897
+      "elapsed_seconds": 0.012831200001528487
     },
     {
       "group": "Graph atlas n<=7",
@@ -14477,7 +14477,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.012285900011193007
+      "elapsed_seconds": 0.011047299994970672
     },
     {
       "group": "Graph atlas n<=7",
@@ -14596,7 +14596,7 @@
       "c16_forced": 1,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.011986999976215884
+      "elapsed_seconds": 0.012244400000781752
     },
     {
       "group": "Graph atlas n<=7",
@@ -14715,7 +14715,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.01091939999605529
+      "elapsed_seconds": 0.011794199992436916
     },
     {
       "group": "Graph atlas n<=7",
@@ -14836,7 +14836,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 2.0,
-      "elapsed_seconds": 0.011459500005003065
+      "elapsed_seconds": 0.010036599996965379
     },
     {
       "group": "Graph atlas n<=7",
@@ -14957,7 +14957,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 1,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01280249998671934
+      "elapsed_seconds": 0.01104749999649357
     },
     {
       "group": "Graph atlas n<=7",
@@ -15078,7 +15078,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.021872000012081116
+      "elapsed_seconds": 0.024107199991703965
     },
     {
       "group": "Graph atlas n<=7",
@@ -15199,7 +15199,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 1,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.009719000023324043
+      "elapsed_seconds": 0.007664899996598251
     },
     {
       "group": "Graph atlas n<=7",
@@ -15320,7 +15320,7 @@
       "c16_forced": 1,
       "c16_lower_bound": 1,
       "c16_certified_ratio": 2.0,
-      "elapsed_seconds": 0.01497749998816289
+      "elapsed_seconds": 0.014894899999490008
     },
     {
       "group": "Graph atlas n<=7",
@@ -15441,7 +15441,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 1,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.009546499990392476
+      "elapsed_seconds": 0.01003280001168605
     },
     {
       "group": "Graph atlas n<=7",
@@ -15562,7 +15562,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01878549999673851
+      "elapsed_seconds": 0.018864899990148842
     },
     {
       "group": "Graph atlas n<=7",
@@ -15683,7 +15683,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.018693799996981397
+      "elapsed_seconds": 0.019071499991696328
     },
     {
       "group": "Graph atlas n<=7",
@@ -15804,7 +15804,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.019946400017943233
+      "elapsed_seconds": 0.020133500001975335
     },
     {
       "group": "Graph atlas n<=7",
@@ -15923,7 +15923,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.014960700005758554
+      "elapsed_seconds": 0.015378099997178651
     },
     {
       "group": "Graph atlas n<=7",
@@ -16044,7 +16044,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.016181100014364347
+      "elapsed_seconds": 0.01683710000361316
     },
     {
       "group": "Graph atlas n<=7",
@@ -16165,7 +16165,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 1,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.009627099992940202
+      "elapsed_seconds": 0.009769399999640882
     },
     {
       "group": "Graph atlas n<=7",
@@ -16286,7 +16286,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.017667100008111447
+      "elapsed_seconds": 0.018776800003251992
     },
     {
       "group": "Graph atlas n<=7",
@@ -16406,7 +16406,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01583409999147989
+      "elapsed_seconds": 0.016032300001825206
     },
     {
       "group": "Graph atlas n<=7",
@@ -16527,7 +16527,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.015837600018130615
+      "elapsed_seconds": 0.01520209999580402
     },
     {
       "group": "Graph atlas n<=7",
@@ -16648,7 +16648,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.02087899998878129
+      "elapsed_seconds": 0.022685200005071238
     },
     {
       "group": "Graph atlas n<=7",
@@ -16769,7 +16769,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.017147200007457286
+      "elapsed_seconds": 0.018341200004215352
     },
     {
       "group": "Graph atlas n<=7",
@@ -16890,7 +16890,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.016583299991907552
+      "elapsed_seconds": 0.0169095000019297
     },
     {
       "group": "Graph atlas n<=7",
@@ -17009,7 +17009,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.014166699984343722
+      "elapsed_seconds": 0.01293370001076255
     },
     {
       "group": "Graph atlas n<=7",
@@ -17130,7 +17130,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.016323699994245544
+      "elapsed_seconds": 0.016003199998522177
     },
     {
       "group": "Graph atlas n<=7",
@@ -17251,7 +17251,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.014710700022988021
+      "elapsed_seconds": 0.014372400008141994
     },
     {
       "group": "Graph atlas n<=7",
@@ -17372,7 +17372,7 @@
       "c16_forced": 1,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.014927400014130399
+      "elapsed_seconds": 0.01511239999672398
     },
     {
       "group": "Graph atlas n<=7",
@@ -17493,7 +17493,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.0168102000025101
+      "elapsed_seconds": 0.015556600003037602
     },
     {
       "group": "Graph atlas n<=7",
@@ -17614,7 +17614,7 @@
       "c16_forced": 1,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.015355099982116371
+      "elapsed_seconds": 0.015400200005387887
     },
     {
       "group": "Graph atlas n<=7",
@@ -17735,7 +17735,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 1,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.009768599993549287
+      "elapsed_seconds": 0.010460000004968606
     },
     {
       "group": "Graph atlas n<=7",
@@ -17856,7 +17856,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.017513500002678484
+      "elapsed_seconds": 0.01893269999709446
     },
     {
       "group": "Graph atlas n<=7",
@@ -17977,7 +17977,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.015253799996571615
+      "elapsed_seconds": 0.016171300012501888
     },
     {
       "group": "Graph atlas n<=7",
@@ -18098,7 +18098,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01604280000901781
+      "elapsed_seconds": 0.01647889999730978
     },
     {
       "group": "Graph atlas n<=7",
@@ -18219,7 +18219,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.015964999998686835
+      "elapsed_seconds": 0.015521799999987707
     },
     {
       "group": "Graph atlas n<=7",
@@ -18340,7 +18340,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01514790000510402
+      "elapsed_seconds": 0.015345399995567277
     },
     {
       "group": "Graph atlas n<=7",
@@ -18461,7 +18461,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01598070000181906
+      "elapsed_seconds": 0.015858200000366196
     },
     {
       "group": "Graph atlas n<=7",
@@ -18582,7 +18582,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.015503300004638731
+      "elapsed_seconds": 0.01580140000442043
     },
     {
       "group": "Graph atlas n<=7",
@@ -18703,7 +18703,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01662660000147298
+      "elapsed_seconds": 0.018022399992332794
     },
     {
       "group": "Graph atlas n<=7",
@@ -18824,7 +18824,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.011844799999380484
+      "elapsed_seconds": 0.012125399996875785
     },
     {
       "group": "Graph atlas n<=7",
@@ -18945,7 +18945,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.013975100009702146
+      "elapsed_seconds": 0.0132372999942163
     },
     {
       "group": "Graph atlas n<=7",
@@ -19066,7 +19066,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.013457599998218939
+      "elapsed_seconds": 0.012245999998413026
     },
     {
       "group": "Graph atlas n<=7",
@@ -19187,7 +19187,7 @@
       "c16_forced": 1,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.013924500002758577
+      "elapsed_seconds": 0.01495670000440441
     },
     {
       "group": "Graph atlas n<=7",
@@ -19308,7 +19308,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.01387070000055246
+      "elapsed_seconds": 0.014588099991669878
     },
     {
       "group": "Graph atlas n<=7",
@@ -19429,7 +19429,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.015474699990591034
+      "elapsed_seconds": 0.015108099993085489
     },
     {
       "group": "Graph atlas n<=7",
@@ -19550,7 +19550,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.015353299997514114
+      "elapsed_seconds": 0.015922199992928654
     },
     {
       "group": "Graph atlas n<=7",
@@ -19671,7 +19671,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.014215600007446483
+      "elapsed_seconds": 0.014537600000039674
     },
     {
       "group": "Graph atlas n<=7",
@@ -19792,7 +19792,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.014299400005256757
+      "elapsed_seconds": 0.015350799993029796
     },
     {
       "group": "Graph atlas n<=7",
@@ -19913,7 +19913,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.014661799999885261
+      "elapsed_seconds": 0.014425300003495067
     },
     {
       "group": "Graph atlas n<=7",
@@ -20031,7 +20031,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.015572100004646927
+      "elapsed_seconds": 0.015621099999407306
     },
     {
       "group": "Graph atlas n<=7",
@@ -20152,7 +20152,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.014313300023786724
+      "elapsed_seconds": 0.01410050000413321
     },
     {
       "group": "Graph atlas n<=7",
@@ -20273,7 +20273,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.016301499999826774
+      "elapsed_seconds": 0.01644530000339728
     },
     {
       "group": "Graph atlas n<=7",
@@ -20394,7 +20394,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.017482399998698384
+      "elapsed_seconds": 0.016909999991185032
     },
     {
       "group": "Graph atlas n<=7",
@@ -20515,7 +20515,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.014556000009179115
+      "elapsed_seconds": 0.013893800001824275
     },
     {
       "group": "Graph atlas n<=7",
@@ -20634,7 +20634,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01376999999047257
+      "elapsed_seconds": 0.014121300002443604
     },
     {
       "group": "Graph atlas n<=7",
@@ -20753,7 +20753,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.013554000004660338
+      "elapsed_seconds": 0.014419999992242083
     },
     {
       "group": "Graph atlas n<=7",
@@ -20874,7 +20874,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.014560300012817606
+      "elapsed_seconds": 0.016444599998067133
     },
     {
       "group": "Graph atlas n<=7",
@@ -20995,7 +20995,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.014248899999074638
+      "elapsed_seconds": 0.015347799999290146
     },
     {
       "group": "Graph atlas n<=7",
@@ -21116,7 +21116,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.015539300016826019
+      "elapsed_seconds": 0.015872500007390045
     },
     {
       "group": "Graph atlas n<=7",
@@ -21237,7 +21237,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 2.0,
-      "elapsed_seconds": 0.013921000005211681
+      "elapsed_seconds": 0.01337230000353884
     },
     {
       "group": "Graph atlas n<=7",
@@ -21358,7 +21358,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.01226309998310171
+      "elapsed_seconds": 0.012727300010737963
     },
     {
       "group": "Graph atlas n<=7",
@@ -21479,7 +21479,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.013662100012879819
+      "elapsed_seconds": 0.01383009999699425
     },
     {
       "group": "Graph atlas n<=7",
@@ -21600,7 +21600,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.013028899993514642
+      "elapsed_seconds": 0.012939400010509416
     },
     {
       "group": "Graph atlas n<=7",
@@ -21721,7 +21721,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.011996899993391708
+      "elapsed_seconds": 0.014735500008100644
     },
     {
       "group": "Graph atlas n<=7",
@@ -21842,7 +21842,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01414029998704791
+      "elapsed_seconds": 0.014463100000284612
     },
     {
       "group": "Graph atlas n<=7",
@@ -21963,7 +21963,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01436719999765046
+      "elapsed_seconds": 0.01326399999379646
     },
     {
       "group": "Graph atlas n<=7",
@@ -22084,7 +22084,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.0142012000142131
+      "elapsed_seconds": 0.01339729999017436
     },
     {
       "group": "Graph atlas n<=7",
@@ -22205,7 +22205,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.01349899999331683
+      "elapsed_seconds": 0.0139461999933701
     },
     {
       "group": "Graph atlas n<=7",
@@ -22324,7 +22324,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.012608699995325878
+      "elapsed_seconds": 0.013637399999424815
     },
     {
       "group": "Graph atlas n<=7",
@@ -22445,7 +22445,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.012690200004726648
+      "elapsed_seconds": 0.01321530000132043
     },
     {
       "group": "Graph atlas n<=7",
@@ -22564,7 +22564,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.014377700019394979
+      "elapsed_seconds": 0.01503900000534486
     },
     {
       "group": "Graph atlas n<=7",
@@ -22685,7 +22685,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.014084899972658604
+      "elapsed_seconds": 0.01346769998781383
     },
     {
       "group": "Graph atlas n<=7",
@@ -22805,7 +22805,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.013757799984887242
+      "elapsed_seconds": 0.01234249999106396
     },
     {
       "group": "Graph atlas n<=7",
@@ -22926,7 +22926,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.013771099998848513
+      "elapsed_seconds": 0.01469379999616649
     },
     {
       "group": "Graph atlas n<=7",
@@ -23047,7 +23047,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.016792799986433238
+      "elapsed_seconds": 0.018537199997808784
     },
     {
       "group": "Graph atlas n<=7",
@@ -23167,7 +23167,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.013495599996531382
+      "elapsed_seconds": 0.01354110000829678
     },
     {
       "group": "Graph atlas n<=7",
@@ -23288,7 +23288,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.013203599984990433
+      "elapsed_seconds": 0.013063200007309206
     },
     {
       "group": "Graph atlas n<=7",
@@ -23409,7 +23409,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.011698399990564212
+      "elapsed_seconds": 0.013145100005203858
     },
     {
       "group": "Graph atlas n<=7",
@@ -23530,7 +23530,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.016108500014524907
+      "elapsed_seconds": 0.01633620000211522
     },
     {
       "group": "Graph atlas n<=7",
@@ -23648,7 +23648,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.014977799990447238
+      "elapsed_seconds": 0.013855600001988932
     },
     {
       "group": "Graph atlas n<=7",
@@ -23767,7 +23767,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01344249999965541
+      "elapsed_seconds": 0.013419199996860698
     },
     {
       "group": "Graph atlas n<=7",
@@ -23886,7 +23886,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.015042999992147088
+      "elapsed_seconds": 0.016848899991600774
     },
     {
       "group": "Graph atlas n<=7",
@@ -24007,7 +24007,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.013872499985154718
+      "elapsed_seconds": 0.013347200001589954
     },
     {
       "group": "Graph atlas n<=7",
@@ -24128,7 +24128,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 2.0,
-      "elapsed_seconds": 0.013170899997930974
+      "elapsed_seconds": 0.013303400002769195
     },
     {
       "group": "Graph atlas n<=7",
@@ -24249,7 +24249,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.011394300003303215
+      "elapsed_seconds": 0.012253900000359863
     },
     {
       "group": "Graph atlas n<=7",
@@ -24368,7 +24368,7 @@
       "c16_forced": 1,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.011585500004002824
+      "elapsed_seconds": 0.013824199995724484
     },
     {
       "group": "Graph atlas n<=7",
@@ -24489,7 +24489,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.012713200005237013
+      "elapsed_seconds": 0.013448999990941957
     },
     {
       "group": "Graph atlas n<=7",
@@ -24610,7 +24610,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.013047300017205998
+      "elapsed_seconds": 0.011384299999917857
     },
     {
       "group": "Graph atlas n<=7",
@@ -24731,7 +24731,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.014158999983919784
+      "elapsed_seconds": 0.013330999994650483
     },
     {
       "group": "Graph atlas n<=7",
@@ -24852,7 +24852,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01325739998719655
+      "elapsed_seconds": 0.01411010000447277
     },
     {
       "group": "Graph atlas n<=7",
@@ -24973,7 +24973,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.012392799981171265
+      "elapsed_seconds": 0.013265300003695302
     },
     {
       "group": "Graph atlas n<=7",
@@ -25094,7 +25094,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.013014700001804158
+      "elapsed_seconds": 0.013048900000285357
     },
     {
       "group": "Graph atlas n<=7",
@@ -25215,7 +25215,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.012354000005871058
+      "elapsed_seconds": 0.011907199994311668
     },
     {
       "group": "Graph atlas n<=7",
@@ -25336,7 +25336,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.012768000015057623
+      "elapsed_seconds": 0.011834200005978346
     },
     {
       "group": "Graph atlas n<=7",
@@ -25457,7 +25457,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.012236899987328798
+      "elapsed_seconds": 0.01341290000709705
     },
     {
       "group": "Graph atlas n<=7",
@@ -25578,7 +25578,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.011860899976454675
+      "elapsed_seconds": 0.012499100004788488
     },
     {
       "group": "Graph atlas n<=7",
@@ -25696,7 +25696,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.013035400013905019
+      "elapsed_seconds": 0.011983700009295717
     },
     {
       "group": "Graph atlas n<=7",
@@ -25817,7 +25817,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.013675599999260157
+      "elapsed_seconds": 0.013416500005405396
     },
     {
       "group": "Graph atlas n<=7",
@@ -25938,7 +25938,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01328420001664199
+      "elapsed_seconds": 0.012707400004728697
     },
     {
       "group": "Graph atlas n<=7",
@@ -26059,7 +26059,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.016385800001444295
+      "elapsed_seconds": 0.016956899999058805
     },
     {
       "group": "Graph atlas n<=7",
@@ -26175,7 +26175,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.012453600007575005
+      "elapsed_seconds": 0.013019799996982329
     },
     {
       "group": "Graph atlas n<=7",
@@ -26295,7 +26295,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.012809100007871166
+      "elapsed_seconds": 0.012655200000153854
     },
     {
       "group": "Graph atlas n<=7",
@@ -26416,7 +26416,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.013411699997959659
+      "elapsed_seconds": 0.013950599997770041
     },
     {
       "group": "Graph atlas n<=7",
@@ -26537,7 +26537,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 2.0,
-      "elapsed_seconds": 0.013363300007767975
+      "elapsed_seconds": 0.012416300000040792
     },
     {
       "group": "Graph atlas n<=7",
@@ -26658,7 +26658,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.013077600015094504
+      "elapsed_seconds": 0.011939100004383363
     },
     {
       "group": "Graph atlas n<=7",
@@ -26779,7 +26779,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.012888099998235703
+      "elapsed_seconds": 0.013022600003750995
     },
     {
       "group": "Graph atlas n<=7",
@@ -26900,7 +26900,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.011826700007077307
+      "elapsed_seconds": 0.01328490000742022
     },
     {
       "group": "Graph atlas n<=7",
@@ -27019,7 +27019,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.017154400004073977
+      "elapsed_seconds": 0.017548499992699362
     },
     {
       "group": "Graph atlas n<=7",
@@ -27138,7 +27138,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.011363400000846013
+      "elapsed_seconds": 0.012700499995844439
     },
     {
       "group": "Graph atlas n<=7",
@@ -27259,7 +27259,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.012308100005611777
+      "elapsed_seconds": 0.012845999997807667
     },
     {
       "group": "Graph atlas n<=7",
@@ -27380,7 +27380,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.01164690000587143
+      "elapsed_seconds": 0.011074900001403876
     },
     {
       "group": "Graph atlas n<=7",
@@ -27501,7 +27501,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.011486300005344674
+      "elapsed_seconds": 0.013240300002507865
     },
     {
       "group": "Graph atlas n<=7",
@@ -27622,7 +27622,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.012549400009447709
+      "elapsed_seconds": 0.011892499998793937
     },
     {
       "group": "Graph atlas n<=7",
@@ -27743,7 +27743,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.01285299999290146
+      "elapsed_seconds": 0.01483669999288395
     },
     {
       "group": "Graph atlas n<=7",
@@ -27864,7 +27864,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.013577200006693602
+      "elapsed_seconds": 0.01368989999173209
     },
     {
       "group": "Graph atlas n<=7",
@@ -27985,7 +27985,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.013081700017210096
+      "elapsed_seconds": 0.0127241000009235
     },
     {
       "group": "Graph atlas n<=7",
@@ -28105,7 +28105,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.01154459998360835
+      "elapsed_seconds": 0.01176899998972658
     },
     {
       "group": "Graph atlas n<=7",
@@ -28226,7 +28226,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.012206499988678843
+      "elapsed_seconds": 0.012958599996636622
     },
     {
       "group": "Graph atlas n<=7",
@@ -28345,7 +28345,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.012343499984126538
+      "elapsed_seconds": 0.012633899998036213
     },
     {
       "group": "Graph atlas n<=7",
@@ -28466,7 +28466,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.012935600010678172
+      "elapsed_seconds": 0.011405199998989701
     },
     {
       "group": "Graph atlas n<=7",
@@ -28587,7 +28587,7 @@
       "c16_forced": 4,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.011026699998183176
+      "elapsed_seconds": 0.012225900005432777
     },
     {
       "group": "Graph atlas n<=7",
@@ -28705,7 +28705,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.012863500014645979
+      "elapsed_seconds": 0.012742200007778592
     },
     {
       "group": "Graph atlas n<=7",
@@ -28826,7 +28826,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.012641899986192584
+      "elapsed_seconds": 0.012402899999869987
     },
     {
       "group": "Graph atlas n<=7",
@@ -28947,7 +28947,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.013188899989472702
+      "elapsed_seconds": 0.013535399993997999
     },
     {
       "group": "Graph atlas n<=7",
@@ -29068,7 +29068,7 @@
       "c16_forced": 1,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.012366000009933487
+      "elapsed_seconds": 0.011847199988551438
     },
     {
       "group": "Graph atlas n<=7",
@@ -29189,7 +29189,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.011558199999853969
+      "elapsed_seconds": 0.01221580000128597
     },
     {
       "group": "Graph atlas n<=7",
@@ -29308,7 +29308,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.012942399975145236
+      "elapsed_seconds": 0.01310850000299979
     },
     {
       "group": "Graph atlas n<=7",
@@ -29429,7 +29429,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.012941099994350225
+      "elapsed_seconds": 0.015143199998419732
     },
     {
       "group": "Graph atlas n<=7",
@@ -29550,7 +29550,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.0182595000078436
+      "elapsed_seconds": 0.019920899998396635
     },
     {
       "group": "Graph atlas n<=7",
@@ -29671,7 +29671,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 2.0,
-      "elapsed_seconds": 0.01146319997496903
+      "elapsed_seconds": 0.013383700003032573
     },
     {
       "group": "Graph atlas n<=7",
@@ -29792,7 +29792,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.011375999980373308
+      "elapsed_seconds": 0.013358800002606586
     },
     {
       "group": "Graph atlas n<=7",
@@ -29913,7 +29913,7 @@
       "c16_forced": 4,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.011265799985267222
+      "elapsed_seconds": 0.011468199998489581
     },
     {
       "group": "Graph atlas n<=7",
@@ -30034,7 +30034,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.013155900000128895
+      "elapsed_seconds": 0.0128913999942597
     },
     {
       "group": "Graph atlas n<=7",
@@ -30155,7 +30155,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.011885599989909679
+      "elapsed_seconds": 0.01203939999686554
     },
     {
       "group": "Graph atlas n<=7",
@@ -30276,7 +30276,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.011663800018141046
+      "elapsed_seconds": 0.013289499998791143
     },
     {
       "group": "Graph atlas n<=7",
@@ -30396,7 +30396,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.011559200007468462
+      "elapsed_seconds": 0.014206000007106923
     },
     {
       "group": "Graph atlas n<=7",
@@ -30517,7 +30517,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.012253399996552616
+      "elapsed_seconds": 0.01269880001200363
     },
     {
       "group": "Graph atlas n<=7",
@@ -30638,7 +30638,7 @@
       "c16_forced": 4,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.012370199983706698
+      "elapsed_seconds": 0.013344000006327406
     },
     {
       "group": "Graph atlas n<=7",
@@ -30759,7 +30759,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.011872299975948408
+      "elapsed_seconds": 0.011544599998160265
     },
     {
       "group": "Graph atlas n<=7",
@@ -30880,7 +30880,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01212550001218915
+      "elapsed_seconds": 0.012871200000518002
     },
     {
       "group": "Graph atlas n<=7",
@@ -31001,7 +31001,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.012680799991358072
+      "elapsed_seconds": 0.012734700008877553
     },
     {
       "group": "Graph atlas n<=7",
@@ -31122,7 +31122,7 @@
       "c16_forced": 4,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.012293800013139844
+      "elapsed_seconds": 0.011808700000983663
     },
     {
       "group": "Graph atlas n<=7",
@@ -31242,7 +31242,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01204540001344867
+      "elapsed_seconds": 0.01290030000382103
     },
     {
       "group": "Graph atlas n<=7",
@@ -31363,7 +31363,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.011111700005130842
+      "elapsed_seconds": 0.012330900004599243
     },
     {
       "group": "Graph atlas n<=7",
@@ -31484,7 +31484,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.012559300026623532
+      "elapsed_seconds": 0.011184899994987063
     },
     {
       "group": "Graph atlas n<=7",
@@ -31605,7 +31605,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.012458100012736395
+      "elapsed_seconds": 0.01278170000296086
     },
     {
       "group": "Graph atlas n<=7",
@@ -31726,7 +31726,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.011330300010740757
+      "elapsed_seconds": 0.011493800004245713
     },
     {
       "group": "Graph atlas n<=7",
@@ -31847,7 +31847,7 @@
       "c16_forced": 4,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.011424399999668822
+      "elapsed_seconds": 0.011247399990679696
     },
     {
       "group": "Graph atlas n<=7",
@@ -31968,7 +31968,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.011881999991601333
+      "elapsed_seconds": 0.01168679998954758
     },
     {
       "group": "Graph atlas n<=7",
@@ -32089,7 +32089,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.012683800014201552
+      "elapsed_seconds": 0.012306999997235835
     },
     {
       "group": "Graph atlas n<=7",
@@ -32210,7 +32210,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.011136199987959117
+      "elapsed_seconds": 0.011437399996793829
     },
     {
       "group": "Graph atlas n<=7",
@@ -32331,7 +32331,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 2.0,
-      "elapsed_seconds": 0.013273999997181818
+      "elapsed_seconds": 0.01191800000378862
     },
     {
       "group": "Graph atlas n<=7",
@@ -32452,7 +32452,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.01238020000164397
+      "elapsed_seconds": 0.012322300011874177
     },
     {
       "group": "Graph atlas n<=7",
@@ -32573,7 +32573,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.012033099977998063
+      "elapsed_seconds": 0.011652400004095398
     },
     {
       "group": "Graph atlas n<=7",
@@ -32694,7 +32694,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.011391000007279217
+      "elapsed_seconds": 0.010688499998650514
     },
     {
       "group": "Graph atlas n<=7",
@@ -32815,7 +32815,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.010988800000632182
+      "elapsed_seconds": 0.011281999992206693
     },
     {
       "group": "Graph atlas n<=7",
@@ -32936,7 +32936,7 @@
       "c16_forced": 4,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.0114422999904491
+      "elapsed_seconds": 0.012350500008324161
     },
     {
       "group": "Graph atlas n<=7",
@@ -33057,7 +33057,7 @@
       "c16_forced": 4,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.01191659999312833
+      "elapsed_seconds": 0.011705199998687021
     },
     {
       "group": "Graph atlas n<=7",
@@ -33176,7 +33176,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.010237299982691184
+      "elapsed_seconds": 0.01041580000310205
     },
     {
       "group": "Graph atlas n<=7",
@@ -33295,7 +33295,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.010455500014359131
+      "elapsed_seconds": 0.011552399999345653
     },
     {
       "group": "Graph atlas n<=7",
@@ -33416,7 +33416,7 @@
       "c16_forced": 4,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.010777900024550036
+      "elapsed_seconds": 0.01068969999323599
     },
     {
       "group": "Graph atlas n<=7",
@@ -33537,7 +33537,7 @@
       "c16_forced": 4,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.6666666666666667,
-      "elapsed_seconds": 0.009662600001320243
+      "elapsed_seconds": 0.009057899995241314
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -33656,7 +33656,7 @@
       "c16_forced": 7,
       "c16_lower_bound": 5,
       "c16_certified_ratio": 1.6,
-      "elapsed_seconds": 0.010601099987979978
+      "elapsed_seconds": 0.011332300011417829
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -33763,7 +33763,7 @@
       "c16_forced": 6,
       "c16_lower_bound": 6,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.012043499998981133
+      "elapsed_seconds": 0.012633499994990416
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -33884,7 +33884,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 4,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.013993600005051121
+      "elapsed_seconds": 0.014901599992299452
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -34003,7 +34003,7 @@
       "c16_forced": 4,
       "c16_lower_bound": 4,
       "c16_certified_ratio": 1.25,
-      "elapsed_seconds": 0.010927099996479228
+      "elapsed_seconds": 0.012578899986692704
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -34122,7 +34122,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.012942000001203269
+      "elapsed_seconds": 0.013033399998676032
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -34243,7 +34243,7 @@
       "c16_forced": 8,
       "c16_lower_bound": 6,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.011075400019763038
+      "elapsed_seconds": 0.011445199997979216
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -34361,7 +34361,7 @@
       "c16_forced": 5,
       "c16_lower_bound": 4,
       "c16_certified_ratio": 1.25,
-      "elapsed_seconds": 0.01131950001581572
+      "elapsed_seconds": 0.011720499998773448
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -34471,7 +34471,7 @@
       "c16_forced": 6,
       "c16_lower_bound": 6,
       "c16_certified_ratio": 1.1666666666666667,
-      "elapsed_seconds": 0.011320499994326383
+      "elapsed_seconds": 0.012799900010577403
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -34592,7 +34592,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 4,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.013160300004528835
+      "elapsed_seconds": 0.013281500010634772
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -34713,7 +34713,7 @@
       "c16_forced": 5,
       "c16_lower_bound": 5,
       "c16_certified_ratio": 1.4,
-      "elapsed_seconds": 0.011730800004443154
+      "elapsed_seconds": 0.01197800000954885
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -34832,7 +34832,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 3,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.012790300010237843
+      "elapsed_seconds": 0.012267199999769218
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -34953,7 +34953,7 @@
       "c16_forced": 8,
       "c16_lower_bound": 6,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.011636000010184944
+      "elapsed_seconds": 0.012287100005778484
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -35074,7 +35074,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01846829999703914
+      "elapsed_seconds": 0.021669800000381656
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -35195,7 +35195,7 @@
       "c16_forced": 6,
       "c16_lower_bound": 4,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.01059649998205714
+      "elapsed_seconds": 0.011133300009532832
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -35316,7 +35316,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 6,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.011923199985176325
+      "elapsed_seconds": 0.01305300000240095
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -35433,7 +35433,7 @@
       "c16_forced": 7,
       "c16_lower_bound": 6,
       "c16_certified_ratio": 1.1666666666666667,
-      "elapsed_seconds": 0.01292109998757951
+      "elapsed_seconds": 0.011283100000582635
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -35552,7 +35552,7 @@
       "c16_forced": 7,
       "c16_lower_bound": 5,
       "c16_certified_ratio": 1.6,
-      "elapsed_seconds": 0.011415899993153289
+      "elapsed_seconds": 0.010172700000111945
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -35670,7 +35670,7 @@
       "c16_forced": 6,
       "c16_lower_bound": 5,
       "c16_certified_ratio": 1.2,
-      "elapsed_seconds": 0.01053259999025613
+      "elapsed_seconds": 0.01185740000801161
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -35791,7 +35791,7 @@
       "c16_forced": 4,
       "c16_lower_bound": 5,
       "c16_certified_ratio": 1.4,
-      "elapsed_seconds": 0.011926600011065602
+      "elapsed_seconds": 0.013330500005395152
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -35912,7 +35912,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 5,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.013785299990558997
+      "elapsed_seconds": 0.014109800002188422
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -36033,7 +36033,7 @@
       "c16_forced": 5,
       "c16_lower_bound": 4,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.011605199979385361
+      "elapsed_seconds": 0.011911000008694828
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -36154,7 +36154,7 @@
       "c16_forced": 4,
       "c16_lower_bound": 4,
       "c16_certified_ratio": 1.25,
-      "elapsed_seconds": 0.012076100014382973
+      "elapsed_seconds": 0.0111587999999756
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -36272,7 +36272,7 @@
       "c16_forced": 6,
       "c16_lower_bound": 4,
       "c16_certified_ratio": 1.5,
-      "elapsed_seconds": 0.010098099999595433
+      "elapsed_seconds": 0.011915499999304302
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -36393,7 +36393,7 @@
       "c16_forced": 4,
       "c16_lower_bound": 4,
       "c16_certified_ratio": 1.25,
-      "elapsed_seconds": 0.012311200000112876
+      "elapsed_seconds": 0.012950400006957352
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -36514,7 +36514,7 @@
       "c16_forced": 3,
       "c16_lower_bound": 4,
       "c16_certified_ratio": 1.25,
-      "elapsed_seconds": 0.013012599985813722
+      "elapsed_seconds": 0.013233999998192303
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -36635,7 +36635,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 4,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.01670479998574592
+      "elapsed_seconds": 0.017849500000011176
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -36753,7 +36753,7 @@
       "c16_forced": 8,
       "c16_lower_bound": 6,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.011706299992511049
+      "elapsed_seconds": 0.010888799995882437
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -36865,7 +36865,7 @@
       "c16_forced": 7,
       "c16_lower_bound": 6,
       "c16_certified_ratio": 1.3333333333333333,
-      "elapsed_seconds": 0.010205099999438971
+      "elapsed_seconds": 0.011131699997349642
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -36983,7 +36983,7 @@
       "c16_forced": 2,
       "c16_lower_bound": 5,
       "c16_certified_ratio": 1.2,
-      "elapsed_seconds": 0.01276849998976104
+      "elapsed_seconds": 0.012291999999433756
     },
     {
       "group": "Random general (exact, n<=12)",
@@ -37104,7 +37104,7 @@
       "c16_forced": 6,
       "c16_lower_bound": 5,
       "c16_certified_ratio": 1.4,
-      "elapsed_seconds": 0.011637199990218505
+      "elapsed_seconds": 0.011177399996086024
     },
     {
       "group": "Crown graph K_{h,h} minus perfect matching (dense, near-regular)",
@@ -37225,7 +37225,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 200,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 6.884338300005766
+      "elapsed_seconds": 7.1264775000017835
     },
     {
       "group": "Complete bipartite (dense)",
@@ -37346,7 +37346,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 200,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 7.309184500016272
+      "elapsed_seconds": 7.485992599991732
     },
     {
       "group": "Crown graph K_{h,h} minus perfect matching (dense, near-regular)",
@@ -37467,7 +37467,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 400,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 35.75894860000699
+      "elapsed_seconds": 51.554655800006
     },
     {
       "group": "Complete bipartite (dense)",
@@ -37588,7 +37588,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 400,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 50.475752700003795
+      "elapsed_seconds": 32.75456070000655
     },
     {
       "group": "Double star + bridge (matching-heuristic stress)",
@@ -37709,7 +37709,7 @@
       "c16_forced": 0,
       "c16_lower_bound": 2,
       "c16_certified_ratio": 1.0,
-      "elapsed_seconds": 0.9305882999906316
+      "elapsed_seconds": 0.5841175000095973
     },
     {
       "group": "Random 3-regular (bounded-degree adversarial)",
@@ -37805,7 +37805,7 @@
       "c16_forced": 1437,
       "c16_lower_bound": 2498,
       "c16_certified_ratio": 1.1056845476381105,
-      "elapsed_seconds": 2.9646300000022165
+      "elapsed_seconds": 1.8165030000091065
     },
     {
       "group": "Random 6-regular (bounded-degree adversarial)",
@@ -37902,7 +37902,7 @@
       "c16_forced": 2349,
       "c16_lower_bound": 2499,
       "c16_certified_ratio": 1.3117246898759505,
-      "elapsed_seconds": 4.805042099993443
+      "elapsed_seconds": 3.0166153000027407
     },
     {
       "group": "Random 12-regular (bounded-degree adversarial)",
@@ -37999,7 +37999,7 @@
       "c16_forced": 3401,
       "c16_lower_bound": 2498,
       "c16_certified_ratio": 1.5040032025620496,
-      "elapsed_seconds": 7.61289580000448
+      "elapsed_seconds": 4.7025691000017105
     },
     {
       "group": "Barabasi-Albert scale-free hub graph",
@@ -38099,7 +38099,7 @@
       "c16_forced": 2027,
       "c16_lower_bound": 2446,
       "c16_certified_ratio": 1.0077677841373671,
-      "elapsed_seconds": 4.614162900019437
+      "elapsed_seconds": 2.9655314999981783
     },
     {
       "group": "Sparse Erdos-Renyi, avg degree 4",
@@ -38197,7 +38197,7 @@
       "c16_forced": 2110,
       "c16_lower_bound": 2442,
       "c16_certified_ratio": 1.0638820638820639,
-      "elapsed_seconds": 3.3033577000023797
+      "elapsed_seconds": 2.25555849999364
     },
     {
       "group": "Watts-Strogatz small-world",
@@ -38293,8 +38293,8 @@
       "c16_forced": 2981,
       "c16_lower_bound": 2491,
       "c16_certified_ratio": 1.4211160176635889,
-      "elapsed_seconds": 5.002806500007864
+      "elapsed_seconds": 2.7132449000055203
     }
   ],
-  "elapsed_seconds": 140.1325101852417
+  "elapsed_seconds": 125.93967032432556
 }
